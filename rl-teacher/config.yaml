@@ -1,0 +1,25 @@
+name: 'mnist_mlp'
+description: 'Keras mnist_mlp example'
+setup_command: 'bash setup.sh'
+command: 'python'
+permissions:
+  owners: copris
+  viewers: copris
+# The parameters will be retrieved and changed programmatically within run.py
+parameters:
+  params_space: param_space_name
+# unfortunately next line does not work 
+environment: tf12_mr2
+environment_variables:
+  CUDA_HOME: '/usr/local/cuda'
+  LD_LIBRARY_PATH: '$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64'
+resources:
+  cluster: simcloud-mr2.apple.com
+  image: 'ubuntu16.04-cuda8.0-v3'
+  num_cpus: 1
+  num_gpus: 1
+  memory_gb: 15 
+  disk_gb: 4
+  timeout: 1 hour
+  ports: ["JUPYTER_PORT"]
+  ports: ["TENSORBOARD_PORT"]
