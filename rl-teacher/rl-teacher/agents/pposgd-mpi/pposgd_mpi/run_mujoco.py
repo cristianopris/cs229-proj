@@ -8,7 +8,9 @@ from pposgd_mpi.common import logger
 from pposgd_mpi.common import set_global_seeds, tf_util as U
 
 def train_pposgd_mpi(make_env, num_timesteps, seed, predictor=None):
-    from pposgd_mpi import mlp_policy, pposgd_simple
+    from pposgd_mpi import mlp_policy
+    from pposgd_mpi import pposgd_simple
+
     U.make_session(num_cpu=1).__enter__()
     logger.session().__enter__()
     set_global_seeds(seed)

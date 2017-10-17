@@ -2,7 +2,6 @@ from copy import copy
 
 import gym
 import numpy as np
-from gym.envs import mujoco
 from gym.wrappers.time_limit import TimeLimit
 
 class TransparentWrapper(gym.Wrapper):
@@ -122,10 +121,10 @@ def get_timesteps_per_episode(env):
 def simple_reacher():
     return limit(SimpleReacher(), 50)
 
-class SimpleReacher(mujoco.ReacherEnv):
-    def _step(self, a):
-        ob, _, done, info = super()._step(a)
-        return ob, info["reward_dist"], done, info
+# class SimpleReacher(mujoco.ReacherEnv):
+#     def _step(self, a):
+#         ob, _, done, info = super()._step(a)
+#         return ob, info["reward_dist"], done, info
 
 def reacher(short=False):
     env = mujoco.ReacherEnv()
