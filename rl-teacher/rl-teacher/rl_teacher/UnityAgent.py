@@ -11,7 +11,7 @@ from unityagents import *
 from rl_teacher.envs import TransparentWrapper
 from gym.spaces import Box
 
-def train_unity_agent(env_id, predictor):
+def train_unity_ppo(env_id, predictor):
     ### Hyperparameters
     env_name = env_id  # Name of the training environment file.
 
@@ -114,19 +114,20 @@ def _train_model(env_name, env, predictor):
 
 class UnityGymWrapper(gym.Env):
 
-
     def __init__(self, file_name, worker_id=0,
                  base_port=5005):
         self.env = UnityEnvironment(file_name, worker_id=worker_id, base_port=base_port)
         self.brain_name = self.env.brain_names[0]
         self.spec = False
 
-        self.action_space = Box(np.array([0.0 ,0.0]), np.array([359.0,359.0]))
-        self.observation_space = Box(np.array([0. ,0., 0., 0., 0., 0., 0., 0.]), np.array([359.0,359.0, 100, 100, 100, 100, 100, 100]))
+        self.action_space = Box(np.array([-1.0 , -1.0]), np.array([1.0 , 1.0]))
+        self.observation_space = Box(np.array([-1. , -1. , -1. , -1. , -1. , -1., -1., -1.])
+                                    ,np.array([ 1. ,  1. ,  1 ,   1,    1,    2,   2 ,  2 ]))
 
     def _step(self, action):
         brain_info = self.env.step(action)[self.brain_name]
-        return brain_info.states[0], brain_info.rewards[0], brain_info.local_done[0], {} #info
+        state = brain_info.states[0]
+        return state, brain_info.rewards[0], brain_info.local_done[0], {} #info
         """
         Returns:
             observation (object): agent's observation of the current environment
@@ -138,9 +139,43 @@ class UnityGymWrapper(gym.Env):
 
     def _reset(self):
         brain_info = self.env.reset()[self.brain_name]
-        return brain_info.observations
+        state = brain_info.states[0]
+        return state
 
     def _render(self, mode='human', close=False): return
 
     def _seed(self, seed=None): return []
 
+
+def train_unity_pposgd_mpi(env_name, num_timesteps, seed, predictor=None):
+    from pposgd_mpi import mlp_policy
+    from pposgd_mpi import pposgd_simple
+    from pposgd_mpi import bench
+    from pposgd_mpi.common import logger
+    from pposgd_mpi.common import set_global_seeds, tf_util as U
+    import logging
+
+
+    U.make_session(num_cpu=1).__enter__()
+    logger.session().__enter__()
+    set_global_seeds(seed)
+
+    def policy_fn(name, ob_space, ac_space):
+        return mlp_policy.MlpPolicy(name=name, ob_space=ob_space, ac_space=ac_space,
+            hid_size=64, num_hid_layers=2)
+
+    env = UnityGymWrapper(env_name)
+
+    env = bench.Monitor(env, os.path.join(logger.get_dir(), "monitor.json"))
+    env.seed(seed)
+    gym.logger.setLevel(logging.WARN)
+    pposgd_simple.learn(env, policy_fn,
+        max_timesteps=num_timesteps,
+        timesteps_per_batch=2048*8,
+        clip_param=0.2, entcoeff=0.0,
+        optim_epochs=10, optim_stepsize=3e-4, optim_batchsize=64,
+        gamma=0.99, lam=0.95,
+        predictor=predictor,
+        env_name=env_name,
+        )
+    env.close()

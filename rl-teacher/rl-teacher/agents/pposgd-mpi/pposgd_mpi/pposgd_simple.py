@@ -10,6 +10,7 @@ from pposgd_mpi.common import Dataset, explained_variance, fmt_row, zipsame
 from pposgd_mpi.common import logger
 from pposgd_mpi.common.mpi_adam import MpiAdam
 from pposgd_mpi.common.mpi_moments import mpi_moments
+from tensorflow.python.tools import freeze_graph
 
 def traj_segment_generator(pi, env, steps_per_batch, stochastic, predictor=None):
     t = 0
@@ -42,6 +43,7 @@ def traj_segment_generator(pi, env, steps_per_batch, stochastic, predictor=None)
             path = {"obs": obs, "rew": rews, "vpred": vpreds, "new": news,
                 "actions": acs, "prevac": prevacs, "nextvpred": vpred * (1 - new),
                 "ep_rets": ep_rets, "ep_lens": ep_lens, "human_obs": human_obs}
+            logger.log('path: ' + str(path))
 
             ################################
             #  START REWARD MODIFICATIONS  #
@@ -113,10 +115,11 @@ def learn(env, policy_func, *,
         clip_param, entcoeff,  # clipping parameter epsilon, entropy coeff
         optim_epochs, optim_stepsize, optim_batchsize,  # optimization hypers
         gamma, lam,  # advantage estimation
-        max_timesteps=0, max_episodes=0, max_iters=0, max_seconds=0,  # time constraint
+        max_timesteps=0, max_episodes=0, max_iters=0, max_seconds=0, save_freq = 50000, # time constraint
         callback=None,  # you can do anything in the callback, since it takes locals(), globals()
         schedule='constant',  # annealing for stepsize parameters (epsilon and adam)
-        predictor=None
+        predictor=None,
+        env_name = "env"
 ):
     # Setup losses and stuff
     # ----------------------------------------
@@ -178,6 +181,10 @@ def learn(env, policy_func, *,
     assert sum([max_iters > 0, max_timesteps > 0, max_episodes > 0,
         max_seconds > 0]) == 1, "Only one time constraint permitted"
 
+    saver = tf.train.Saver()
+
+    summaryWriter = tf.summary.FileWriter('summaries', U.get_session().graph)
+
     while True:
         if callback: callback(locals(), globals())
         if max_timesteps and timesteps_so_far >= max_timesteps:
@@ -188,6 +195,8 @@ def learn(env, policy_func, *,
             break
         elif max_seconds and time.time() - tstart >= max_seconds:
             break
+        if (iters_so_far % 5 == 0):
+            export_model(U.get_session(), saver=saver, name=env_name , model=pi, target_nodes='pi/action', steps=timesteps_so_far)
 
         if schedule == 'constant':
             cur_lrmult = 1.0
@@ -249,5 +258,39 @@ def learn(env, policy_func, *,
         if MPI.COMM_WORLD.Get_rank() == 0:
             logger.dump_tabular()
 
+
+
+
 def flatten_lists(listoflists):
     return [el for list_ in listoflists for el in list_]
+
+
+def export_model(sess, saver, name, model, target_nodes, steps):
+    import os
+
+    dir = name + '_model'
+    os.makedirs(dir, exist_ok=True)
+
+    checkpoint_file = dir + '/session-' + str(steps) + '.checkpoint'
+
+    print("Saving checkpoint", checkpoint_file)
+    saver.save(sess, checkpoint_file)
+
+    model_protobuf_file = 'pposgd_policy_graph.pb'
+    print("Exporting model", model_protobuf_file)
+    tf.train.write_graph(sess.graph_def, dir, model_protobuf_file , as_text=False)
+
+    """
+    Exports latest saved model to .bytes format for Unity embedding.
+    :param model_path: path of model checkpoints.
+    :param env_name: Name of associated Learning Environment.
+    :param target_nodes: Comma separated string of needed output nodes for embedded graph.
+    """
+    ckpt = tf.train.get_checkpoint_state(dir)
+    freeze_graph.freeze_graph(input_graph=dir + '/' + model_protobuf_file,
+                              input_binary=True,
+                              input_checkpoint=ckpt.model_checkpoint_path,
+                              output_node_names=target_nodes,
+                              output_graph= dir + '/' + name  + '_steps' + str(steps) + '.bytes',
+                              clear_devices=True, initializer_nodes="", input_saver="",
+                              restore_op_name="save/restore_all", filename_tensor_name="save/Const:0")

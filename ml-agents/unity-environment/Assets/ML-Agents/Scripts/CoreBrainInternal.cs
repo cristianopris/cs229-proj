@@ -188,26 +188,26 @@ public class CoreBrainInternal : ScriptableObject, CoreBrain
             runner.AddInput(graph[graphScope + BatchSizePlaceholderName][0], new int[] { currentBatchSize });
         }
 
-        foreach (TensorFlowAgentPlaceholder placeholder in graphPlaceholders)
-        {
-            try
-            {
-                if (placeholder.valueType == TensorFlowAgentPlaceholder.tensorType.FloatingPoint)
-                {
-                    runner.AddInput(graph[graphScope + placeholder.name][0], new float[] { Random.Range(placeholder.minValue, placeholder.maxValue) });
-                }
-                else if (placeholder.valueType == TensorFlowAgentPlaceholder.tensorType.Integer)
-                {
-                    runner.AddInput(graph[graphScope + placeholder.name][0], new int[] { Random.Range((int)placeholder.minValue, (int)placeholder.maxValue + 1) });
-                }
-            }
-            catch
-            {
-                throw new UnityAgentsException(string.Format(@"One of the Tensorflow placeholder cound nout be found.
-                In brain {0}, there are no {1} placeholder named {2}.",
-                        brain.gameObject.name, placeholder.valueType.ToString(), graphScope + placeholder.name));
-            }
-        }
+//        foreach (TensorFlowAgentPlaceholder placeholder in graphPlaceholders)
+//        {
+//            try
+//            {
+//                if (placeholder.valueType == TensorFlowAgentPlaceholder.tensorType.FloatingPoint)
+//                {
+//                    runner.AddInput(graph[graphScope + placeholder.name][0], new float[] { Random.Range(placeholder.minValue, placeholder.maxValue) });
+//                }
+//                else if (placeholder.valueType == TensorFlowAgentPlaceholder.tensorType.Integer)
+//                {
+//                    runner.AddInput(graph[graphScope + placeholder.name][0], new int[] { Random.Range((int)placeholder.minValue, (int)placeholder.maxValue + 1) });
+//                }
+//            }
+//            catch
+//            {
+//                throw new UnityAgentsException(string.Format(@"One of the Tensorflow placeholder could not be found.
+//                In brain {0}, there is no {1} placeholder named {2}.",
+//                        brain.gameObject.name, placeholder.valueType.ToString(), graphScope + placeholder.name));
+//            }
+//        }
 
         // Create the state tensor
         if (hasState)
@@ -216,10 +216,10 @@ public class CoreBrainInternal : ScriptableObject, CoreBrain
         }
 
         // Create the observation tensors
-        for (int obs_number = 0; obs_number < brain.brainParameters.cameraResolutions.Length; obs_number++)
-        {
-            runner.AddInput(graph[graphScope + ObservationPlaceholderName[obs_number]][0], observationMatrixList[obs_number]);
-        }
+//        for (int obs_number = 0; obs_number < brain.brainParameters.cameraResolutions.Length; obs_number++)
+//        {
+//            runner.AddInput(graph[graphScope + ObservationPlaceholderName[obs_number]][0], observationMatrixList[obs_number]);
+//        }
 
         TFTensor[] networkOutput;
         try

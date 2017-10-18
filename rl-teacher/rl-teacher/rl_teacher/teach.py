@@ -132,17 +132,14 @@ def main():
         )
     elif args.agent == "pposgd_mpi":
         def make_env():
-            if env_id.startswith("unity-"):
-                env_name = env_id[6:]
-                return UnityGymWrapper(env_name)
-            else:
-                return make_with_torque_removed(env_id)
-
+            return make_with_torque_removed(env_id)
         train_pposgd_mpi(make_env, num_timesteps=num_timesteps, seed=args.seed, predictor=predictor)
-
     elif args.agent == "unity-ppo":
         env_name = env_id[6:] #remove unity- prefix
-        train_unity_agent(env_name=env_name, predictor=predictor)
+        train_unity_ppo(env_name=env_name, predictor=predictor)
+    elif args.agent == "unity-pposgd-mpi":
+        env_name = env_id[6:] if env_id.startswith('unity-') else env_id # remove unity- prefix
+        train_unity_pposgd_mpi(env_name=env_name, num_timesteps=num_timesteps, seed=args.seed, predictor=predictor)
     else:
         raise ValueError("%s is not a valid choice for args.agent" % args.agent)
 

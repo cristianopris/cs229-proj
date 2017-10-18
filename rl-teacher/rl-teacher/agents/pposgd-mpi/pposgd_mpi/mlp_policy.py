@@ -7,6 +7,7 @@ from pposgd_mpi.common.distributions import make_pdtype
 class MlpPolicy(object):
     recurrent = False
     def __init__(self, name, *args, **kwargs):
+        self.name = name
         with tf.variable_scope(name):
             self._init(*args, **kwargs)
             self.scope = tf.get_variable_scope().name
@@ -46,6 +47,8 @@ class MlpPolicy(object):
         stochastic = tf.placeholder(dtype=tf.bool, shape=())
         ac = U.switch(stochastic, self.pd.sample(), self.pd.mode())
         self._act = U.function([stochastic, ob], [ac, self.vpred])
+        self.actionOut = tf.identity(self.pd.mode(), name='action')
+        print(self.actionOut)
 
     def act(self, stochastic, ob):
         ac1, vpred1 =  self._act(stochastic, ob[None])

@@ -10,12 +10,18 @@ public class Ball3DAgent : Agent
     public override List<float> CollectState()
     {
         List<float> state = new List<float>();
+
+		//Platform rotation
         state.Add(gameObject.transform.rotation.z);
         state.Add(gameObject.transform.rotation.x);
-        state.Add((ball.transform.position.x - gameObject.transform.position.x) / 5f);
+        
+		//Ball position
+		state.Add((ball.transform.position.x - gameObject.transform.position.x) / 5f);
         state.Add((ball.transform.position.y - gameObject.transform.position.y) / 5f);
         state.Add((ball.transform.position.z - gameObject.transform.position.z) / 5f);
-        state.Add(ball.transform.GetComponent<Rigidbody>().velocity.x / 5f);
+        
+		//Ball velocity
+		state.Add(ball.transform.GetComponent<Rigidbody>().velocity.x / 5f);
         state.Add(ball.transform.GetComponent<Rigidbody>().velocity.y / 5f);
         state.Add(ball.transform.GetComponent<Rigidbody>().velocity.z / 5f);
         return state;
@@ -26,29 +32,35 @@ public class Ball3DAgent : Agent
     {
         if (brain.brainParameters.actionSpaceType == StateType.continuous)
         {
+
+			float clip = 10f; //2f;
+
             float action_z = act[0];
-            if (action_z > 2f)
+            if (action_z > clip)
             {
-                action_z = 2f;
+                action_z = clip;
             }
-            if (action_z < -2f)
+            if (action_z < -clip)
             {
-                action_z = -2f;
+                action_z = -clip;
             }
+
             if ((gameObject.transform.rotation.z < 0.25f && action_z > 0f) ||
                 (gameObject.transform.rotation.z > -0.25f && action_z < 0f))
             {
                 gameObject.transform.Rotate(new Vector3(0, 0, 1), action_z);
             }
+
             float action_x = act[1];
-            if (action_x > 2f)
+            if (action_x > clip)
             {
-                action_x = 2f;
+                action_x = clip;
             }
-            if (action_x < -2f)
+            if (action_x < -clip)
             {
-                action_x = -2f;
+                action_x = -clip;
             }
+
             if ((gameObject.transform.rotation.x < 0.25f && action_x > 0f) ||
                 (gameObject.transform.rotation.x > -0.25f && action_x < 0f))
             {
@@ -58,7 +70,13 @@ public class Ball3DAgent : Agent
 
             if (done == false)
             {
-                reward = 0.1f;
+//				if (ball.transform.position.y - gameObject.transform.position.y) < -2f) {
+//					reward = 0.1f;
+//				}
+
+				float ball_height = (ball.transform.position.x - gameObject.transform.position.x) / 5f;
+				reward = 0.1f + 0.1f * ball_height;
+				//Debug.Log ("reward: " + reward);
             }
         }
         else
@@ -89,6 +107,7 @@ public class Ball3DAgent : Agent
                 reward = 0.1f;
             }
         }
+
         if ((ball.transform.position.y - gameObject.transform.position.y) < -2f ||
             Mathf.Abs(ball.transform.position.x - gameObject.transform.position.x) > 3f ||
             Mathf.Abs(ball.transform.position.z - gameObject.transform.position.z) > 3f)
