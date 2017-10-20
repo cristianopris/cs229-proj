@@ -19,7 +19,8 @@ class MlpPolicy(object):
         sequence_length = None
 
         ob = U.get_placeholder(name="obs", dtype=tf.float32, shape=[sequence_length] + list(ob_space.shape))
-        
+        #self.stateIn = tf.identity(ob, name='state')
+
         with tf.variable_scope("obfilter"):
             self.ob_rms = RunningMeanStd(shape=ob_space.shape)
 

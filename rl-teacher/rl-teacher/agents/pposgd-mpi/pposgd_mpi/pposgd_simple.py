@@ -43,7 +43,7 @@ def traj_segment_generator(pi, env, steps_per_batch, stochastic, predictor=None)
             path = {"obs": obs, "rew": rews, "vpred": vpreds, "new": news,
                 "actions": acs, "prevac": prevacs, "nextvpred": vpred * (1 - new),
                 "ep_rets": ep_rets, "ep_lens": ep_lens, "human_obs": human_obs}
-            logger.log('path: ' + str(path))
+            #logger.log('path: ' + str(path))
 
             ################################
             #  START REWARD MODIFICATIONS  #
@@ -195,7 +195,7 @@ def learn(env, policy_func, *,
             break
         elif max_seconds and time.time() - tstart >= max_seconds:
             break
-        if (iters_so_far % 5 == 0):
+        if (iters_so_far %  10 == 0 and iters_so_far >= 20):
             export_model(U.get_session(), saver=saver, name=env_name , model=pi, target_nodes='pi/action', steps=timesteps_so_far)
 
         if schedule == 'constant':
@@ -277,7 +277,6 @@ def export_model(sess, saver, name, model, target_nodes, steps):
     saver.save(sess, checkpoint_file)
 
     model_protobuf_file = 'pposgd_policy_graph.pb'
-    print("Exporting model", model_protobuf_file)
     tf.train.write_graph(sess.graph_def, dir, model_protobuf_file , as_text=False)
 
     """
@@ -286,11 +285,14 @@ def export_model(sess, saver, name, model, target_nodes, steps):
     :param env_name: Name of associated Learning Environment.
     :param target_nodes: Comma separated string of needed output nodes for embedded graph.
     """
+    print("Exporting model...")
+    out_file_name = dir + '/' + name  + '_steps' + str(steps) + '.bytes'
     ckpt = tf.train.get_checkpoint_state(dir)
     freeze_graph.freeze_graph(input_graph=dir + '/' + model_protobuf_file,
                               input_binary=True,
                               input_checkpoint=ckpt.model_checkpoint_path,
                               output_node_names=target_nodes,
-                              output_graph= dir + '/' + name  + '_steps' + str(steps) + '.bytes',
+                              output_graph= out_file_name,
                               clear_devices=True, initializer_nodes="", input_saver="",
                               restore_op_name="save/restore_all", filename_tensor_name="save/Const:0")
+    print("Done exporting model: ", out_file_name)

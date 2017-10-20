@@ -135,7 +135,7 @@ def main():
             return make_with_torque_removed(env_id)
         train_pposgd_mpi(make_env, num_timesteps=num_timesteps, seed=args.seed, predictor=predictor)
     elif args.agent == "unity-ppo":
-        env_name = env_id[6:] #remove unity- prefix
+        env_name = env_id[6:] if env_id.startswith('unity-') else env_id
         train_unity_ppo(env_name=env_name, predictor=predictor)
     elif args.agent == "unity-pposgd-mpi":
         env_name = env_id[6:] if env_id.startswith('unity-') else env_id # remove unity- prefix

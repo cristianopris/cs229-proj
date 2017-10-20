@@ -11,21 +11,17 @@ from unityagents import *
 from rl_teacher.envs import TransparentWrapper
 from gym.spaces import Box
 
-def train_unity_ppo(env_id, predictor):
-    ### Hyperparameters
-    env_name = env_id  # Name of the training environment file.
+def train_unity_ppo(env_name, predictor):
+
+    env_name = env_name  # Name of the training environment file.
 
     #os.chdir('bin')
 
     # if env is not None:
     #     env.close()
 
-    env = UnityEnvironment(file_name=env_name)
+    env = UnityEnvironment(file_name=env_name, worker_id=os.getpid())
     print(str(env))
-    _train_model(env_name, env, predictor)
-
-
-def _train_model(env_name, env, predictor):
 
     brain_name = env.brain_names[0]
 
@@ -114,15 +110,20 @@ def _train_model(env_name, env, predictor):
 
 class UnityGymWrapper(gym.Env):
 
-    def __init__(self, file_name, worker_id=0,
+    def __init__(self, file_name, worker_id=os.getpid(),
                  base_port=5005):
         self.env = UnityEnvironment(file_name, worker_id=worker_id, base_port=base_port)
         self.brain_name = self.env.brain_names[0]
         self.spec = False
 
-        self.action_space = Box(np.array([-1.0 , -1.0]), np.array([1.0 , 1.0]))
-        self.observation_space = Box(np.array([-1. , -1. , -1. , -1. , -1. , -1., -1., -1.])
-                                    ,np.array([ 1. ,  1. ,  1 ,   1,    1,    2,   2 ,  2 ]))
+        self.action_space = Box(np.array([-10.0 , -10.0]), np.array([10.0 , 10.0]))
+
+        #state space:
+        # platform rotation (z, x)
+        # relative ball position (x , y, z) /5f
+        # ball velocity (x, y, z) /5f
+        self.observation_space = Box(np.array([-1. , -1. , -1. , -1. , -1. , -2., -2., -2.])
+                                    ,np.array([ 1. ,  1. ,  1. ,   1.,    1.,    2.,   2. ,  2. ]))
 
     def _step(self, action):
         brain_info = self.env.step(action)[self.brain_name]
@@ -156,7 +157,7 @@ def train_unity_pposgd_mpi(env_name, num_timesteps, seed, predictor=None):
     import logging
 
 
-    U.make_session(num_cpu=1).__enter__()
+    U.make_session(num_cpu=6).__enter__()
     logger.session().__enter__()
     set_global_seeds(seed)
 
