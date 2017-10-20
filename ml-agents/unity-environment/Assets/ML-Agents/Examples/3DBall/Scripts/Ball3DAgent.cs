@@ -6,6 +6,12 @@ public class Ball3DAgent : Agent
 {
     [Header("Specific to Ball3D")]
     public GameObject ball;
+//	float lastMaxBallHeight;
+//	float lastBallHeight;
+//	int   lastStepRewarded;
+//	bool canReward;
+
+	Collision lastCollision; 
 
     public override List<float> CollectState()
     {
@@ -27,95 +33,99 @@ public class Ball3DAgent : Agent
         return state;
     }
 
+
+	void OnCollisionEnter(Collision collisionInfo)
+	{
+//		print("Detected collision between " + gameObject.name + " and " + collisionInfo.collider.name);
+//		//print("There are " + collisionInfo.contacts.Length + " point(s) of contacts");
+		print("Collision velocity: " + collisionInfo.relativeVelocity);
+		lastCollision = collisionInfo;
+	}
+
     // to be implemented by the developer
     public override void AgentStep(float[] act)
-    {
-        if (brain.brainParameters.actionSpaceType == StateType.continuous)
-        {
+	{
+
+		if (brain.brainParameters.actionSpaceType == StateType.continuous) {
 
 			float clip = 10f; //2f;
 
-            float action_z = act[0];
-            if (action_z > clip)
-            {
-                action_z = clip;
-            }
-            if (action_z < -clip)
-            {
-                action_z = -clip;
-            }
+			float action_z = act [0];
+			if (action_z > clip) {
+				action_z = clip;
+			}
+			if (action_z < -clip) {
+				action_z = -clip;
+			}
 
-            if ((gameObject.transform.rotation.z < 0.25f && action_z > 0f) ||
-                (gameObject.transform.rotation.z > -0.25f && action_z < 0f))
-            {
-                gameObject.transform.Rotate(new Vector3(0, 0, 1), action_z);
-            }
+			if ((gameObject.transform.rotation.z < 0.25f && action_z > 0f) ||
+			             (gameObject.transform.rotation.z > -0.25f && action_z < 0f)) {
+				gameObject.transform.Rotate (new Vector3 (0, 0, 1), action_z);
+			}
 
-            float action_x = act[1];
-            if (action_x > clip)
-            {
-                action_x = clip;
-            }
-            if (action_x < -clip)
-            {
-                action_x = -clip;
-            }
+			float action_x = act [1];
+			if (action_x > clip) {
+				action_x = clip;
+			}
+			if (action_x < -clip) {
+				action_x = -clip;
+			}
 
-            if ((gameObject.transform.rotation.x < 0.25f && action_x > 0f) ||
-                (gameObject.transform.rotation.x > -0.25f && action_x < 0f))
-            {
-                gameObject.transform.Rotate(new Vector3(1, 0, 0), action_x);
-            }
-				
+			if ((gameObject.transform.rotation.x < 0.25f && action_x > 0f) ||
+			             (gameObject.transform.rotation.x > -0.25f && action_x < 0f)) {
+				gameObject.transform.Rotate (new Vector3 (1, 0, 0), action_x);
+			}
 
-            if (done == false)
-            {
-//				if (ball.transform.position.y - gameObject.transform.position.y) < -2f) {
-//					reward = 0.1f;
-//				}
+		
+			if (done == false) {
+				if (lastCollision != null) {
+						float relVel = -lastCollision.relativeVelocity.y;
+						//reward = sigmoid (-8f + 2.4f * relVel, 0, 1); // linear fit to [-6;6] range
+						if (relVel < 3.5)
+							reward = -1f;
+						else 
+							reward = +1f;	
+						Debug.Log ("Reward: " + reward);
+						lastCollision = null;
+				}
+			}
+		} else {
+			int action = (int)act [0];
+			if (action == 0 || action == 1) {
+				action = (action * 2) - 1;
+				float changeValue = action * 2f;
+				if ((gameObject.transform.rotation.z < 0.25f && changeValue > 0f) ||
+				                (gameObject.transform.rotation.z > -0.25f && changeValue < 0f)) {
+					gameObject.transform.Rotate (new Vector3 (0, 0, 1), changeValue);
+				}
+			}
+			if (action == 2 || action == 3) {
+				action = ((action - 2) * 2) - 1;
+				float changeValue = action * 2f;
+				if ((gameObject.transform.rotation.x < 0.25f && changeValue > 0f) ||
+				                (gameObject.transform.rotation.x > -0.25f && changeValue < 0f)) {
+					gameObject.transform.Rotate (new Vector3 (1, 0, 0), changeValue);
+				}
+			}
+			if (done == false) {
+				reward = 0.1f;
+			}
+		}
 
-				float ball_height = (ball.transform.position.x - gameObject.transform.position.x) / 5f;
-				reward = 0.1f + 0.1f * ball_height;
-				//Debug.Log ("reward: " + reward);
-            }
-        }
-        else
-        {
-            int action = (int)act[0];
-            if (action == 0 || action == 1)
-            {
-                action = (action * 2) - 1;
-                float changeValue = action * 2f;
-                if ((gameObject.transform.rotation.z < 0.25f && changeValue > 0f) ||
-                    (gameObject.transform.rotation.z > -0.25f && changeValue < 0f))
-                {
-                    gameObject.transform.Rotate(new Vector3(0, 0, 1), changeValue);
-                }
-            }
-            if (action == 2 || action == 3)
-            {
-                action = ((action - 2) * 2) - 1;
-                float changeValue = action * 2f;
-                if ((gameObject.transform.rotation.x < 0.25f && changeValue > 0f) ||
-                    (gameObject.transform.rotation.x > -0.25f && changeValue < 0f))
-                {
-                    gameObject.transform.Rotate(new Vector3(1, 0, 0), changeValue);
-                }
-            }
-            if (done == false)
-            {
-                reward = 0.1f;
-            }
-        }
+//		float ballDistance = ball.transform.position.y - gameObject.transform.position.y;
+//		float ballVelocity = ball.transform.GetComponent<Rigidbody>().velocity.y;
+//		if (ballDistance < 0.7f && ballVelocity > -0.4 && ballVelocity < 0.4 ) {
+//			done = true;
+//			reward = -10f;
+//		}
 
-        if ((ball.transform.position.y - gameObject.transform.position.y) < -2f ||
-            Mathf.Abs(ball.transform.position.x - gameObject.transform.position.x) > 3f ||
-            Mathf.Abs(ball.transform.position.z - gameObject.transform.position.z) > 3f)
-        {
-            done = true;
-            reward = -1f;
-        }
-
+		//
+		if ((ball.transform.position.y - gameObject.transform.position.y) < -2f ||
+			Mathf.Abs (ball.transform.position.x - gameObject.transform.position.x) > 3f ||
+				Mathf.Abs (ball.transform.position.z - gameObject.transform.position.z) > 3f) {
+			done = true;
+			reward = -10f;
+		}
     }
 
     // to be implemented by the developer
@@ -127,4 +137,8 @@ public class Ball3DAgent : Agent
         ball.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
         ball.transform.position = new Vector3(Random.Range(-1.5f, 1.5f), 4f, Random.Range(-1.5f, 1.5f)) + gameObject.transform.position;
     }
+
+	float sigmoid(float x, float c, float a) {
+		return 1f/(1f + Mathf.Exp(-a*(x-c)));
+	}
 }

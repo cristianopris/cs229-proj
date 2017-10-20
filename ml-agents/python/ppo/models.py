@@ -36,7 +36,7 @@ def save_model(sess, saver, model_path="./", steps=0):
     last_checkpoint = model_path + '/model-' + str(steps) + '.cptk'
     saver.save(sess, last_checkpoint)
     tf.train.write_graph(sess.graph_def, model_path, 'raw_graph_def.pb', as_text=False)
-    print("Saved Model")
+    print("Saved checkpoint")
 
 
 def export_graph(model_path, env_name="env", target_nodes="action"):
@@ -54,7 +54,7 @@ def export_graph(model_path, env_name="env", target_nodes="action"):
                               output_graph=model_path + '/' + env_name + '.bytes',
                               clear_devices=True, initializer_nodes="", input_saver="",
                               restore_op_name="save/restore_all", filename_tensor_name="save/Const:0")
-
+    print("Exported model: " + env_name)
 
 class PPOModel(object):
     def create_visual_encoder(self, o_size_h, o_size_w, bw, h_size, num_streams, activation):

@@ -21,6 +21,7 @@ public class CoreBrainInternal : ScriptableObject, CoreBrain
     {
         public enum tensorType
         {
+			Bool,
             Integer,
             FloatingPoint
         };
@@ -188,26 +189,31 @@ public class CoreBrainInternal : ScriptableObject, CoreBrain
             runner.AddInput(graph[graphScope + BatchSizePlaceholderName][0], new int[] { currentBatchSize });
         }
 
-//        foreach (TensorFlowAgentPlaceholder placeholder in graphPlaceholders)
-//        {
-//            try
-//            {
-//                if (placeholder.valueType == TensorFlowAgentPlaceholder.tensorType.FloatingPoint)
-//                {
-//                    runner.AddInput(graph[graphScope + placeholder.name][0], new float[] { Random.Range(placeholder.minValue, placeholder.maxValue) });
-//                }
-//                else if (placeholder.valueType == TensorFlowAgentPlaceholder.tensorType.Integer)
-//                {
-//                    runner.AddInput(graph[graphScope + placeholder.name][0], new int[] { Random.Range((int)placeholder.minValue, (int)placeholder.maxValue + 1) });
-//                }
-//            }
-//            catch
-//            {
-//                throw new UnityAgentsException(string.Format(@"One of the Tensorflow placeholder could not be found.
-//                In brain {0}, there is no {1} placeholder named {2}.",
+        foreach (TensorFlowAgentPlaceholder placeholder in graphPlaceholders)
+        {
+            try
+            {
+                if (placeholder.valueType == TensorFlowAgentPlaceholder.tensorType.FloatingPoint)
+                {
+                    runner.AddInput(graph[graphScope + placeholder.name][0], new float[] { Random.Range(placeholder.minValue, placeholder.maxValue) });
+                }
+                else if (placeholder.valueType == TensorFlowAgentPlaceholder.tensorType.Integer)
+                {
+                    runner.AddInput(graph[graphScope + placeholder.name][0], new int[] { Random.Range((int)placeholder.minValue, (int)placeholder.maxValue + 1) });
+                }
+				else if (placeholder.valueType == TensorFlowAgentPlaceholder.tensorType.Bool)
+				{
+					runner.AddInput(graph[graphScope + placeholder.name][0], new bool[] { placeholder.minValue == 1f });
+				}
+            }
+            catch
+            {
+                //throw new UnityAgentsException(
+//				Debug.LogWarning(string.Format(@"One of the Tensorflow placeholder could not be found.
+//				In model for brain {0}, there is no {1} placeholder named {2}.",
 //                        brain.gameObject.name, placeholder.valueType.ToString(), graphScope + placeholder.name));
-//            }
-//        }
+            }
+        }
 
         // Create the state tensor
         if (hasState)
@@ -215,11 +221,11 @@ public class CoreBrainInternal : ScriptableObject, CoreBrain
             runner.AddInput(graph[graphScope + StatePlacholderName][0], inputState);
         }
 
-        // Create the observation tensors
-//        for (int obs_number = 0; obs_number < brain.brainParameters.cameraResolutions.Length; obs_number++)
-//        {
-//            runner.AddInput(graph[graphScope + ObservationPlaceholderName[obs_number]][0], observationMatrixList[obs_number]);
-//        }
+        //Create the observation tensors
+        for (int obs_number = 0; obs_number < brain.brainParameters.cameraResolutions.Length; obs_number++)
+        {
+            runner.AddInput(graph[graphScope + ObservationPlaceholderName[obs_number]][0], observationMatrixList[obs_number]);
+        }
 
         TFTensor[] networkOutput;
         try
@@ -228,7 +234,7 @@ public class CoreBrainInternal : ScriptableObject, CoreBrain
         }
         catch (TFException e)
         {
-            string errorMessage = e.Message;
+		    string errorMessage = e.Message;
             try
             {
                 errorMessage = string.Format(@"The tensorflow graph needs an input for {0} of type {1}",
