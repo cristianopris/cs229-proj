@@ -6,7 +6,7 @@ import uuid
 import numpy as np
 
 from rl_teacher.envs import make_with_torque_removed
-from rl_teacher.video import write_segment_to_video, upload_to_gcs
+from rl_teacher.video import write_segment_to_video, upload_to_gcs, export_video
 
 class SyntheticComparisonCollector(object):
     def __init__(self):
@@ -55,18 +55,19 @@ def _write_and_upload_video(env_id, gcs_path, local_path, segment):
     upload_to_gcs(local_path, gcs_path)
 
 class HumanComparisonCollector():
-    def __init__(self, env_id, experiment_name):
+    def __init__(self, env_id, env, experiment_name):
         from human_feedback_api import Comparison
 
         self._comparisons = []
         self.env_id = env_id
         self.experiment_name = experiment_name
         self._upload_workers = multiprocessing.Pool(4)
+        self.env = env
 
         if Comparison.objects.filter(experiment_name=experiment_name).count() > 0:
             raise EnvironmentError("Existing experiment named %s! Pick a new experiment name." % experiment_name)
 
-    def convert_segment_to_media_url(self, comparison_uuid, side, segment):
+    def _orig_convert_segment_to_media_url(self, comparison_uuid, side, segment):
         tmp_media_dir = '/tmp/rl_teacher_media'
         media_id = "%s-%s.mp4" % (comparison_uuid, side)
         local_path = osp.join(tmp_media_dir, media_id)
@@ -76,6 +77,24 @@ class HumanComparisonCollector():
 
         media_url = "https://storage.googleapis.com/%s/%s" % (gcs_bucket.lstrip("gs://"), media_id)
         return media_url
+
+    def convert_segment_to_media_url(self, comparison_uuid, side, segment):
+        tmp_media_dir = 'rl_teacher_media'
+        media_id = "%s-%s.mp4" % (comparison_uuid, side)
+        local_path = osp.join(tmp_media_dir, media_id)
+
+        os.makedirs(osp.dirname(local_path), exist_ok=True)
+
+        frames = [f for f in segment["human_obs"]]
+
+        for i in range(int(self.env.fps * 0.2)):
+            frames.append(frames[-1])
+
+        export_video(frames, local_path, fps=self.env.fps)
+
+        media_url = "https://storage.googleapis.com/%s/%s" % (gcs_bucket.lstrip("gs://"), media_id)
+        return media_url
+
 
     def _create_comparison_in_webapp(self, left_seg, right_seg):
         """Creates a comparison DB object. Returns the db_id of the comparison"""

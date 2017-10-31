@@ -23,7 +23,7 @@ from rl_teacher.predictor import *
 
 from UnityAgent import *
 
-CLIP_LENGTH = 1.5
+
 
 def main():
     import argparse
@@ -32,7 +32,7 @@ def main():
     parser.add_argument('-p', '--predictor', required=True)
     parser.add_argument('-n', '--name', required=True)
     parser.add_argument('-s', '--seed', default=1, type=int)
-    parser.add_argument('-w', '--workers', default=4, type=int)
+    parser.add_argument('-w', '--workers', default=1, type=int)
     parser.add_argument('-l', '--n_labels', default=None, type=int)
     parser.add_argument('-L', '--pretrain_labels', default=None, type=int)
     parser.add_argument('-t', '--num_timesteps', default=5e6, type=int)
@@ -47,7 +47,15 @@ def main():
     run_name = "%s/%s-%s" % (env_id, args.name, int(time()))
     summary_writer = make_summary_writer(run_name)
 
-    #env = make_with_torque_removed(env_id)
+
+    make_env = None
+    env = None
+    if env_id.startswith('unity-'):
+        env_name = env_id[6:]
+        env = make_unity_env(env_name)
+        make_env = make_unity_env
+    else:
+        env = make_with_torque_removed(env_id)
 
     num_timesteps = int(args.num_timesteps)
     experiment_name = slugify(args.name)
@@ -73,23 +81,15 @@ def main():
             comparison_collector = SyntheticComparisonCollector()
 
         elif args.predictor == "human":
-            bucket = os.environ.get('RL_TEACHER_GCS_BUCKET')
-            assert bucket and bucket.startswith("gs://"), "env variable RL_TEACHER_GCS_BUCKET must start with gs://"
-            comparison_collector = HumanComparisonCollector(env_id, experiment_name=experiment_name)
+            #bucket = os.environ.get('RL_TEACHER_GCS_BUCKET')
+            #assert bucket and bucket.startswith("gs://"), "env variable RL_TEACHER_GCS_BUCKET must start with gs://"
+            comparison_collector = HumanComparisonCollector(env_id, env = env, experiment_name=experiment_name)
         else:
             raise ValueError("Bad value for --predictor: %s" % args.predictor)
 
-        predictor = ComparisonRewardPredictor(
-            env,
-            summary_writer,
-            comparison_collector=comparison_collector,
-            agent_logger=agent_logger,
-            label_schedule=label_schedule,
-        )
-
         print("Starting random rollouts to generate pretraining segments. No learning will take place...")
         pretrain_segments = segments_from_rand_rollout(
-            env_id, make_with_torque_removed, n_desired_segments=pretrain_labels * 2,
+            env_id, make_env, n_desired_segments=pretrain_labels * 2,
             clip_length_in_seconds=CLIP_LENGTH, workers=args.workers)
         for i in range(pretrain_labels):  # Turn our random segments into comparisons
             comparison_collector.add_segment_pair(pretrain_segments[i], pretrain_segments[i + pretrain_labels])
@@ -103,6 +103,14 @@ def main():
                 print("%s/%s comparisons labeled. Please add labels w/ the human-feedback-api. Sleeping... " % (
                     len(comparison_collector.labeled_comparisons), pretrain_labels))
                 sleep(5)
+
+        predictor = ComparisonRewardPredictor(
+            env,
+            summary_writer,
+            comparison_collector=comparison_collector,
+            agent_logger=agent_logger,
+            label_schedule=label_schedule,
+        )
 
         # Start the actual training
         for i in range(args.pretrain_iters):
@@ -139,7 +147,7 @@ def main():
         train_unity_ppo(env_name=env_name, predictor=predictor)
     elif args.agent == "unity-pposgd-mpi":
         env_name = env_id[6:] if env_id.startswith('unity-') else env_id # remove unity- prefix
-        train_unity_pposgd_mpi(env_name=env_name, num_timesteps=num_timesteps, seed=args.seed, predictor=predictor)
+        train_unity_pposgd_mpi(env_name=env_name, make_env=make_env, num_timesteps=num_timesteps, seed=args.seed, predictor=predictor)
     else:
         raise ValueError("%s is not a valid choice for args.agent" % args.agent)
 

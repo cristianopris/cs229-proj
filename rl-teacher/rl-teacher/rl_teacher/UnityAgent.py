@@ -106,7 +106,16 @@ def train_unity_ppo(env_name, predictor):
             export_graph(model_path, env_name & '_steps' & str(steps))
     env.close()
 
+env_instances = {}
 
+def make_unity_env(env_id):
+    env_name = env_id[6:] if env_id.startswith('unity-') else env_id
+    env = env_instances.get(env_name)
+    print(env_instances)
+    if env is None:
+        env = UnityGymWrapper(env_name)
+        env_instances[env_name] = env
+    return env
 
 class UnityGymWrapper(gym.Env):
 
@@ -115,6 +124,9 @@ class UnityGymWrapper(gym.Env):
         self.env = UnityEnvironment(file_name, worker_id=worker_id, base_port=base_port)
         self.brain_name = self.env.brain_names[0]
         self.spec = False
+
+        self.fps = 240
+        self._max_episode_steps = 100000
 
         self.action_space = Box(np.array([-10.0 , -10.0]), np.array([10.0 , 10.0]))
 
@@ -125,9 +137,12 @@ class UnityGymWrapper(gym.Env):
         self.observation_space = Box(np.array([-1. , -1. , -1. , -1. , -1. , -2., -2., -2.])
                                     ,np.array([ 1. ,  1. ,  1. ,   1.,    1.,    2.,   2. ,  2. ]))
 
+        print('UnityGymWrapper: created env: ', self.env)
+
     def _step(self, action):
         brain_info = self.env.step(action)[self.brain_name]
         state = brain_info.states[0]
+        human_obs  = brain_info.observations[0]
         return state, brain_info.rewards[0], brain_info.local_done[0], {} #info
         """
         Returns:
@@ -148,7 +163,7 @@ class UnityGymWrapper(gym.Env):
     def _seed(self, seed=None): return []
 
 
-def train_unity_pposgd_mpi(env_name, num_timesteps, seed, predictor=None):
+def train_unity_pposgd_mpi(env_name, make_env, num_timesteps, seed, predictor=None):
     from pposgd_mpi import mlp_policy
     from pposgd_mpi import pposgd_simple
     from pposgd_mpi import bench
@@ -165,7 +180,7 @@ def train_unity_pposgd_mpi(env_name, num_timesteps, seed, predictor=None):
         return mlp_policy.MlpPolicy(name=name, ob_space=ob_space, ac_space=ac_space,
             hid_size=64, num_hid_layers=2)
 
-    env = UnityGymWrapper(env_name)
+    env = make_env(env_name)
 
     env = bench.Monitor(env, os.path.join(logger.get_dir(), "monitor.json"))
     env.seed(seed)

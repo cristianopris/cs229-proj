@@ -6,10 +6,12 @@ public class Ball3DAgent : Agent
 {
     [Header("Specific to Ball3D")]
     public GameObject ball;
-//	float lastMaxBallHeight;
-//	float lastBallHeight;
-//	int   lastStepRewarded;
-//	bool canReward;
+
+
+	public override void InitializeAgent()
+	{
+		Debug.Log ("Cameras : " + this.observations);
+	}
 
 	Collision lastCollision; 
 

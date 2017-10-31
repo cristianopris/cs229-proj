@@ -70,6 +70,7 @@ def basic_segments_from_rand_rollout(
     space_prng.seed(seed)
     segment_length = int(clip_length_in_seconds * env.fps)
     while len(segments) < n_desired_segments:
+        print('basic_segments_from_rand_rollout: %d / %d' % (len(segments), n_desired_segments))
         path = do_rollout(env, random_action)
         # Calculate the number of segments to sample from the path
         # Such that the probability of sampling the same part twice is fairly low.

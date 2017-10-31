@@ -196,7 +196,7 @@ public class Brain : MonoBehaviour
     /// brain and returns a dictionary {id -> Camera}
     public Dictionary<int, List<Camera>> CollectObservations()
     {
-        Dictionary<int, List<Camera>> result = new Dictionary<int, List<Camera>>();
+		Dictionary<int, List<Camera>> result = new Dictionary<int, List<Camera>>();
         foreach (KeyValuePair<int, Agent> idAgent in agents)
         {
             List<Camera> observations = idAgent.Value.observations;
@@ -207,6 +207,9 @@ public class Brain : MonoBehaviour
             }
             result.Add(idAgent.Key, observations);
         }
+
+		Debug.Log ("Observations: " + result);
+
         return result;
 
     }

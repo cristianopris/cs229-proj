@@ -5,6 +5,9 @@ from collections import deque
 from time import time, sleep
 
 import numpy as np
+import tensorflow as tf
+from keras import backend as K
+
 
 from parallel_trpo.train import train_parallel_trpo
 from pposgd_mpi.run_mujoco import train_pposgd_mpi
@@ -19,6 +22,7 @@ from rl_teacher.summaries import AgentLogger, make_summary_writer
 from rl_teacher.utils import slugify, corrcoef
 from rl_teacher.video import SegmentVideoRecorder
 
+CLIP_LENGTH = 0.03 #1.5
 
 class TraditionalRLRewardPredictor(object):
     """Predictor that always returns the true reward provided by the environment."""
@@ -33,9 +37,8 @@ class TraditionalRLRewardPredictor(object):
     def path_callback(self, path):
         pass
 
+
 class ComparisonRewardPredictor():
-    import tensorflow as tf
-    from keras import backend as K
 
     """Predictor that trains a model to predict how much reward is contained in a trajectory segment"""
 
