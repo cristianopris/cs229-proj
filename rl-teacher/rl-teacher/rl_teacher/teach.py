@@ -3,6 +3,8 @@ import os.path as osp
 import random
 from collections import deque
 from time import time, sleep
+import datetime
+import traceback
 
 import numpy as np
 
@@ -57,8 +59,9 @@ def main():
     else:
         env = make_with_torque_removed(env_id)
 
+    frames_per_segment = 12
     num_timesteps = int(args.num_timesteps)
-    experiment_name = slugify(args.name)
+    experiment_name = slugify(args.name + '_' + str(datetime.datetime.now()))
 
     if args.predictor == "rl":
         predictor = TraditionalRLRewardPredictor(summary_writer)
@@ -83,14 +86,14 @@ def main():
         elif args.predictor == "human":
             #bucket = os.environ.get('RL_TEACHER_GCS_BUCKET')
             #assert bucket and bucket.startswith("gs://"), "env variable RL_TEACHER_GCS_BUCKET must start with gs://"
-            comparison_collector = HumanComparisonCollector(env_id, env = env, experiment_name=experiment_name)
+            comparison_collector = HumanComparisonCollector(env_id, fps = env.fps, experiment_name=experiment_name)
         else:
             raise ValueError("Bad value for --predictor: %s" % args.predictor)
 
         print("Starting random rollouts to generate pretraining segments. No learning will take place...")
         pretrain_segments = segments_from_rand_rollout(
             env_id, make_env, n_desired_segments=pretrain_labels * 2,
-            clip_length_in_seconds=CLIP_LENGTH, workers=args.workers)
+            frames_per_segment=frames_per_segment, workers=args.workers)
         for i in range(pretrain_labels):  # Turn our random segments into comparisons
             comparison_collector.add_segment_pair(pretrain_segments[i], pretrain_segments[i + pretrain_labels])
 
@@ -110,6 +113,7 @@ def main():
             comparison_collector=comparison_collector,
             agent_logger=agent_logger,
             label_schedule=label_schedule,
+            frames_per_segment = frames_per_segment
         )
 
         # Start the actual training
@@ -153,3 +157,10 @@ def main():
 
 if __name__ == '__main__':
     main()
+#     while True:
+#         try:
+#             main()
+#         except:
+#             traceback.print_exc()
+# #            pass
+

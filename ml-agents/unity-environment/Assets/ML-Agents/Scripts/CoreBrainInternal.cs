@@ -223,9 +223,16 @@ public class CoreBrainInternal : ScriptableObject, CoreBrain
 
         //Create the observation tensors
         for (int obs_number = 0; obs_number < brain.brainParameters.cameraResolutions.Length; obs_number++)
-        {
-            runner.AddInput(graph[graphScope + ObservationPlaceholderName[obs_number]][0], observationMatrixList[obs_number]);
-        }
+        { 
+			try 
+			{
+            	runner.AddInput(graph[graphScope + ObservationPlaceholderName[obs_number]][0], observationMatrixList[obs_number]);
+			}
+			catch
+			{
+				Debug.LogWarning("Observation placeholder could not be found");	
+			}
+		}
 
         TFTensor[] networkOutput;
         try

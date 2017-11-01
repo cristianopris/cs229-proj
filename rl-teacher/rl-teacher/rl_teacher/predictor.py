@@ -22,7 +22,6 @@ from rl_teacher.summaries import AgentLogger, make_summary_writer
 from rl_teacher.utils import slugify, corrcoef
 from rl_teacher.video import SegmentVideoRecorder
 
-CLIP_LENGTH = 0.03 #1.5
 
 class TraditionalRLRewardPredictor(object):
     """Predictor that always returns the true reward provided by the environment."""
@@ -42,7 +41,7 @@ class ComparisonRewardPredictor():
 
     """Predictor that trains a model to predict how much reward is contained in a trajectory segment"""
 
-    def __init__(self, env, summary_writer, comparison_collector, agent_logger, label_schedule):
+    def __init__(self, env, summary_writer, comparison_collector, agent_logger, label_schedule, frames_per_segment):
         self.summary_writer = summary_writer
         self.agent_logger = agent_logger
         self.comparison_collector = comparison_collector
@@ -50,7 +49,7 @@ class ComparisonRewardPredictor():
 
         # Set up some bookkeeping
         self.recent_segments = deque(maxlen=200)  # Keep a queue of recently seen segments to pull new comparisons from
-        self._frames_per_segment = CLIP_LENGTH * env.fps
+        self._frames_per_segment = frames_per_segment
         self._steps_since_last_training = 0
         self._n_timesteps_per_predictor_training = 1e2  # How often should we train our predictor?
         self._elapsed_predictor_training_iters = 0
@@ -152,6 +151,9 @@ class ComparisonRewardPredictor():
         segment = sample_segment_from_path(path, int(self._frames_per_segment))
         if segment:
             self.recent_segments.append(segment)
+        else:
+            print("Predictor.path_callback: Path too short: %d " % path_length)
+            return
 
         # If we need more comparisons, then we build them from our recent segments
         if len(self.comparison_collector) < int(self.label_schedule.n_desired_labels):

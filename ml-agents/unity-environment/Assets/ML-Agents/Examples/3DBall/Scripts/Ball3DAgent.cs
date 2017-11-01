@@ -42,6 +42,19 @@ public class Ball3DAgent : Agent
 //		//print("There are " + collisionInfo.contacts.Length + " point(s) of contacts");
 		print("Collision velocity: " + collisionInfo.relativeVelocity);
 		lastCollision = collisionInfo;
+
+
+		// how much the character should be knocked back
+		var magnitude =  collisionInfo.relativeVelocity.magnitude * - 10; //5000;
+
+		// calculate force vector
+		var force = transform.position - collisionInfo.transform.position;
+		// normalize force vector to get direction only and trim magnitude
+		force.Normalize();
+
+		Debug.Log ("AddForce: force: " + force + " magnitude: " + magnitude);
+
+		collisionInfo.rigidbody.AddForce(force * magnitude);	
 	}
 
     // to be implemented by the developer
@@ -83,10 +96,11 @@ public class Ball3DAgent : Agent
 				if (lastCollision != null) {
 						float relVel = -lastCollision.relativeVelocity.y;
 						//reward = sigmoid (-8f + 2.4f * relVel, 0, 1); // linear fit to [-6;6] range
-						if (relVel < 3.5)
-							reward = -1f;
-						else 
-							reward = +1f;	
+//						if (relVel < 3.5)
+//							reward = -1f;
+//						else 
+//							reward = +1f;	
+						reward = 1f;
 						Debug.Log ("Reward: " + reward);
 						lastCollision = null;
 				}

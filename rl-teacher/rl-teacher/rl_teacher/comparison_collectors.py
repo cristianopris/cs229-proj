@@ -49,50 +49,49 @@ class SyntheticComparisonCollector(object):
         # Mutate the comparison and give it the new label
         comparison['label'] = 0 if left_has_more_rew else 1
 
-def _write_and_upload_video(env_id, gcs_path, local_path, segment):
-    env = make_with_torque_removed(env_id)
-    write_segment_to_video(segment, fname=local_path, env=env)
-    upload_to_gcs(local_path, gcs_path)
+# def _write_and_upload_video(env_id, gcs_path, local_path, segment):
+#     # env = make_with_torque_removed(env_id)
+#     # write_segment_to_video(segment, fname=local_path, env=env)
+#     # upload_to_gcs(local_path, gcs_path)
 
 class HumanComparisonCollector():
-    def __init__(self, env_id, env, experiment_name):
+    def __init__(self, env_id, fps, experiment_name):
         from human_feedback_api import Comparison
 
         self._comparisons = []
         self.env_id = env_id
         self.experiment_name = experiment_name
         self._upload_workers = multiprocessing.Pool(4)
-        self.env = env
+        self.fps = fps
 
         if Comparison.objects.filter(experiment_name=experiment_name).count() > 0:
             raise EnvironmentError("Existing experiment named %s! Pick a new experiment name." % experiment_name)
 
-    def _orig_convert_segment_to_media_url(self, comparison_uuid, side, segment):
-        tmp_media_dir = '/tmp/rl_teacher_media'
-        media_id = "%s-%s.mp4" % (comparison_uuid, side)
-        local_path = osp.join(tmp_media_dir, media_id)
-        gcs_bucket = os.environ.get('RL_TEACHER_GCS_BUCKET')
-        gcs_path = osp.join(gcs_bucket, media_id)
-        self._upload_workers.apply_async(_write_and_upload_video, (self.env_id, gcs_path, local_path, segment))
-
-        media_url = "https://storage.googleapis.com/%s/%s" % (gcs_bucket.lstrip("gs://"), media_id)
-        return media_url
+    # def _orig_convert_segment_to_media_url(self, comparison_uuid, side, segment):
+    #     tmp_media_dir = '/tmp/rl_teacher_media'
+    #     media_id = "%s-%s.mp4" % (comparison_uuid, side)
+    #     local_path = osp.join(tmp_media_dir, media_id)
+    #     gcs_bucket = os.environ.get('RL_TEACHER_GCS_BUCKET')
+    #     gcs_path = osp.join(gcs_bucket, media_id)
+    #     self._upload_workers.apply_async(_write_and_upload_video, (self.env_id, gcs_path, local_path, segment))
+    #
+    #     media_url = "https://storage.googleapis.com/%s/%s" % (gcs_bucket.lstrip("gs://"), media_id)
+    #     return media_url
 
     def convert_segment_to_media_url(self, comparison_uuid, side, segment):
         tmp_media_dir = 'rl_teacher_media'
         media_id = "%s-%s.mp4" % (comparison_uuid, side)
         local_path = osp.join(tmp_media_dir, media_id)
+        media_url = '/media/%s' % (media_id)
 
         os.makedirs(osp.dirname(local_path), exist_ok=True)
 
         frames = [f for f in segment["human_obs"]]
 
-        for i in range(int(self.env.fps * 0.2)):
-            frames.append(frames[-1])
+        # for i in range(int(self.fps * 0.2)):
+        #     frames.append(frames[-1])
 
-        export_video(frames, local_path, fps=self.env.fps)
-
-        media_url = "https://storage.googleapis.com/%s/%s" % (gcs_bucket.lstrip("gs://"), media_id)
+        export_video(frames, local_path, fps=self.fps/10)
         return media_url
 
 

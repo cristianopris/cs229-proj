@@ -96,11 +96,13 @@ class ImageEncoder(object):
             '-s:v', '{}x{}'.format(*self.wh),
             '-pix_fmt', ('rgb32' if self.includes_alpha else 'rgb24'),
             '-i', '-',  # this used to be /dev/stdin, which is not Windows-friendly
-            '-vf', 'vflip',
+            #'-vf', 'vflip',
             '-vcodec', 'libx264',
             '-pix_fmt', 'yuv420p',
             self.output_path
         )
+
+        #print('export_video: ', self.cmdline)
 
         if hasattr(os, 'setsid'):  # setsid not present on Windows
             self.proc = subprocess.Popen(self.cmdline, stdin=subprocess.PIPE, preexec_fn=os.setsid)

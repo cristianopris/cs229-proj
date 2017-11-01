@@ -33,15 +33,14 @@ sudo chmod a+r /usr/local/cuda-8.0/lib64/libcudnn*
 pip3 install tensorflow-gpu==1.2.1
 
 
-cd rl-teacher-atari
-pip3 install -e .
-pip3 install -e human-feedback-api
-pip3 install -e agents/parallel-trpo[tf_gpu]
-pip3 install -e agents/pposgd-mpi[tf_gpu]
-pip3 install -e agents/ga3c[tf_gpu]
+#cd rl-teacher
+#pip3 install -e .
+#pip3 install -e human-feedback-api
+#pip3 install -e agents/parallel-trpo[tf_gpu]
+#pip3 install -e agents/pposgd-mpi[tf_gpu]
+#pip3 install -e agents/ga3c[tf_gpu]
 
 pip3 install gym[atari]==0.9.1
-
 
 curl -o /usr/bin/Xdummy https://gist.githubusercontent.com/nottombrown/ffa457f020f1c53a0105ce13e8c37303/raw/ff2bc2dcf1a69af141accd7b337434f074205b23/Xdummy
 chmod +x /usr/bin/Xdummy
@@ -50,8 +49,10 @@ Xdummy &
 
 tensorboard --logdir ~/tb/rl-teacher/ --port $TENSORBOARD_PORT &
 alias python=python3
+export PYTHONPATH=../rl-teacher/rl-teacher/:../rl-teacher/rl-teacher/agents/parallel-trpo/:../rl-teacher/rl-teacher/agents/pposgd-mpi/:../rl-teacher/rl-teacher/agents/simple-trpo/:../rl-teacher/rl-teacher/human-feedback-api:../ml-agents/python/unityagents/:../ml-agents/python/ppo
+cd bin
 
-#python rl_teacher/teach.py -e Pong-v0 -n rl-test -p rl
+python ../rl-teacher/rl_teacher/teach.py -V -a unity-pposgd-mpi -p rl -e unity-3dball-bounce1ball.x86 -n unity-base-rl
 
 #pip3 install --upgrade dask==0.14.3
 #pip3 install keras==2.0.8

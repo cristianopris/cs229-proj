@@ -59,7 +59,7 @@ def do_rollout(env, action_function):
     return path
 
 def basic_segments_from_rand_rollout(
-    env_id, make_env, n_desired_segments, clip_length_in_seconds,
+    env_id, make_env, n_desired_segments, segment_length,
     # These are only for use with multiprocessing
     seed=0, _verbose=True, _multiplier=1
 ):
@@ -68,12 +68,20 @@ def basic_segments_from_rand_rollout(
     env = make_env(env_id)
     env.seed(seed)
     space_prng.seed(seed)
-    segment_length = int(clip_length_in_seconds * env.fps)
+    #segment_length = int(clip_length_in_seconds * env.fps)
+    #print('basic_segments_from_rand_rollout start: clip_length: %2.2f, fps: %d segment_length (frames): %d' % (clip_length_in_seconds, env.fps, segment_length))
+    tries = []
     while len(segments) < n_desired_segments:
-        print('basic_segments_from_rand_rollout: %d / %d' % (len(segments), n_desired_segments))
+        #print('basic_segments_from_rand_rollout: %d / %d' % (len(segments), n_desired_segments))
         path = do_rollout(env, random_action)
+
+        tries.append(path)
+        if _verbose and len(tries) % 50 == 0:
+            print("Paths tried: %d , avg path length: %d" % (len(tries), sum(tries) / len(tries)))
+
         # Calculate the number of segments to sample from the path
         # Such that the probability of sampling the same part twice is fairly low.
+
         segments_for_this_path = max(1, int(0.25 * len(path["obs"]) / segment_length))
         for _ in range(segments_for_this_path):
             segment = sample_segment_from_path(path, segment_length)
@@ -87,16 +95,16 @@ def basic_segments_from_rand_rollout(
         print("Successfully collected %s segments" % (len(segments) * _multiplier))
     return segments
 
-def segments_from_rand_rollout(env_id, make_env, n_desired_segments, clip_length_in_seconds, workers):
+def segments_from_rand_rollout(env_id, make_env, n_desired_segments, frames_per_segment, workers):
     """ Generate a list of path segments by doing random rollouts. Can use multiple processes. """
     if workers < 2:  # Default to basic segment collection
-        return basic_segments_from_rand_rollout(env_id, make_env, n_desired_segments, clip_length_in_seconds)
+        return basic_segments_from_rand_rollout(env_id, make_env, n_desired_segments, frames_per_segment)
 
     pool = Pool(processes=workers)
     segments_per_worker = int(math.ceil(n_desired_segments / workers))
     # One job per worker. Only the first worker is verbose.
     jobs = [
-        (env_id, make_env, segments_per_worker, clip_length_in_seconds, i, i == 0, workers)
+        (env_id, make_env, segments_per_worker, frames_per_segment, i, i == 0, workers)
         for i in range(workers)]
     results = pool.starmap(basic_segments_from_rand_rollout, jobs)
     pool.close()

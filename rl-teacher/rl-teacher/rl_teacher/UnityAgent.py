@@ -142,8 +142,8 @@ class UnityGymWrapper(gym.Env):
     def _step(self, action):
         brain_info = self.env.step(action)[self.brain_name]
         state = brain_info.states[0]
-        human_obs  = brain_info.observations[0]
-        return state, brain_info.rewards[0], brain_info.local_done[0], {} #info
+        frames  = brain_info.observations[0][0] #brain, camera
+        return state, brain_info.rewards[0], brain_info.local_done[0], {'human_obs' : frames}
         """
         Returns:
             observation (object): agent's observation of the current environment

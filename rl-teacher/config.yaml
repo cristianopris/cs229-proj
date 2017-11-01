@@ -1,5 +1,5 @@
-name: 'mnist_mlp'
-description: 'Keras mnist_mlp example'
+name: 'balls'
+description: 'balls'
 setup_command: 'bash setup.sh'
 command: 'python'
 permissions:

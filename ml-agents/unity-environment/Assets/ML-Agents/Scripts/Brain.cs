@@ -208,7 +208,7 @@ public class Brain : MonoBehaviour
             result.Add(idAgent.Key, observations);
         }
 
-		Debug.Log ("Observations: " + result);
+		//Debug.Log ("Observations: " + result);
 
         return result;
 

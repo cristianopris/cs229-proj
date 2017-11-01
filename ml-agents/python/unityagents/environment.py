@@ -131,6 +131,7 @@ class UnityEnvironment(object):
     def brain_names(self):
         return self._brain_names
 
+
     @staticmethod
     def _process_pixels(image_bytes=None, bw=False):
         """
@@ -140,7 +141,9 @@ class UnityEnvironment(object):
         """
         s = bytearray(image_bytes)
         image = Image.open(io.BytesIO(s))
-        s = np.array(image) / 255.0
+        image = image.convert('RGB')
+        #image.rotate(180)
+        s = np.array(image) # / 255.0
         if bw:
             s = np.mean(s, axis=2)
             s = np.reshape(s, [s.shape[0], s.shape[1], 1])
