@@ -50,9 +50,12 @@ def traj_segment_generator(pi, env, steps_per_batch, stochastic, predictor=None)
             ################################
             if predictor:
                 path["original_rewards"] = path["rew"]
+                logger.log('Predicting reward...')
                 path["rew"] = predictor.predict_reward(path)
+                logger.log('Predictor path callback...')
                 for ep_path in split_path_by_episode(path):
                     predictor.path_callback(ep_path)
+                logger.log('Done reward modification')
             ################################
             #   END REWARD MODIFICATIONS   #
             ################################
@@ -119,7 +122,8 @@ def learn(env, policy_func, *,
         callback=None,  # you can do anything in the callback, since it takes locals(), globals()
         schedule='constant',  # annealing for stepsize parameters (epsilon and adam)
         predictor=None,
-        env_name = "env"
+        env_name = "env",
+        load_checkpoint = False
 ):
     # Setup losses and stuff
     # ----------------------------------------
@@ -164,8 +168,15 @@ def learn(env, policy_func, *,
         for (oldv, newv) in zipsame(oldpi.get_variables(), pi.get_variables())])
     compute_losses = U.function([ob, ac, atarg, ret, lrmult], losses)
 
-    U.initialize()
+    saver = tf.train.Saver()
+
+    if (load_checkpoint):
+        load_model(U.get_session(), saver, name=env_name, checkpoint_subdir=load_checkpoint)
+    else:
+        U.initialize()
     adam.sync()
+
+    summaryWriter = tf.summary.FileWriter('summaries', U.get_session().graph)
 
     # Prepare for rollouts
     # ----------------------------------------
@@ -181,9 +192,9 @@ def learn(env, policy_func, *,
     assert sum([max_iters > 0, max_timesteps > 0, max_episodes > 0,
         max_seconds > 0]) == 1, "Only one time constraint permitted"
 
-    saver = tf.train.Saver()
 
-    summaryWriter = tf.summary.FileWriter('summaries', U.get_session().graph)
+
+
 
     while True:
         if callback: callback(locals(), globals())
@@ -207,7 +218,10 @@ def learn(env, policy_func, *,
 
         logger.log("********** Iteration %i ************" % iters_so_far)
 
+        logger.log("Generating segments...")
         seg = seg_gen.__next__()
+        logger.log("Done generating segments")
+
         add_vtarg_and_adv(seg, gamma, lam)
 
         # ob, ac, atarg, ret, td1ret = map(np.concatenate, (obs, acs, atargs, rets, td1rets))
@@ -264,6 +278,14 @@ def learn(env, policy_func, *,
 def flatten_lists(listoflists):
     return [el for list_ in listoflists for el in list_]
 
+
+def load_model(sess, saver, name, checkpoint_subdir):
+    dir = name + '_model' + "/"+ checkpoint_subdir
+    #checkpoint_file = dir + '/session-' + str(steps) + '.checkpoint'
+    #print('Loading model from: ' + checkpoint_file)
+    ckpt = tf.train.get_checkpoint_state(dir)
+    saver.restore(sess, ckpt.model_checkpoint_path)
+    print('Done loading model...')
 
 def export_model(sess, saver, name, model, target_nodes, steps):
     import os

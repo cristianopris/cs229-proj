@@ -64,8 +64,10 @@ def main():
     experiment_name = slugify(args.name + '_' + str(datetime.datetime.now()))
 
     if args.predictor == "rl":
+        print('Running with intrinsic rewards')
         predictor = TraditionalRLRewardPredictor(summary_writer)
     else:
+        print('Running with reward predictor:' + args.predictor)
         agent_logger = AgentLogger(summary_writer)
 
         pretrain_labels = args.pretrain_labels if args.pretrain_labels else args.n_labels // 4
@@ -151,7 +153,13 @@ def main():
         train_unity_ppo(env_name=env_name, predictor=predictor)
     elif args.agent == "unity-pposgd-mpi":
         env_name = env_id[6:] if env_id.startswith('unity-') else env_id # remove unity- prefix
-        train_unity_pposgd_mpi(env_name=env_name, make_env=make_env, num_timesteps=num_timesteps, seed=args.seed, predictor=predictor)
+        train_unity_pposgd_mpi(env_name=env_name,
+                               make_env=make_env,
+                               num_timesteps=num_timesteps,
+                               seed=args.seed,
+                               predictor=predictor,
+                               load_checkpoint=False #'pretrain'
+                               )
     else:
         raise ValueError("%s is not a valid choice for args.agent" % args.agent)
 

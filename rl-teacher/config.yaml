@@ -16,10 +16,10 @@ environment_variables:
 resources:
   cluster: simcloud-mr2.apple.com
   image: 'ubuntu16.04-cuda8.0-v3'
-  num_cpus: 1
+  num_cpus: 4
   num_gpus: 1
   memory_gb: 15 
   disk_gb: 4
-  timeout: 1 hour
+  timeout: 12 hour
   ports: ["JUPYTER_PORT"]
   ports: ["TENSORBOARD_PORT"]

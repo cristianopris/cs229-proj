@@ -39,13 +39,13 @@ public class Ball3DAgent : Agent
 	void OnCollisionEnter(Collision collisionInfo)
 	{
 //		print("Detected collision between " + gameObject.name + " and " + collisionInfo.collider.name);
-//		//print("There are " + collisionInfo.contacts.Length + " point(s) of contacts");
+//		print("There are " + collisionInfo.contacts.Length + " point(s) of contacts");
 		print("Collision velocity: " + collisionInfo.relativeVelocity);
 		lastCollision = collisionInfo;
 
 
 		// how much the character should be knocked back
-		var magnitude =  collisionInfo.relativeVelocity.magnitude * - 10; //5000;
+		var magnitude =  collisionInfo.relativeVelocity.magnitude * - 10;
 
 		// calculate force vector
 		var force = transform.position - collisionInfo.transform.position;
@@ -151,8 +151,10 @@ public class Ball3DAgent : Agent
         gameObject.transform.Rotate(new Vector3(1, 0, 0), Random.Range(-10f, 10f));
         gameObject.transform.Rotate(new Vector3(0, 0, 1), Random.Range(-10f, 10f));
         ball.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
-        ball.transform.position = new Vector3(Random.Range(-1.5f, 1.5f), 4f, Random.Range(-1.5f, 1.5f)) + gameObject.transform.position;
-    }
+        //ball.transform.position = new Vector3(Random.Range(-1.5f, 1.5f), 4f, Random.Range(-1.5f, 1.5f)) + gameObject.transform.position;
+		ball.transform.position = new Vector3(Random.Range(-2f, 2f), 4f, Random.Range(-2f, 2f)) + gameObject.transform.position;
+
+	}
 
 	float sigmoid(float x, float c, float a) {
 		return 1f/(1f + Mathf.Exp(-a*(x-c)));

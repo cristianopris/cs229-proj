@@ -119,7 +119,7 @@ def make_unity_env(env_id):
 
 class UnityGymWrapper(gym.Env):
 
-    def __init__(self, file_name, worker_id=os.getpid(),
+    def __init__(self, file_name, worker_id= (os.getpid() % 13),
                  base_port=5005):
         self.env = UnityEnvironment(file_name, worker_id=worker_id, base_port=base_port)
         self.brain_name = self.env.brain_names[0]
@@ -142,7 +142,11 @@ class UnityGymWrapper(gym.Env):
     def _step(self, action):
         brain_info = self.env.step(action)[self.brain_name]
         state = brain_info.states[0]
+
+        frames = None
+        #if (brain_info.observations):
         frames  = brain_info.observations[0][0] #brain, camera
+
         return state, brain_info.rewards[0], brain_info.local_done[0], {'human_obs' : frames}
         """
         Returns:
@@ -163,7 +167,7 @@ class UnityGymWrapper(gym.Env):
     def _seed(self, seed=None): return []
 
 
-def train_unity_pposgd_mpi(env_name, make_env, num_timesteps, seed, predictor=None):
+def train_unity_pposgd_mpi(env_name, make_env, num_timesteps, seed, predictor=None, load_checkpoint=False):
     from pposgd_mpi import mlp_policy
     from pposgd_mpi import pposgd_simple
     from pposgd_mpi import bench
@@ -187,11 +191,12 @@ def train_unity_pposgd_mpi(env_name, make_env, num_timesteps, seed, predictor=No
     gym.logger.setLevel(logging.WARN)
     pposgd_simple.learn(env, policy_fn,
         max_timesteps=num_timesteps,
-        timesteps_per_batch=2048*8,
+        timesteps_per_batch=128*8,
         clip_param=0.2, entcoeff=0.0,
         optim_epochs=10, optim_stepsize=3e-4, optim_batchsize=64,
         gamma=0.99, lam=0.95,
         predictor=predictor,
         env_name=env_name,
+        load_checkpoint=load_checkpoint
         )
     env.close()

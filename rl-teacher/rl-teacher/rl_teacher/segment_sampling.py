@@ -77,7 +77,7 @@ def basic_segments_from_rand_rollout(
 
         tries.append(path)
         if _verbose and len(tries) % 50 == 0:
-            print("Paths tried: %d , avg path length: %d" % (len(tries), sum(tries) / len(tries)))
+            print("Paths tried: %d , avg path length: %d" % (len(tries), sum([ len(p) for p in tries ]) / len(tries)))
 
         # Calculate the number of segments to sample from the path
         # Such that the probability of sampling the same part twice is fairly low.
