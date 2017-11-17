@@ -166,6 +166,7 @@ public class Brain : MonoBehaviour
     {
         UpdateCoreBrains();
         coreBrain.InitializeCoreBrain();
+		Debug.Log ("Agents: " + agents);
 
     }
 
@@ -441,28 +442,25 @@ public class Brain : MonoBehaviour
             int i = 0;
             foreach (int k in agent_keys)
             {
-                Camera agent_obs = observations[k][obs_number];
-                Texture2D tex = ObservationToTex(agent_obs, width, height);
-                for (int w = 0; w < width; w++)
-                {
-                    for (int h = 0; h < height; h++)
-                    {
-                        Color c = tex.GetPixel(w, h);
-                        if (!bw)
-                        {
-                            observation_matrix[i, tex.height - h - 1, w, 0] = c.r;
-                            observation_matrix[i, tex.height - h - 1, w, 1] = c.g;
-                            observation_matrix[i, tex.height - h - 1, w, 2] = c.b;
-                        }
-                        else
-                        {
-                            observation_matrix[i, tex.height - h - 1, w, 0] = (c.r + c.g + c.b) / 3;
-                        }
-                    }
-                }
-                UnityEngine.Object.DestroyImmediate(tex);
-                Resources.UnloadUnusedAssets();
-                i++;
+				if (observations.ContainsKey(k)) {
+					Camera agent_obs = observations [k] [obs_number];
+					Texture2D tex = ObservationToTex (agent_obs, width, height);
+					for (int w = 0; w < width; w++) {
+						for (int h = 0; h < height; h++) {
+							Color c = tex.GetPixel (w, h);
+							if (!bw) {
+								observation_matrix [i, tex.height - h - 1, w, 0] = c.r;
+								observation_matrix [i, tex.height - h - 1, w, 1] = c.g;
+								observation_matrix [i, tex.height - h - 1, w, 2] = c.b;
+							} else {
+								observation_matrix [i, tex.height - h - 1, w, 0] = (c.r + c.g + c.b) / 3;
+							}
+						}
+					}
+					UnityEngine.Object.DestroyImmediate (tex);
+					Resources.UnloadUnusedAssets ();
+					i++;
+				}
             }
             observation_matrix_list.Add(observation_matrix);
         }

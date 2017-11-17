@@ -1,6 +1,7 @@
 import time
 from collections import deque
 from copy import deepcopy
+from datetime import datetime
 
 import numpy as np
 import pposgd_mpi.common.tf_util as U
@@ -11,6 +12,7 @@ from pposgd_mpi.common import logger
 from pposgd_mpi.common.mpi_adam import MpiAdam
 from pposgd_mpi.common.mpi_moments import mpi_moments
 from tensorflow.python.tools import freeze_graph
+
 
 def traj_segment_generator(pi, env, steps_per_batch, stochastic, predictor=None):
     t = 0
@@ -123,8 +125,10 @@ def learn(env, policy_func, *,
         schedule='constant',  # annealing for stepsize parameters (epsilon and adam)
         predictor=None,
         env_name = "env",
-        load_checkpoint = False
+        load_checkpoint = False,
+        experiment_name=None
 ):
+
     # Setup losses and stuff
     # ----------------------------------------
     ob_space = env.observation_space
@@ -171,7 +175,7 @@ def learn(env, policy_func, *,
     saver = tf.train.Saver()
 
     if (load_checkpoint):
-        load_model(U.get_session(), saver, name=env_name, checkpoint_subdir=load_checkpoint)
+        load_model(U.get_session(), saver, env_name, checkpoint_subdir=load_checkpoint)
     else:
         U.initialize()
     adam.sync()
@@ -193,9 +197,6 @@ def learn(env, policy_func, *,
         max_seconds > 0]) == 1, "Only one time constraint permitted"
 
 
-
-
-
     while True:
         if callback: callback(locals(), globals())
         if max_timesteps and timesteps_so_far >= max_timesteps:
@@ -206,8 +207,8 @@ def learn(env, policy_func, *,
             break
         elif max_seconds and time.time() - tstart >= max_seconds:
             break
-        if (iters_so_far %  10 == 0 and iters_so_far >= 20):
-            export_model(U.get_session(), saver=saver, name=env_name , model=pi, target_nodes='pi/action', steps=timesteps_so_far)
+        if (iters_so_far %  10 == 0 and iters_so_far >= 10):
+            export_model(U.get_session(), saver=saver, env_name=env_name, experiment_name=experiment_name, model=pi, target_nodes='pi/action', steps=timesteps_so_far)
 
         if schedule == 'constant':
             cur_lrmult = 1.0
@@ -279,18 +280,20 @@ def flatten_lists(listoflists):
     return [el for list_ in listoflists for el in list_]
 
 
-def load_model(sess, saver, name, checkpoint_subdir):
-    dir = name + '_model' + "/"+ checkpoint_subdir
-    #checkpoint_file = dir + '/session-' + str(steps) + '.checkpoint'
+def load_model(sess, saver, env_name, checkpoint_subdir):
+    dir = env_name + '_model' + "/"+ checkpoint_subdir
+
     #print('Loading model from: ' + checkpoint_file)
     ckpt = tf.train.get_checkpoint_state(dir)
     saver.restore(sess, ckpt.model_checkpoint_path)
     print('Done loading model...')
 
-def export_model(sess, saver, name, model, target_nodes, steps):
+
+
+def export_model(sess, saver, env_name, experiment_name, model, target_nodes, steps):
     import os
 
-    dir = name + '_model'
+    dir = env_name + '_model' + '/' + (experiment_name if (experiment_name) else slugify(env_name + '_' + str(datetime.datetime.now())))
     os.makedirs(dir, exist_ok=True)
 
     checkpoint_file = dir + '/session-' + str(steps) + '.checkpoint'
@@ -308,7 +311,7 @@ def export_model(sess, saver, name, model, target_nodes, steps):
     :param target_nodes: Comma separated string of needed output nodes for embedded graph.
     """
     print("Exporting model...")
-    out_file_name = dir + '/' + name  + '_steps' + str(steps) + '.bytes'
+    out_file_name = dir + '/' + env_name  + '_steps_' + str(steps) + '.bytes'
     ckpt = tf.train.get_checkpoint_state(dir)
     freeze_graph.freeze_graph(input_graph=dir + '/' + model_protobuf_file,
                               input_binary=True,

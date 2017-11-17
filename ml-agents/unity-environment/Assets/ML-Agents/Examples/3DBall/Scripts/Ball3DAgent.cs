@@ -135,10 +135,11 @@ public class Ball3DAgent : Agent
 //			reward = -10f;
 //		}
 
-		//
-		if ((ball.transform.position.y - gameObject.transform.position.y) < -2f ||
-			Mathf.Abs (ball.transform.position.x - gameObject.transform.position.x) > 3f ||
-				Mathf.Abs (ball.transform.position.z - gameObject.transform.position.z) > 3f) {
+
+		if ((ball.transform.position.y - gameObject.transform.position.y) < -10f 
+			//|| Mathf.Abs (ball.transform.position.x - gameObject.transform.position.x) > 3f ||
+//				Mathf.Abs (ball.transform.position.z - gameObject.transform.position.z) > 3f
+		) {
 			done = true;
 			reward = -10f;
 		}

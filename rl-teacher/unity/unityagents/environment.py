@@ -211,11 +211,12 @@ class UnityEnvironment(object):
             state_dict = self._get_state_dict()
             b = state_dict["brain_name"]
             n_agent = len(state_dict["agents"])
+            s = np.array(state_dict["states"])
             try:
                 if self._brains[b].state_space_type == "continuous":
-                    states = np.array(state_dict["states"]).reshape((n_agent, self._brains[b].state_space_size))
+                    states = s.reshape((n_agent, self._brains[b].state_space_size))
                 else:
-                    states = np.array(state_dict["states"]).reshape((n_agent, 1))
+                    states = s.reshape((n_agent, 1))
             except UnityActionException:
                 raise UnityActionException("Brain {0} has an invalid state. "
                                            "Expecting {1} {2} state but received {3}."
@@ -231,8 +232,9 @@ class UnityEnvironment(object):
             observations = []
             for o in range(self._brains[b].number_observations):
                 obs_n = []
-                for a in range(n_agent):
-                    obs_n.append(self._get_state_image(self._brains[b].camera_resolutions[o]['blackAndWhite']))
+                #HACK allow only one observation:
+                # for a in range(n_agent):
+                obs_n.append(self._get_state_image(self._brains[b].camera_resolutions[o]['blackAndWhite']))
 
                 observations.append(np.array(obs_n))
 

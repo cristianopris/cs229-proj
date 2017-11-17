@@ -108,6 +108,7 @@ public abstract class Academy : MonoBehaviour
 
     void Awake()
     {
+		Debug.Log ("Brains: " + brains);
         resetParameters = new Dictionary<string, float>();
         foreach (ResetParameter kv in defaultResetParameters)
         {

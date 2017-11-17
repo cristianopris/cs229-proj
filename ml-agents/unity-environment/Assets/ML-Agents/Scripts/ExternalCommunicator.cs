@@ -39,6 +39,7 @@ public class ExternalCommunicator : Communicator
         public List<float> actions { get; set; }
         public List<float> memories { get; set; }
         public List<bool> dones { get; set; }
+		//me: public List<int> noObservations;
     }
 
     private class AgentMessage
@@ -234,8 +235,10 @@ public class ExternalCommunicator : Communicator
         {
             foreach (int id in current_agents[brainName])
             {
-                sender.Send(TexToByteArray(brain.ObservationToTex(collectedObservations[id][i], res.width, res.height)));
-                Receive();
+				if (collectedObservations.ContainsKey(id)) {  //me:
+					sender.Send(TexToByteArray(brain.ObservationToTex(collectedObservations[id][i], res.width, res.height)));
+					Receive();
+				}
             }
             i++;
         }

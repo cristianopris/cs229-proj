@@ -91,7 +91,7 @@ class HumanComparisonCollector():
         # for i in range(int(self.fps * 0.2)):
         #     frames.append(frames[-1])
 
-        export_video(frames, local_path, fps=self.fps/10)
+        export_video(frames, local_path, fps=self.fps)
         return media_url
 
 

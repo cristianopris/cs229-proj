@@ -128,20 +128,21 @@ class UnityGymWrapper(gym.Env):
         self.fps = 240
         self._max_episode_steps = 100000
 
-        self.action_space = Box(np.array([-10.0 , -10.0]), np.array([10.0 , 10.0]))
+        self.action_space = Box(np.tile([-10.0 , -10.0], 2), np.tile([10.0 , 10.0], 2))
 
         #state space:
         # platform rotation (z, x)
         # relative ball position (x , y, z) /5f
         # ball velocity (x, y, z) /5f
-        self.observation_space = Box(np.array([-1. , -1. , -1. , -1. , -1. , -2., -2., -2.])
-                                    ,np.array([ 1. ,  1. ,  1. ,   1.,    1.,    2.,   2. ,  2. ]))
+        box_low =  np.array([-1., -1.,  -1., -1., -1.,  -2.,  -2. , -2. ])
+        box_high = np.array([ 1. , 1.,   1.,  1.,  1.,   2.,   2. ,  2. ])
+        self.observation_space = Box(np.tile(box_low, 2), np.tile(box_high, 2))
 
         print('UnityGymWrapper: created env: ', self.env)
 
     def _step(self, action):
         brain_info = self.env.step(action)[self.brain_name]
-        state = brain_info.states[0]
+        state = brain_info.states.reshape(16)
 
         frames = None
         #if (brain_info.observations):
@@ -159,7 +160,7 @@ class UnityGymWrapper(gym.Env):
 
     def _reset(self):
         brain_info = self.env.reset()[self.brain_name]
-        state = brain_info.states[0]
+        state = brain_info.states.reshape(16)
         return state
 
     def _render(self, mode='human', close=False): return
@@ -167,7 +168,7 @@ class UnityGymWrapper(gym.Env):
     def _seed(self, seed=None): return []
 
 
-def train_unity_pposgd_mpi(env_name, make_env, num_timesteps, seed, predictor=None, load_checkpoint=False):
+def train_unity_pposgd_mpi(env_name, make_env, num_timesteps, seed, experiment_name, predictor=None, load_checkpoint=False):
     from pposgd_mpi import mlp_policy
     from pposgd_mpi import pposgd_simple
     from pposgd_mpi import bench
@@ -197,6 +198,7 @@ def train_unity_pposgd_mpi(env_name, make_env, num_timesteps, seed, predictor=No
         gamma=0.99, lam=0.95,
         predictor=predictor,
         env_name=env_name,
-        load_checkpoint=load_checkpoint
+        load_checkpoint=load_checkpoint,
+        experiment_name=experiment_name
         )
     env.close()

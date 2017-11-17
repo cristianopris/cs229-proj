@@ -88,7 +88,7 @@ def main():
         elif args.predictor == "human":
             #bucket = os.environ.get('RL_TEACHER_GCS_BUCKET')
             #assert bucket and bucket.startswith("gs://"), "env variable RL_TEACHER_GCS_BUCKET must start with gs://"
-            comparison_collector = HumanComparisonCollector(env_id, fps = env.fps, experiment_name=experiment_name)
+            comparison_collector = HumanComparisonCollector(env_id, fps = frames_per_segment/1.5, experiment_name=experiment_name)
         else:
             raise ValueError("Bad value for --predictor: %s" % args.predictor)
 
@@ -125,8 +125,8 @@ def main():
                 print("%s/%s predictor pretraining iters... " % (i, args.pretrain_iters))
 
     # Wrap the predictor to capture videos every so often:
-    if not args.no_videos:
-        predictor = SegmentVideoRecorder(predictor, env, save_dir=osp.join('/tmp/rl_teacher_vids', run_name))
+    # if not args.no_videos:
+    #     predictor = SegmentVideoRecorder(predictor, env, save_dir=osp.join('/tmp/rl_teacher_vids', run_name))
 
     # We use a vanilla agent from openai/baselines that contains a single change that blinds it to the true reward
     # The single changed section is in `rl_teacher/agent/trpo/core.py`
@@ -157,8 +157,9 @@ def main():
                                make_env=make_env,
                                num_timesteps=num_timesteps,
                                seed=args.seed,
+                               experiment_name=experiment_name,
                                predictor=predictor,
-                               load_checkpoint=False #'pretrain'
+                               load_checkpoint=False #'pretrain',
                                )
     else:
         raise ValueError("%s is not a valid choice for args.agent" % args.agent)
