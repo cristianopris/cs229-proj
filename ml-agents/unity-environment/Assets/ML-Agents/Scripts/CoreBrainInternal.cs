@@ -60,7 +60,7 @@ public class CoreBrainInternal : ScriptableObject, CoreBrain
     bool hasBatchSize;
     List<int> agentKeys;
     int currentBatchSize;
-    float[,] inputState;
+	float[,] inputState;
     List<float[,,,]> observationMatrixList;
     float[,] inputOldMemories;
     #endif
@@ -122,7 +122,8 @@ public class CoreBrainInternal : ScriptableObject, CoreBrain
 #if ENABLE_TENSORFLOW
         agentKeys = new List<int>(brain.agents.Keys);
         currentBatchSize = brain.agents.Count;
-        if (currentBatchSize == 0)
+
+		if (currentBatchSize == 0)
         {
             return;
         }
@@ -131,19 +132,52 @@ public class CoreBrainInternal : ScriptableObject, CoreBrain
         // Create the state tensor
         if (hasState)
         {
-            Dictionary<int, List<float>> states = brain.CollectStates();
-            inputState = new float[currentBatchSize, brain.brainParameters.stateSize];
-            int i = 0;
-            foreach (int k in agentKeys)
-            {
-                List<float> state_list = states[k];
-                for (int j = 0; j < brain.brainParameters.stateSize; j++)
-                {
+            
+//			Dictionary<int, List<float>> states = brain.CollectStates();
+//            inputState = new float[currentBatchSize, brain.brainParameters.stateSize];
+//            int i = 0;
+//            foreach (int k in agentKeys)
+//            {
+//                List<float> state_list = states[k];
+//                for (int j = 0; j < brain.brainParameters.stateSize; j++)
+//                {
+//
+//                    inputState[i, j] = state_list[j];
+//                }
+//                i++;
+//            }
 
-                    inputState[i, j] = state_list[j];
-                }
-                i++;
-            }
+
+			inputState = new float[brain.agents.Count, brain.brainParameters.stateSize];
+			Dictionary<int, List<float>> states = brain.CollectStates();
+
+
+//			int i = 0;
+//			foreach (int agentK in agentKeys)
+//			{
+//				List<float> agent_states = states[agentK];
+//				for (int j = 0; j < agent_states.Count; j++)
+//				{
+//					inputState[i, j] = agent_states[j];
+//				}
+//				i++;
+//			}
+
+			inputState = new float[1, brain.agents.Count * brain.brainParameters.stateSize];
+
+			int i = 0;
+			foreach (int agentK in agentKeys)
+			{
+				List<float> agent_state = states[agentK];
+				for (int j = 0; j < agent_state.Count; j++)
+				{
+					inputState[0, i * brain.brainParameters.stateSize + j] = agent_state[j];
+				}
+				i++;
+			}
+
+			//Debug.Log("inputState: " + inputState);
+
         }
 
 
@@ -284,13 +318,14 @@ public class CoreBrainInternal : ScriptableObject, CoreBrain
         if (brain.brainParameters.actionSpaceType == StateType.continuous)
         {
             float[,] output = networkOutput[0].GetValue() as float[,];
-            int i = 0;
+            
+			int i = 0;
             foreach (int k in agentKeys)
             {
                 float[] a = new float[brain.brainParameters.actionSize];
                 for (int j = 0; j < brain.brainParameters.actionSize; j++)
                 {
-                    a[j] = output[i, j];
+					a[j] = output[0, i * brain.brainParameters.actionSize + j];
                 }
                 actions.Add(k, a);
                 i++;

@@ -14,7 +14,7 @@ public interface CoreBrain
     void InitializeCoreBrain();
     /// Implement this method to define the logic for deciding actions
     void DecideAction();
-    /// Implement this method to define the logic for sending the actions
+    /// Implement this method to define the logic for sending the state
     void SendState();
     /// Implement this method to define what should be displayed in the brain Inspector
     void OnInspector();

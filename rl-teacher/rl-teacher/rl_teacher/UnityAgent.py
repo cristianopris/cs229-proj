@@ -123,27 +123,32 @@ class UnityGymWrapper(gym.Env):
                  base_port=5005):
         self.env = UnityEnvironment(file_name, worker_id=worker_id, base_port=base_port)
         self.brain_name = self.env.brain_names[0]
-        self.spec = False
+        self.brain = self.env.brains[self.brain_name]
+#        self.spec = False
 
         self.fps = 240
-        self._max_episode_steps = 100000
+        self._max_episode_steps = 50
+        n_agents = 2
 
-        self.action_space = Box(np.tile([-10.0 , -10.0], 2), np.tile([10.0 , 10.0], 2))
+        self.action_space = Box(np.tile([-2.0 , -2.0], n_agents), np.tile([2.0 , 2.0], n_agents))
 
         #state space:
         # platform rotation (z, x)
         # relative ball position (x , y, z) /5f
         # ball velocity (x, y, z) /5f
-        box_low =  np.array([-1., -1.,  -1., -1., -1.,  -2.,  -2. , -2. ])
-        box_high = np.array([ 1. , 1.,   1.,  1.,  1.,   2.,   2. ,  2. ])
-        self.observation_space = Box(np.tile(box_low, 2), np.tile(box_high, 2))
+        box_low =  np.array([-1., -1.,  -3., -3., -3.,  -2.,  -2. , -2. ])
+        box_high = np.array([ 1. , 1.,   3.,  3.,  3.,   2.,   2. ,  2. ])
+        self.observation_space = Box(np.tile(box_low, n_agents), np.tile(box_high, n_agents))
 
         print('UnityGymWrapper: created env: ', self.env)
 
     def _step(self, action):
         brain_info = self.env.step(action)[self.brain_name]
-        state = brain_info.states.reshape(16)
+        n_agents = len(brain_info.agents)
+        state = brain_info.states.reshape(8 * n_agents)
 
+        #print('state:', state)
+        #print('action:', action)
         frames = None
         #if (brain_info.observations):
         frames  = brain_info.observations[0][0] #brain, camera
@@ -160,7 +165,8 @@ class UnityGymWrapper(gym.Env):
 
     def _reset(self):
         brain_info = self.env.reset()[self.brain_name]
-        state = brain_info.states.reshape(16)
+        n_agents = len(brain_info.agents)
+        state = brain_info.states.reshape(8 * n_agents)
         return state
 
     def _render(self, mode='human', close=False): return
@@ -192,7 +198,7 @@ def train_unity_pposgd_mpi(env_name, make_env, num_timesteps, seed, experiment_n
     gym.logger.setLevel(logging.WARN)
     pposgd_simple.learn(env, policy_fn,
         max_timesteps=num_timesteps,
-        timesteps_per_batch=128*8,
+        timesteps_per_batch=512*10,
         clip_param=0.2, entcoeff=0.0,
         optim_epochs=10, optim_stepsize=3e-4, optim_batchsize=64,
         gamma=0.99, lam=0.95,

@@ -209,6 +209,7 @@ public abstract class Agent : MonoBehaviour
         AgentStep(agentStoredAction);
         stepCounter += 1;
         CummulativeReward += reward;
+		//Debug.Log ("CummulativeReward:" + CummulativeReward);
         if ((stepCounter > maxStep) && (maxStep > 0))
         {
             done = true;

@@ -60,7 +60,7 @@ public class Ball3DAgent : Agent
     // to be implemented by the developer
     public override void AgentStep(float[] act)
 	{
-
+		reward = 0;
 		if (brain.brainParameters.actionSpaceType == StateType.continuous) {
 
 			float clip = 10f; //2f;
@@ -94,38 +94,38 @@ public class Ball3DAgent : Agent
 		
 			if (done == false) {
 				if (lastCollision != null) {
-						float relVel = -lastCollision.relativeVelocity.y;
-						//reward = sigmoid (-8f + 2.4f * relVel, 0, 1); // linear fit to [-6;6] range
+					float relVel = -lastCollision.relativeVelocity.y;
+					//reward = sigmoid (-8f + 2.4f * relVel, 0, 1); // linear fit to [-6;6] range
 //						if (relVel < 3.5)
 //							reward = -1f;
 //						else 
 //							reward = +1f;	
-						reward = 1f;
-						Debug.Log ("Reward: " + reward);
-						lastCollision = null;
+					reward = 0.1f;
+					Debug.Log ("Reward: " + reward);
+					lastCollision = null;
 				}
 			}
 		} else {
-			int action = (int)act [0];
-			if (action == 0 || action == 1) {
-				action = (action * 2) - 1;
-				float changeValue = action * 2f;
-				if ((gameObject.transform.rotation.z < 0.25f && changeValue > 0f) ||
-				                (gameObject.transform.rotation.z > -0.25f && changeValue < 0f)) {
-					gameObject.transform.Rotate (new Vector3 (0, 0, 1), changeValue);
-				}
-			}
-			if (action == 2 || action == 3) {
-				action = ((action - 2) * 2) - 1;
-				float changeValue = action * 2f;
-				if ((gameObject.transform.rotation.x < 0.25f && changeValue > 0f) ||
-				                (gameObject.transform.rotation.x > -0.25f && changeValue < 0f)) {
-					gameObject.transform.Rotate (new Vector3 (1, 0, 0), changeValue);
-				}
-			}
-			if (done == false) {
-				reward = 0.1f;
-			}
+//			int action = (int)act [0];
+//			if (action == 0 || action == 1) {
+//				action = (action * 2) - 1;
+//				float changeValue = action * 2f;
+//				if ((gameObject.transform.rotation.z < 0.25f && changeValue > 0f) ||
+//				                (gameObject.transform.rotation.z > -0.25f && changeValue < 0f)) {
+//					gameObject.transform.Rotate (new Vector3 (0, 0, 1), changeValue);
+//				}
+//			}
+//			if (action == 2 || action == 3) {
+//				action = ((action - 2) * 2) - 1;
+//				float changeValue = action * 2f;
+//				if ((gameObject.transform.rotation.x < 0.25f && changeValue > 0f) ||
+//				                (gameObject.transform.rotation.x > -0.25f && changeValue < 0f)) {
+//					gameObject.transform.Rotate (new Vector3 (1, 0, 0), changeValue);
+//				}
+//			}
+//			if (done == false) {
+//				reward = 0.1f;
+//			}
 		}
 
 //		float ballDistance = ball.transform.position.y - gameObject.transform.position.y;
@@ -137,11 +137,11 @@ public class Ball3DAgent : Agent
 
 
 		if ((ball.transform.position.y - gameObject.transform.position.y) < -10f 
-			//|| Mathf.Abs (ball.transform.position.x - gameObject.transform.position.x) > 3f ||
+//			|| Mathf.Abs (ball.transform.position.x - gameObject.transform.position.x) > 3f ||
 //				Mathf.Abs (ball.transform.position.z - gameObject.transform.position.z) > 3f
 		) {
 			done = true;
-			reward = -10f;
+			reward = -1f;
 		}
     }
 
