@@ -45,10 +45,10 @@ def main():
 
     print("Setting things up...")
 
-    env_id = args.env_id
-    run_name = "%s/%s-%s" % (env_id, args.name, int(time()))
-    summary_writer = make_summary_writer(run_name)
 
+    env_id = args.env_id
+    experiment_name = slugify(args.name + '_' + str(datetime.datetime.now()))
+    summary_writer = make_summary_writer(env_id + '_' + experiment_name)
 
     make_env = None
     env = None
@@ -59,9 +59,9 @@ def main():
     else:
         env = make_with_torque_removed(env_id)
 
-    frames_per_segment = 12
+    frames_per_segment = 14
     num_timesteps = int(args.num_timesteps)
-    experiment_name = slugify(args.name + '_' + str(datetime.datetime.now()))
+
 
     if args.predictor == "rl":
         print('Running with intrinsic rewards')
@@ -100,7 +100,7 @@ def main():
             comparison_collector.add_segment_pair(pretrain_segments[i], pretrain_segments[i + pretrain_labels])
 
         # Sleep until the human has labeled most of the pretraining comparisons
-        while len(comparison_collector.labeled_comparisons) < int(pretrain_labels * 0.75):
+        while len(comparison_collector.labeled_comparisons) < int(pretrain_labels): # * 0.75):
             comparison_collector.label_unlabeled_comparisons()
             if args.predictor == "synth":
                 print("%s synthetic labels generated... " % (len(comparison_collector.labeled_comparisons)))
@@ -125,12 +125,12 @@ def main():
                 print("%s/%s predictor pretraining iters... " % (i, args.pretrain_iters))
 
     # Wrap the predictor to capture videos every so often:
-    # if not args.no_videos:
-    #     predictor = SegmentVideoRecorder(predictor, env, save_dir=osp.join('/tmp/rl_teacher_vids', run_name))
+    if not args.no_videos:
+        predictor = SegmentVideoRecorder(predictor, env, save_dir=osp.join('rl_teacher_vids', experiment_name))
 
     # We use a vanilla agent from openai/baselines that contains a single change that blinds it to the true reward
     # The single changed section is in `rl_teacher/agent/trpo/core.py`
-    print("Starting joint training of predictor and agent")
+#    print("Starting joint training of predictor and agent")
     if args.agent == "parallel_trpo":
         train_parallel_trpo(
             env_id=env_id,
@@ -159,17 +159,11 @@ def main():
                                seed=args.seed,
                                experiment_name=experiment_name,
                                predictor=predictor,
-                               load_checkpoint=False #'pretrain',
+                               load_checkpoint= 'two_paddle_synth_2017-11-19-212918990174/255974'
                                )
     else:
         raise ValueError("%s is not a valid choice for args.agent" % args.agent)
 
 if __name__ == '__main__':
     main()
-#     while True:
-#         try:
-#             main()
-#         except:
-#             traceback.print_exc()
-# #            pass
 

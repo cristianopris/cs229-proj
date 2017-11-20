@@ -54,6 +54,7 @@ class ComparisonRewardPredictor():
         self._n_timesteps_per_predictor_training = 1e2  # How often should we train our predictor?
         self._elapsed_predictor_training_iters = 0
 
+
         # Build and initialize our predictor model
         config = tf.ConfigProto(
             device_count={'GPU': 0}
@@ -141,7 +142,11 @@ class ComparisonRewardPredictor():
             })
         return q_value[0]
 
+    #called for every episode path
     def path_callback(self, path):
+        segments_used = 0
+        loss = -1
+
         path_length = len(path["obs"])
         self._steps_since_last_training += path_length
 
@@ -151,8 +156,9 @@ class ComparisonRewardPredictor():
         segment = sample_segment_from_path(path, int(self._frames_per_segment))
         if segment:
             self.recent_segments.append(segment)
+            segments_used += 1
         else:
-            print("Predictor.path_callback: Path too short: %d " % path_length)
+            #print("Predictor.path_callback: Path too short: %d " % path_length)
             return
 
         # If we need more comparisons, then we build them from our recent segments
@@ -163,14 +169,22 @@ class ComparisonRewardPredictor():
 
         # Train our predictor every X steps
         if self._steps_since_last_training >= int(self._n_timesteps_per_predictor_training):
-            self.train_predictor()
+            #print('Training predictor: steps_since_last_training = %d, recent_segments = %d' % (self._steps_since_last_training, len(self.recent_segments)))
+            loss = self.train_predictor()
+            #print("Predictor loss:", loss)
             self._steps_since_last_training -= self._steps_since_last_training
+        return {'segments_used' : segments_used, 'loss' : loss}
 
     def train_predictor(self):
+
         self.comparison_collector.label_unlabeled_comparisons()
 
         minibatch_size = min(64, len(self.comparison_collector.labeled_decisive_comparisons))
         labeled_comparisons = random.sample(self.comparison_collector.labeled_decisive_comparisons, minibatch_size)
+        if (len(labeled_comparisons) == 0):
+            #print('Cannot train predictor: no labeled comparisons available')
+            return -1
+
         left_obs = np.asarray([comp['left']['obs'] for comp in labeled_comparisons])
         left_acts = np.asarray([comp['left']['actions'] for comp in labeled_comparisons])
         right_obs = np.asarray([comp['right']['obs'] for comp in labeled_comparisons])
@@ -188,6 +202,7 @@ class ComparisonRewardPredictor():
             })
             self._elapsed_predictor_training_iters += 1
             self._write_training_summaries(loss)
+        return loss
 
     def _write_training_summaries(self, loss):
         self.agent_logger.log_simple("predictor/loss", loss)

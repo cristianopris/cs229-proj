@@ -70,7 +70,7 @@ public abstract class Agent : MonoBehaviour
     /**< \brief Do not modify directly: This is used by the brain to store 
      * information about the previous states of the agent*/
 
-    [HideInInspector]
+    //[HideInInspector]
     public int id;
     /**< \brief Do not modify : This is the unique Identifier each agent 
      * receives at initialization. It is used by the brain to identify
@@ -78,7 +78,7 @@ public abstract class Agent : MonoBehaviour
 
     void OnEnable()
     {
-        id = gameObject.GetInstanceID();
+        //id = gameObject.GetInstanceID();
         if (brain != null)
         {
             brain.agents.Add(id, gameObject.GetComponent<Agent>());

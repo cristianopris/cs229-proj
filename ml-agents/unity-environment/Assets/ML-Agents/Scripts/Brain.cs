@@ -92,7 +92,7 @@ public class Brain : MonoBehaviour
     /**<  \brief Defines what is the type of the brain : 
      * External / Internal / Player / Heuristic*/
     [HideInInspector]
-    public Dictionary<int, Agent> agents = new Dictionary<int, Agent>();
+    public SortedDictionary<int, Agent> agents = new SortedDictionary<int, Agent>();
     /**<  \brief Keeps track of the agents which subscribe to this brain*/
 
     [SerializeField]

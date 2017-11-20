@@ -21,7 +21,7 @@ class SegmentVideoRecorder(object):
         if self._num_paths_seen % self.checkpoint_interval == 0:  # and self._num_paths_seen != 0:
             fname = '%s/run_%s_%s.mp4' % (self.save_dir, self._num_paths_seen, self._counter)
             print("Saving video of run %s_%s to %s" % (self._num_paths_seen, self._counter, fname))
-            write_segment_to_video(path, fname, self.env)
+            write_segment_to_video(path, fname)
         self._num_paths_seen += 1
 
         self.predictor.path_callback(path)
@@ -29,12 +29,11 @@ class SegmentVideoRecorder(object):
     def predict_reward(self, path):
         return self.predictor.predict_reward(path)
 
-def write_segment_to_video(segment, fname, env):
+def write_segment_to_video(segment, fname):
     os.makedirs(osp.dirname(fname), exist_ok=True)
-    frames = [env.render_full_obs(x) for x in segment["human_obs"]]
-    for i in range(int(env.fps * 0.2)):
-        frames.append(frames[-1])
-    export_video(frames, fname, fps=env.fps)
+    #frames = [env.render_full_obs(x) for x in segment["human_obs"]]
+    frames = [f for f in segment["human_obs"]]
+    export_video(frames, fname)
 
 def export_video(frames, fname, fps=10):
     assert "mp4" in fname, "Name requires .mp4 suffix"

@@ -41,6 +41,7 @@ def traj_segment_generator(pi, env, steps_per_batch, stochastic, predictor=None)
         # Slight weirdness here because we need value function at time T
         # before returning segment [0, T-1] so we get the correct
         # terminal value
+        # t = global timestep number. never reset.
         if t > 0 and t % steps_per_batch == 0:
             path = {"obs": obs, "rew": rews, "vpred": vpreds, "new": news,
                 "actions": acs, "prevac": prevacs, "nextvpred": vpred * (1 - new),
@@ -54,10 +55,12 @@ def traj_segment_generator(pi, env, steps_per_batch, stochastic, predictor=None)
                 path["original_rewards"] = path["rew"]
                 logger.log('Predicting reward...')
                 path["rew"] = predictor.predict_reward(path)
-                logger.log('Predictor path callback...')
+                last_callback = {}
                 for ep_path in split_path_by_episode(path):
-                    predictor.path_callback(ep_path)
-                logger.log('Done reward modification')
+                    last_callback = predictor.path_callback(ep_path)
+                    if (last_callback):
+                        print('Predictor callback info:', last_callback)
+                #logger.log('Done reward modification')
             ################################
             #   END REWARD MODIFICATIONS   #
             ################################
@@ -69,7 +72,7 @@ def traj_segment_generator(pi, env, steps_per_batch, stochastic, predictor=None)
             ep_rets = []
             ep_lens = []
 
-        i = t % steps_per_batch
+        i = t % steps_per_batch #step count in this batch
         obs[i] = ob
         human_obs[i] = info.get("human_obs")
         vpreds[i] = vpred
@@ -80,8 +83,8 @@ def traj_segment_generator(pi, env, steps_per_batch, stochastic, predictor=None)
         ob, rew, new, info = env.step(ac)
         rews[i] = rew
 
-        cur_ep_ret += rew
-        cur_ep_len += 1
+        cur_ep_ret += rew #episode reward (original)
+        cur_ep_len += 1   #episode length
         if new:
             ep_rets.append(cur_ep_ret)
             ep_lens.append(cur_ep_len)
@@ -172,7 +175,7 @@ def learn(env, policy_func, *,
         for (oldv, newv) in zipsame(oldpi.get_variables(), pi.get_variables())])
     compute_losses = U.function([ob, ac, atarg, ret, lrmult], losses)
 
-    saver = tf.train.Saver()
+    saver = tf.train.Saver(pi.get_variables())
 
     if (load_checkpoint):
         load_model(U.get_session(), saver, env_name, checkpoint_subdir=load_checkpoint)
@@ -314,7 +317,7 @@ def export_model(sess, saver, env_name, experiment_name, model, target_nodes, st
     :param target_nodes: Comma separated string of needed output nodes for embedded graph.
     """
     print("Exporting model...")
-    out_file_name = dir + '/'  + env_name + '_' + exp_name + '_' + '_steps_' + str(steps) + '.bytes'
+    out_file_name = dir + '/'  + env_name + '_' + exp_name +  '_' + str(steps) + '.bytes'
     ckpt = tf.train.get_checkpoint_state(dir)
     freeze_graph.freeze_graph(input_graph=dir + '/' + model_protobuf_file,
                               input_binary=True,
