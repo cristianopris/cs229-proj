@@ -47,7 +47,7 @@ def main():
 
 
     env_id = args.env_id
-    experiment_name = slugify(args.name + '_' + str(datetime.datetime.now()))
+    experiment_name = slugify(args.name + '_' + (str(datetime.datetime.now())[:16]))
     summary_writer = make_summary_writer(env_id + '_' + experiment_name)
 
     make_env = None
@@ -59,7 +59,7 @@ def main():
     else:
         env = make_with_torque_removed(env_id)
 
-    frames_per_segment = 14
+    frames_per_segment = 10
     num_timesteps = int(args.num_timesteps)
 
 
@@ -100,7 +100,7 @@ def main():
             comparison_collector.add_segment_pair(pretrain_segments[i], pretrain_segments[i + pretrain_labels])
 
         # Sleep until the human has labeled most of the pretraining comparisons
-        while len(comparison_collector.labeled_comparisons) < int(pretrain_labels): # * 0.75):
+        while len(comparison_collector.labeled_comparisons) < int(pretrain_labels * 0.75):
             comparison_collector.label_unlabeled_comparisons()
             if args.predictor == "synth":
                 print("%s synthetic labels generated... " % (len(comparison_collector.labeled_comparisons)))
@@ -159,8 +159,8 @@ def main():
                                seed=args.seed,
                                experiment_name=experiment_name,
                                predictor=predictor,
-                               load_checkpoint= 'two_paddle_synth_2017-11-19-212918990174/255974'
-                               )
+                               load_checkpoint= False
+                              )
     else:
         raise ValueError("%s is not a valid choice for args.agent" % args.agent)
 

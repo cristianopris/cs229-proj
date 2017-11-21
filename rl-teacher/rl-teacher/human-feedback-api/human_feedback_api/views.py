@@ -95,6 +95,7 @@ def show_comparison(request, comparison_id):
     return render(request, 'show_comparison.html', context={"comparison": comparison})
 
 def respond(request, experiment_name):
+    print('respond', request)
     comparisons = list(_all_comparisons(experiment_name)[:3])
     for comparison in comparisons:
         display_comparison(comparison)

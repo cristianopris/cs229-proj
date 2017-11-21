@@ -1,6 +1,5 @@
 venv
 *.pyc
-staticfiles
 .env
-db.sqlite3
+staticfiles
 MUJOCO_LOG.TXT

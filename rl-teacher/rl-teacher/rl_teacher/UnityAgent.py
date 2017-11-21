@@ -128,9 +128,9 @@ class UnityGymWrapper(gym.Env):
 
         self.fps = 240
         self._max_episode_steps = 50
-        n_agents = 2
+        n_agents = 1
 
-        self.action_space = Box(np.tile([-2.0 , -2.0], n_agents), np.tile([2.0 , 2.0], n_agents))
+        self.action_space = Box(np.tile([-15.0 , -15.0], n_agents), np.tile([15.0 , 15.0], n_agents))
 
         #state space:
         # platform rotation (z, x)
@@ -198,7 +198,7 @@ def train_unity_pposgd_mpi(env_name, make_env, num_timesteps, seed, experiment_n
     gym.logger.setLevel(logging.WARN)
     pposgd_simple.learn(env, policy_fn,
         max_timesteps=num_timesteps,
-        timesteps_per_batch=512*10,
+        timesteps_per_batch=128*10,
         clip_param=0.2, entcoeff=0.0,
         optim_epochs=10, optim_stepsize=3e-4, optim_batchsize=64,
         gamma=0.99, lam=0.95,

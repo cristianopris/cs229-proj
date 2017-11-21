@@ -169,7 +169,7 @@ public abstract class Agent : MonoBehaviour
     /// Defines agent-specific reset logic
     /** Must be implemented in agent-specific child class. 
 	 *  Is called when the academy is done.  
-	 *  Is called when the Agent is done if ResetOneDone is true.
+	 *  Is called when the Agent is done if ResetOnDone is true.
 	*/
     public virtual void AgentReset()
     {

@@ -44,9 +44,9 @@ def traj_segment_generator(pi, env, steps_per_batch, stochastic, predictor=None)
         # t = global timestep number. never reset.
         if t > 0 and t % steps_per_batch == 0:
             path = {"obs": obs, "rew": rews, "vpred": vpreds, "new": news,
-                "actions": acs, "prevac": prevacs, "nextvpred": vpred * (1 - new),
-                "ep_rets": ep_rets, "ep_lens": ep_lens, "human_obs": human_obs}
-            #logger.log('path: ' + str(path))
+                    "actions": acs, "prevac": prevacs, "nextvpred": vpred * (1 - new),
+                    "ep_rets": ep_rets, "ep_lens": ep_lens, "human_obs": human_obs}
+            # logger.log('path: ' + str(path))
 
             ################################
             #  START REWARD MODIFICATIONS  #
@@ -59,8 +59,10 @@ def traj_segment_generator(pi, env, steps_per_batch, stochastic, predictor=None)
                 for ep_path in split_path_by_episode(path):
                     last_callback = predictor.path_callback(ep_path)
                     if (last_callback):
-                        print('Predictor callback info:', last_callback)
-                #logger.log('Done reward modification')
+                        print('Predictor training info:', last_callback)
+                if (hasattr(predictor, 'stat_sampled_segments')):
+                    print("### Predictor segment stats: rejected : %d , sampled: %d , comparisons: %d" % (predictor.stat_rejected_segments, predictor.stat_sampled_segments, predictor.stat_total_comparisons))
+                    # logger.log('Done reward modification')
             ################################
             #   END REWARD MODIFICATIONS   #
             ################################
@@ -72,7 +74,7 @@ def traj_segment_generator(pi, env, steps_per_batch, stochastic, predictor=None)
             ep_rets = []
             ep_lens = []
 
-        i = t % steps_per_batch #step count in this batch
+        i = t % steps_per_batch  # step count in this batch
         obs[i] = ob
         human_obs[i] = info.get("human_obs")
         vpreds[i] = vpred
@@ -83,8 +85,8 @@ def traj_segment_generator(pi, env, steps_per_batch, stochastic, predictor=None)
         ob, rew, new, info = env.step(ac)
         rews[i] = rew
 
-        cur_ep_ret += rew #episode reward (original)
-        cur_ep_len += 1   #episode length
+        cur_ep_ret += rew  # episode reward (original)
+        cur_ep_len += 1  # episode length
         if new:
             ep_rets.append(cur_ep_ret)
             ep_lens.append(cur_ep_len)
@@ -93,14 +95,16 @@ def traj_segment_generator(pi, env, steps_per_batch, stochastic, predictor=None)
             ob = env.reset()
         t += 1
 
+
 def split_path_by_episode(path):
     """Split path into episodes and yield a deepcopy of each one"""
     ep_breaks = np.where(path['new'])[0]
     start = ep_breaks[0]
     for end in ep_breaks[1:]:
         yield deepcopy({k: v[start:end] for k, v in path.items()
-            if k in ['obs', 'actions', 'original_rewards', 'human_obs']})
+                        if k in ['obs', 'actions', 'original_rewards', 'human_obs']})
         start = end
+
 
 def add_vtarg_and_adv(seg, gamma, lam):
     """
@@ -118,20 +122,20 @@ def add_vtarg_and_adv(seg, gamma, lam):
         gaelam[t] = lastgaelam = delta + gamma * lam * nonterminal * lastgaelam
     seg["tdlamret"] = seg["adv"] + seg["vpred"]
 
-def learn(env, policy_func, *,
-        timesteps_per_batch,  # timesteps per actor per update
-        clip_param, entcoeff,  # clipping parameter epsilon, entropy coeff
-        optim_epochs, optim_stepsize, optim_batchsize,  # optimization hypers
-        gamma, lam,  # advantage estimation
-        max_timesteps=0, max_episodes=0, max_iters=0, max_seconds=0, save_freq = 50000, # time constraint
-        callback=None,  # you can do anything in the callback, since it takes locals(), globals()
-        schedule='constant',  # annealing for stepsize parameters (epsilon and adam)
-        predictor=None,
-        env_name = "env",
-        load_checkpoint = False,
-        experiment_name=None
-):
 
+def learn(env, policy_func, *,
+          timesteps_per_batch,  # timesteps per actor per update
+          clip_param, entcoeff,  # clipping parameter epsilon, entropy coeff
+          optim_epochs, optim_stepsize, optim_batchsize,  # optimization hypers
+          gamma, lam,  # advantage estimation
+          max_timesteps=0, max_episodes=0, max_iters=0, max_seconds=0, save_freq=50000,  # time constraint
+          callback=None,  # you can do anything in the callback, since it takes locals(), globals()
+          schedule='constant',  # annealing for stepsize parameters (epsilon and adam)
+          predictor=None,
+          env_name="env",
+          load_checkpoint=False,
+          experiment_name=None
+          ):
     # Setup losses and stuff
     # ----------------------------------------
     ob_space = env.observation_space
@@ -142,7 +146,7 @@ def learn(env, policy_func, *,
     ret = tf.placeholder(dtype=tf.float32, shape=[None])  # Empirical return
 
     lrmult = tf.placeholder(name='lrmult', dtype=tf.float32,
-        shape=[])  # learning rate multiplier, updated with schedule
+                            shape=[])  # learning rate multiplier, updated with schedule
     clip_param = clip_param * lrmult  # Annealed cliping parameter epislon
 
     ob = U.get_placeholder_cached(name="obs")
@@ -172,7 +176,8 @@ def learn(env, policy_func, *,
     adam = MpiAdam(var_list)
 
     assign_old_eq_new = U.function([], [], updates=[tf.assign(oldv, newv)
-        for (oldv, newv) in zipsame(oldpi.get_variables(), pi.get_variables())])
+                                                    for (oldv, newv) in
+                                                    zipsame(oldpi.get_variables(), pi.get_variables())])
     compute_losses = U.function([ob, ac, atarg, ret, lrmult], losses)
 
     saver = tf.train.Saver(pi.get_variables())
@@ -197,8 +202,7 @@ def learn(env, policy_func, *,
     rewbuffer = deque(maxlen=100)  # rolling buffer for episode rewards
 
     assert sum([max_iters > 0, max_timesteps > 0, max_episodes > 0,
-        max_seconds > 0]) == 1, "Only one time constraint permitted"
-
+                max_seconds > 0]) == 1, "Only one time constraint permitted"
 
     while True:
         if callback: callback(locals(), globals())
@@ -210,8 +214,9 @@ def learn(env, policy_func, *,
             break
         elif max_seconds and time.time() - tstart >= max_seconds:
             break
-        if (iters_so_far %  10 == 0 and iters_so_far >= 0):
-            export_model(U.get_session(), saver=saver, env_name=env_name, experiment_name=experiment_name, model=pi, target_nodes='pi/action', steps=timesteps_so_far)
+        if (iters_so_far % 5 == 0 and iters_so_far >= 1):
+            export_model(U.get_session(), saver=saver, env_name=env_name, experiment_name=experiment_name, model=pi,
+                         target_nodes='pi/action', steps=timesteps_so_far)
 
         if schedule == 'constant':
             cur_lrmult = 1.0
@@ -277,20 +282,17 @@ def learn(env, policy_func, *,
             logger.dump_tabular()
 
 
-
-
 def flatten_lists(listoflists):
     return [el for list_ in listoflists for el in list_]
 
 
 def load_model(sess, saver, env_name, checkpoint_subdir):
-    dir = env_name + '_model' + "/"+ checkpoint_subdir
+    dir = env_name + '_model' + "/" + checkpoint_subdir
 
-    #print('Loading model from: ' + checkpoint_file)
+    # print('Loading model from: ' + checkpoint_file)
     ckpt = tf.train.get_checkpoint_state(dir)
     saver.restore(sess, ckpt.model_checkpoint_path)
     print('Done loading model...')
-
 
 
 def export_model(sess, saver, env_name, experiment_name, model, target_nodes, steps):
@@ -308,7 +310,7 @@ def export_model(sess, saver, env_name, experiment_name, model, target_nodes, st
     saver.save(sess, checkpoint_file)
 
     model_protobuf_file = 'pposgd_policy_graph.pb'
-    tf.train.write_graph(sess.graph_def, dir, model_protobuf_file , as_text=False)
+    tf.train.write_graph(sess.graph_def, dir, model_protobuf_file, as_text=False)
 
     """
     Exports latest saved model to .bytes format for Unity embedding.
@@ -317,13 +319,13 @@ def export_model(sess, saver, env_name, experiment_name, model, target_nodes, st
     :param target_nodes: Comma separated string of needed output nodes for embedded graph.
     """
     print("Exporting model...")
-    out_file_name = dir + '/'  + env_name + '_' + exp_name +  '_' + str(steps) + '.bytes'
+    out_file_name = dir + '/' + env_name + '_' + exp_name + '_' + str(steps) + '.bytes'
     ckpt = tf.train.get_checkpoint_state(dir)
     freeze_graph.freeze_graph(input_graph=dir + '/' + model_protobuf_file,
                               input_binary=True,
                               input_checkpoint=ckpt.model_checkpoint_path,
                               output_node_names=target_nodes,
-                              output_graph= out_file_name,
+                              output_graph=out_file_name,
                               clear_devices=True, initializer_nodes="", input_saver="",
                               restore_op_name="save/restore_all", filename_tensor_name="save/Const:0")
     print("Done exporting model: ", out_file_name)

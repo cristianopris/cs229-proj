@@ -58,6 +58,8 @@ class MlpPolicy(object):
         return tf.get_collection(tf.GraphKeys.VARIABLES, self.scope)
     def get_trainable_variables(self):
         return tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, self.scope)
+    def get_global_variables(self):
+        return tf.global_variables()
     def get_initial_state(self):
         return []
 

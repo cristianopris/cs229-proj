@@ -54,6 +54,10 @@ class ComparisonRewardPredictor():
         self._n_timesteps_per_predictor_training = 1e2  # How often should we train our predictor?
         self._elapsed_predictor_training_iters = 0
 
+        self.stat_rejected_segments = 0
+        self.stat_sampled_segments = 0;
+        self.stat_total_comparisons = 0;
+
 
         # Build and initialize our predictor model
         config = tf.ConfigProto(
@@ -144,9 +148,6 @@ class ComparisonRewardPredictor():
 
     #called for every episode path
     def path_callback(self, path):
-        segments_used = 0
-        loss = -1
-
         path_length = len(path["obs"])
         self._steps_since_last_training += path_length
 
@@ -155,25 +156,25 @@ class ComparisonRewardPredictor():
         # We may be in a new part of the environment, so we take new segments to build comparisons from
         segment = sample_segment_from_path(path, int(self._frames_per_segment))
         if segment:
+            self.stat_sampled_segments += 1
             self.recent_segments.append(segment)
-            segments_used += 1
         else:
+            self.stat_rejected_segments += 1
             #print("Predictor.path_callback: Path too short: %d " % path_length)
             return
 
         # If we need more comparisons, then we build them from our recent segments
         if len(self.comparison_collector) < int(self.label_schedule.n_desired_labels):
+            self.stat_total_comparisons += 1;
             self.comparison_collector.add_segment_pair(
                 random.choice(self.recent_segments),
                 random.choice(self.recent_segments))
 
         # Train our predictor every X steps
         if self._steps_since_last_training >= int(self._n_timesteps_per_predictor_training):
-            #print('Training predictor: steps_since_last_training = %d, recent_segments = %d' % (self._steps_since_last_training, len(self.recent_segments)))
-            loss = self.train_predictor()
-            #print("Predictor loss:", loss)
+            pred_stats = self.train_predictor()
             self._steps_since_last_training -= self._steps_since_last_training
-        return {'segments_used' : segments_used, 'loss' : loss}
+            return pred_stats
 
     def train_predictor(self):
 
@@ -182,8 +183,9 @@ class ComparisonRewardPredictor():
         minibatch_size = min(64, len(self.comparison_collector.labeled_decisive_comparisons))
         labeled_comparisons = random.sample(self.comparison_collector.labeled_decisive_comparisons, minibatch_size)
         if (len(labeled_comparisons) == 0):
-            #print('Cannot train predictor: no labeled comparisons available')
-            return -1
+            print('Cannot train predictor: no labeled comparisons available')
+            return
+        #print('Training predictor on: %d comparisons out of %d labels available' % (len(labeled_comparisons), len(self.comparison_collector.labeled_decisive_comparisons)));
 
         left_obs = np.asarray([comp['left']['obs'] for comp in labeled_comparisons])
         left_acts = np.asarray([comp['left']['actions'] for comp in labeled_comparisons])
@@ -202,7 +204,7 @@ class ComparisonRewardPredictor():
             })
             self._elapsed_predictor_training_iters += 1
             self._write_training_summaries(loss)
-        return loss
+        return {'loss': loss, 'comparisons' : len(labeled_comparisons), 'available_labels' : len(self.comparison_collector.labeled_decisive_comparisons)}
 
     def _write_training_summaries(self, loss):
         self.agent_logger.log_simple("predictor/loss", loss)
