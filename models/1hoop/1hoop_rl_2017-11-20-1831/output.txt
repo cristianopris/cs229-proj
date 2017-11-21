@@ -1,0 +1,2448 @@
+/usr/local/Cellar/python3/3.6.3/Frameworks/Python.framework/Versions/3.6/bin/python3.6 /Users/cristian/dev/cs229-proj/rl-teacher/rl-teacher/rl_teacher/teach.py -V -a unity-pposgd-mpi -p rl -e unity-3dball -n 1hoop_rl
+Using TensorFlow backend.
+Setting things up...
+{}
+Unity ml-agent - opening socket on port: 5006
+2017-11-20 18:31:54.010 3dball[9136:440076] Can't open input server /Library/InputManagers/MultiClutchInputManager.bundle
+Mono path[0] = '/Users/cristian/dev/cs229-proj/bin/3dball.app/Contents/Resources/Data/Managed'
+Mono config path = '/Users/cristian/dev/cs229-proj/bin/3dball.app/Contents/MonoBleedingEdge/etc'
+Player data archive not found at `/Users/cristian/dev/cs229-proj/bin/3dball.app/Contents/Resources/Data/data.unity3d`, using local filesystem
+UnityGymWrapper: created env:  Unity Academy name: Ball3DAcademy
+INFO:unityagents.environment:
+        Number of brains: 1
+'Ball3DAcademy' started successfully!
+        Reset Parameters :
+        
+Unity brain name: Ball3DBrain
+        Number of observations (per agent): 1
+        State space type: continuous
+        State space size (per agent): 8
+        Action space type: continuous
+        Action space size (per agent): 2
+        Memory space size (per agent): 0
+        Action descriptions: , 
+Running with intrinsic rewards
+Logging to /var/folders/fc/lz2x6_6n56xd703hbc5rrf1h0000gp/T/openai-2017-11-20-18-31-57-348536
+2017-11-20 18:31:57.344484: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+{'3dball': <UnityAgent.UnityGymWrapper object at 0x10fa5ee80>}
+2017-11-20 18:31:57.344508: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-11-20 18:31:57.344513: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-11-20 18:31:57.344519: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+Tensor("pi/action:0", shape=(?, 2), dtype=float32)
+Tensor("oldpi/action:0", shape=(?, 2), dtype=float32)
+WARNING:tensorflow:VARIABLES collection name is deprecated, please use GLOBAL_VARIABLES instead; VARIABLES will be removed after 2017-03-02.
+WARNING:tensorflow:VARIABLES collection name is deprecated, please use GLOBAL_VARIABLES instead; VARIABLES will be removed after 2017-03-02.
+WARNING:tensorflow:VARIABLES collection name is deprecated, please use GLOBAL_VARIABLES instead; VARIABLES will be removed after 2017-03-02.
+WARNING:tensorflow:VARIABLES collection name is deprecated, please use GLOBAL_VARIABLES instead; VARIABLES will be removed after 2017-03-02.
+WARNING:tensorflow:VARIABLES collection name is deprecated, please use GLOBAL_VARIABLES instead; VARIABLES will be removed after 2017-03-02.
+WARNING:tensorflow:VARIABLES collection name is deprecated, please use GLOBAL_VARIABLES instead; VARIABLES will be removed after 2017-03-02.
+********** Iteration 0 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00152855 |           0.0 |      0.262405 |   0.000269364 |       2.83517
+  -0.00715694 |           0.0 |      0.233887 |    0.00123548 |       2.82979
+   -0.0114359 |           0.0 |      0.221295 |    0.00304886 |       2.82646
+   -0.0134589 |           0.0 |      0.215559 |    0.00532194 |       2.82262
+   -0.0154209 |           0.0 |      0.213505 |    0.00616962 |       2.81954
+   -0.0164151 |           0.0 |      0.212344 |    0.00656629 |       2.81631
+   -0.0174691 |           0.0 |      0.211575 |    0.00708048 |       2.81396
+    -0.018329 |           0.0 |      0.211021 |    0.00759506 |       2.81146
+   -0.0191507 |           0.0 |      0.210531 |    0.00779501 |       2.80988
+   -0.0196492 |           0.0 |      0.210287 |    0.00815451 |       2.80819
+Evaluating losses...
+   -0.0205905 |             0 |      0.209987 |    0.00845928 |       2.80716
+------------------------------
+| loss_pol_surr   | -0.0206  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.21     |
+| loss_kl         | 0.00846  |
+| loss_ent        | 2.81     |
+| ev_tdlam_before | -0.182   |
+| EpThisIter      | 71       |
+| EpisodesSoFar   | 71       |
+| TimestepsSoFar  | 1.28e+03 |
+| TimeElapsed     | 12       |
+| EpLenMean       | 18       |
+| EpRewMean       | -0.996   |
+------------------------------
+********** Iteration 1 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00125335 |           0.0 |      0.158793 |   0.000250775 |       2.80609
+  -0.00826073 |           0.0 |      0.130624 |    0.00229799 |       2.80464
+   -0.0119383 |           0.0 |      0.123371 |    0.00556943 |       2.80455
+    -0.013294 |           0.0 |      0.122251 |    0.00699859 |       2.80489
+   -0.0137258 |           0.0 |      0.121647 |    0.00690544 |       2.80481
+   -0.0147252 |           0.0 |      0.121344 |    0.00701686 |        2.8048
+   -0.0158645 |           0.0 |      0.121063 |    0.00778023 |       2.80497
+   -0.0160741 |           0.0 |      0.120964 |    0.00725709 |       2.80569
+   -0.0169649 |           0.0 |      0.120755 |    0.00708595 |       2.80727
+   -0.0171499 |           0.0 |      0.120608 |    0.00765224 |       2.80836
+Evaluating losses...
+   -0.0185312 |             0 |      0.120414 |     0.0079089 |       2.80842
+------------------------------
+| loss_pol_surr   | -0.0185  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.12     |
+| loss_kl         | 0.00791  |
+| loss_ent        | 2.81     |
+| ev_tdlam_before | -1.44    |
+| EpThisIter      | 80       |
+| EpisodesSoFar   | 151      |
+| TimestepsSoFar  | 2.54e+03 |
+| TimeElapsed     | 24.8     |
+| EpLenMean       | 16.1     |
+| EpRewMean       | -0.998   |
+------------------------------
+********** Iteration 2 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00110342 |           0.0 |     0.0881878 |   0.000215969 |       2.80814
+  -0.00729014 |           0.0 |     0.0740683 |    0.00321329 |       2.80864
+   -0.0104266 |           0.0 |     0.0708454 |    0.00633179 |       2.80686
+   -0.0114755 |           0.0 |     0.0702588 |    0.00664811 |       2.80492
+    -0.011819 |           0.0 |     0.0698165 |     0.0068948 |       2.80361
+   -0.0125698 |           0.0 |     0.0694414 |    0.00842364 |       2.80292
+   -0.0134619 |           0.0 |     0.0692216 |    0.00744751 |       2.80216
+   -0.0134621 |           0.0 |     0.0689113 |    0.00868549 |       2.80116
+   -0.0135617 |           0.0 |     0.0686355 |    0.00882698 |       2.79884
+   -0.0147313 |           0.0 |     0.0684135 |    0.00826008 |       2.79706
+Evaluating losses...
+   -0.0156524 |             0 |     0.0682451 |    0.00890215 |       2.79693
+------------------------------
+| loss_pol_surr   | -0.0157  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.0682   |
+| loss_kl         | 0.0089   |
+| loss_ent        | 2.8      |
+| ev_tdlam_before | -0.965   |
+| EpThisIter      | 70       |
+| EpisodesSoFar   | 221      |
+| TimestepsSoFar  | 3.83e+03 |
+| TimeElapsed     | 36.2     |
+| EpLenMean       | 17.8     |
+| EpRewMean       | -1       |
+------------------------------
+********** Iteration 3 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000787763 |           0.0 |     0.0433086 |   0.000419246 |       2.79635
+  -0.00740508 |           0.0 |     0.0334203 |    0.00269336 |        2.7932
+   -0.0104497 |           0.0 |     0.0317325 |    0.00516679 |        2.7899
+    -0.011747 |           0.0 |      0.031197 |    0.00558773 |       2.78507
+   -0.0127664 |           0.0 |     0.0308858 |    0.00617572 |       2.78099
+   -0.0143838 |           0.0 |     0.0306999 |     0.0066105 |       2.77711
+   -0.0147068 |           0.0 |     0.0304427 |    0.00671958 |       2.77344
+   -0.0152721 |           0.0 |     0.0303421 |    0.00640222 |       2.76951
+   -0.0160193 |           0.0 |     0.0302306 |    0.00705863 |       2.76457
+   -0.0165667 |           0.0 |     0.0300681 |    0.00720698 |       2.76019
+Evaluating losses...
+   -0.0180407 |             0 |     0.0298818 |    0.00730143 |        2.7585
+------------------------------
+| loss_pol_surr   | -0.018   |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.0299   |
+| loss_kl         | 0.0073   |
+| loss_ent        | 2.76     |
+| ev_tdlam_before | -0.753   |
+| EpThisIter      | 71       |
+| EpisodesSoFar   | 292      |
+| TimestepsSoFar  | 5.11e+03 |
+| TimeElapsed     | 47.4     |
+| EpLenMean       | 18.5     |
+| EpRewMean       | -0.998   |
+------------------------------
+********** Iteration 4 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00112827 |           0.0 |     0.0199897 |   0.000604386 |       2.75824
+  -0.00803903 |           0.0 |     0.0155059 |    0.00419296 |       2.75866
+   -0.0103381 |           0.0 |     0.0146788 |    0.00694538 |        2.7597
+   -0.0126976 |           0.0 |      0.014329 |    0.00665657 |       2.75958
+   -0.0143476 |           0.0 |     0.0140585 |    0.00722295 |        2.7587
+    -0.014933 |           0.0 |     0.0137877 |    0.00892114 |       2.75846
+   -0.0156363 |           0.0 |     0.0136402 |     0.0095523 |       2.75842
+   -0.0161847 |           0.0 |     0.0134551 |    0.00962765 |       2.75785
+    -0.016775 |           0.0 |     0.0133367 |     0.0100142 |        2.7575
+   -0.0177904 |           0.0 |     0.0131624 |     0.0109415 |        2.7578
+Evaluating losses...
+   -0.0188977 |             0 |     0.0130059 |     0.0102235 |       2.75767
+------------------------------
+| loss_pol_surr   | -0.0189  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.013    |
+| loss_kl         | 0.0102   |
+| loss_ent        | 2.76     |
+| ev_tdlam_before | 0.0144   |
+| EpThisIter      | 65       |
+| EpisodesSoFar   | 357      |
+| TimestepsSoFar  | 6.34e+03 |
+| TimeElapsed     | 58.6     |
+| EpLenMean       | 19.1     |
+| EpRewMean       | -0.995   |
+------------------------------
+********** Iteration 5 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00168695 |           0.0 |     0.0100701 |   0.000849388 |       2.75834
+   -0.0100118 |           0.0 |    0.00733597 |    0.00514789 |       2.75949
+   -0.0135284 |           0.0 |    0.00694832 |     0.0084157 |       2.76018
+   -0.0157241 |           0.0 |    0.00664245 |    0.00931441 |        2.7603
+   -0.0169962 |           0.0 |    0.00652942 |    0.00950076 |       2.75981
+   -0.0175689 |           0.0 |    0.00642715 |     0.0100415 |       2.75958
+   -0.0185622 |           0.0 |    0.00628096 |     0.0105515 |       2.76024
+   -0.0191915 |           0.0 |    0.00611298 |     0.0112411 |        2.7609
+   -0.0201272 |           0.0 |    0.00609772 |      0.010865 |       2.76141
+   -0.0202433 |           0.0 |    0.00599755 |     0.0115128 |       2.76138
+Evaluating losses...
+    -0.021835 |             0 |    0.00581971 |     0.0117664 |       2.76142
+------------------------------
+| loss_pol_surr   | -0.0218  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00582  |
+| loss_kl         | 0.0118   |
+| loss_ent        | 2.76     |
+| ev_tdlam_before | 0.209    |
+| EpThisIter      | 67       |
+| EpisodesSoFar   | 424      |
+| TimestepsSoFar  | 7.67e+03 |
+| TimeElapsed     | 69.7     |
+| EpLenMean       | 19.1     |
+| EpRewMean       | -0.995   |
+------------------------------
+********** Iteration 6 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000404443 |           0.0 |    0.00598674 |   0.000192394 |       2.76176
+  -0.00590471 |           0.0 |    0.00534513 |    0.00247516 |       2.76306
+  -0.00972711 |           0.0 |    0.00496803 |    0.00526292 |       2.76471
+   -0.0117662 |           0.0 |    0.00482007 |    0.00766266 |        2.7653
+   -0.0125849 |           0.0 |    0.00465806 |    0.00826816 |        2.7651
+   -0.0136206 |           0.0 |    0.00461326 |    0.00810869 |       2.76504
+   -0.0144057 |           0.0 |    0.00449181 |     0.0081104 |       2.76473
+   -0.0143014 |           0.0 |    0.00436344 |    0.00786127 |       2.76442
+   -0.0150201 |           0.0 |    0.00430193 |    0.00822053 |       2.76435
+   -0.0152132 |           0.0 |    0.00417692 |    0.00835766 |       2.76346
+Evaluating losses...
+   -0.0167437 |             0 |    0.00411192 |     0.0088699 |       2.76328
+------------------------------
+| loss_pol_surr   | -0.0167  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00411  |
+| loss_kl         | 0.00887  |
+| loss_ent        | 2.76     |
+| ev_tdlam_before | 0.216    |
+| EpThisIter      | 63       |
+| EpisodesSoFar   | 487      |
+| TimestepsSoFar  | 8.94e+03 |
+| TimeElapsed     | 80.6     |
+| EpLenMean       | 19.2     |
+| EpRewMean       | -0.998   |
+------------------------------
+********** Iteration 7 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000588847 |           0.0 |    0.00496193 |   0.000198433 |       2.76293
+  -0.00388604 |           0.0 |    0.00471781 |    0.00105112 |       2.75714
+  -0.00645204 |           0.0 |    0.00453966 |    0.00317683 |       2.75119
+  -0.00855757 |           0.0 |    0.00446625 |    0.00446165 |        2.7457
+  -0.00983028 |           0.0 |    0.00430533 |    0.00491512 |       2.74134
+   -0.0116718 |           0.0 |    0.00417092 |    0.00478823 |       2.73716
+   -0.0122506 |           0.0 |    0.00414651 |    0.00507186 |       2.73341
+   -0.0134877 |           0.0 |    0.00400257 |    0.00530542 |       2.72915
+   -0.0145135 |           0.0 |    0.00398714 |    0.00585315 |       2.72441
+   -0.0152812 |           0.0 |    0.00396124 |    0.00634973 |       2.71961
+Evaluating losses...
+    -0.017255 |             0 |    0.00384523 |    0.00657067 |       2.71776
+------------------------------
+| loss_pol_surr   | -0.0173  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00385  |
+| loss_kl         | 0.00657  |
+| loss_ent        | 2.72     |
+| ev_tdlam_before | 0.351    |
+| EpThisIter      | 48       |
+| EpisodesSoFar   | 535      |
+| TimestepsSoFar  | 1.02e+04 |
+| TimeElapsed     | 91.6     |
+| EpLenMean       | 23.2     |
+| EpRewMean       | -0.995   |
+------------------------------
+********** Iteration 8 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -5.70588e-05 |           0.0 |    0.00410923 |   0.000269342 |       2.71587
+  -0.00451014 |           0.0 |    0.00380728 |    0.00282848 |       2.71167
+  -0.00702529 |           0.0 |    0.00368329 |     0.0057258 |       2.70871
+  -0.00855299 |           0.0 |    0.00360019 |     0.0059869 |        2.7059
+   -0.0092153 |           0.0 |    0.00351091 |    0.00625697 |        2.7038
+  -0.00987129 |           0.0 |    0.00340512 |    0.00679105 |       2.70171
+   -0.0106166 |           0.0 |    0.00333431 |    0.00644488 |       2.69877
+   -0.0111625 |           0.0 |    0.00330238 |    0.00757919 |        2.6968
+    -0.011179 |           0.0 |    0.00327459 |    0.00754442 |       2.69522
+   -0.0125599 |           0.0 |     0.0031996 |    0.00796132 |       2.69364
+Evaluating losses...
+   -0.0137945 |             0 |    0.00319481 |    0.00768319 |       2.69263
+------------------------------
+| loss_pol_surr   | -0.0138  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00319  |
+| loss_kl         | 0.00768  |
+| loss_ent        | 2.69     |
+| ev_tdlam_before | 0.437    |
+| EpThisIter      | 56       |
+| EpisodesSoFar   | 591      |
+| TimestepsSoFar  | 1.15e+04 |
+| TimeElapsed     | 102      |
+| EpLenMean       | 24.6     |
+| EpRewMean       | -0.996   |
+------------------------------
+********** Iteration 9 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000188081 |           0.0 |    0.00338666 |   0.000715925 |        2.6922
+  -0.00818515 |           0.0 |    0.00323419 |    0.00383987 |        2.6905
+  -0.00923531 |           0.0 |    0.00318163 |     0.0077221 |        2.6881
+   -0.0113856 |           0.0 |    0.00306324 |    0.00668273 |       2.68605
+   -0.0118102 |           0.0 |    0.00302189 |    0.00652244 |       2.68352
+   -0.0127071 |           0.0 |    0.00296703 |    0.00789091 |       2.68171
+   -0.0143069 |           0.0 |    0.00287065 |    0.00793222 |       2.67943
+   -0.0147928 |           0.0 |    0.00285554 |    0.00790959 |       2.67662
+   -0.0152952 |           0.0 |     0.0027942 |    0.00718955 |       2.67514
+    -0.015935 |           0.0 |    0.00277393 |      0.008234 |       2.67493
+Evaluating losses...
+   -0.0176893 |             0 |    0.00273946 |    0.00843325 |       2.67462
+------------------------------
+| loss_pol_surr   | -0.0177  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00274  |
+| loss_kl         | 0.00843  |
+| loss_ent        | 2.67     |
+| ev_tdlam_before | 0.433    |
+| EpThisIter      | 46       |
+| EpisodesSoFar   | 637      |
+| TimestepsSoFar  | 1.28e+04 |
+| TimeElapsed     | 113      |
+| EpLenMean       | 24.7     |
+| EpRewMean       | -0.993   |
+------------------------------
+Saving checkpoint 3dball_model/1hoop_rl_2017-11-20-1831/12757/session-12757.checkpoint
+Exporting model...
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_rl_2017-11-20-1831/12757/session-12757.checkpoint
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_rl_2017-11-20-1831/12757/session-12757.checkpoint
+INFO:tensorflow:Froze 10 variables.
+INFO:tensorflow:Froze 10 variables.
+Converted 10 variables to const ops.
+52 ops in the final graph.
+Done exporting model:  3dball_model/1hoop_rl_2017-11-20-1831/12757/3dball_1hoop_rl_2017-11-20-1831_12757.bytes
+********** Iteration 10 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000971116 |           0.0 |    0.00400977 |   0.000518169 |       2.67516
+  -0.00497338 |           0.0 |    0.00380666 |    0.00310501 |       2.67763
+  -0.00830205 |           0.0 |    0.00381962 |    0.00559872 |       2.67948
+  -0.00897877 |           0.0 |    0.00362763 |    0.00648959 |       2.68061
+   -0.0108579 |           0.0 |    0.00364488 |     0.0053185 |       2.68263
+   -0.0109788 |           0.0 |    0.00356464 |    0.00555352 |        2.6832
+   -0.0131419 |           0.0 |    0.00338172 |    0.00548965 |       2.68396
+   -0.0140845 |           0.0 |    0.00340654 |    0.00450511 |       2.68572
+   -0.0144899 |           0.0 |    0.00332251 |      0.004698 |       2.68649
+   -0.0154922 |           0.0 |    0.00330679 |    0.00620065 |       2.68794
+Evaluating losses...
+   -0.0174413 |             0 |    0.00320843 |    0.00655944 |       2.68819
+------------------------------
+| loss_pol_surr   | -0.0174  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00321  |
+| loss_kl         | 0.00656  |
+| loss_ent        | 2.69     |
+| ev_tdlam_before | 0.448    |
+| EpThisIter      | 42       |
+| EpisodesSoFar   | 679      |
+| TimestepsSoFar  | 1.41e+04 |
+| TimeElapsed     | 128      |
+| EpLenMean       | 28.9     |
+| EpRewMean       | -0.989   |
+------------------------------
+********** Iteration 11 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000118728 |           0.0 |    0.00443919 |   0.000358457 |       2.68668
+  -0.00630926 |           0.0 |    0.00427414 |     0.0031911 |       2.68465
+  -0.00928719 |           0.0 |    0.00398125 |    0.00603013 |       2.68168
+   -0.0108052 |           0.0 |    0.00390717 |    0.00694259 |        2.6789
+    -0.012293 |           0.0 |    0.00386032 |    0.00658058 |       2.67713
+   -0.0124001 |           0.0 |     0.0038281 |    0.00709764 |       2.67604
+   -0.0136279 |           0.0 |    0.00369629 |    0.00735251 |       2.67439
+   -0.0153795 |           0.0 |    0.00368827 |    0.00740386 |       2.67375
+   -0.0162118 |           0.0 |    0.00363236 |    0.00718115 |       2.67282
+   -0.0163886 |           0.0 |    0.00360822 |    0.00843372 |       2.67231
+Evaluating losses...
+   -0.0185822 |             0 |    0.00348745 |     0.0084585 |       2.67158
+------------------------------
+| loss_pol_surr   | -0.0186  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00349  |
+| loss_kl         | 0.00846  |
+| loss_ent        | 2.67     |
+| ev_tdlam_before | 0.436    |
+| EpThisIter      | 48       |
+| EpisodesSoFar   | 727      |
+| TimestepsSoFar  | 1.53e+04 |
+| TimeElapsed     | 139      |
+| EpLenMean       | 28.9     |
+| EpRewMean       | -0.989   |
+------------------------------
+********** Iteration 12 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000450253 |           0.0 |    0.00457243 |   0.000831208 |       2.66985
+   -0.0065648 |           0.0 |      0.004328 |    0.00479247 |       2.66574
+  -0.00859258 |           0.0 |    0.00418659 |    0.00482315 |       2.66135
+   -0.0107622 |           0.0 |    0.00417329 |    0.00596325 |       2.65824
+   -0.0122388 |           0.0 |    0.00406345 |     0.0050099 |       2.65491
+   -0.0136181 |           0.0 |     0.0039387 |    0.00533502 |       2.65146
+    -0.014294 |           0.0 |    0.00394604 |    0.00650326 |       2.64882
+   -0.0154394 |           0.0 |    0.00393193 |    0.00628522 |       2.64597
+   -0.0164483 |           0.0 |    0.00383339 |    0.00771152 |       2.64248
+   -0.0168138 |           0.0 |    0.00378663 |    0.00762678 |       2.63953
+Evaluating losses...
+   -0.0193584 |             0 |    0.00381935 |    0.00683523 |       2.63841
+------------------------------
+| loss_pol_surr   | -0.0194  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00382  |
+| loss_kl         | 0.00684  |
+| loss_ent        | 2.64     |
+| ev_tdlam_before | 0.48     |
+| EpThisIter      | 41       |
+| EpisodesSoFar   | 768      |
+| TimestepsSoFar  | 1.66e+04 |
+| TimeElapsed     | 150      |
+| EpLenMean       | 29.5     |
+| EpRewMean       | -0.988   |
+------------------------------
+********** Iteration 13 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000648628 |           0.0 |    0.00491591 |   0.000876085 |       2.63875
+   -0.0047921 |           0.0 |    0.00472379 |    0.00336163 |       2.64016
+  -0.00838424 |           0.0 |    0.00457906 |    0.00537651 |        2.6411
+  -0.00992315 |           0.0 |    0.00450363 |    0.00558568 |        2.6432
+    -0.010205 |           0.0 |     0.0044024 |     0.0059691 |       2.64447
+   -0.0122962 |           0.0 |    0.00438628 |    0.00727596 |       2.64582
+   -0.0134671 |           0.0 |    0.00435941 |    0.00669219 |       2.64677
+   -0.0139783 |           0.0 |     0.0042154 |    0.00759442 |       2.64782
+   -0.0151253 |           0.0 |    0.00424974 |    0.00675516 |       2.64887
+   -0.0162057 |           0.0 |    0.00409418 |    0.00819081 |       2.64899
+Evaluating losses...
+   -0.0182762 |             0 |    0.00403194 |    0.00790628 |       2.64884
+------------------------------
+| loss_pol_surr   | -0.0183  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00403  |
+| loss_kl         | 0.00791  |
+| loss_ent        | 2.65     |
+| ev_tdlam_before | 0.468    |
+| EpThisIter      | 37       |
+| EpisodesSoFar   | 805      |
+| TimestepsSoFar  | 1.79e+04 |
+| TimeElapsed     | 160      |
+| EpLenMean       | 32       |
+| EpRewMean       | -0.988   |
+------------------------------
+********** Iteration 14 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000231481 |           0.0 |    0.00388965 |   0.000565065 |       2.64927
+  -0.00590446 |           0.0 |    0.00361865 |    0.00336047 |        2.6495
+  -0.00842209 |           0.0 |    0.00346397 |    0.00604911 |       2.64967
+  -0.00874153 |           0.0 |    0.00336114 |    0.00748643 |       2.64934
+   -0.0104679 |           0.0 |    0.00327628 |    0.00671777 |       2.64984
+   -0.0130308 |           0.0 |    0.00320007 |     0.0068473 |       2.64966
+   -0.0149276 |           0.0 |    0.00317604 |    0.00726806 |       2.65005
+   -0.0151522 |           0.0 |     0.0030804 |     0.0079383 |       2.64911
+    -0.016652 |           0.0 |    0.00302086 |    0.00699257 |       2.64771
+   -0.0177096 |           0.0 |    0.00305247 |    0.00759727 |       2.64726
+Evaluating losses...
+   -0.0201192 |             0 |    0.00311778 |    0.00770679 |        2.6475
+------------------------------
+| loss_pol_surr   | -0.0201  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00312  |
+| loss_kl         | 0.00771  |
+| loss_ent        | 2.65     |
+| ev_tdlam_before | 0.487    |
+| EpThisIter      | 45       |
+| EpisodesSoFar   | 850      |
+| TimestepsSoFar  | 1.92e+04 |
+| TimeElapsed     | 171      |
+| EpLenMean       | 30.1     |
+| EpRewMean       | -0.989   |
+------------------------------
+********** Iteration 15 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00027091 |           0.0 |     0.0040421 |   0.000929349 |       2.64695
+  -0.00652217 |           0.0 |    0.00384351 |    0.00500408 |       2.64479
+  -0.00869945 |           0.0 |    0.00364079 |    0.00474506 |       2.64277
+  -0.00946008 |           0.0 |    0.00363199 |    0.00595439 |       2.64097
+   -0.0118869 |           0.0 |    0.00352442 |    0.00629359 |       2.63837
+   -0.0124822 |           0.0 |    0.00345183 |    0.00608033 |       2.63668
+   -0.0141558 |           0.0 |    0.00339562 |    0.00524057 |       2.63484
+   -0.0145545 |           0.0 |    0.00343416 |    0.00550301 |       2.63341
+   -0.0158921 |           0.0 |    0.00339164 |     0.0065789 |       2.63202
+     -0.01592 |           0.0 |    0.00336579 |    0.00556711 |       2.63038
+Evaluating losses...
+   -0.0183997 |             0 |     0.0033449 |    0.00589718 |       2.62957
+------------------------------
+| loss_pol_surr   | -0.0184  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00334  |
+| loss_kl         | 0.0059   |
+| loss_ent        | 2.63     |
+| ev_tdlam_before | 0.503    |
+| EpThisIter      | 36       |
+| EpisodesSoFar   | 886      |
+| TimestepsSoFar  | 2.04e+04 |
+| TimeElapsed     | 182      |
+| EpLenMean       | 32.3     |
+| EpRewMean       | -0.988   |
+------------------------------
+********** Iteration 16 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000470072 |           0.0 |    0.00487064 |    0.00146361 |       2.62828
+  -0.00644374 |           0.0 |    0.00461453 |    0.00541021 |       2.62816
+  -0.00758192 |           0.0 |    0.00451639 |    0.00556524 |       2.62922
+  -0.00979211 |           0.0 |    0.00445069 |    0.00730817 |       2.62799
+   -0.0116806 |           0.0 |    0.00456015 |    0.00841467 |        2.6279
+   -0.0123778 |           0.0 |    0.00433888 |    0.00836392 |       2.62681
+   -0.0127434 |           0.0 |    0.00427493 |    0.00885231 |       2.62635
+   -0.0134139 |           0.0 |    0.00424495 |    0.00893759 |       2.62575
+   -0.0140429 |           0.0 |    0.00417518 |    0.00941272 |       2.62479
+   -0.0142532 |           0.0 |    0.00412626 |    0.00889806 |       2.62493
+Evaluating losses...
+   -0.0164746 |             0 |    0.00414146 |    0.00884228 |       2.62471
+------------------------------
+| loss_pol_surr   | -0.0165  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00414  |
+| loss_kl         | 0.00884  |
+| loss_ent        | 2.62     |
+| ev_tdlam_before | 0.48     |
+| EpThisIter      | 38       |
+| EpisodesSoFar   | 924      |
+| TimestepsSoFar  | 2.17e+04 |
+| TimeElapsed     | 193      |
+| EpLenMean       | 32.1     |
+| EpRewMean       | -0.981   |
+------------------------------
+********** Iteration 17 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00184517 |           0.0 |    0.00393745 |   0.000528664 |       2.62311
+  -0.00189063 |           0.0 |     0.0037492 |    0.00152474 |       2.62167
+  -0.00477652 |           0.0 |    0.00368271 |    0.00416064 |       2.61927
+  -0.00677077 |           0.0 |    0.00360922 |    0.00529222 |       2.61741
+  -0.00664361 |           0.0 |    0.00370843 |    0.00485247 |       2.61608
+  -0.00762867 |           0.0 |    0.00358352 |    0.00500883 |       2.61441
+  -0.00970101 |           0.0 |    0.00347662 |    0.00601832 |        2.6141
+   -0.0101997 |           0.0 |    0.00336495 |    0.00539286 |       2.61313
+   -0.0105497 |           0.0 |    0.00332824 |    0.00549097 |       2.61077
+   -0.0123813 |           0.0 |     0.0032689 |    0.00612015 |       2.60888
+Evaluating losses...
+   -0.0136764 |             0 |    0.00324482 |    0.00652675 |       2.60829
+------------------------------
+| loss_pol_surr   | -0.0137  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00324  |
+| loss_kl         | 0.00653  |
+| loss_ent        | 2.61     |
+| ev_tdlam_before | 0.521    |
+| EpThisIter      | 39       |
+| EpisodesSoFar   | 963      |
+| TimestepsSoFar  | 2.3e+04  |
+| TimeElapsed     | 204      |
+| EpLenMean       | 33.2     |
+| EpRewMean       | -0.979   |
+------------------------------
+********** Iteration 18 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000967883 |           0.0 |    0.00478636 |   0.000330214 |       2.60782
+  -0.00308859 |           0.0 |    0.00456386 |    0.00264749 |       2.60523
+  -0.00903918 |           0.0 |    0.00420594 |    0.00507195 |       2.60126
+   -0.0106383 |           0.0 |    0.00405828 |    0.00600284 |       2.59756
+   -0.0125436 |           0.0 |    0.00395422 |    0.00578479 |       2.59307
+   -0.0139147 |           0.0 |    0.00382559 |    0.00656518 |       2.58773
+   -0.0142627 |           0.0 |     0.0038299 |     0.0073546 |       2.58372
+   -0.0159627 |           0.0 |    0.00378321 |    0.00660024 |       2.58032
+    -0.016138 |           0.0 |    0.00374937 |    0.00693122 |       2.57747
+    -0.017045 |           0.0 |      0.003634 |    0.00750846 |       2.57542
+Evaluating losses...
+   -0.0195349 |             0 |    0.00358719 |    0.00699747 |       2.57405
+------------------------------
+| loss_pol_surr   | -0.0195  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00359  |
+| loss_kl         | 0.007    |
+| loss_ent        | 2.57     |
+| ev_tdlam_before | 0.582    |
+| EpThisIter      | 38       |
+| EpisodesSoFar   | 1e+03    |
+| TimestepsSoFar  | 2.43e+04 |
+| TimeElapsed     | 215      |
+| EpLenMean       | 33.1     |
+| EpRewMean       | -0.981   |
+------------------------------
+********** Iteration 19 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000650955 |           0.0 |    0.00440855 |   0.000517407 |       2.57217
+  -0.00372969 |           0.0 |    0.00427902 |    0.00307957 |       2.56871
+  -0.00630204 |           0.0 |    0.00421669 |    0.00352757 |       2.56502
+  -0.00827721 |           0.0 |    0.00408362 |    0.00390552 |       2.56262
+  -0.00952636 |           0.0 |    0.00407658 |    0.00462269 |       2.55969
+   -0.0106799 |           0.0 |    0.00403951 |    0.00506077 |       2.55722
+   -0.0116646 |           0.0 |    0.00386937 |    0.00551397 |       2.55661
+   -0.0127332 |           0.0 |    0.00375682 |    0.00487931 |       2.55519
+    -0.013937 |           0.0 |    0.00383109 |    0.00481741 |       2.55293
+   -0.0140437 |           0.0 |    0.00379018 |    0.00571434 |       2.55174
+Evaluating losses...
+   -0.0168863 |             0 |    0.00370053 |    0.00553711 |       2.55137
+------------------------------
+| loss_pol_surr   | -0.0169  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.0037   |
+| loss_kl         | 0.00554  |
+| loss_ent        | 2.55     |
+| ev_tdlam_before | 0.575    |
+| EpThisIter      | 32       |
+| EpisodesSoFar   | 1.03e+03 |
+| TimestepsSoFar  | 2.56e+04 |
+| TimeElapsed     | 226      |
+| EpLenMean       | 35.2     |
+| EpRewMean       | -0.983   |
+------------------------------
+Saving checkpoint 3dball_model/1hoop_rl_2017-11-20-1831/25577/session-25577.checkpoint
+Exporting model...
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_rl_2017-11-20-1831/25577/session-25577.checkpoint
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_rl_2017-11-20-1831/25577/session-25577.checkpoint
+INFO:tensorflow:Froze 10 variables.
+INFO:tensorflow:Froze 10 variables.
+Converted 10 variables to const ops.
+52 ops in the final graph.
+Done exporting model:  3dball_model/1hoop_rl_2017-11-20-1831/25577/3dball_1hoop_rl_2017-11-20-1831_25577.bytes
+********** Iteration 20 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00109383 |           0.0 |    0.00427219 |    0.00144836 |       2.55058
+  -0.00538033 |           0.0 |     0.0041025 |    0.00540521 |       2.54945
+  -0.00694638 |           0.0 |    0.00384341 |    0.00567689 |       2.54819
+  -0.00849697 |           0.0 |    0.00379384 |    0.00592446 |       2.54699
+    -0.010428 |           0.0 |    0.00375187 |    0.00635243 |       2.54491
+   -0.0120255 |           0.0 |    0.00359331 |    0.00588088 |       2.54397
+   -0.0131166 |           0.0 |    0.00359903 |    0.00671116 |       2.54184
+   -0.0131465 |           0.0 |    0.00363718 |    0.00678374 |       2.53968
+   -0.0137966 |           0.0 |    0.00348479 |    0.00660158 |       2.53823
+   -0.0151913 |           0.0 |    0.00341791 |    0.00843849 |        2.5364
+Evaluating losses...
+   -0.0174765 |             0 |    0.00332782 |    0.00773894 |       2.53541
+------------------------------
+| loss_pol_surr   | -0.0175  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00333  |
+| loss_kl         | 0.00774  |
+| loss_ent        | 2.54     |
+| ev_tdlam_before | 0.616    |
+| EpThisIter      | 39       |
+| EpisodesSoFar   | 1.07e+03 |
+| TimestepsSoFar  | 2.69e+04 |
+| TimeElapsed     | 244      |
+| EpLenMean       | 34.1     |
+| EpRewMean       | -0.986   |
+------------------------------
+********** Iteration 21 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -3.87855e-05 |           0.0 |    0.00379852 |    0.00215319 |       2.53425
+  -0.00747334 |           0.0 |    0.00357655 |    0.00584185 |       2.53222
+   -0.0100526 |           0.0 |    0.00346913 |    0.00815875 |       2.52993
+   -0.0121095 |           0.0 |    0.00333947 |    0.00754714 |       2.52739
+   -0.0125596 |           0.0 |    0.00331565 |     0.0057561 |       2.52563
+   -0.0144685 |           0.0 |    0.00330139 |    0.00634457 |       2.52318
+   -0.0141227 |           0.0 |    0.00317567 |     0.0062933 |       2.52189
+   -0.0162501 |           0.0 |    0.00318858 |    0.00678088 |        2.5186
+   -0.0172541 |           0.0 |    0.00318204 |    0.00687958 |       2.51712
+   -0.0171842 |           0.0 |    0.00313601 |    0.00684722 |       2.51539
+Evaluating losses...
+    -0.019706 |             0 |    0.00306889 |    0.00669604 |       2.51438
+------------------------------
+| loss_pol_surr   | -0.0197  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00307  |
+| loss_kl         | 0.0067   |
+| loss_ent        | 2.51     |
+| ev_tdlam_before | 0.602    |
+| EpThisIter      | 32       |
+| EpisodesSoFar   | 1.1e+03  |
+| TimestepsSoFar  | 2.82e+04 |
+| TimeElapsed     | 255      |
+| EpLenMean       | 36.6     |
+| EpRewMean       | -0.983   |
+------------------------------
+********** Iteration 22 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -8.01075e-05 |           0.0 |    0.00423641 |    0.00100858 |        2.5136
+  -0.00741511 |           0.0 |    0.00396773 |    0.00516432 |       2.51177
+   -0.0107974 |           0.0 |    0.00376094 |    0.00647394 |       2.50902
+   -0.0110971 |           0.0 |    0.00364887 |    0.00732619 |       2.50615
+   -0.0144119 |           0.0 |    0.00360138 |    0.00877219 |       2.50478
+   -0.0147165 |           0.0 |     0.0035563 |    0.00867459 |       2.50254
+   -0.0157982 |           0.0 |    0.00349717 |    0.00661278 |       2.50016
+   -0.0172979 |           0.0 |    0.00342113 |    0.00800451 |       2.49886
+    -0.018371 |           0.0 |    0.00343317 |     0.0080058 |        2.4973
+   -0.0182272 |           0.0 |    0.00349459 |     0.0088367 |       2.49561
+Evaluating losses...
+   -0.0207727 |             0 |    0.00326112 |    0.00906912 |       2.49468
+------------------------------
+| loss_pol_surr   | -0.0208  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00326  |
+| loss_kl         | 0.00907  |
+| loss_ent        | 2.49     |
+| ev_tdlam_before | 0.579    |
+| EpThisIter      | 28       |
+| EpisodesSoFar   | 1.13e+03 |
+| TimestepsSoFar  | 2.94e+04 |
+| TimeElapsed     | 265      |
+| EpLenMean       | 38.5     |
+| EpRewMean       | -0.985   |
+------------------------------
+********** Iteration 23 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000568554 |           0.0 |    0.00567694 |    0.00164131 |       2.49346
+  -0.00794934 |           0.0 |     0.0050989 |    0.00401961 |       2.49227
+   -0.0102685 |           0.0 |    0.00491286 |    0.00785873 |       2.49182
+   -0.0127381 |           0.0 |    0.00472029 |    0.00646496 |       2.49144
+   -0.0142733 |           0.0 |    0.00441016 |    0.00622987 |       2.49023
+   -0.0159658 |           0.0 |    0.00431942 |    0.00739294 |       2.48922
+   -0.0166525 |           0.0 |    0.00439562 |    0.00693824 |       2.48843
+    -0.017872 |           0.0 |     0.0043551 |    0.00688397 |       2.48769
+   -0.0184295 |           0.0 |    0.00410622 |    0.00748411 |       2.48756
+   -0.0197462 |           0.0 |    0.00415645 |    0.00753898 |       2.48657
+Evaluating losses...
+   -0.0216521 |             0 |    0.00407581 |    0.00888454 |       2.48587
+------------------------------
+| loss_pol_surr   | -0.0217  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00408  |
+| loss_kl         | 0.00888  |
+| loss_ent        | 2.49     |
+| ev_tdlam_before | 0.529    |
+| EpThisIter      | 26       |
+| EpisodesSoFar   | 1.16e+03 |
+| TimestepsSoFar  | 3.07e+04 |
+| TimeElapsed     | 276      |
+| EpLenMean       | 42.1     |
+| EpRewMean       | -0.987   |
+------------------------------
+********** Iteration 24 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000163328 |           0.0 |    0.00557126 |   0.000534145 |       2.48571
+  -0.00652598 |           0.0 |    0.00538473 |    0.00445134 |       2.48623
+  -0.00910511 |           0.0 |    0.00512642 |    0.00726115 |       2.48605
+   -0.0107631 |           0.0 |    0.00506222 |    0.00756149 |       2.48567
+   -0.0125312 |           0.0 |    0.00480158 |    0.00777381 |       2.48532
+   -0.0132817 |           0.0 |    0.00462674 |    0.00764163 |       2.48565
+   -0.0135899 |           0.0 |    0.00462075 |    0.00856975 |       2.48511
+   -0.0141772 |           0.0 |    0.00452485 |    0.00737253 |       2.48539
+   -0.0149819 |           0.0 |    0.00456303 |     0.0080744 |       2.48531
+   -0.0155855 |           0.0 |    0.00458994 |    0.00832965 |       2.48464
+Evaluating losses...
+   -0.0176598 |             0 |    0.00452413 |    0.00807622 |       2.48424
+------------------------------
+| loss_pol_surr   | -0.0177  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00452  |
+| loss_kl         | 0.00808  |
+| loss_ent        | 2.48     |
+| ev_tdlam_before | 0.575    |
+| EpThisIter      | 32       |
+| EpisodesSoFar   | 1.19e+03 |
+| TimestepsSoFar  | 3.2e+04  |
+| TimeElapsed     | 287      |
+| EpLenMean       | 43.8     |
+| EpRewMean       | -0.987   |
+------------------------------
+********** Iteration 25 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000396277 |           0.0 |    0.00454835 |   0.000647731 |       2.48471
+  -0.00610181 |           0.0 |    0.00430118 |    0.00367531 |       2.48591
+  -0.00910223 |           0.0 |    0.00411998 |     0.0077536 |       2.48839
+   -0.0121799 |           0.0 |    0.00408072 |    0.00919779 |       2.48978
+   -0.0136147 |           0.0 |    0.00405805 |     0.0097977 |       2.49047
+   -0.0147965 |           0.0 |    0.00386954 |    0.00996075 |       2.49171
+   -0.0155259 |           0.0 |    0.00383352 |     0.0102135 |       2.49308
+   -0.0167445 |           0.0 |    0.00377257 |     0.0106337 |       2.49458
+   -0.0180932 |           0.0 |    0.00377624 |    0.00977801 |       2.49513
+   -0.0190268 |           0.0 |    0.00369414 |    0.00993127 |       2.49662
+Evaluating losses...
+   -0.0209882 |             0 |    0.00356532 |     0.0101451 |       2.49715
+------------------------------
+| loss_pol_surr   | -0.021   |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00357  |
+| loss_kl         | 0.0101   |
+| loss_ent        | 2.5      |
+| ev_tdlam_before | 0.602    |
+| EpThisIter      | 30       |
+| EpisodesSoFar   | 1.22e+03 |
+| TimestepsSoFar  | 3.33e+04 |
+| TimeElapsed     | 298      |
+| EpLenMean       | 44.9     |
+| EpRewMean       | -0.992   |
+------------------------------
+********** Iteration 26 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000191087 |           0.0 |    0.00507878 |   0.000599475 |       2.49634
+  -0.00678088 |           0.0 |    0.00461345 |     0.0034794 |       2.49363
+   -0.0105456 |           0.0 |    0.00452776 |    0.00615788 |       2.48965
+   -0.0121558 |           0.0 |    0.00442682 |    0.00888405 |        2.4872
+   -0.0142821 |           0.0 |    0.00423617 |    0.00791472 |       2.48381
+   -0.0153085 |           0.0 |    0.00419642 |    0.00766886 |       2.48249
+    -0.016993 |           0.0 |    0.00410158 |    0.00745254 |       2.48206
+   -0.0178427 |           0.0 |    0.00407298 |    0.00757013 |       2.48099
+   -0.0185877 |           0.0 |    0.00403379 |    0.00943413 |       2.47892
+   -0.0195783 |           0.0 |    0.00405963 |    0.00850157 |       2.47895
+Evaluating losses...
+   -0.0220952 |             0 |     0.0038491 |    0.00785232 |       2.47866
+------------------------------
+| loss_pol_surr   | -0.0221  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00385  |
+| loss_kl         | 0.00785  |
+| loss_ent        | 2.48     |
+| ev_tdlam_before | 0.61     |
+| EpThisIter      | 35       |
+| EpisodesSoFar   | 1.26e+03 |
+| TimestepsSoFar  | 3.45e+04 |
+| TimeElapsed     | 308      |
+| EpLenMean       | 39.9     |
+| EpRewMean       | -0.99    |
+------------------------------
+********** Iteration 27 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00021044 |           0.0 |    0.00498716 |   0.000732744 |       2.47749
+  -0.00600471 |           0.0 |    0.00457419 |    0.00386484 |       2.47546
+  -0.00882677 |           0.0 |    0.00440907 |    0.00570105 |       2.47209
+   -0.0101368 |           0.0 |    0.00425213 |     0.0058604 |        2.4687
+   -0.0127856 |           0.0 |    0.00424649 |    0.00607773 |       2.46534
+   -0.0129784 |           0.0 |    0.00411455 |    0.00756992 |         2.463
+   -0.0144806 |           0.0 |    0.00413385 |    0.00676016 |       2.46026
+   -0.0152166 |           0.0 |    0.00396242 |    0.00660848 |        2.4578
+   -0.0157967 |           0.0 |    0.00391241 |    0.00718646 |       2.45487
+   -0.0167394 |           0.0 |    0.00400807 |    0.00681455 |       2.45245
+Evaluating losses...
+   -0.0198477 |             0 |    0.00393154 |    0.00620773 |       2.45091
+------------------------------
+| loss_pol_surr   | -0.0198  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00393  |
+| loss_kl         | 0.00621  |
+| loss_ent        | 2.45     |
+| ev_tdlam_before | 0.629    |
+| EpThisIter      | 31       |
+| EpisodesSoFar   | 1.29e+03 |
+| TimestepsSoFar  | 3.58e+04 |
+| TimeElapsed     | 319      |
+| EpLenMean       | 40       |
+| EpRewMean       | -0.981   |
+------------------------------
+********** Iteration 28 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000509164 |           0.0 |    0.00489136 |    0.00205194 |       2.45088
+  -0.00819303 |           0.0 |    0.00466142 |    0.00513339 |       2.45153
+  -0.00977838 |           0.0 |    0.00444239 |    0.00622986 |        2.4525
+   -0.0110264 |           0.0 |    0.00443638 |    0.00910377 |       2.45339
+   -0.0123359 |           0.0 |    0.00442888 |    0.00783608 |       2.45338
+   -0.0134212 |           0.0 |    0.00426323 |     0.0072272 |       2.45371
+   -0.0139702 |           0.0 |    0.00444973 |    0.00821208 |       2.45397
+   -0.0147574 |           0.0 |    0.00439655 |    0.00835619 |       2.45438
+   -0.0151059 |           0.0 |    0.00422043 |    0.00943581 |       2.45447
+   -0.0164092 |           0.0 |    0.00418437 |    0.00894212 |       2.45387
+Evaluating losses...
+   -0.0179312 |             0 |    0.00428875 |    0.00841131 |       2.45341
+------------------------------
+| loss_pol_surr   | -0.0179  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00429  |
+| loss_kl         | 0.00841  |
+| loss_ent        | 2.45     |
+| ev_tdlam_before | 0.626    |
+| EpThisIter      | 29       |
+| EpisodesSoFar   | 1.32e+03 |
+| TimestepsSoFar  | 3.71e+04 |
+| TimeElapsed     | 330      |
+| EpLenMean       | 40.2     |
+| EpRewMean       | -0.976   |
+------------------------------
+********** Iteration 29 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00150722 |           0.0 |     0.0054215 |    0.00129449 |       2.45355
+  -0.00665618 |           0.0 |    0.00505694 |    0.00665196 |       2.45237
+   -0.0110722 |           0.0 |     0.0047688 |    0.00875318 |       2.45005
+   -0.0138906 |           0.0 |    0.00455245 |    0.00922293 |       2.44846
+   -0.0165094 |           0.0 |    0.00445102 |     0.0097911 |       2.44802
+   -0.0149861 |           0.0 |    0.00451149 |     0.0102225 |       2.44584
+   -0.0178511 |           0.0 |    0.00437829 |    0.00959313 |       2.44453
+   -0.0191727 |           0.0 |     0.0043057 |    0.00981246 |       2.44414
+   -0.0195774 |           0.0 |    0.00419437 |    0.00949573 |       2.44212
+   -0.0209093 |           0.0 |    0.00424479 |     0.0113639 |       2.44263
+Evaluating losses...
+   -0.0220571 |             0 |     0.0040542 |     0.0128857 |       2.44314
+------------------------------
+| loss_pol_surr   | -0.0221  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00405  |
+| loss_kl         | 0.0129   |
+| loss_ent        | 2.44     |
+| ev_tdlam_before | 0.531    |
+| EpThisIter      | 26       |
+| EpisodesSoFar   | 1.34e+03 |
+| TimestepsSoFar  | 3.84e+04 |
+| TimeElapsed     | 341      |
+| EpLenMean       | 42.5     |
+| EpRewMean       | -0.975   |
+------------------------------
+Saving checkpoint 3dball_model/1hoop_rl_2017-11-20-1831/38375/session-38375.checkpoint
+Exporting model...
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_rl_2017-11-20-1831/38375/session-38375.checkpoint
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_rl_2017-11-20-1831/38375/session-38375.checkpoint
+INFO:tensorflow:Froze 10 variables.
+Converted 10 variables to const ops.
+INFO:tensorflow:Froze 10 variables.
+52 ops in the final graph.
+Done exporting model:  3dball_model/1hoop_rl_2017-11-20-1831/38375/3dball_1hoop_rl_2017-11-20-1831_38375.bytes
+********** Iteration 30 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000900886 |           0.0 |    0.00628842 |   0.000309347 |       2.44251
+  -0.00326682 |           0.0 |    0.00590988 |    0.00359927 |       2.44013
+  -0.00736917 |           0.0 |     0.0056446 |    0.00436377 |       2.43656
+  -0.00917601 |           0.0 |    0.00554198 |    0.00434775 |       2.43223
+   -0.0111978 |           0.0 |    0.00550654 |    0.00558667 |       2.42866
+   -0.0129222 |           0.0 |    0.00531738 |    0.00575583 |       2.42527
+   -0.0138938 |           0.0 |    0.00527094 |    0.00571685 |       2.42248
+    -0.015085 |           0.0 |    0.00523497 |    0.00627337 |       2.41955
+   -0.0157856 |           0.0 |    0.00513674 |    0.00612549 |       2.41657
+   -0.0170196 |           0.0 |    0.00509785 |    0.00702163 |       2.41331
+Evaluating losses...
+   -0.0189524 |             0 |    0.00505088 |    0.00700983 |       2.41163
+------------------------------
+| loss_pol_surr   | -0.019   |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00505  |
+| loss_kl         | 0.00701  |
+| loss_ent        | 2.41     |
+| ev_tdlam_before | 0.528    |
+| EpThisIter      | 25       |
+| EpisodesSoFar   | 1.37e+03 |
+| TimestepsSoFar  | 3.96e+04 |
+| TimeElapsed     | 367      |
+| EpLenMean       | 45.4     |
+| EpRewMean       | -0.975   |
+------------------------------
+********** Iteration 31 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000434032 |           0.0 |    0.00611519 |    0.00200693 |       2.41056
+  -0.00876434 |           0.0 |    0.00588009 |    0.00576199 |       2.40759
+    -0.011346 |           0.0 |    0.00576044 |    0.00681346 |       2.40324
+   -0.0126937 |           0.0 |    0.00561259 |    0.00819883 |       2.39976
+   -0.0142584 |           0.0 |    0.00546979 |    0.00747836 |       2.39692
+   -0.0157251 |           0.0 |    0.00545915 |    0.00791321 |       2.39478
+   -0.0172283 |           0.0 |    0.00545433 |    0.00846372 |       2.39126
+   -0.0184588 |           0.0 |    0.00545408 |    0.00797932 |       2.38809
+   -0.0191098 |           0.0 |    0.00540446 |    0.00809131 |       2.38605
+   -0.0200965 |           0.0 |    0.00546294 |     0.0078525 |       2.38358
+Evaluating losses...
+   -0.0223779 |             0 |     0.0051414 |    0.00798003 |       2.38214
+------------------------------
+| loss_pol_surr   | -0.0224  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00514  |
+| loss_kl         | 0.00798  |
+| loss_ent        | 2.38     |
+| ev_tdlam_before | 0.582    |
+| EpThisIter      | 27       |
+| EpisodesSoFar   | 1.39e+03 |
+| TimestepsSoFar  | 4.1e+04  |
+| TimeElapsed     | 377      |
+| EpLenMean       | 47.5     |
+| EpRewMean       | -0.973   |
+------------------------------
+********** Iteration 32 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000401361 |           0.0 |    0.00665323 |    0.00138861 |        2.3822
+  -0.00539045 |           0.0 |    0.00639351 |    0.00285396 |       2.38059
+  -0.00848741 |           0.0 |    0.00629395 |    0.00503844 |       2.37912
+  -0.00952943 |           0.0 |    0.00606293 |    0.00565695 |       2.37702
+   -0.0101874 |           0.0 |    0.00596898 |    0.00570836 |        2.3754
+   -0.0116433 |           0.0 |    0.00613091 |     0.0057714 |       2.37491
+   -0.0141197 |           0.0 |    0.00596809 |    0.00544069 |       2.37321
+   -0.0144568 |           0.0 |     0.0061879 |    0.00570414 |       2.37205
+   -0.0155151 |           0.0 |    0.00583929 |     0.0056735 |       2.37001
+   -0.0168863 |           0.0 |     0.0057677 |    0.00637827 |       2.36784
+Evaluating losses...
+   -0.0179722 |             0 |    0.00576789 |    0.00646299 |       2.36733
+------------------------------
+| loss_pol_surr   | -0.018   |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00577  |
+| loss_kl         | 0.00646  |
+| loss_ent        | 2.37     |
+| ev_tdlam_before | 0.601    |
+| EpThisIter      | 34       |
+| EpisodesSoFar   | 1.43e+03 |
+| TimestepsSoFar  | 4.22e+04 |
+| TimeElapsed     | 388      |
+| EpLenMean       | 45.1     |
+| EpRewMean       | -0.972   |
+------------------------------
+********** Iteration 33 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00142021 |           0.0 |    0.00547437 |   0.000912388 |       2.36764
+   -0.0046899 |           0.0 |    0.00530329 |    0.00438783 |       2.36598
+  -0.00539311 |           0.0 |    0.00531841 |    0.00505012 |       2.36357
+  -0.00748454 |           0.0 |    0.00526028 |    0.00781002 |       2.36223
+   -0.0087654 |           0.0 |    0.00498377 |    0.00645215 |        2.3624
+  -0.00929587 |           0.0 |    0.00491331 |    0.00758175 |       2.36232
+   -0.0107974 |           0.0 |    0.00495127 |    0.00791224 |        2.3615
+   -0.0125076 |           0.0 |    0.00484522 |    0.00645281 |       2.36155
+     -0.01263 |           0.0 |    0.00474041 |    0.00689026 |       2.36068
+   -0.0142968 |           0.0 |     0.0047495 |    0.00708574 |       2.35977
+Evaluating losses...
+   -0.0162166 |             0 |    0.00463831 |    0.00816692 |       2.35928
+------------------------------
+| loss_pol_surr   | -0.0162  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00464  |
+| loss_kl         | 0.00817  |
+| loss_ent        | 2.36     |
+| ev_tdlam_before | 0.627    |
+| EpThisIter      | 29       |
+| EpisodesSoFar   | 1.46e+03 |
+| TimestepsSoFar  | 4.35e+04 |
+| TimeElapsed     | 399      |
+| EpLenMean       | 45.3     |
+| EpRewMean       | -0.972   |
+------------------------------
+********** Iteration 34 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000447172 |           0.0 |    0.00680933 |    0.00122686 |       2.35763
+  -0.00643441 |           0.0 |    0.00656979 |    0.00456139 |       2.35496
+  -0.00962059 |           0.0 |    0.00661643 |    0.00664511 |       2.35258
+  -0.00991272 |           0.0 |    0.00621466 |    0.00506956 |       2.34903
+   -0.0123588 |           0.0 |    0.00610874 |    0.00640785 |        2.3449
+   -0.0135613 |           0.0 |    0.00600915 |     0.0071079 |       2.34168
+   -0.0151251 |           0.0 |    0.00608104 |    0.00655649 |       2.33838
+   -0.0154806 |           0.0 |    0.00601752 |    0.00713966 |       2.33548
+   -0.0166743 |           0.0 |    0.00590786 |    0.00722573 |       2.33294
+   -0.0178461 |           0.0 |    0.00584078 |    0.00712334 |       2.33093
+Evaluating losses...
+    -0.020315 |             0 |    0.00578233 |     0.0073987 |        2.3296
+------------------------------
+| loss_pol_surr   | -0.0203  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00578  |
+| loss_kl         | 0.0074   |
+| loss_ent        | 2.33     |
+| ev_tdlam_before | 0.498    |
+| EpThisIter      | 28       |
+| EpisodesSoFar   | 1.48e+03 |
+| TimestepsSoFar  | 4.48e+04 |
+| TimeElapsed     | 410      |
+| EpLenMean       | 42.1     |
+| EpRewMean       | -0.983   |
+------------------------------
+********** Iteration 35 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000222239 |           0.0 |    0.00580927 |   0.000470314 |       2.32831
+  -0.00506974 |           0.0 |    0.00521887 |    0.00461812 |       2.32776
+  -0.00703002 |           0.0 |    0.00500151 |    0.00597356 |       2.32603
+  -0.00840539 |           0.0 |    0.00487661 |    0.00584007 |       2.32464
+   -0.0111985 |           0.0 |    0.00469491 |    0.00558888 |       2.32278
+   -0.0122221 |           0.0 |    0.00467065 |    0.00627309 |       2.32155
+   -0.0125143 |           0.0 |    0.00449397 |    0.00548283 |       2.32066
+   -0.0130378 |           0.0 |    0.00440873 |    0.00702956 |       2.31945
+   -0.0146569 |           0.0 |    0.00433352 |    0.00503182 |       2.31748
+   -0.0147883 |           0.0 |    0.00440065 |    0.00684453 |       2.31568
+Evaluating losses...
+   -0.0182716 |             0 |    0.00421559 |    0.00636858 |       2.31503
+------------------------------
+| loss_pol_surr   | -0.0183  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00422  |
+| loss_kl         | 0.00637  |
+| loss_ent        | 2.32     |
+| ev_tdlam_before | 0.593    |
+| EpThisIter      | 23       |
+| EpisodesSoFar   | 1.51e+03 |
+| TimestepsSoFar  | 4.59e+04 |
+| TimeElapsed     | 421      |
+| EpLenMean       | 43.7     |
+| EpRewMean       | -0.981   |
+------------------------------
+********** Iteration 36 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000287673 |           0.0 |      0.005691 |     0.0018841 |       2.31432
+  -0.00518946 |           0.0 |    0.00555278 |    0.00525108 |       2.31321
+  -0.00761221 |           0.0 |     0.0055879 |    0.00663467 |       2.31153
+  -0.00968738 |           0.0 |    0.00557488 |    0.00535013 |       2.30923
+   -0.0087346 |           0.0 |    0.00552053 |    0.00644204 |        2.3061
+   -0.0121539 |           0.0 |    0.00535326 |    0.00595014 |       2.30346
+   -0.0144358 |           0.0 |    0.00516622 |    0.00679203 |       2.30121
+   -0.0143315 |           0.0 |    0.00511186 |    0.00526425 |       2.29951
+   -0.0170323 |           0.0 |    0.00510475 |    0.00695575 |       2.29745
+   -0.0191648 |           0.0 |    0.00508033 |    0.00638101 |       2.29579
+Evaluating losses...
+   -0.0208728 |             0 |    0.00492949 |    0.00608655 |       2.29448
+------------------------------
+| loss_pol_surr   | -0.0209  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00493  |
+| loss_kl         | 0.00609  |
+| loss_ent        | 2.29     |
+| ev_tdlam_before | 0.631    |
+| EpThisIter      | 25       |
+| EpisodesSoFar   | 1.53e+03 |
+| TimestepsSoFar  | 4.73e+04 |
+| TimeElapsed     | 432      |
+| EpLenMean       | 46.6     |
+| EpRewMean       | -0.978   |
+------------------------------
+********** Iteration 37 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00119474 |           0.0 |    0.00588298 |    0.00186439 |       2.29406
+  -0.00788487 |           0.0 |    0.00549809 |    0.00531392 |       2.29362
+   -0.0102759 |           0.0 |    0.00526508 |    0.00558008 |       2.29304
+   -0.0121359 |           0.0 |    0.00517176 |    0.00846994 |       2.29209
+   -0.0133806 |           0.0 |    0.00488928 |    0.00596428 |       2.29079
+   -0.0151299 |           0.0 |    0.00478309 |    0.00599882 |       2.29165
+   -0.0138354 |           0.0 |    0.00468997 |    0.00963696 |       2.29221
+    -0.016623 |           0.0 |    0.00464779 |    0.00613395 |       2.29249
+   -0.0177528 |           0.0 |    0.00457103 |    0.00704627 |       2.29328
+   -0.0189192 |           0.0 |     0.0045363 |    0.00714913 |        2.2934
+Evaluating losses...
+   -0.0214928 |             0 |    0.00438993 |    0.00763395 |       2.29339
+------------------------------
+| loss_pol_surr   | -0.0215  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00439  |
+| loss_kl         | 0.00763  |
+| loss_ent        | 2.29     |
+| ev_tdlam_before | 0.63     |
+| EpThisIter      | 26       |
+| EpisodesSoFar   | 1.56e+03 |
+| TimestepsSoFar  | 4.85e+04 |
+| TimeElapsed     | 442      |
+| EpLenMean       | 48.8     |
+| EpRewMean       | -0.975   |
+------------------------------
+********** Iteration 38 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00273395 |           0.0 |    0.00638912 |   0.000848676 |       2.29299
+  -0.00124708 |           0.0 |    0.00603088 |    0.00235295 |       2.29116
+   -0.0057652 |           0.0 |    0.00586844 |    0.00292506 |       2.28838
+  -0.00889187 |           0.0 |    0.00569993 |    0.00470958 |       2.28595
+   -0.0085093 |           0.0 |     0.0056425 |      0.004491 |       2.28281
+   -0.0104925 |           0.0 |    0.00540355 |    0.00419166 |       2.28142
+   -0.0128466 |           0.0 |    0.00540235 |     0.0052397 |       2.27785
+   -0.0142551 |           0.0 |    0.00536916 |     0.0051479 |       2.27518
+   -0.0164226 |           0.0 |    0.00535935 |    0.00537168 |       2.27306
+   -0.0150624 |           0.0 |    0.00522649 |    0.00598241 |       2.27017
+Evaluating losses...
+   -0.0196444 |             0 |     0.0051705 |    0.00489057 |       2.26838
+------------------------------
+| loss_pol_surr   | -0.0196  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00517  |
+| loss_kl         | 0.00489  |
+| loss_ent        | 2.27     |
+| ev_tdlam_before | 0.584    |
+| EpThisIter      | 24       |
+| EpisodesSoFar   | 1.58e+03 |
+| TimestepsSoFar  | 4.99e+04 |
+| TimeElapsed     | 453      |
+| EpLenMean       | 52.4     |
+| EpRewMean       | -0.969   |
+------------------------------
+********** Iteration 39 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000663936 |           0.0 |    0.00646967 |    0.00138633 |       2.26772
+   -0.0116467 |           0.0 |     0.0060172 |     0.0074672 |       2.26702
+   -0.0148119 |           0.0 |    0.00576248 |     0.0111044 |       2.26586
+   -0.0168208 |           0.0 |    0.00556708 |    0.00882271 |       2.26533
+   -0.0183306 |           0.0 |    0.00542499 |    0.00942331 |       2.26466
+   -0.0195945 |           0.0 |    0.00535061 |    0.00985922 |       2.26476
+   -0.0208622 |           0.0 |    0.00519746 |    0.00880966 |       2.26443
+    -0.022029 |           0.0 |    0.00517969 |    0.00972649 |       2.26397
+   -0.0227941 |           0.0 |    0.00530187 |     0.0100626 |       2.26249
+   -0.0229391 |           0.0 |    0.00519321 |    0.00987988 |       2.26183
+Evaluating losses...
+   -0.0258384 |             0 |     0.0050829 |     0.0106473 |       2.26161
+------------------------------
+| loss_pol_surr   | -0.0258  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00508  |
+| loss_kl         | 0.0106   |
+| loss_ent        | 2.26     |
+| ev_tdlam_before | 0.562    |
+| EpThisIter      | 28       |
+| EpisodesSoFar   | 1.61e+03 |
+| TimestepsSoFar  | 5.12e+04 |
+| TimeElapsed     | 464      |
+| EpLenMean       | 50       |
+| EpRewMean       | -0.97    |
+------------------------------
+Saving checkpoint 3dball_model/1hoop_rl_2017-11-20-1831/51200/session-51200.checkpoint
+Exporting model...
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_rl_2017-11-20-1831/51200/session-51200.checkpoint
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_rl_2017-11-20-1831/51200/session-51200.checkpoint
+INFO:tensorflow:Froze 10 variables.
+INFO:tensorflow:Froze 10 variables.
+Converted 10 variables to const ops.
+52 ops in the final graph.
+Done exporting model:  3dball_model/1hoop_rl_2017-11-20-1831/51200/3dball_1hoop_rl_2017-11-20-1831_51200.bytes
+********** Iteration 40 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00171707 |           0.0 |    0.00593167 |    0.00173761 |       2.26015
+  -0.00735566 |           0.0 |    0.00570025 |    0.00685874 |       2.25778
+  -0.00986135 |           0.0 |    0.00545124 |    0.00733796 |       2.25661
+   -0.0115267 |           0.0 |    0.00533552 |    0.00595545 |       2.25451
+   -0.0121761 |           0.0 |    0.00528281 |    0.00600341 |       2.25179
+   -0.0133753 |           0.0 |     0.0052528 |    0.00731032 |       2.25108
+   -0.0160275 |           0.0 |    0.00529002 |    0.00592412 |       2.24968
+   -0.0160873 |           0.0 |    0.00516329 |    0.00698073 |       2.24796
+    -0.016068 |           0.0 |    0.00506022 |    0.00723378 |       2.24659
+    -0.017997 |           0.0 |    0.00502008 |    0.00727286 |       2.24496
+Evaluating losses...
+   -0.0215089 |             0 |    0.00528515 |    0.00751102 |       2.24439
+------------------------------
+| loss_pol_surr   | -0.0215  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00529  |
+| loss_kl         | 0.00751  |
+| loss_ent        | 2.24     |
+| ev_tdlam_before | 0.505    |
+| EpThisIter      | 19       |
+| EpisodesSoFar   | 1.63e+03 |
+| TimestepsSoFar  | 5.24e+04 |
+| TimeElapsed     | 505      |
+| EpLenMean       | 53       |
+| EpRewMean       | -0.971   |
+------------------------------
+********** Iteration 41 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000426637 |           0.0 |     0.0060248 |   0.000949454 |         2.244
+  -0.00608131 |           0.0 |    0.00574368 |     0.0077272 |       2.24464
+  -0.00967477 |           0.0 |    0.00536515 |    0.00796216 |       2.24384
+   -0.0119766 |           0.0 |    0.00527839 |    0.00668578 |       2.24266
+   -0.0128238 |           0.0 |    0.00523724 |    0.00588521 |       2.24166
+   -0.0140029 |           0.0 |    0.00497644 |    0.00729765 |       2.23961
+   -0.0162028 |           0.0 |    0.00501531 |    0.00837072 |       2.23773
+   -0.0161142 |           0.0 |    0.00490784 |    0.00714409 |       2.23622
+   -0.0162772 |           0.0 |    0.00491203 |    0.00842467 |       2.23389
+   -0.0172498 |           0.0 |     0.0048753 |    0.00869415 |       2.23277
+Evaluating losses...
+   -0.0208462 |             0 |    0.00468425 |     0.0081545 |       2.23195
+------------------------------
+| loss_pol_surr   | -0.0208  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00468  |
+| loss_kl         | 0.00815  |
+| loss_ent        | 2.23     |
+| ev_tdlam_before | 0.521    |
+| EpThisIter      | 27       |
+| EpisodesSoFar   | 1.66e+03 |
+| TimestepsSoFar  | 5.38e+04 |
+| TimeElapsed     | 516      |
+| EpLenMean       | 53.4     |
+| EpRewMean       | -0.975   |
+------------------------------
+********** Iteration 42 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -9.93095e-05 |           0.0 |    0.00673391 |    0.00142646 |       2.23118
+  -0.00532422 |           0.0 |    0.00676113 |    0.00555938 |       2.22946
+  -0.00735216 |           0.0 |    0.00626434 |    0.00636783 |       2.22797
+   -0.0101555 |           0.0 |     0.0061628 |    0.00630477 |       2.22693
+   -0.0118216 |           0.0 |    0.00607242 |    0.00588534 |       2.22567
+   -0.0129172 |           0.0 |     0.0058944 |    0.00720972 |       2.22336
+    -0.011877 |           0.0 |    0.00571221 |     0.0085761 |       2.22234
+   -0.0160133 |           0.0 |    0.00558401 |    0.00597517 |       2.22166
+    -0.017247 |           0.0 |    0.00550328 |    0.00733241 |       2.22043
+   -0.0180768 |           0.0 |    0.00563151 |    0.00793595 |       2.21889
+Evaluating losses...
+   -0.0207451 |             0 |    0.00537418 |    0.00747485 |       2.21839
+------------------------------
+| loss_pol_surr   | -0.0207  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00537  |
+| loss_kl         | 0.00747  |
+| loss_ent        | 2.22     |
+| ev_tdlam_before | 0.569    |
+| EpThisIter      | 31       |
+| EpisodesSoFar   | 1.69e+03 |
+| TimestepsSoFar  | 5.5e+04  |
+| TimeElapsed     | 527      |
+| EpLenMean       | 48.9     |
+| EpRewMean       | -0.978   |
+------------------------------
+********** Iteration 43 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000138165 |           0.0 |    0.00593653 |    0.00230133 |        2.2176
+  -0.00785366 |           0.0 |    0.00565558 |    0.00458136 |       2.21621
+   -0.0105908 |           0.0 |    0.00536411 |    0.00720669 |        2.2153
+   -0.0124048 |           0.0 |    0.00528825 |    0.00695246 |       2.21536
+   -0.0137935 |           0.0 |    0.00520946 |    0.00704553 |       2.21478
+   -0.0142472 |           0.0 |    0.00519863 |    0.00769476 |       2.21417
+   -0.0151207 |           0.0 |    0.00504751 |    0.00791052 |       2.21403
+   -0.0156399 |           0.0 |    0.00507404 |     0.0090577 |       2.21382
+   -0.0180398 |           0.0 |    0.00510099 |    0.00813985 |       2.21261
+   -0.0163196 |           0.0 |    0.00490532 |    0.00850682 |        2.2125
+Evaluating losses...
+   -0.0196923 |             0 |    0.00478396 |     0.0100496 |       2.21265
+------------------------------
+| loss_pol_surr   | -0.0197  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00478  |
+| loss_kl         | 0.01     |
+| loss_ent        | 2.21     |
+| ev_tdlam_before | 0.587    |
+| EpThisIter      | 28       |
+| EpisodesSoFar   | 1.72e+03 |
+| TimestepsSoFar  | 5.62e+04 |
+| TimeElapsed     | 538      |
+| EpLenMean       | 47       |
+| EpRewMean       | -0.979   |
+------------------------------
+********** Iteration 44 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000962915 |           0.0 |    0.00640516 |    0.00198408 |       2.21238
+  -0.00398541 |           0.0 |    0.00603062 |    0.00527439 |       2.20859
+  -0.00672706 |           0.0 |     0.0057231 |    0.00552924 |       2.20534
+  -0.00843542 |           0.0 |    0.00565589 |    0.00453347 |       2.20207
+  -0.00926733 |           0.0 |    0.00558869 |    0.00669759 |        2.1994
+   -0.0106099 |           0.0 |     0.0055356 |    0.00679588 |       2.19619
+    -0.011083 |           0.0 |    0.00528518 |    0.00595444 |       2.19438
+   -0.0124727 |           0.0 |    0.00526709 |     0.0069032 |        2.1916
+   -0.0136971 |           0.0 |     0.0051621 |    0.00621696 |       2.18939
+   -0.0147245 |           0.0 |    0.00532287 |    0.00631593 |       2.18736
+Evaluating losses...
+   -0.0179664 |             0 |    0.00505924 |    0.00569848 |        2.1862
+------------------------------
+| loss_pol_surr   | -0.018   |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00506  |
+| loss_kl         | 0.0057   |
+| loss_ent        | 2.19     |
+| ev_tdlam_before | 0.554    |
+| EpThisIter      | 21       |
+| EpisodesSoFar   | 1.74e+03 |
+| TimestepsSoFar  | 5.75e+04 |
+| TimeElapsed     | 548      |
+| EpLenMean       | 46.6     |
+| EpRewMean       | -0.977   |
+------------------------------
+********** Iteration 45 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  3.37154e-05 |           0.0 |     0.0069502 |    0.00125611 |       2.18491
+  -0.00781062 |           0.0 |    0.00682142 |    0.00677572 |       2.18225
+   -0.0110383 |           0.0 |    0.00656682 |    0.00578787 |       2.17901
+   -0.0128029 |           0.0 |    0.00644615 |    0.00801618 |       2.17556
+   -0.0144148 |           0.0 |    0.00634355 |     0.0072909 |       2.17279
+   -0.0165487 |           0.0 |    0.00625791 |    0.00715752 |       2.17083
+   -0.0177124 |           0.0 |    0.00623406 |    0.00635011 |       2.16815
+   -0.0184456 |           0.0 |    0.00603043 |    0.00775755 |       2.16514
+   -0.0202424 |           0.0 |    0.00602015 |    0.00819519 |        2.1631
+   -0.0220411 |           0.0 |    0.00614704 |    0.00785209 |       2.16128
+Evaluating losses...
+   -0.0242826 |             0 |    0.00596495 |    0.00777408 |       2.16009
+------------------------------
+| loss_pol_surr   | -0.0243  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00596  |
+| loss_kl         | 0.00777  |
+| loss_ent        | 2.16     |
+| ev_tdlam_before | 0.616    |
+| EpThisIter      | 26       |
+| EpisodesSoFar   | 1.76e+03 |
+| TimestepsSoFar  | 5.89e+04 |
+| TimeElapsed     | 559      |
+| EpLenMean       | 49.3     |
+| EpRewMean       | -0.971   |
+------------------------------
+********** Iteration 46 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00160728 |           0.0 |     0.0073323 |    0.00130623 |       2.15856
+  -0.00829726 |           0.0 |    0.00704539 |    0.00746514 |       2.15508
+    -0.011635 |           0.0 |    0.00667036 |     0.0071365 |       2.15075
+   -0.0137713 |           0.0 |    0.00644418 |     0.0093902 |       2.14603
+   -0.0162092 |           0.0 |     0.0065462 |    0.00763097 |       2.14126
+   -0.0180987 |           0.0 |     0.0061422 |     0.0079204 |       2.13764
+   -0.0190034 |           0.0 |    0.00611875 |    0.00873576 |       2.13434
+   -0.0209136 |           0.0 |    0.00600011 |    0.00817464 |       2.13014
+   -0.0226178 |           0.0 |    0.00599362 |    0.00879372 |       2.12694
+   -0.0238881 |           0.0 |    0.00588189 |    0.00838103 |       2.12415
+Evaluating losses...
+   -0.0268351 |             0 |    0.00584263 |    0.00859219 |       2.12237
+------------------------------
+| loss_pol_surr   | -0.0268  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00584  |
+| loss_kl         | 0.00859  |
+| loss_ent        | 2.12     |
+| ev_tdlam_before | 0.538    |
+| EpThisIter      | 22       |
+| EpisodesSoFar   | 1.78e+03 |
+| TimestepsSoFar  | 6.01e+04 |
+| TimeElapsed     | 570      |
+| EpLenMean       | 53.3     |
+| EpRewMean       | -0.971   |
+------------------------------
+********** Iteration 47 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00164096 |           0.0 |    0.00627817 |    0.00170865 |       2.12143
+  -0.00887292 |           0.0 |    0.00598227 |     0.0057358 |       2.11941
+   -0.0123615 |           0.0 |    0.00596405 |    0.00646287 |       2.11782
+   -0.0142798 |           0.0 |    0.00591888 |    0.00724802 |       2.11613
+   -0.0157963 |           0.0 |     0.0056075 |    0.00785636 |       2.11361
+    -0.015749 |           0.0 |     0.0055562 |    0.00934984 |       2.11217
+   -0.0177756 |           0.0 |    0.00550556 |    0.00857364 |       2.11168
+   -0.0190414 |           0.0 |    0.00551752 |    0.00709322 |       2.11092
+   -0.0214639 |           0.0 |    0.00557243 |     0.0079772 |       2.11074
+   -0.0216231 |           0.0 |    0.00547622 |    0.00842794 |       2.10966
+Evaluating losses...
+   -0.0246263 |             0 |     0.0052165 |    0.00829537 |       2.10869
+------------------------------
+| loss_pol_surr   | -0.0246  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00522  |
+| loss_kl         | 0.0083   |
+| loss_ent        | 2.11     |
+| ev_tdlam_before | 0.624    |
+| EpThisIter      | 30       |
+| EpisodesSoFar   | 1.81e+03 |
+| TimestepsSoFar  | 6.14e+04 |
+| TimeElapsed     | 581      |
+| EpLenMean       | 52.5     |
+| EpRewMean       | -0.969   |
+------------------------------
+********** Iteration 48 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000641115 |           0.0 |    0.00523039 |    0.00181606 |       2.10776
+  -0.00674289 |           0.0 |    0.00471286 |    0.00604235 |       2.10643
+  -0.00865206 |           0.0 |    0.00461235 |    0.00683497 |       2.10481
+    -0.011786 |           0.0 |    0.00447598 |    0.00652663 |       2.10256
+   -0.0116483 |           0.0 |    0.00432482 |    0.00734576 |       2.09919
+   -0.0141093 |           0.0 |    0.00439664 |    0.00791033 |       2.09806
+   -0.0144947 |           0.0 |    0.00427848 |    0.00760016 |       2.09707
+   -0.0157376 |           0.0 |      0.004248 |    0.00854556 |       2.09537
+    -0.017568 |           0.0 |    0.00416313 |    0.00809698 |       2.09397
+   -0.0183049 |           0.0 |    0.00417138 |    0.00889301 |        2.0914
+Evaluating losses...
+    -0.020613 |             0 |    0.00422594 |    0.00928411 |       2.09016
+------------------------------
+| loss_pol_surr   | -0.0206  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00423  |
+| loss_kl         | 0.00928  |
+| loss_ent        | 2.09     |
+| ev_tdlam_before | 0.646    |
+| EpThisIter      | 28       |
+| EpisodesSoFar   | 1.84e+03 |
+| TimestepsSoFar  | 6.27e+04 |
+| TimeElapsed     | 592      |
+| EpLenMean       | 47.1     |
+| EpRewMean       | -0.97    |
+------------------------------
+********** Iteration 49 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00349941 |           0.0 |    0.00569871 |     0.0019587 |        2.0891
+   -0.0101253 |           0.0 |     0.0052593 |    0.00978936 |       2.08636
+   -0.0131505 |           0.0 |    0.00515921 |    0.00891143 |       2.08319
+   -0.0135645 |           0.0 |    0.00504356 |    0.00897587 |       2.07968
+   -0.0165112 |           0.0 |    0.00494546 |     0.0104867 |       2.07741
+   -0.0178305 |           0.0 |    0.00484236 |     0.0102995 |       2.07575
+   -0.0197376 |           0.0 |    0.00496674 |      0.008535 |       2.07407
+   -0.0200305 |           0.0 |    0.00474968 |    0.00873407 |       2.07209
+   -0.0197156 |           0.0 |    0.00473909 |     0.0122173 |       2.07066
+   -0.0219022 |           0.0 |    0.00470264 |     0.0104297 |       2.06834
+Evaluating losses...
+   -0.0249616 |             0 |    0.00450863 |    0.00973478 |       2.06667
+------------------------------
+| loss_pol_surr   | -0.025   |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00451  |
+| loss_kl         | 0.00973  |
+| loss_ent        | 2.07     |
+| ev_tdlam_before | 0.6      |
+| EpThisIter      | 26       |
+| EpisodesSoFar   | 1.87e+03 |
+| TimestepsSoFar  | 6.39e+04 |
+| TimeElapsed     | 603      |
+| EpLenMean       | 47.4     |
+| EpRewMean       | -0.974   |
+------------------------------
+Saving checkpoint 3dball_model/1hoop_rl_2017-11-20-1831/63895/session-63895.checkpoint
+Exporting model...
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_rl_2017-11-20-1831/63895/session-63895.checkpoint
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_rl_2017-11-20-1831/63895/session-63895.checkpoint
+INFO:tensorflow:Froze 10 variables.
+INFO:tensorflow:Froze 10 variables.
+Converted 10 variables to const ops.
+52 ops in the final graph.
+Done exporting model:  3dball_model/1hoop_rl_2017-11-20-1831/63895/3dball_1hoop_rl_2017-11-20-1831_63895.bytes
+********** Iteration 50 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000894783 |           0.0 |    0.00589689 |    0.00073343 |       2.06614
+   -0.0031486 |           0.0 |    0.00565042 |    0.00621891 |       2.06536
+  -0.00721643 |           0.0 |    0.00543387 |    0.00726233 |       2.06401
+  -0.00799693 |           0.0 |    0.00520105 |    0.00666089 |       2.06365
+   -0.0108947 |           0.0 |    0.00515986 |    0.00734856 |       2.06407
+   -0.0102024 |           0.0 |    0.00514262 |    0.00736205 |       2.06316
+   -0.0121247 |           0.0 |    0.00500692 |    0.00666958 |       2.06259
+   -0.0133423 |           0.0 |    0.00506155 |    0.00723583 |       2.06255
+   -0.0141505 |           0.0 |    0.00500769 |    0.00698176 |       2.06108
+    -0.014837 |           0.0 |    0.00495934 |    0.00664742 |       2.05959
+Evaluating losses...
+   -0.0181639 |             0 |     0.0049854 |    0.00670325 |       2.05881
+------------------------------
+| loss_pol_surr   | -0.0182  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00499  |
+| loss_kl         | 0.0067   |
+| loss_ent        | 2.06     |
+| ev_tdlam_before | 0.597    |
+| EpThisIter      | 30       |
+| EpisodesSoFar   | 1.9e+03  |
+| TimestepsSoFar  | 6.52e+04 |
+| TimeElapsed     | 675      |
+| EpLenMean       | 46.1     |
+| EpRewMean       | -0.975   |
+------------------------------
+********** Iteration 51 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000464016 |           0.0 |    0.00744904 |    0.00172259 |       2.05895
+  -0.00999899 |           0.0 |    0.00730172 |    0.00767156 |        2.0575
+   -0.0125288 |           0.0 |    0.00684451 |    0.00892515 |       2.05695
+   -0.0161201 |           0.0 |    0.00662195 |    0.00899632 |       2.05606
+   -0.0167602 |           0.0 |    0.00637607 |    0.00942766 |       2.05497
+   -0.0169855 |           0.0 |    0.00620823 |    0.00861177 |       2.05371
+    -0.019237 |           0.0 |    0.00626422 |    0.00930013 |       2.05235
+   -0.0205106 |           0.0 |    0.00628295 |     0.0099316 |       2.05203
+    -0.021416 |           0.0 |    0.00605082 |     0.0101195 |       2.05099
+   -0.0215423 |           0.0 |    0.00613889 |     0.0103506 |       2.05081
+Evaluating losses...
+    -0.025545 |             0 |    0.00602876 |      0.010285 |       2.05057
+------------------------------
+| loss_pol_surr   | -0.0255  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00603  |
+| loss_kl         | 0.0103   |
+| loss_ent        | 2.05     |
+| ev_tdlam_before | 0.473    |
+| EpThisIter      | 17       |
+| EpisodesSoFar   | 1.92e+03 |
+| TimestepsSoFar  | 6.65e+04 |
+| TimeElapsed     | 686      |
+| EpLenMean       | 50.6     |
+| EpRewMean       | -0.966   |
+------------------------------
+********** Iteration 52 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00175964 |           0.0 |    0.00552211 |   0.000867974 |       2.05095
+  -0.00337239 |           0.0 |    0.00519882 |    0.00344208 |       2.05086
+  -0.00588533 |           0.0 |     0.0049972 |      0.004187 |       2.04997
+  -0.00665024 |           0.0 |    0.00488503 |    0.00612547 |       2.05011
+  -0.00800686 |           0.0 |    0.00479626 |    0.00406617 |        2.0512
+   -0.0107028 |           0.0 |     0.0047143 |    0.00504898 |       2.05156
+   -0.0121761 |           0.0 |    0.00466248 |    0.00468979 |       2.05243
+   -0.0134294 |           0.0 |     0.0046273 |    0.00610106 |       2.05129
+   -0.0146544 |           0.0 |    0.00460543 |    0.00542336 |        2.0511
+   -0.0162617 |           0.0 |    0.00457288 |    0.00532921 |       2.05085
+Evaluating losses...
+   -0.0192501 |             0 |    0.00438924 |    0.00484282 |       2.05095
+------------------------------
+| loss_pol_surr   | -0.0193  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00439  |
+| loss_kl         | 0.00484  |
+| loss_ent        | 2.05     |
+| ev_tdlam_before | 0.69     |
+| EpThisIter      | 31       |
+| EpisodesSoFar   | 1.95e+03 |
+| TimestepsSoFar  | 6.78e+04 |
+| TimeElapsed     | 697      |
+| EpLenMean       | 49       |
+| EpRewMean       | -0.972   |
+------------------------------
+********** Iteration 53 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000885042 |           0.0 |     0.0070077 |    0.00363988 |       2.05226
+  -0.00877644 |           0.0 |    0.00656085 |    0.00708973 |       2.05504
+   -0.0107292 |           0.0 |    0.00632713 |    0.00847537 |       2.05705
+   -0.0147469 |           0.0 |    0.00599912 |    0.00735558 |       2.05844
+   -0.0158271 |           0.0 |    0.00588146 |    0.00751261 |       2.05911
+   -0.0187287 |           0.0 |     0.0058423 |    0.00777958 |       2.05966
+   -0.0190162 |           0.0 |     0.0058266 |    0.00848243 |       2.06101
+   -0.0201698 |           0.0 |    0.00594071 |    0.00999085 |       2.06243
+   -0.0201282 |           0.0 |    0.00585324 |    0.00851874 |       2.06348
+   -0.0231138 |           0.0 |    0.00561684 |     0.0101277 |       2.06481
+Evaluating losses...
+   -0.0252522 |             0 |    0.00548796 |     0.0101686 |       2.06534
+------------------------------
+| loss_pol_surr   | -0.0253  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00549  |
+| loss_kl         | 0.0102   |
+| loss_ent        | 2.07     |
+| ev_tdlam_before | 0.497    |
+| EpThisIter      | 17       |
+| EpisodesSoFar   | 1.96e+03 |
+| TimestepsSoFar  | 6.91e+04 |
+| TimeElapsed     | 708      |
+| EpLenMean       | 53.4     |
+| EpRewMean       | -0.966   |
+------------------------------
+********** Iteration 54 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00112686 |           0.0 |     0.0073353 |    0.00328927 |        2.0657
+  -0.00711542 |           0.0 |    0.00663949 |    0.00694849 |       2.06565
+   -0.0107612 |           0.0 |    0.00635517 |    0.00548385 |       2.06393
+   -0.0125461 |           0.0 |    0.00608332 |    0.00787594 |       2.06194
+   -0.0148204 |           0.0 |    0.00602062 |    0.00759291 |       2.06052
+   -0.0150549 |           0.0 |    0.00592663 |    0.00754881 |       2.05906
+   -0.0165932 |           0.0 |    0.00584722 |    0.00736512 |       2.05655
+   -0.0161634 |           0.0 |    0.00572668 |    0.00819527 |        2.0553
+   -0.0170582 |           0.0 |    0.00563446 |    0.00907937 |       2.05476
+   -0.0194716 |           0.0 |    0.00559065 |    0.00756658 |       2.05349
+Evaluating losses...
+   -0.0226527 |             0 |     0.0054749 |    0.00706689 |       2.05292
+------------------------------
+| loss_pol_surr   | -0.0227  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00547  |
+| loss_kl         | 0.00707  |
+| loss_ent        | 2.05     |
+| ev_tdlam_before | 0.57     |
+| EpThisIter      | 28       |
+| EpisodesSoFar   | 1.99e+03 |
+| TimestepsSoFar  | 7.04e+04 |
+| TimeElapsed     | 718      |
+| EpLenMean       | 54.2     |
+| EpRewMean       | -0.967   |
+------------------------------
+********** Iteration 55 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00239084 |           0.0 |    0.00632604 |    0.00344278 |       2.05276
+  -0.00658105 |           0.0 |    0.00586018 |    0.00673864 |       2.05028
+  -0.00901057 |           0.0 |    0.00559478 |     0.0061386 |       2.04861
+  -0.00974109 |           0.0 |    0.00551048 |    0.00760179 |        2.0448
+   -0.0115846 |           0.0 |    0.00549292 |    0.00719009 |       2.04076
+   -0.0128088 |           0.0 |    0.00540033 |    0.00602308 |       2.03687
+   -0.0140318 |           0.0 |    0.00532746 |    0.00908398 |       2.03392
+   -0.0155489 |           0.0 |    0.00529874 |     0.0064779 |       2.03157
+   -0.0166765 |           0.0 |    0.00539614 |    0.00774331 |       2.02822
+   -0.0178068 |           0.0 |    0.00532463 |    0.00774131 |       2.02546
+Evaluating losses...
+   -0.0205747 |             0 |     0.0050535 |    0.00655262 |       2.02494
+------------------------------
+| loss_pol_surr   | -0.0206  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00505  |
+| loss_kl         | 0.00655  |
+| loss_ent        | 2.02     |
+| ev_tdlam_before | 0.576    |
+| EpThisIter      | 21       |
+| EpisodesSoFar   | 2.01e+03 |
+| TimestepsSoFar  | 7.17e+04 |
+| TimeElapsed     | 729      |
+| EpLenMean       | 54.9     |
+| EpRewMean       | -0.974   |
+------------------------------
+********** Iteration 56 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000866132 |           0.0 |    0.00644626 |    0.00125463 |       2.02513
+   -0.0042625 |           0.0 |    0.00613488 |    0.00708376 |       2.02379
+  -0.00825312 |           0.0 |    0.00597058 |    0.00666377 |       2.02142
+   -0.0100089 |           0.0 |    0.00589064 |     0.0042458 |        2.0188
+   -0.0120431 |           0.0 |    0.00570152 |    0.00515049 |       2.01649
+   -0.0132502 |           0.0 |    0.00561202 |    0.00599919 |       2.01359
+   -0.0144474 |           0.0 |    0.00557463 |    0.00453295 |       2.01113
+   -0.0156814 |           0.0 |    0.00554107 |    0.00564535 |       2.01036
+   -0.0172801 |           0.0 |    0.00541256 |    0.00617905 |       2.00729
+   -0.0192719 |           0.0 |    0.00540246 |     0.0054674 |       2.00612
+Evaluating losses...
+   -0.0224879 |             0 |    0.00524647 |    0.00561034 |       2.00556
+------------------------------
+| loss_pol_surr   | -0.0225  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00525  |
+| loss_kl         | 0.00561  |
+| loss_ent        | 2.01     |
+| ev_tdlam_before | 0.602    |
+| EpThisIter      | 23       |
+| EpisodesSoFar   | 2.04e+03 |
+| TimestepsSoFar  | 7.29e+04 |
+| TimeElapsed     | 741      |
+| EpLenMean       | 55.7     |
+| EpRewMean       | -0.975   |
+------------------------------
+********** Iteration 57 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000991068 |           0.0 |    0.00642741 |    0.00113559 |       2.00559
+  -0.00645373 |           0.0 |     0.0059295 |    0.00496819 |       2.00714
+  -0.00849328 |           0.0 |    0.00580779 |    0.00636852 |       2.00903
+   -0.0120676 |           0.0 |    0.00564311 |    0.00731942 |        2.0107
+   -0.0117647 |           0.0 |    0.00549874 |    0.00687254 |       2.01193
+   -0.0138546 |           0.0 |    0.00550714 |    0.00694155 |       2.01393
+   -0.0159865 |           0.0 |    0.00542787 |    0.00811007 |       2.01498
+    -0.017572 |           0.0 |    0.00529765 |    0.00857713 |       2.01497
+   -0.0156536 |           0.0 |    0.00529966 |    0.00646116 |       2.01441
+    -0.019234 |           0.0 |    0.00531523 |    0.00767664 |        2.0153
+Evaluating losses...
+   -0.0217211 |             0 |     0.0052315 |    0.00828597 |       2.01526
+------------------------------
+| loss_pol_surr   | -0.0217  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00523  |
+| loss_kl         | 0.00829  |
+| loss_ent        | 2.02     |
+| ev_tdlam_before | 0.603    |
+| EpThisIter      | 22       |
+| EpisodesSoFar   | 2.06e+03 |
+| TimestepsSoFar  | 7.42e+04 |
+| TimeElapsed     | 753      |
+| EpLenMean       | 55.3     |
+| EpRewMean       | -0.975   |
+------------------------------
+********** Iteration 58 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00165217 |           0.0 |    0.00677091 |   0.000535663 |       2.01469
+  -0.00517457 |           0.0 |     0.0061589 |    0.00451127 |       2.01249
+  -0.00833433 |           0.0 |    0.00593427 |    0.00738623 |       2.00989
+   -0.0118104 |           0.0 |    0.00575017 |    0.00578225 |       2.00779
+   -0.0122063 |           0.0 |    0.00559339 |     0.0058845 |       2.00573
+   -0.0144649 |           0.0 |    0.00552471 |    0.00750131 |       2.00489
+   -0.0155243 |           0.0 |    0.00564465 |    0.00580471 |       2.00354
+   -0.0160152 |           0.0 |    0.00540879 |    0.00669592 |       2.00154
+   -0.0175205 |           0.0 |    0.00541043 |    0.00625389 |       1.99981
+   -0.0193862 |           0.0 |    0.00534172 |    0.00791771 |        1.9979
+Evaluating losses...
+   -0.0229888 |             0 |    0.00538629 |    0.00790935 |       1.99714
+------------------------------
+| loss_pol_surr   | -0.023   |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00539  |
+| loss_kl         | 0.00791  |
+| loss_ent        | 2        |
+| ev_tdlam_before | 0.562    |
+| EpThisIter      | 25       |
+| EpisodesSoFar   | 2.08e+03 |
+| TimestepsSoFar  | 7.55e+04 |
+| TimeElapsed     | 764      |
+| EpLenMean       | 54.6     |
+| EpRewMean       | -0.975   |
+------------------------------
+********** Iteration 59 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00229936 |           0.0 |    0.00529174 |    0.00379525 |       1.99755
+  -0.00520549 |           0.0 |    0.00489804 |    0.00374917 |       1.99689
+  -0.00834086 |           0.0 |    0.00466782 |     0.0043658 |       1.99543
+  -0.00853606 |           0.0 |    0.00446302 |    0.00867624 |       1.99471
+   -0.0141788 |           0.0 |    0.00430349 |    0.00663263 |       1.99525
+   -0.0141537 |           0.0 |    0.00439839 |    0.00537022 |       1.99443
+   -0.0166148 |           0.0 |    0.00411261 |    0.00643012 |       1.99329
+   -0.0175684 |           0.0 |    0.00413773 |    0.00561614 |       1.99104
+   -0.0171374 |           0.0 |    0.00405135 |    0.00850243 |       1.98873
+   -0.0182275 |           0.0 |    0.00396968 |    0.00609889 |       1.98767
+Evaluating losses...
+   -0.0232781 |             0 |    0.00381235 |    0.00591447 |       1.98745
+------------------------------
+| loss_pol_surr   | -0.0233  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00381  |
+| loss_kl         | 0.00591  |
+| loss_ent        | 1.99     |
+| ev_tdlam_before | 0.648    |
+| EpThisIter      | 28       |
+| EpisodesSoFar   | 2.11e+03 |
+| TimestepsSoFar  | 7.68e+04 |
+| TimeElapsed     | 775      |
+| EpLenMean       | 52.6     |
+| EpRewMean       | -0.977   |
+------------------------------
+Saving checkpoint 3dball_model/1hoop_rl_2017-11-20-1831/76799/session-76799.checkpoint
+Exporting model...
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_rl_2017-11-20-1831/76799/session-76799.checkpoint
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_rl_2017-11-20-1831/76799/session-76799.checkpoint
+INFO:tensorflow:Froze 10 variables.
+Converted 10 variables to const ops.
+INFO:tensorflow:Froze 10 variables.
+52 ops in the final graph.
+Done exporting model:  3dball_model/1hoop_rl_2017-11-20-1831/76799/3dball_1hoop_rl_2017-11-20-1831_76799.bytes
+********** Iteration 60 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000275851 |           0.0 |    0.00577801 |    0.00217505 |       1.98591
+  -0.00837748 |           0.0 |    0.00558587 |    0.00667128 |       1.98238
+  -0.00986075 |           0.0 |    0.00534798 |    0.00591136 |       1.97957
+   -0.0117433 |           0.0 |    0.00534145 |    0.00651532 |       1.97676
+   -0.0142899 |           0.0 |     0.0053036 |    0.00499423 |       1.97405
+   -0.0145705 |           0.0 |    0.00523413 |    0.00849042 |       1.97241
+    -0.014915 |           0.0 |    0.00513925 |    0.00582937 |       1.96978
+   -0.0185069 |           0.0 |    0.00508891 |    0.00640726 |       1.96723
+   -0.0201996 |           0.0 |    0.00493307 |    0.00683506 |       1.96537
+   -0.0220294 |           0.0 |    0.00494382 |    0.00562411 |        1.9643
+Evaluating losses...
+   -0.0224928 |             0 |     0.0048877 |    0.00846012 |       1.96354
+------------------------------
+| loss_pol_surr   | -0.0225  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00489  |
+| loss_kl         | 0.00846  |
+| loss_ent        | 1.96     |
+| ev_tdlam_before | 0.628    |
+| EpThisIter      | 30       |
+| EpisodesSoFar   | 2.14e+03 |
+| TimestepsSoFar  | 7.8e+04  |
+| TimeElapsed     | 916      |
+| EpLenMean       | 49.2     |
+| EpRewMean       | -0.98    |
+------------------------------
+********** Iteration 61 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000105146 |           0.0 |    0.00660308 |    0.00132828 |       1.96308
+  -0.00502167 |           0.0 |    0.00608811 |    0.00467641 |       1.96182
+  -0.00655086 |           0.0 |    0.00580472 |    0.00841103 |       1.96189
+  -0.00974765 |           0.0 |     0.0058468 |    0.00471715 |        1.9616
+   -0.0118088 |           0.0 |    0.00566075 |    0.00449767 |       1.96083
+   -0.0114837 |           0.0 |    0.00567031 |    0.00874376 |        1.9604
+   -0.0153589 |           0.0 |    0.00545083 |    0.00466795 |       1.96008
+   -0.0178822 |           0.0 |    0.00537487 |    0.00641355 |       1.95951
+   -0.0188503 |           0.0 |    0.00534206 |    0.00591723 |       1.95862
+   -0.0205746 |           0.0 |    0.00544584 |     0.0065695 |       1.95828
+Evaluating losses...
+   -0.0232199 |             0 |    0.00514426 |     0.0075059 |        1.9578
+------------------------------
+| loss_pol_surr   | -0.0232  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00514  |
+| loss_kl         | 0.00751  |
+| loss_ent        | 1.96     |
+| ev_tdlam_before | 0.506    |
+| EpThisIter      | 20       |
+| EpisodesSoFar   | 2.16e+03 |
+| TimestepsSoFar  | 7.93e+04 |
+| TimeElapsed     | 930      |
+| EpLenMean       | 47.8     |
+| EpRewMean       | -0.984   |
+------------------------------
+********** Iteration 62 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000150081 |           0.0 |    0.00559696 |    0.00360706 |       1.95825
+  -0.00641349 |           0.0 |    0.00531898 |    0.00664874 |       1.96077
+  -0.00977534 |           0.0 |    0.00518657 |    0.00740915 |       1.96253
+   -0.0117718 |           0.0 |    0.00500389 |    0.00812145 |       1.96395
+   -0.0133624 |           0.0 |    0.00498952 |    0.00776355 |       1.96466
+   -0.0140073 |           0.0 |    0.00487724 |    0.00777863 |        1.9656
+   -0.0156028 |           0.0 |    0.00477774 |    0.00897437 |       1.96654
+    -0.016692 |           0.0 |    0.00463679 |    0.00729316 |       1.96774
+   -0.0175432 |           0.0 |    0.00470251 |    0.00904755 |       1.96881
+   -0.0189687 |           0.0 |    0.00465755 |    0.00890899 |       1.97021
+Evaluating losses...
+   -0.0211984 |             0 |    0.00454151 |    0.00830413 |       1.97092
+------------------------------
+| loss_pol_surr   | -0.0212  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00454  |
+| loss_kl         | 0.0083   |
+| loss_ent        | 1.97     |
+| ev_tdlam_before | 0.66     |
+| EpThisIter      | 23       |
+| EpisodesSoFar   | 2.18e+03 |
+| TimestepsSoFar  | 8.05e+04 |
+| TimeElapsed     | 945      |
+| EpLenMean       | 49.3     |
+| EpRewMean       | -0.978   |
+------------------------------
+********** Iteration 63 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00142688 |           0.0 |     0.0075478 |   0.000532629 |       1.96987
+  -0.00564858 |           0.0 |    0.00725626 |    0.00404953 |       1.96558
+  -0.00823531 |           0.0 |    0.00694299 |    0.00630789 |       1.96008
+  -0.00948459 |           0.0 |    0.00665758 |    0.00609386 |       1.95484
+   -0.0122197 |           0.0 |    0.00656142 |    0.00842183 |       1.95109
+   -0.0127682 |           0.0 |    0.00653775 |    0.00748025 |       1.94741
+   -0.0146428 |           0.0 |    0.00650416 |    0.00789179 |       1.94314
+   -0.0156258 |           0.0 |    0.00628217 |    0.00824074 |       1.94047
+   -0.0167762 |           0.0 |    0.00641608 |    0.00864279 |       1.93926
+   -0.0163077 |           0.0 |    0.00642663 |    0.00899906 |       1.93643
+Evaluating losses...
+   -0.0206867 |             0 |     0.0062176 |    0.00889946 |       1.93526
+------------------------------
+| loss_pol_surr   | -0.0207  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00622  |
+| loss_kl         | 0.0089   |
+| loss_ent        | 1.94     |
+| ev_tdlam_before | 0.587    |
+| EpThisIter      | 23       |
+| EpisodesSoFar   | 2.21e+03 |
+| TimestepsSoFar  | 8.19e+04 |
+| TimeElapsed     | 958      |
+| EpLenMean       | 52       |
+| EpRewMean       | -0.973   |
+------------------------------
+********** Iteration 64 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00205396 |           0.0 |    0.00716928 |    0.00448956 |       1.93504
+  -0.00521976 |           0.0 |    0.00703345 |    0.00343899 |       1.93575
+  -0.00889609 |           0.0 |    0.00669766 |    0.00576737 |       1.93528
+   -0.0120353 |           0.0 |    0.00649699 |    0.00680318 |        1.9345
+   -0.0137638 |           0.0 |    0.00629386 |    0.00738775 |       1.93381
+   -0.0152142 |           0.0 |    0.00604144 |     0.0086551 |       1.93328
+   -0.0178144 |           0.0 |    0.00619613 |    0.00802852 |       1.93226
+   -0.0191692 |           0.0 |    0.00595997 |     0.0087369 |        1.9324
+   -0.0201478 |           0.0 |    0.00599399 |    0.00907666 |       1.93119
+   -0.0199745 |           0.0 |     0.0059551 |    0.00727755 |       1.93045
+Evaluating losses...
+    -0.023687 |             0 |    0.00585965 |    0.00819228 |       1.93145
+------------------------------
+| loss_pol_surr   | -0.0237  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00586  |
+| loss_kl         | 0.00819  |
+| loss_ent        | 1.93     |
+| ev_tdlam_before | 0.621    |
+| EpThisIter      | 23       |
+| EpisodesSoFar   | 2.23e+03 |
+| TimestepsSoFar  | 8.3e+04  |
+| TimeElapsed     | 971      |
+| EpLenMean       | 53.9     |
+| EpRewMean       | -0.974   |
+------------------------------
+********** Iteration 65 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00093668 |           0.0 |    0.00648612 |    0.00176102 |       1.93086
+    -0.005365 |           0.0 |    0.00626948 |    0.00637394 |       1.92841
+  -0.00908091 |           0.0 |    0.00604993 |     0.0077861 |       1.92575
+   -0.0115843 |           0.0 |    0.00597555 |    0.00615788 |       1.92256
+   -0.0125715 |           0.0 |    0.00586459 |    0.00691511 |       1.91943
+   -0.0154847 |           0.0 |    0.00584032 |    0.00811831 |       1.91667
+   -0.0175394 |           0.0 |    0.00581591 |    0.00867267 |        1.9152
+    -0.018483 |           0.0 |    0.00563534 |     0.0076597 |       1.91363
+   -0.0198905 |           0.0 |    0.00561878 |    0.00976098 |       1.91091
+   -0.0208917 |           0.0 |      0.005524 |     0.0074703 |       1.90872
+Evaluating losses...
+    -0.024054 |             0 |    0.00538694 |    0.00827228 |       1.90746
+------------------------------
+| loss_pol_surr   | -0.0241  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00539  |
+| loss_kl         | 0.00827  |
+| loss_ent        | 1.91     |
+| ev_tdlam_before | 0.686    |
+| EpThisIter      | 34       |
+| EpisodesSoFar   | 2.26e+03 |
+| TimestepsSoFar  | 8.45e+04 |
+| TimeElapsed     | 985      |
+| EpLenMean       | 50.3     |
+| EpRewMean       | -0.973   |
+------------------------------
+********** Iteration 66 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000208479 |           0.0 |    0.00729678 |    0.00131581 |       1.90712
+  -0.00632175 |           0.0 |    0.00672398 |    0.00637018 |       1.90796
+  -0.00876306 |           0.0 |    0.00652404 |    0.00580464 |       1.90814
+   -0.0111795 |           0.0 |    0.00621604 |    0.00595077 |       1.90757
+   -0.0126664 |           0.0 |    0.00613571 |    0.00654095 |       1.90593
+   -0.0147397 |           0.0 |    0.00607668 |    0.00820485 |       1.90384
+   -0.0168945 |           0.0 |    0.00595565 |    0.00850516 |       1.90345
+   -0.0183683 |           0.0 |     0.0058534 |    0.00705082 |       1.90284
+   -0.0199118 |           0.0 |    0.00579084 |    0.00765781 |       1.90259
+   -0.0199619 |           0.0 |    0.00560788 |    0.00770909 |       1.90209
+Evaluating losses...
+   -0.0242607 |             0 |    0.00542547 |    0.00748035 |       1.90191
+------------------------------
+| loss_pol_surr   | -0.0243  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00543  |
+| loss_kl         | 0.00748  |
+| loss_ent        | 1.9      |
+| ev_tdlam_before | 0.593    |
+| EpThisIter      | 32       |
+| EpisodesSoFar   | 2.3e+03  |
+| TimestepsSoFar  | 8.56e+04 |
+| TimeElapsed     | 998      |
+| EpLenMean       | 42.5     |
+| EpRewMean       | -0.977   |
+------------------------------
+********** Iteration 67 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00206494 |           0.0 |    0.00656741 |     0.0041213 |       1.90237
+  -0.00526726 |           0.0 |    0.00597447 |    0.00611957 |       1.90197
+   -0.0103815 |           0.0 |    0.00570854 |    0.00566995 |       1.90283
+   -0.0129421 |           0.0 |     0.0055275 |    0.00671801 |       1.90293
+    -0.014822 |           0.0 |    0.00544792 |     0.0069822 |        1.9039
+   -0.0163509 |           0.0 |    0.00529151 |    0.00779811 |       1.90379
+   -0.0180966 |           0.0 |    0.00526229 |    0.00666562 |       1.90381
+   -0.0178535 |           0.0 |     0.0052537 |    0.00671862 |        1.9045
+    -0.017331 |           0.0 |      0.005142 |     0.0109889 |       1.90463
+   -0.0208222 |           0.0 |    0.00514093 |    0.00759831 |       1.90468
+Evaluating losses...
+   -0.0243507 |             0 |    0.00492417 |    0.00713174 |       1.90465
+------------------------------
+| loss_pol_surr   | -0.0244  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00492  |
+| loss_kl         | 0.00713  |
+| loss_ent        | 1.9      |
+| ev_tdlam_before | 0.598    |
+| EpThisIter      | 19       |
+| EpisodesSoFar   | 2.31e+03 |
+| TimestepsSoFar  | 8.7e+04  |
+| TimeElapsed     | 1.01e+03 |
+| EpLenMean       | 45.6     |
+| EpRewMean       | -0.974   |
+------------------------------
+********** Iteration 68 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00113682 |           0.0 |    0.00814248 |    0.00179451 |        1.9037
+  -0.00770179 |           0.0 |    0.00752511 |    0.00780489 |       1.90204
+   -0.0129646 |           0.0 |    0.00710954 |     0.0065801 |       1.90044
+   -0.0140884 |           0.0 |    0.00686056 |     0.0102796 |       1.89815
+   -0.0161878 |           0.0 |    0.00681761 |    0.00866313 |       1.89613
+   -0.0177053 |           0.0 |    0.00663399 |    0.00993566 |       1.89437
+   -0.0186874 |           0.0 |    0.00652702 |    0.00894128 |       1.89341
+   -0.0194809 |           0.0 |    0.00647684 |     0.0098205 |       1.89215
+   -0.0211081 |           0.0 |    0.00660785 |     0.0101311 |       1.89182
+   -0.0223579 |           0.0 |      0.006281 |     0.0102673 |       1.89066
+Evaluating losses...
+   -0.0246576 |             0 |    0.00628983 |    0.00964403 |       1.88994
+------------------------------
+| loss_pol_surr   | -0.0247  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00629  |
+| loss_kl         | 0.00964  |
+| loss_ent        | 1.89     |
+| ev_tdlam_before | 0.566    |
+| EpThisIter      | 25       |
+| EpisodesSoFar   | 2.34e+03 |
+| TimestepsSoFar  | 8.83e+04 |
+| TimeElapsed     | 1.03e+03 |
+| EpLenMean       | 48.8     |
+| EpRewMean       | -0.97    |
+------------------------------
+********** Iteration 69 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00119473 |           0.0 |    0.00685742 |    0.00141243 |       1.89034
+  -0.00556777 |           0.0 |    0.00614883 |    0.00533291 |       1.89127
+   -0.0104024 |           0.0 |    0.00591452 |    0.00692529 |       1.89228
+   -0.0119487 |           0.0 |    0.00564777 |    0.00772569 |       1.89287
+   -0.0132416 |           0.0 |    0.00559225 |    0.00797383 |       1.89346
+   -0.0150577 |           0.0 |    0.00547073 |    0.00722344 |       1.89412
+   -0.0161533 |           0.0 |    0.00547545 |    0.00773085 |       1.89416
+   -0.0168133 |           0.0 |    0.00531063 |    0.00898948 |       1.89503
+   -0.0199749 |           0.0 |    0.00519148 |    0.00841768 |       1.89589
+   -0.0177192 |           0.0 |    0.00522457 |    0.00888351 |       1.89701
+Evaluating losses...
+   -0.0228611 |             0 |    0.00508724 |    0.00770826 |       1.89714
+------------------------------
+| loss_pol_surr   | -0.0229  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00509  |
+| loss_kl         | 0.00771  |
+| loss_ent        | 1.9      |
+| ev_tdlam_before | 0.562    |
+| EpThisIter      | 25       |
+| EpisodesSoFar   | 2.36e+03 |
+| TimestepsSoFar  | 8.95e+04 |
+| TimeElapsed     | 1.04e+03 |
+| EpLenMean       | 50.5     |
+| EpRewMean       | -0.972   |
+------------------------------
+Saving checkpoint 3dball_model/1hoop_rl_2017-11-20-1831/89526/session-89526.checkpoint
+Exporting model...
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_rl_2017-11-20-1831/89526/session-89526.checkpoint
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_rl_2017-11-20-1831/89526/session-89526.checkpoint
+INFO:tensorflow:Froze 10 variables.
+INFO:tensorflow:Froze 10 variables.
+Converted 10 variables to const ops.
+52 ops in the final graph.
+Done exporting model:  3dball_model/1hoop_rl_2017-11-20-1831/89526/3dball_1hoop_rl_2017-11-20-1831_89526.bytes
+********** Iteration 70 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00241861 |           0.0 |    0.00752527 |    0.00214463 |       1.89738
+  -0.00664488 |           0.0 |    0.00681987 |    0.00789522 |       1.89612
+   -0.0125467 |           0.0 |    0.00642886 |    0.00754094 |       1.89467
+   -0.0127314 |           0.0 |    0.00638763 |    0.00898409 |       1.89318
+   -0.0155989 |           0.0 |    0.00622392 |    0.00689246 |       1.89232
+   -0.0161898 |           0.0 |    0.00602262 |    0.00866252 |       1.89074
+   -0.0183728 |           0.0 |    0.00582608 |    0.00800786 |       1.88859
+   -0.0196168 |           0.0 |    0.00574829 |    0.00763079 |       1.88643
+   -0.0204466 |           0.0 |    0.00582967 |    0.00921912 |       1.88466
+   -0.0214882 |           0.0 |    0.00564874 |    0.00970023 |       1.88351
+Evaluating losses...
+   -0.0250479 |             0 |    0.00543553 |    0.00800581 |       1.88279
+------------------------------
+| loss_pol_surr   | -0.025   |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00544  |
+| loss_kl         | 0.00801  |
+| loss_ent        | 1.88     |
+| ev_tdlam_before | 0.453    |
+| EpThisIter      | 26       |
+| EpisodesSoFar   | 2.39e+03 |
+| TimestepsSoFar  | 9.09e+04 |
+| TimeElapsed     | 1.32e+03 |
+| EpLenMean       | 55.2     |
+| EpRewMean       | -0.969   |
+------------------------------
+********** Iteration 71 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000527862 |           0.0 |    0.00591214 |    0.00365662 |       1.88221
+  -0.00413188 |           0.0 |     0.0056012 |    0.00657127 |       1.88093
+  -0.00756102 |           0.0 |    0.00540138 |    0.00338625 |       1.87891
+  -0.00959476 |           0.0 |    0.00513196 |    0.00421298 |       1.87759
+  -0.00908635 |           0.0 |     0.0049922 |    0.00406411 |       1.87474
+   -0.0115993 |           0.0 |    0.00494589 |    0.00723041 |       1.87312
+   -0.0146479 |           0.0 |     0.0048378 |    0.00494212 |        1.8716
+   -0.0154365 |           0.0 |    0.00480139 |    0.00450451 |       1.86954
+   -0.0171883 |           0.0 |    0.00478712 |    0.00669508 |       1.86869
+   -0.0182217 |           0.0 |     0.0047308 |     0.0077588 |       1.86769
+Evaluating losses...
+   -0.0222476 |             0 |    0.00468733 |    0.00670929 |       1.86686
+------------------------------
+| loss_pol_surr   | -0.0222  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00469  |
+| loss_kl         | 0.00671  |
+| loss_ent        | 1.87     |
+| ev_tdlam_before | 0.538    |
+| EpThisIter      | 21       |
+| EpisodesSoFar   | 2.41e+03 |
+| TimestepsSoFar  | 9.21e+04 |
+| TimeElapsed     | 1.33e+03 |
+| EpLenMean       | 54.6     |
+| EpRewMean       | -0.971   |
+------------------------------
+********** Iteration 72 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00123629 |           0.0 |    0.00569218 |     0.0020406 |       1.86607
+  -0.00453657 |           0.0 |    0.00547937 |    0.00761082 |       1.86516
+  -0.00968133 |           0.0 |    0.00517999 |    0.00694699 |       1.86526
+   -0.0101598 |           0.0 |    0.00494132 |     0.0076554 |        1.8643
+   -0.0124726 |           0.0 |     0.0047679 |    0.00908388 |        1.8639
+   -0.0130726 |           0.0 |    0.00467261 |     0.0102634 |        1.8637
+   -0.0147736 |           0.0 |    0.00464637 |    0.00830189 |       1.86313
+   -0.0147999 |           0.0 |    0.00455867 |    0.00901336 |       1.86297
+   -0.0168089 |           0.0 |    0.00453023 |    0.00845304 |       1.86257
+   -0.0176771 |           0.0 |    0.00448842 |    0.00760335 |       1.86172
+Evaluating losses...
+   -0.0209755 |             0 |     0.0043377 |     0.0076002 |       1.86107
+------------------------------
+| loss_pol_surr   | -0.021   |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 0.00434  |
+| loss_kl         | 0.0076   |
+| loss_ent        | 1.86     |
+| ev_tdlam_before | 0.657    |
+| EpThisIter      | 33       |
+| EpisodesSoFar   | 2.44e+03 |
+| TimestepsSoFar  | 9.34e+04 |
+| TimeElapsed     | 1.35e+03 |
+| EpLenMean       | 48.6     |
+| EpRewMean       | -0.977   |
+------------------------------
+********** Iteration 73 ************
+Generating segments...
+Predicting reward...
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00209092 |           0.0 |    0.00717626 |    0.00136297 |       1.86084
+  -0.00630278 |           0.0 |    0.00657784 |     0.0095409 |       1.86109
+
+
+Process finished with exit code 1

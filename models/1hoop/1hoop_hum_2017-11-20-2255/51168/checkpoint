@@ -1,0 +1,5 @@
+model_checkpoint_path: "session-51168.checkpoint"
+all_model_checkpoint_paths: "../12764/session-12764.checkpoint"
+all_model_checkpoint_paths: "../25531/session-25531.checkpoint"
+all_model_checkpoint_paths: "../38391/session-38391.checkpoint"
+all_model_checkpoint_paths: "session-51168.checkpoint"

@@ -1,0 +1,3116 @@
+/usr/local/Cellar/python3/3.6.3/Frameworks/Python.framework/Versions/3.6/bin/python3.6 /Users/cristian/dev/cs229-proj/rl-teacher/rl-teacher/rl_teacher/teach.py -V -a unity-pposgd-mpi -p synth -e unity-3dball -n 1hoop_synth --pretrain_labels 100 --pretrain_iters=10000
+Using TensorFlow backend.
+Setting things up...
+{}
+Unity ml-agent - opening socket on port: 5008
+2017-11-20 19:20:12.480 3dball[9331:467710] Can't open input server /Library/InputManagers/MultiClutchInputManager.bundle
+Mono path[0] = '/Users/cristian/dev/cs229-proj/bin/3dball.app/Contents/Resources/Data/Managed'
+Mono config path = '/Users/cristian/dev/cs229-proj/bin/3dball.app/Contents/MonoBleedingEdge/etc'
+Player data archive not found at `/Users/cristian/dev/cs229-proj/bin/3dball.app/Contents/Resources/Data/data.unity3d`, using local filesystem
+INFO:unityagents.environment:
+'Ball3DAcademy' started successfully!
+UnityGymWrapper: created env:  Unity Academy name: Ball3DAcademy
+        Number of brains: 1
+        Reset Parameters :
+        
+Unity brain name: Ball3DBrain
+        Number of observations (per agent): 1
+        State space type: continuous
+        State space size (per agent): 8
+        Action space type: continuous
+        Action space size (per agent): 2
+        Memory space size (per agent): 0
+        Action descriptions: , 
+Running with reward predictor:synth
+No label limit given. We will request one label every few seconds.
+Starting random rollouts to generate pretraining segments. No learning will take place...
+{'3dball': <UnityAgent.UnityGymWrapper object at 0x10eae5f28>}
+Collected 10/200 segments
+Collected 10/200 segments
+Collected 20/200 segments
+Collected 30/200 segments
+Collected 40/200 segments
+Paths tried: 50 , avg path length: 4
+Collected 50/200 segments
+Collected 60/200 segments
+Collected 70/200 segments
+Collected 80/200 segments
+Paths tried: 100 , avg path length: 4
+Collected 90/200 segments
+Collected 90/200 segments
+Collected 100/200 segments
+Collected 100/200 segments
+Collected 110/200 segments
+Collected 120/200 segments
+Paths tried: 150 , avg path length: 4
+Collected 130/200 segments
+Collected 140/200 segments
+Collected 150/200 segments
+Collected 160/200 segments
+Paths tried: 200 , avg path length: 4
+Collected 170/200 segments
+Collected 170/200 segments
+Collected 180/200 segments
+Collected 190/200 segments
+Collected 200/200 segments
+Successfully collected 200 segments
+100 synthetic labels generated... 
+2017-11-20 19:20:40.271671: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-11-20 19:20:40.271692: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+2017-11-20 19:20:40.271697: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX2 instructions, but these are available on your machine and could speed up CPU computations.
+2017-11-20 19:20:40.271701: W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use FMA instructions, but these are available on your machine and could speed up CPU computations.
+0/10000 predictor pretraining iters... 
+100/10000 predictor pretraining iters... 
+200/10000 predictor pretraining iters... 
+300/10000 predictor pretraining iters... 
+400/10000 predictor pretraining iters... 
+500/10000 predictor pretraining iters... 
+600/10000 predictor pretraining iters... 
+700/10000 predictor pretraining iters... 
+800/10000 predictor pretraining iters... 
+900/10000 predictor pretraining iters... 
+1000/10000 predictor pretraining iters... 
+1100/10000 predictor pretraining iters... 
+1200/10000 predictor pretraining iters... 
+1300/10000 predictor pretraining iters... 
+1400/10000 predictor pretraining iters... 
+1500/10000 predictor pretraining iters... 
+1600/10000 predictor pretraining iters... 
+1700/10000 predictor pretraining iters... 
+1800/10000 predictor pretraining iters... 
+1900/10000 predictor pretraining iters... 
+2000/10000 predictor pretraining iters... 
+2100/10000 predictor pretraining iters... 
+2200/10000 predictor pretraining iters... 
+2300/10000 predictor pretraining iters... 
+2400/10000 predictor pretraining iters... 
+2500/10000 predictor pretraining iters... 
+2600/10000 predictor pretraining iters... 
+2700/10000 predictor pretraining iters... 
+2800/10000 predictor pretraining iters... 
+2900/10000 predictor pretraining iters... 
+3000/10000 predictor pretraining iters... 
+3100/10000 predictor pretraining iters... 
+3200/10000 predictor pretraining iters... 
+3300/10000 predictor pretraining iters... 
+3400/10000 predictor pretraining iters... 
+3500/10000 predictor pretraining iters... 
+3600/10000 predictor pretraining iters... 
+3700/10000 predictor pretraining iters... 
+3800/10000 predictor pretraining iters... 
+3900/10000 predictor pretraining iters... 
+4000/10000 predictor pretraining iters... 
+4100/10000 predictor pretraining iters... 
+4200/10000 predictor pretraining iters... 
+4300/10000 predictor pretraining iters... 
+4400/10000 predictor pretraining iters... 
+4500/10000 predictor pretraining iters... 
+4600/10000 predictor pretraining iters... 
+4700/10000 predictor pretraining iters... 
+4800/10000 predictor pretraining iters... 
+4900/10000 predictor pretraining iters... 
+5000/10000 predictor pretraining iters... 
+5100/10000 predictor pretraining iters... 
+5200/10000 predictor pretraining iters... 
+5300/10000 predictor pretraining iters... 
+5400/10000 predictor pretraining iters... 
+5500/10000 predictor pretraining iters... 
+5600/10000 predictor pretraining iters... 
+5700/10000 predictor pretraining iters... 
+5800/10000 predictor pretraining iters... 
+5900/10000 predictor pretraining iters... 
+6000/10000 predictor pretraining iters... 
+6100/10000 predictor pretraining iters... 
+6200/10000 predictor pretraining iters... 
+6300/10000 predictor pretraining iters... 
+6400/10000 predictor pretraining iters... 
+6500/10000 predictor pretraining iters... 
+6600/10000 predictor pretraining iters... 
+6700/10000 predictor pretraining iters... 
+6800/10000 predictor pretraining iters... 
+6900/10000 predictor pretraining iters... 
+7000/10000 predictor pretraining iters... 
+7100/10000 predictor pretraining iters... 
+7200/10000 predictor pretraining iters... 
+7300/10000 predictor pretraining iters... 
+7400/10000 predictor pretraining iters... 
+7500/10000 predictor pretraining iters... 
+7600/10000 predictor pretraining iters... 
+7700/10000 predictor pretraining iters... 
+7800/10000 predictor pretraining iters... 
+7900/10000 predictor pretraining iters... 
+8000/10000 predictor pretraining iters... 
+8100/10000 predictor pretraining iters... 
+8200/10000 predictor pretraining iters... 
+8300/10000 predictor pretraining iters... 
+8400/10000 predictor pretraining iters... 
+8500/10000 predictor pretraining iters... 
+8600/10000 predictor pretraining iters... 
+8700/10000 predictor pretraining iters... 
+8800/10000 predictor pretraining iters... 
+8900/10000 predictor pretraining iters... 
+9000/10000 predictor pretraining iters... 
+9100/10000 predictor pretraining iters... 
+9200/10000 predictor pretraining iters... 
+9300/10000 predictor pretraining iters... 
+9400/10000 predictor pretraining iters... 
+9500/10000 predictor pretraining iters... 
+9600/10000 predictor pretraining iters... 
+9700/10000 predictor pretraining iters... 
+9800/10000 predictor pretraining iters... 
+9900/10000 predictor pretraining iters... 
+Logging to /var/folders/fc/lz2x6_6n56xd703hbc5rrf1h0000gp/T/openai-2017-11-20-19-21-40-664142
+{'3dball': <UnityAgent.UnityGymWrapper object at 0x10eae5f28>}
+Tensor("pi/action:0", shape=(?, 2), dtype=float32)
+Tensor("oldpi/action:0", shape=(?, 2), dtype=float32)
+WARNING:tensorflow:VARIABLES collection name is deprecated, please use GLOBAL_VARIABLES instead; VARIABLES will be removed after 2017-03-02.
+WARNING:tensorflow:VARIABLES collection name is deprecated, please use GLOBAL_VARIABLES instead; VARIABLES will be removed after 2017-03-02.
+WARNING:tensorflow:VARIABLES collection name is deprecated, please use GLOBAL_VARIABLES instead; VARIABLES will be removed after 2017-03-02.
+WARNING:tensorflow:VARIABLES collection name is deprecated, please use GLOBAL_VARIABLES instead; VARIABLES will be removed after 2017-03-02.
+WARNING:tensorflow:VARIABLES collection name is deprecated, please use GLOBAL_VARIABLES instead; VARIABLES will be removed after 2017-03-02.
+WARNING:tensorflow:VARIABLES collection name is deprecated, please use GLOBAL_VARIABLES instead; VARIABLES will be removed after 2017-03-02.
+********** Iteration 0 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.34863228, 'comparisons': 64, 'available_labels': 107}
+Predictor training info: {'loss': 0.64484692, 'comparisons': 64, 'available_labels': 113}
+Predictor training info: {'loss': 0.70126885, 'comparisons': 64, 'available_labels': 120}
+Predictor training info: {'loss': 0.706707, 'comparisons': 64, 'available_labels': 124}
+Predictor training info: {'loss': 0.4208875, 'comparisons': 64, 'available_labels': 124}
+Predictor training info: {'loss': 0.36977255, 'comparisons': 64, 'available_labels': 124}
+Predictor training info: {'loss': 0.60198069, 'comparisons': 64, 'available_labels': 124}
+Predictor training info: {'loss': 0.33680907, 'comparisons': 64, 'available_labels': 124}
+Predictor training info: {'loss': 0.18548869, 'comparisons': 64, 'available_labels': 124}
+Predictor training info: {'loss': 0.39791596, 'comparisons': 64, 'available_labels': 124}
+Predictor training info: {'loss': 0.53032184, 'comparisons': 64, 'available_labels': 124}
+Predictor stats: rejected segments: 0 total segments: 75
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000166143 |           0.0 |       10.0406 |   8.18018e-05 |       2.83777
+  -0.00281242 |           0.0 |        9.9311 |   0.000398574 |       2.83497
+  -0.00572252 |           0.0 |       9.91338 |    0.00124416 |        2.8305
+  -0.00824177 |           0.0 |       9.89832 |    0.00267737 |       2.82626
+   -0.0101874 |           0.0 |       9.88975 |    0.00412753 |       2.82218
+   -0.0118533 |           0.0 |       9.88377 |    0.00492405 |       2.81695
+   -0.0133374 |           0.0 |       9.87697 |    0.00587599 |       2.81262
+   -0.0145591 |           0.0 |        9.8719 |    0.00699815 |       2.80846
+   -0.0154091 |           0.0 |       9.86876 |    0.00791593 |       2.80325
+    -0.016453 |           0.0 |       9.86518 |    0.00812519 |       2.79903
+Evaluating losses...
+   -0.0175266 |             0 |       9.86319 |    0.00837827 |       2.79746
+------------------------------
+| loss_pol_surr   | -0.0175  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 9.86     |
+| loss_kl         | 0.00838  |
+| loss_ent        | 2.8      |
+| ev_tdlam_before | 0.0718   |
+| EpThisIter      | 75       |
+| EpisodesSoFar   | 75       |
+| TimestepsSoFar  | 1.27e+03 |
+| TimeElapsed     | 12.5     |
+| EpLenMean       | 17       |
+| EpRewMean       | -1       |
+------------------------------
+********** Iteration 1 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.41166943, 'comparisons': 64, 'available_labels': 125}
+Predictor training info: {'loss': 0.40222186, 'comparisons': 64, 'available_labels': 128}
+Predictor training info: {'loss': 0.31503552, 'comparisons': 64, 'available_labels': 128}
+Predictor training info: {'loss': 0.24277171, 'comparisons': 64, 'available_labels': 128}
+Predictor training info: {'loss': 0.37743485, 'comparisons': 64, 'available_labels': 128}
+Predictor training info: {'loss': 0.29272747, 'comparisons': 64, 'available_labels': 128}
+Predictor training info: {'loss': 0.2823028, 'comparisons': 64, 'available_labels': 128}
+Predictor training info: {'loss': 0.37905484, 'comparisons': 64, 'available_labels': 129}
+Predictor training info: {'loss': 0.2990154, 'comparisons': 64, 'available_labels': 129}
+Predictor training info: {'loss': 0.28919226, 'comparisons': 64, 'available_labels': 129}
+Predictor training info: {'loss': 0.58495784, 'comparisons': 64, 'available_labels': 129}
+Predictor stats: rejected segments: 0 total segments: 141
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000136846 |           0.0 |       9.85715 |   0.000199863 |       2.79681
+  -0.00559533 |           0.0 |       9.69966 |    0.00104588 |       2.79355
+  -0.00959835 |           0.0 |       9.66351 |    0.00339879 |       2.79012
+   -0.0110921 |           0.0 |       9.64623 |    0.00623544 |       2.78684
+    -0.012524 |           0.0 |       9.64073 |    0.00719792 |       2.78465
+   -0.0133273 |           0.0 |       9.63612 |     0.0073509 |       2.78301
+   -0.0136194 |           0.0 |        9.6313 |    0.00698296 |       2.78103
+   -0.0145008 |           0.0 |       9.63146 |    0.00790545 |       2.77901
+   -0.0145116 |           0.0 |       9.62921 |     0.0083957 |       2.77746
+   -0.0154369 |           0.0 |       9.62428 |    0.00830171 |       2.77558
+Evaluating losses...
+   -0.0165444 |             0 |       9.62043 |    0.00804027 |       2.77442
+------------------------------
+| loss_pol_surr   | -0.0165  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 9.62     |
+| loss_kl         | 0.00804  |
+| loss_ent        | 2.77     |
+| ev_tdlam_before | 0.119    |
+| EpThisIter      | 67       |
+| EpisodesSoFar   | 142      |
+| TimestepsSoFar  | 2.55e+03 |
+| TimeElapsed     | 25.1     |
+| EpLenMean       | 18.5     |
+| EpRewMean       | -0.998   |
+------------------------------
+********** Iteration 2 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.40049779, 'comparisons': 64, 'available_labels': 130}
+Predictor training info: {'loss': 0.40136796, 'comparisons': 64, 'available_labels': 133}
+Predictor training info: {'loss': 0.36644304, 'comparisons': 64, 'available_labels': 133}
+Predictor training info: {'loss': 0.40717155, 'comparisons': 64, 'available_labels': 133}
+Predictor training info: {'loss': 0.32822731, 'comparisons': 64, 'available_labels': 133}
+Predictor training info: {'loss': 0.31751606, 'comparisons': 64, 'available_labels': 133}
+Predictor training info: {'loss': 0.22921321, 'comparisons': 64, 'available_labels': 133}
+Predictor training info: {'loss': 0.24509595, 'comparisons': 64, 'available_labels': 133}
+Predictor training info: {'loss': 0.36217898, 'comparisons': 64, 'available_labels': 133}
+Predictor training info: {'loss': 0.2436035, 'comparisons': 64, 'available_labels': 133}
+Predictor training info: {'loss': 0.32602009, 'comparisons': 64, 'available_labels': 133}
+Predictor training info: {'loss': 0.45270726, 'comparisons': 64, 'available_labels': 133}
+Predictor stats: rejected segments: 0 total segments: 215
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000181644 |           0.0 |       5.31257 |   0.000175757 |       2.77392
+  -0.00422159 |           0.0 |       5.21854 |    0.00119066 |       2.77106
+  -0.00804088 |           0.0 |       5.19518 |    0.00345389 |       2.77004
+  -0.00926353 |           0.0 |       5.18565 |    0.00578261 |       2.76872
+    -0.011131 |           0.0 |       5.17779 |    0.00697609 |       2.76885
+   -0.0124198 |           0.0 |       5.17528 |    0.00742818 |       2.76842
+   -0.0132882 |           0.0 |        5.1699 |    0.00820922 |       2.76788
+   -0.0139066 |           0.0 |       5.16791 |    0.00849629 |       2.76626
+   -0.0147699 |           0.0 |       5.16429 |    0.00925149 |       2.76656
+   -0.0151337 |           0.0 |       5.16088 |    0.00966203 |       2.76627
+Evaluating losses...
+   -0.0163314 |             0 |       5.15818 |    0.00944335 |       2.76561
+------------------------------
+| loss_pol_surr   | -0.0163  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 5.16     |
+| loss_kl         | 0.00944  |
+| loss_ent        | 2.77     |
+| ev_tdlam_before | 0.193    |
+| EpThisIter      | 75       |
+| EpisodesSoFar   | 217      |
+| TimestepsSoFar  | 3.83e+03 |
+| TimeElapsed     | 38.2     |
+| EpLenMean       | 18.2     |
+| EpRewMean       | -0.995   |
+------------------------------
+********** Iteration 3 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.23417556, 'comparisons': 64, 'available_labels': 134}
+Predictor training info: {'loss': 0.3549445, 'comparisons': 64, 'available_labels': 137}
+Predictor training info: {'loss': 0.23855358, 'comparisons': 64, 'available_labels': 137}
+Predictor training info: {'loss': 0.3039816, 'comparisons': 64, 'available_labels': 137}
+Predictor training info: {'loss': 0.16230328, 'comparisons': 64, 'available_labels': 137}
+Predictor training info: {'loss': 0.32195744, 'comparisons': 64, 'available_labels': 137}
+Predictor training info: {'loss': 0.16701558, 'comparisons': 64, 'available_labels': 137}
+Predictor training info: {'loss': 0.34090501, 'comparisons': 64, 'available_labels': 137}
+Predictor training info: {'loss': 0.30198658, 'comparisons': 64, 'available_labels': 137}
+Predictor training info: {'loss': 0.29473528, 'comparisons': 64, 'available_labels': 137}
+Predictor training info: {'loss': 0.31671822, 'comparisons': 64, 'available_labels': 137}
+Predictor stats: rejected segments: 0 total segments: 278
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000522005 |           0.0 |        10.433 |   0.000117286 |       2.76543
+  -0.00597965 |           0.0 |       10.2783 |    0.00182928 |       2.76464
+  -0.00941605 |           0.0 |       10.2293 |    0.00476143 |       2.76436
+   -0.0107363 |           0.0 |       10.2183 |    0.00625908 |       2.76419
+   -0.0118893 |           0.0 |       10.2144 |    0.00632235 |       2.76241
+   -0.0131197 |           0.0 |       10.2117 |    0.00641728 |       2.76114
+   -0.0139657 |           0.0 |       10.2098 |    0.00673501 |       2.76021
+   -0.0141824 |           0.0 |        10.208 |    0.00652605 |       2.76017
+   -0.0151063 |           0.0 |       10.2069 |     0.0066117 |       2.75903
+   -0.0154148 |           0.0 |       10.2054 |    0.00690578 |       2.75738
+Evaluating losses...
+   -0.0167287 |             0 |       10.2028 |    0.00697997 |       2.75672
+------------------------------
+| loss_pol_surr   | -0.0167  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 10.2     |
+| loss_kl         | 0.00698  |
+| loss_ent        | 2.76     |
+| ev_tdlam_before | 0.236    |
+| EpThisIter      | 64       |
+| EpisodesSoFar   | 281      |
+| TimestepsSoFar  | 5.09e+03 |
+| TimeElapsed     | 51       |
+| EpLenMean       | 19.1     |
+| EpRewMean       | -0.996   |
+------------------------------
+********** Iteration 4 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.29892117, 'comparisons': 64, 'available_labels': 141}
+Predictor training info: {'loss': 0.19075899, 'comparisons': 64, 'available_labels': 141}
+Predictor training info: {'loss': 0.53022718, 'comparisons': 64, 'available_labels': 141}
+Predictor training info: {'loss': 0.35593048, 'comparisons': 64, 'available_labels': 141}
+Predictor training info: {'loss': 0.27273446, 'comparisons': 64, 'available_labels': 141}
+Predictor training info: {'loss': 0.4639346, 'comparisons': 64, 'available_labels': 141}
+Predictor training info: {'loss': 0.44305122, 'comparisons': 64, 'available_labels': 141}
+Predictor training info: {'loss': 0.41005069, 'comparisons': 64, 'available_labels': 141}
+Predictor training info: {'loss': 0.42763844, 'comparisons': 64, 'available_labels': 141}
+Predictor training info: {'loss': 0.41114342, 'comparisons': 64, 'available_labels': 142}
+Predictor training info: {'loss': 0.25283182, 'comparisons': 64, 'available_labels': 142}
+Predictor stats: rejected segments: 0 total segments: 341
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00070611 |           0.0 |       6.50769 |   0.000183783 |       2.75677
+  -0.00695866 |           0.0 |       6.41594 |    0.00224354 |        2.7556
+   -0.0102533 |           0.0 |       6.38255 |    0.00619512 |        2.7521
+   -0.0111163 |           0.0 |        6.3709 |    0.00694758 |       2.74839
+   -0.0129103 |           0.0 |       6.36526 |    0.00739171 |       2.74482
+   -0.0133013 |           0.0 |       6.36099 |    0.00757087 |       2.74173
+   -0.0143291 |           0.0 |       6.35746 |    0.00759308 |        2.7383
+   -0.0151667 |           0.0 |       6.35292 |    0.00829606 |        2.7351
+   -0.0157753 |           0.0 |       6.34813 |    0.00875289 |       2.73212
+    -0.016358 |           0.0 |       6.34593 |    0.00882765 |        2.7293
+Evaluating losses...
+   -0.0175866 |             0 |       6.34407 |    0.00928621 |       2.72816
+------------------------------
+| loss_pol_surr   | -0.0176  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 6.34     |
+| loss_kl         | 0.00929  |
+| loss_ent        | 2.73     |
+| ev_tdlam_before | 0.291    |
+| EpThisIter      | 64       |
+| EpisodesSoFar   | 345      |
+| TimestepsSoFar  | 6.4e+03  |
+| TimeElapsed     | 63.8     |
+| EpLenMean       | 20.8     |
+| EpRewMean       | -0.999   |
+------------------------------
+********** Iteration 5 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.47203043, 'comparisons': 64, 'available_labels': 145}
+Predictor training info: {'loss': 0.28265315, 'comparisons': 64, 'available_labels': 145}
+Predictor training info: {'loss': 0.27697444, 'comparisons': 64, 'available_labels': 145}
+Predictor training info: {'loss': 0.42418009, 'comparisons': 64, 'available_labels': 145}
+Predictor training info: {'loss': 0.2433835, 'comparisons': 64, 'available_labels': 145}
+Predictor training info: {'loss': 0.407002, 'comparisons': 64, 'available_labels': 146}
+Predictor training info: {'loss': 0.53409481, 'comparisons': 64, 'available_labels': 146}
+Predictor training info: {'loss': 0.43977058, 'comparisons': 64, 'available_labels': 146}
+Predictor training info: {'loss': 0.41088885, 'comparisons': 64, 'available_labels': 146}
+Predictor training info: {'loss': 0.4363572, 'comparisons': 64, 'available_labels': 146}
+Predictor stats: rejected segments: 0 total segments: 396
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000230572 |           0.0 |        6.6387 |   0.000155593 |       2.72633
+  -0.00455056 |           0.0 |       6.53675 |    0.00235028 |       2.72404
+  -0.00852698 |           0.0 |       6.50427 |    0.00440456 |       2.72173
+   -0.0103145 |           0.0 |       6.49568 |    0.00588721 |       2.71907
+   -0.0114839 |           0.0 |       6.48727 |    0.00523934 |        2.7163
+   -0.0138815 |           0.0 |       6.48192 |    0.00557959 |       2.71294
+   -0.0143343 |           0.0 |       6.47606 |     0.0070062 |       2.71029
+   -0.0160146 |           0.0 |       6.47341 |    0.00677573 |       2.70733
+   -0.0167828 |           0.0 |       6.46938 |    0.00720177 |       2.70471
+   -0.0175407 |           0.0 |       6.46704 |    0.00855347 |       2.70262
+Evaluating losses...
+   -0.0187319 |             0 |       6.46386 |    0.00886439 |       2.70152
+------------------------------
+| loss_pol_surr   | -0.0187  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 6.46     |
+| loss_kl         | 0.00886  |
+| loss_ent        | 2.7      |
+| ev_tdlam_before | 0.284    |
+| EpThisIter      | 56       |
+| EpisodesSoFar   | 401      |
+| TimestepsSoFar  | 7.64e+03 |
+| TimeElapsed     | 76.4     |
+| EpLenMean       | 21.2     |
+| EpRewMean       | -0.998   |
+------------------------------
+********** Iteration 6 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.35467398, 'comparisons': 64, 'available_labels': 150}
+Predictor training info: {'loss': 0.27284497, 'comparisons': 64, 'available_labels': 150}
+Predictor training info: {'loss': 0.36866617, 'comparisons': 64, 'available_labels': 150}
+Predictor training info: {'loss': 0.28339076, 'comparisons': 64, 'available_labels': 150}
+Predictor training info: {'loss': 0.33810979, 'comparisons': 64, 'available_labels': 150}
+Predictor training info: {'loss': 0.30466187, 'comparisons': 64, 'available_labels': 150}
+Predictor training info: {'loss': 0.29571933, 'comparisons': 64, 'available_labels': 150}
+Predictor training info: {'loss': 0.23371346, 'comparisons': 64, 'available_labels': 150}
+Predictor training info: {'loss': 0.25782293, 'comparisons': 64, 'available_labels': 150}
+Predictor training info: {'loss': 0.37477976, 'comparisons': 64, 'available_labels': 150}
+Predictor training info: {'loss': 0.33822113, 'comparisons': 64, 'available_labels': 150}
+Predictor stats: rejected segments: 0 total segments: 469
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00287941 |           0.0 |       2.43604 |   0.000805858 |       2.70053
+   -0.0152047 |           0.0 |       2.39208 |    0.00720522 |       2.69866
+    -0.017295 |           0.0 |       2.37186 |     0.0121771 |       2.69675
+    -0.018159 |           0.0 |       2.35881 |     0.0100273 |       2.69573
+   -0.0191953 |           0.0 |       2.35092 |    0.00970963 |       2.69435
+   -0.0197369 |           0.0 |       2.34575 |     0.0105193 |       2.69321
+   -0.0205568 |           0.0 |       2.34081 |     0.0105489 |        2.6931
+   -0.0204237 |           0.0 |       2.33657 |     0.0106626 |       2.69252
+   -0.0205777 |           0.0 |       2.33321 |     0.0114588 |       2.69214
+   -0.0217944 |           0.0 |       2.32931 |     0.0107908 |       2.69133
+Evaluating losses...
+   -0.0229301 |             0 |       2.32686 |      0.010394 |       2.69081
+------------------------------
+| loss_pol_surr   | -0.0229  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 2.33     |
+| loss_kl         | 0.0104   |
+| loss_ent        | 2.69     |
+| ev_tdlam_before | 0.469    |
+| EpThisIter      | 74       |
+| EpisodesSoFar   | 475      |
+| TimestepsSoFar  | 8.95e+03 |
+| TimeElapsed     | 89.3     |
+| EpLenMean       | 18.6     |
+| EpRewMean       | -0.998   |
+------------------------------
+********** Iteration 7 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.26746559, 'comparisons': 64, 'available_labels': 153}
+Predictor training info: {'loss': 0.43399823, 'comparisons': 64, 'available_labels': 154}
+Predictor training info: {'loss': 0.58477759, 'comparisons': 64, 'available_labels': 154}
+Predictor training info: {'loss': 0.42182297, 'comparisons': 64, 'available_labels': 154}
+Predictor training info: {'loss': 0.3539634, 'comparisons': 64, 'available_labels': 154}
+Predictor training info: {'loss': 0.41636389, 'comparisons': 64, 'available_labels': 154}
+Predictor training info: {'loss': 0.29837561, 'comparisons': 64, 'available_labels': 154}
+Predictor training info: {'loss': 0.4045634, 'comparisons': 64, 'available_labels': 154}
+Predictor training info: {'loss': 0.36939669, 'comparisons': 64, 'available_labels': 154}
+Predictor training info: {'loss': 0.46913993, 'comparisons': 64, 'available_labels': 154}
+Predictor stats: rejected segments: 0 total segments: 527
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000434977 |           0.0 |       4.22888 |   0.000234863 |       2.69031
+  -0.00456609 |           0.0 |       4.15865 |    0.00201077 |       2.69074
+  -0.00676921 |           0.0 |       4.13379 |    0.00551193 |       2.69167
+  -0.00754123 |           0.0 |       4.12088 |    0.00742454 |       2.69285
+  -0.00867755 |           0.0 |       4.10721 |    0.00652866 |       2.69394
+  -0.00953284 |           0.0 |       4.09965 |    0.00643463 |       2.69614
+   -0.0105523 |           0.0 |       4.09396 |    0.00770743 |       2.69739
+    -0.011507 |           0.0 |       4.08054 |    0.00784805 |       2.69999
+   -0.0113612 |           0.0 |       4.07358 |    0.00670297 |       2.70191
+   -0.0131377 |           0.0 |       4.07193 |    0.00842651 |       2.70243
+Evaluating losses...
+    -0.014298 |             0 |       4.06916 |    0.00983189 |       2.70253
+------------------------------
+| loss_pol_surr   | -0.0143  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 4.07     |
+| loss_kl         | 0.00983  |
+| loss_ent        | 2.7      |
+| ev_tdlam_before | 0.406    |
+| EpThisIter      | 59       |
+| EpisodesSoFar   | 534      |
+| TimestepsSoFar  | 1.02e+04 |
+| TimeElapsed     | 102      |
+| EpLenMean       | 19.5     |
+| EpRewMean       | -0.996   |
+------------------------------
+********** Iteration 8 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.46582246, 'comparisons': 64, 'available_labels': 156}
+Predictor training info: {'loss': 0.64836228, 'comparisons': 64, 'available_labels': 158}
+Predictor training info: {'loss': 0.38522646, 'comparisons': 64, 'available_labels': 158}
+Predictor training info: {'loss': 0.56167161, 'comparisons': 64, 'available_labels': 158}
+Predictor training info: {'loss': 0.29422724, 'comparisons': 64, 'available_labels': 158}
+Predictor training info: {'loss': 0.4748596, 'comparisons': 64, 'available_labels': 158}
+Predictor training info: {'loss': 0.32205206, 'comparisons': 64, 'available_labels': 158}
+Predictor training info: {'loss': 0.356911, 'comparisons': 64, 'available_labels': 159}
+Predictor training info: {'loss': 0.34955254, 'comparisons': 64, 'available_labels': 159}
+Predictor training info: {'loss': 0.46274722, 'comparisons': 64, 'available_labels': 159}
+Predictor training info: {'loss': 0.2941193, 'comparisons': 64, 'available_labels': 159}
+Predictor stats: rejected segments: 0 total segments: 587
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -7.74059e-05 |           0.0 |       3.57457 |   0.000284663 |       2.70197
+  -0.00446745 |           0.0 |       3.50049 |    0.00237445 |       2.70034
+  -0.00639192 |           0.0 |       3.47692 |    0.00458556 |       2.69773
+  -0.00785052 |           0.0 |       3.46544 |    0.00532867 |       2.69507
+  -0.00976544 |           0.0 |       3.45548 |    0.00610563 |        2.6926
+   -0.0100343 |           0.0 |        3.4441 |    0.00689242 |       2.69025
+   -0.0109706 |           0.0 |       3.43803 |     0.0071251 |       2.68912
+   -0.0118009 |           0.0 |       3.42868 |    0.00713582 |       2.68751
+   -0.0119509 |           0.0 |       3.42166 |    0.00806834 |       2.68587
+   -0.0128599 |           0.0 |       3.41671 |    0.00803624 |       2.68447
+Evaluating losses...
+   -0.0140916 |             0 |       3.41376 |    0.00780355 |        2.6834
+------------------------------
+| loss_pol_surr   | -0.0141  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.41     |
+| loss_kl         | 0.0078   |
+| loss_ent        | 2.68     |
+| ev_tdlam_before | 0.406    |
+| EpThisIter      | 62       |
+| EpisodesSoFar   | 596      |
+| TimestepsSoFar  | 1.15e+04 |
+| TimeElapsed     | 115      |
+| EpLenMean       | 22.2     |
+| EpRewMean       | -0.994   |
+------------------------------
+********** Iteration 9 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.40256426, 'comparisons': 64, 'available_labels': 162}
+Predictor training info: {'loss': 0.43744478, 'comparisons': 64, 'available_labels': 163}
+Predictor training info: {'loss': 0.47929633, 'comparisons': 64, 'available_labels': 163}
+Predictor training info: {'loss': 0.45615333, 'comparisons': 64, 'available_labels': 163}
+Predictor training info: {'loss': 0.42737848, 'comparisons': 64, 'available_labels': 163}
+Predictor training info: {'loss': 0.48914695, 'comparisons': 64, 'available_labels': 163}
+Predictor training info: {'loss': 0.46445188, 'comparisons': 64, 'available_labels': 163}
+Predictor training info: {'loss': 0.35478738, 'comparisons': 64, 'available_labels': 163}
+Predictor training info: {'loss': 0.39646295, 'comparisons': 64, 'available_labels': 163}
+Predictor training info: {'loss': 0.38240236, 'comparisons': 64, 'available_labels': 163}
+Predictor training info: {'loss': 0.55178583, 'comparisons': 64, 'available_labels': 163}
+Predictor stats: rejected segments: 0 total segments: 646
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00132655 |           0.0 |       4.66607 |   0.000625533 |       2.68302
+  -0.00283468 |           0.0 |       4.58488 |    0.00219408 |       2.68346
+  -0.00616844 |           0.0 |        4.5616 |    0.00364161 |       2.68347
+  -0.00591514 |           0.0 |        4.5473 |    0.00640164 |       2.68346
+  -0.00873979 |           0.0 |       4.54134 |    0.00557704 |       2.68309
+  -0.00931096 |           0.0 |       4.53223 |    0.00584969 |       2.68289
+  -0.00974654 |           0.0 |       4.52504 |     0.0067972 |        2.6831
+   -0.0110966 |           0.0 |       4.52083 |    0.00688153 |        2.6832
+   -0.0118693 |           0.0 |       4.51931 |     0.0066355 |       2.68322
+   -0.0131921 |           0.0 |       4.51011 |    0.00677593 |       2.68238
+Evaluating losses...
+   -0.0149382 |             0 |       4.50537 |    0.00682365 |       2.68206
+------------------------------
+| loss_pol_surr   | -0.0149  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 4.51     |
+| loss_kl         | 0.00682  |
+| loss_ent        | 2.68     |
+| ev_tdlam_before | 0.439    |
+| EpThisIter      | 59       |
+| EpisodesSoFar   | 655      |
+| TimestepsSoFar  | 1.28e+04 |
+| TimeElapsed     | 128      |
+| EpLenMean       | 20.6     |
+| EpRewMean       | -1       |
+------------------------------
+Saving checkpoint 3dball_model/1hoop_synth_2017-11-20-1920/12791/session-12791.checkpoint
+Exporting model...
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_synth_2017-11-20-1920/12791/session-12791.checkpoint
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_synth_2017-11-20-1920/12791/session-12791.checkpoint
+INFO:tensorflow:Froze 10 variables.
+INFO:tensorflow:Froze 10 variables.
+Converted 10 variables to const ops.
+52 ops in the final graph.
+Done exporting model:  3dball_model/1hoop_synth_2017-11-20-1920/12791/3dball_1hoop_synth_2017-11-20-1920_12791.bytes
+********** Iteration 10 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.35710114, 'comparisons': 64, 'available_labels': 165}
+Predictor training info: {'loss': 0.28033894, 'comparisons': 64, 'available_labels': 169}
+Predictor training info: {'loss': 0.37697268, 'comparisons': 64, 'available_labels': 170}
+Predictor training info: {'loss': 0.45321169, 'comparisons': 64, 'available_labels': 170}
+Predictor training info: {'loss': 0.45904937, 'comparisons': 64, 'available_labels': 170}
+Predictor training info: {'loss': 0.33417809, 'comparisons': 64, 'available_labels': 170}
+Predictor training info: {'loss': 0.36049065, 'comparisons': 64, 'available_labels': 170}
+Predictor training info: {'loss': 0.53766674, 'comparisons': 64, 'available_labels': 170}
+Predictor training info: {'loss': 0.39133394, 'comparisons': 64, 'available_labels': 170}
+Predictor training info: {'loss': 0.50959146, 'comparisons': 64, 'available_labels': 170}
+Predictor training info: {'loss': 0.43145373, 'comparisons': 64, 'available_labels': 170}
+Predictor stats: rejected segments: 0 total segments: 693
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00163633 |           0.0 |       6.29857 |   0.000545509 |       2.68108
+  -0.00945475 |           0.0 |       6.19047 |    0.00426707 |        2.6767
+   -0.0115523 |           0.0 |       6.15628 |     0.0075002 |       2.67128
+   -0.0132962 |           0.0 |       6.14348 |    0.00870118 |       2.66733
+   -0.0147489 |           0.0 |       6.13541 |    0.00816074 |       2.66313
+   -0.0162617 |           0.0 |       6.12887 |    0.00798627 |       2.65956
+   -0.0168012 |           0.0 |       6.12338 |    0.00884629 |       2.65616
+   -0.0179679 |           0.0 |       6.11944 |    0.00811261 |       2.65304
+   -0.0189431 |           0.0 |       6.11388 |    0.00962231 |       2.64955
+   -0.0191457 |           0.0 |       6.11109 |     0.0101283 |       2.64575
+Evaluating losses...
+   -0.0213059 |             0 |       6.10715 |    0.00964353 |       2.64384
+------------------------------
+| loss_pol_surr   | -0.0213  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 6.11     |
+| loss_kl         | 0.00964  |
+| loss_ent        | 2.64     |
+| ev_tdlam_before | 0.402    |
+| EpThisIter      | 48       |
+| EpisodesSoFar   | 703      |
+| TimestepsSoFar  | 1.41e+04 |
+| TimeElapsed     | 149      |
+| EpLenMean       | 24.2     |
+| EpRewMean       | -0.998   |
+------------------------------
+********** Iteration 11 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.52735734, 'comparisons': 64, 'available_labels': 174}
+Predictor training info: {'loss': 0.32496813, 'comparisons': 64, 'available_labels': 174}
+Predictor training info: {'loss': 0.45237744, 'comparisons': 64, 'available_labels': 174}
+Predictor training info: {'loss': 0.41878498, 'comparisons': 64, 'available_labels': 174}
+Predictor training info: {'loss': 0.34314454, 'comparisons': 64, 'available_labels': 174}
+Predictor training info: {'loss': 0.3908678, 'comparisons': 64, 'available_labels': 174}
+Predictor training info: {'loss': 0.48787463, 'comparisons': 64, 'available_labels': 174}
+Predictor training info: {'loss': 0.41752547, 'comparisons': 64, 'available_labels': 174}
+Predictor training info: {'loss': 0.40412569, 'comparisons': 64, 'available_labels': 174}
+Predictor training info: {'loss': 0.39975101, 'comparisons': 64, 'available_labels': 174}
+Predictor training info: {'loss': 0.49347717, 'comparisons': 64, 'available_labels': 174}
+Predictor stats: rejected segments: 0 total segments: 747
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000462417 |           0.0 |       3.35859 |    0.00132008 |       2.64367
+  -0.00588442 |           0.0 |       3.26512 |    0.00373677 |       2.64503
+  -0.00832152 |           0.0 |       3.25208 |    0.00462913 |       2.64574
+  -0.00980786 |           0.0 |       3.24026 |    0.00554579 |       2.64615
+    -0.011811 |           0.0 |       3.23457 |    0.00613238 |       2.64693
+   -0.0120719 |           0.0 |       3.22628 |    0.00602255 |       2.64688
+   -0.0146112 |           0.0 |       3.22067 |    0.00648085 |       2.64733
+   -0.0148383 |           0.0 |       3.21491 |     0.0061468 |       2.64698
+   -0.0156419 |           0.0 |       3.21275 |    0.00642164 |       2.64657
+   -0.0164822 |           0.0 |       3.20706 |    0.00628269 |       2.64609
+Evaluating losses...
+   -0.0184129 |             0 |       3.20401 |     0.0063924 |       2.64601
+------------------------------
+| loss_pol_surr   | -0.0184  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.2      |
+| loss_kl         | 0.00639  |
+| loss_ent        | 2.65     |
+| ev_tdlam_before | 0.449    |
+| EpThisIter      | 56       |
+| EpisodesSoFar   | 759      |
+| TimestepsSoFar  | 1.54e+04 |
+| TimeElapsed     | 162      |
+| EpLenMean       | 25.1     |
+| EpRewMean       | -0.996   |
+------------------------------
+********** Iteration 12 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.52059865, 'comparisons': 64, 'available_labels': 178}
+Predictor training info: {'loss': 0.47776705, 'comparisons': 64, 'available_labels': 178}
+Predictor training info: {'loss': 0.43050095, 'comparisons': 64, 'available_labels': 178}
+Predictor training info: {'loss': 0.45099503, 'comparisons': 64, 'available_labels': 178}
+Predictor training info: {'loss': 0.37580347, 'comparisons': 64, 'available_labels': 178}
+Predictor training info: {'loss': 0.43082416, 'comparisons': 64, 'available_labels': 178}
+Predictor training info: {'loss': 0.49877754, 'comparisons': 64, 'available_labels': 178}
+Predictor training info: {'loss': 0.47849146, 'comparisons': 64, 'available_labels': 179}
+Predictor training info: {'loss': 0.36646566, 'comparisons': 64, 'available_labels': 179}
+Predictor training info: {'loss': 0.33435935, 'comparisons': 64, 'available_labels': 179}
+Predictor stats: rejected segments: 0 total segments: 796
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00107629 |           0.0 |       6.27541 |   0.000275549 |       2.64561
+  -0.00299325 |           0.0 |       6.18596 |    0.00168618 |        2.6461
+  -0.00691385 |           0.0 |       6.14852 |    0.00373893 |       2.64452
+  -0.00875075 |           0.0 |       6.13637 |    0.00429698 |        2.6432
+    -0.010569 |           0.0 |       6.12873 |    0.00434617 |       2.64279
+   -0.0122046 |           0.0 |       6.12641 |    0.00639022 |       2.64257
+   -0.0134853 |           0.0 |        6.1255 |    0.00674054 |        2.6412
+   -0.0135319 |           0.0 |       6.12133 |    0.00571252 |        2.6401
+   -0.0146516 |           0.0 |       6.12153 |    0.00699923 |       2.63913
+   -0.0164964 |           0.0 |       6.11757 |    0.00635202 |       2.63772
+Evaluating losses...
+   -0.0182181 |             0 |       6.11866 |    0.00648698 |       2.63707
+------------------------------
+| loss_pol_surr   | -0.0182  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 6.12     |
+| loss_kl         | 0.00649  |
+| loss_ent        | 2.64     |
+| ev_tdlam_before | 0.403    |
+| EpThisIter      | 49       |
+| EpisodesSoFar   | 808      |
+| TimestepsSoFar  | 1.66e+04 |
+| TimeElapsed     | 175      |
+| EpLenMean       | 24.2     |
+| EpRewMean       | -0.998   |
+------------------------------
+********** Iteration 13 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.37611008, 'comparisons': 64, 'available_labels': 182}
+Predictor training info: {'loss': 0.3397415, 'comparisons': 64, 'available_labels': 182}
+Predictor training info: {'loss': 0.39916512, 'comparisons': 64, 'available_labels': 182}
+Predictor training info: {'loss': 0.36713779, 'comparisons': 64, 'available_labels': 183}
+Predictor training info: {'loss': 0.37089869, 'comparisons': 64, 'available_labels': 183}
+Predictor training info: {'loss': 0.36002895, 'comparisons': 64, 'available_labels': 183}
+Predictor training info: {'loss': 0.36363998, 'comparisons': 64, 'available_labels': 183}
+Predictor training info: {'loss': 0.56891698, 'comparisons': 64, 'available_labels': 183}
+Predictor training info: {'loss': 0.53478736, 'comparisons': 64, 'available_labels': 183}
+Predictor training info: {'loss': 0.32757968, 'comparisons': 64, 'available_labels': 183}
+Predictor stats: rejected segments: 0 total segments: 849
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000357339 |           0.0 |       5.21751 |   0.000552187 |       2.63587
+  -0.00680836 |           0.0 |       5.11871 |    0.00428025 |       2.63269
+  -0.00926443 |           0.0 |       5.09327 |    0.00599999 |       2.62869
+   -0.0114863 |           0.0 |       5.07746 |    0.00755554 |       2.62468
+    -0.013388 |           0.0 |       5.07056 |    0.00619864 |       2.62081
+   -0.0140182 |           0.0 |       5.06285 |    0.00724594 |       2.61683
+   -0.0153914 |           0.0 |       5.05657 |    0.00757254 |       2.61343
+   -0.0164335 |           0.0 |       5.05243 |    0.00776837 |       2.60964
+   -0.0166044 |           0.0 |       5.04936 |    0.00781742 |       2.60611
+   -0.0172665 |           0.0 |       5.04804 |    0.00770148 |       2.60335
+Evaluating losses...
+   -0.0195862 |             0 |       5.04357 |    0.00803375 |       2.60211
+------------------------------
+| loss_pol_surr   | -0.0196  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 5.04     |
+| loss_kl         | 0.00803  |
+| loss_ent        | 2.6      |
+| ev_tdlam_before | 0.439    |
+| EpThisIter      | 55       |
+| EpisodesSoFar   | 863      |
+| TimestepsSoFar  | 1.79e+04 |
+| TimeElapsed     | 188      |
+| EpLenMean       | 25       |
+| EpRewMean       | -0.996   |
+------------------------------
+********** Iteration 14 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.46101177, 'comparisons': 64, 'available_labels': 185}
+Predictor training info: {'loss': 0.42935264, 'comparisons': 64, 'available_labels': 187}
+Predictor training info: {'loss': 0.46445078, 'comparisons': 64, 'available_labels': 187}
+Predictor training info: {'loss': 0.33284444, 'comparisons': 64, 'available_labels': 187}
+Predictor training info: {'loss': 0.41489768, 'comparisons': 64, 'available_labels': 187}
+Predictor training info: {'loss': 0.36680669, 'comparisons': 64, 'available_labels': 187}
+Predictor training info: {'loss': 0.41357213, 'comparisons': 64, 'available_labels': 187}
+Predictor training info: {'loss': 0.42437333, 'comparisons': 64, 'available_labels': 187}
+Predictor training info: {'loss': 0.49807015, 'comparisons': 64, 'available_labels': 187}
+Predictor training info: {'loss': 0.48702061, 'comparisons': 64, 'available_labels': 187}
+Predictor training info: {'loss': 0.53670239, 'comparisons': 64, 'available_labels': 187}
+Predictor stats: rejected segments: 0 total segments: 890
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000105628 |           0.0 |       6.54962 |   0.000716928 |       2.60108
+  -0.00602091 |           0.0 |        6.4499 |     0.0045809 |       2.59946
+  -0.00980007 |           0.0 |       6.42906 |    0.00575939 |       2.59572
+    -0.011473 |           0.0 |       6.41993 |    0.00646591 |       2.59227
+   -0.0133236 |           0.0 |       6.41308 |    0.00622851 |       2.58887
+   -0.0141393 |           0.0 |       6.40714 |    0.00686272 |       2.58601
+   -0.0153616 |           0.0 |       6.40223 |    0.00771137 |       2.58373
+   -0.0162636 |           0.0 |       6.39878 |    0.00683574 |       2.58146
+   -0.0164655 |           0.0 |       6.39797 |     0.0071325 |       2.57912
+   -0.0172809 |           0.0 |       6.39381 |    0.00776374 |       2.57663
+Evaluating losses...
+   -0.0195017 |             0 |       6.39326 |    0.00773172 |        2.5755
+------------------------------
+| loss_pol_surr   | -0.0195  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 6.39     |
+| loss_kl         | 0.00773  |
+| loss_ent        | 2.58     |
+| ev_tdlam_before | 0.418    |
+| EpThisIter      | 41       |
+| EpisodesSoFar   | 904      |
+| TimestepsSoFar  | 1.92e+04 |
+| TimeElapsed     | 201      |
+| EpLenMean       | 26.9     |
+| EpRewMean       | -0.993   |
+------------------------------
+********** Iteration 15 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.44676861, 'comparisons': 64, 'available_labels': 190}
+Predictor training info: {'loss': 0.43250591, 'comparisons': 64, 'available_labels': 191}
+Predictor training info: {'loss': 0.39311698, 'comparisons': 64, 'available_labels': 191}
+Predictor training info: {'loss': 0.46580917, 'comparisons': 64, 'available_labels': 191}
+Predictor training info: {'loss': 0.37219086, 'comparisons': 64, 'available_labels': 191}
+Predictor training info: {'loss': 0.54969692, 'comparisons': 64, 'available_labels': 191}
+Predictor training info: {'loss': 0.43903151, 'comparisons': 64, 'available_labels': 191}
+Predictor training info: {'loss': 0.41951352, 'comparisons': 64, 'available_labels': 192}
+Predictor training info: {'loss': 0.5199374, 'comparisons': 64, 'available_labels': 192}
+Predictor training info: {'loss': 0.42968583, 'comparisons': 64, 'available_labels': 192}
+Predictor stats: rejected segments: 0 total segments: 944
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -6.04928e-05 |           0.0 |       4.32642 |   0.000403274 |       2.57535
+  -0.00412868 |           0.0 |       4.24696 |    0.00384383 |       2.57226
+  -0.00706349 |           0.0 |       4.22621 |    0.00541911 |       2.56956
+  -0.00759453 |           0.0 |       4.21657 |    0.00550662 |       2.56643
+  -0.00940941 |           0.0 |        4.2106 |    0.00731809 |       2.56487
+    -0.010827 |           0.0 |       4.20676 |    0.00810212 |       2.56287
+   -0.0110738 |           0.0 |       4.20378 |    0.00608594 |       2.56081
+   -0.0121349 |           0.0 |       4.19834 |    0.00726056 |       2.55925
+   -0.0126091 |           0.0 |       4.19326 |    0.00778804 |       2.55702
+   -0.0138007 |           0.0 |       4.18978 |    0.00771991 |       2.55566
+Evaluating losses...
+   -0.0162053 |             0 |       4.18593 |    0.00774636 |       2.55499
+------------------------------
+| loss_pol_surr   | -0.0162  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 4.19     |
+| loss_kl         | 0.00775  |
+| loss_ent        | 2.55     |
+| ev_tdlam_before | 0.492    |
+| EpThisIter      | 55       |
+| EpisodesSoFar   | 959      |
+| TimestepsSoFar  | 2.05e+04 |
+| TimeElapsed     | 214      |
+| EpLenMean       | 26.8     |
+| EpRewMean       | -0.995   |
+------------------------------
+********** Iteration 16 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.56526059, 'comparisons': 64, 'available_labels': 193}
+Predictor training info: {'loss': 0.33551893, 'comparisons': 64, 'available_labels': 195}
+Predictor training info: {'loss': 0.41772032, 'comparisons': 64, 'available_labels': 196}
+Predictor training info: {'loss': 0.64010847, 'comparisons': 64, 'available_labels': 196}
+Predictor training info: {'loss': 0.47057664, 'comparisons': 64, 'available_labels': 196}
+Predictor training info: {'loss': 0.43352953, 'comparisons': 64, 'available_labels': 196}
+Predictor training info: {'loss': 0.47758144, 'comparisons': 64, 'available_labels': 196}
+Predictor training info: {'loss': 0.52953947, 'comparisons': 64, 'available_labels': 196}
+Predictor training info: {'loss': 0.45956969, 'comparisons': 64, 'available_labels': 196}
+Predictor training info: {'loss': 0.6065619, 'comparisons': 64, 'available_labels': 196}
+Predictor training info: {'loss': 0.40807676, 'comparisons': 64, 'available_labels': 196}
+Predictor stats: rejected segments: 0 total segments: 989
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00110993 |           0.0 |       4.86666 |    0.00151375 |       2.55438
+  -0.00559488 |           0.0 |       4.77174 |    0.00395433 |       2.55199
+  -0.00667077 |           0.0 |       4.75475 |    0.00521749 |       2.54842
+  -0.00649352 |           0.0 |       4.74274 |    0.00502973 |       2.54443
+  -0.00884929 |           0.0 |       4.74111 |    0.00572637 |       2.54259
+   -0.0108964 |           0.0 |       4.73614 |     0.0063392 |       2.54074
+   -0.0111904 |           0.0 |       4.73322 |    0.00637341 |       2.53826
+   -0.0114873 |           0.0 |       4.73325 |    0.00603494 |       2.53608
+   -0.0130088 |           0.0 |       4.72916 |    0.00627835 |       2.53412
+   -0.0138808 |           0.0 |       4.72935 |    0.00646698 |        2.5325
+Evaluating losses...
+   -0.0158914 |             0 |       4.72763 |    0.00700081 |        2.5315
+------------------------------
+| loss_pol_surr   | -0.0159  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 4.73     |
+| loss_kl         | 0.007    |
+| loss_ent        | 2.53     |
+| ev_tdlam_before | 0.529    |
+| EpThisIter      | 46       |
+| EpisodesSoFar   | 1.00e+03 |
+| TimestepsSoFar  | 2.18e+04 |
+| TimeElapsed     | 228      |
+| EpLenMean       | 25.5     |
+| EpRewMean       | -0.993   |
+------------------------------
+********** Iteration 17 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.38899773, 'comparisons': 64, 'available_labels': 199}
+Predictor training info: {'loss': 0.47024038, 'comparisons': 64, 'available_labels': 200}
+Predictor training info: {'loss': 0.49826193, 'comparisons': 64, 'available_labels': 200}
+Predictor training info: {'loss': 0.42902082, 'comparisons': 64, 'available_labels': 200}
+Predictor training info: {'loss': 0.44659293, 'comparisons': 64, 'available_labels': 200}
+Predictor training info: {'loss': 0.40217668, 'comparisons': 64, 'available_labels': 200}
+Predictor training info: {'loss': 0.47972021, 'comparisons': 64, 'available_labels': 200}
+Predictor training info: {'loss': 0.41529042, 'comparisons': 64, 'available_labels': 200}
+Predictor training info: {'loss': 0.5008716, 'comparisons': 64, 'available_labels': 200}
+Predictor stats: rejected segments: 0 total segments: 1023
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000104689 |           0.0 |        7.6507 |    0.00159717 |       2.53047
+  -0.00790549 |           0.0 |       7.52646 |    0.00409715 |       2.52787
+    -0.010311 |           0.0 |       7.50128 |    0.00551903 |       2.52419
+   -0.0120766 |           0.0 |       7.48918 |    0.00621511 |       2.52097
+   -0.0125395 |           0.0 |       7.48959 |    0.00533048 |       2.51793
+   -0.0145485 |           0.0 |       7.48186 |    0.00582336 |       2.51472
+   -0.0154535 |           0.0 |       7.47922 |    0.00674971 |       2.51159
+    -0.016271 |           0.0 |       7.47892 |    0.00659033 |       2.50902
+   -0.0173924 |           0.0 |       7.47516 |    0.00629283 |       2.50602
+   -0.0174572 |           0.0 |       7.47003 |    0.00633429 |       2.50326
+Evaluating losses...
+   -0.0200332 |             0 |       7.47059 |    0.00740947 |       2.50175
+------------------------------
+| loss_pol_surr   | -0.02    |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 7.47     |
+| loss_kl         | 0.00741  |
+| loss_ent        | 2.5      |
+| ev_tdlam_before | 0.433    |
+| EpThisIter      | 35       |
+| EpisodesSoFar   | 1.04e+03 |
+| TimestepsSoFar  | 2.29e+04 |
+| TimeElapsed     | 241      |
+| EpLenMean       | 28.3     |
+| EpRewMean       | -0.986   |
+------------------------------
+********** Iteration 18 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.31923211, 'comparisons': 64, 'available_labels': 204}
+Predictor training info: {'loss': 0.46461874, 'comparisons': 64, 'available_labels': 204}
+Predictor training info: {'loss': 0.38159257, 'comparisons': 64, 'available_labels': 204}
+Predictor training info: {'loss': 0.36594117, 'comparisons': 64, 'available_labels': 204}
+Predictor training info: {'loss': 0.50542229, 'comparisons': 64, 'available_labels': 204}
+Predictor training info: {'loss': 0.38242197, 'comparisons': 64, 'available_labels': 204}
+Predictor training info: {'loss': 0.49345773, 'comparisons': 64, 'available_labels': 205}
+Predictor training info: {'loss': 0.44586861, 'comparisons': 64, 'available_labels': 205}
+Predictor training info: {'loss': 0.49844474, 'comparisons': 64, 'available_labels': 205}
+Predictor training info: {'loss': 0.48103368, 'comparisons': 64, 'available_labels': 205}
+Predictor stats: rejected segments: 0 total segments: 1061
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000690839 |           0.0 |       4.97435 |   0.000871906 |       2.50003
+  -0.00279282 |           0.0 |       4.87889 |    0.00336414 |       2.49545
+  -0.00610069 |           0.0 |       4.85398 |    0.00586823 |       2.49122
+  -0.00690279 |           0.0 |       4.84463 |    0.00432735 |       2.48729
+  -0.00929888 |           0.0 |       4.84058 |    0.00465983 |        2.4833
+  -0.00999296 |           0.0 |       4.83713 |    0.00627312 |       2.47914
+   -0.0116604 |           0.0 |       4.83428 |    0.00564247 |        2.4757
+   -0.0126594 |           0.0 |       4.83201 |    0.00570051 |       2.47245
+   -0.0138285 |           0.0 |       4.82966 |     0.0067831 |       2.46901
+   -0.0145208 |           0.0 |       4.82831 |    0.00678034 |       2.46617
+Evaluating losses...
+   -0.0168839 |             0 |       4.82639 |    0.00684543 |        2.4646
+------------------------------
+| loss_pol_surr   | -0.0169  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 4.83     |
+| loss_kl         | 0.00685  |
+| loss_ent        | 2.46     |
+| ev_tdlam_before | 0.523    |
+| EpThisIter      | 39       |
+| EpisodesSoFar   | 1.08e+03 |
+| TimestepsSoFar  | 2.43e+04 |
+| TimeElapsed     | 254      |
+| EpLenMean       | 33.2     |
+| EpRewMean       | -0.984   |
+------------------------------
+********** Iteration 19 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.40007365, 'comparisons': 64, 'available_labels': 207}
+Predictor training info: {'loss': 0.37972203, 'comparisons': 64, 'available_labels': 209}
+Predictor training info: {'loss': 0.49342197, 'comparisons': 64, 'available_labels': 209}
+Predictor training info: {'loss': 0.38256809, 'comparisons': 64, 'available_labels': 209}
+Predictor training info: {'loss': 0.52540553, 'comparisons': 64, 'available_labels': 209}
+Predictor training info: {'loss': 0.38158053, 'comparisons': 64, 'available_labels': 209}
+Predictor training info: {'loss': 0.54115069, 'comparisons': 64, 'available_labels': 209}
+Predictor training info: {'loss': 0.57539451, 'comparisons': 64, 'available_labels': 209}
+Predictor training info: {'loss': 0.57588828, 'comparisons': 64, 'available_labels': 209}
+Predictor training info: {'loss': 0.37662405, 'comparisons': 64, 'available_labels': 209}
+Predictor stats: rejected segments: 0 total segments: 1097
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000400908 |           0.0 |        4.7108 |   0.000509733 |       2.46296
+   -0.0051921 |           0.0 |       4.63135 |    0.00238663 |       2.45916
+  -0.00826335 |           0.0 |       4.60723 |    0.00538672 |       2.45634
+    -0.010558 |           0.0 |       4.59672 |    0.00576434 |       2.45337
+   -0.0113075 |           0.0 |       4.59178 |    0.00663521 |       2.44934
+   -0.0120168 |           0.0 |       4.58401 |      0.006809 |       2.44522
+   -0.0129856 |           0.0 |       4.57855 |    0.00643517 |       2.44211
+   -0.0146348 |           0.0 |       4.57675 |    0.00684271 |       2.43969
+   -0.0143167 |           0.0 |       4.57389 |    0.00781292 |       2.43683
+    -0.015373 |           0.0 |       4.56971 |    0.00699631 |       2.43405
+Evaluating losses...
+   -0.0179436 |             0 |       4.57083 |    0.00687824 |       2.43222
+------------------------------
+| loss_pol_surr   | -0.0179  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 4.57     |
+| loss_kl         | 0.00688  |
+| loss_ent        | 2.43     |
+| ev_tdlam_before | 0.491    |
+| EpThisIter      | 37       |
+| EpisodesSoFar   | 1.12e+03 |
+| TimestepsSoFar  | 2.56e+04 |
+| TimeElapsed     | 267      |
+| EpLenMean       | 35.3     |
+| EpRewMean       | -0.985   |
+------------------------------
+Saving checkpoint 3dball_model/1hoop_synth_2017-11-20-1920/25582/session-25582.checkpoint
+Exporting model...
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_synth_2017-11-20-1920/25582/session-25582.checkpoint
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_synth_2017-11-20-1920/25582/session-25582.checkpoint
+INFO:tensorflow:Froze 10 variables.
+INFO:tensorflow:Froze 10 variables.
+Converted 10 variables to const ops.
+52 ops in the final graph.
+Done exporting model:  3dball_model/1hoop_synth_2017-11-20-1920/25582/3dball_1hoop_synth_2017-11-20-1920_25582.bytes
+********** Iteration 20 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.7067889, 'comparisons': 64, 'available_labels': 213}
+Predictor training info: {'loss': 0.40195671, 'comparisons': 64, 'available_labels': 215}
+Predictor training info: {'loss': 0.40314141, 'comparisons': 64, 'available_labels': 218}
+Predictor training info: {'loss': 0.60293007, 'comparisons': 64, 'available_labels': 218}
+Predictor training info: {'loss': 0.43712765, 'comparisons': 64, 'available_labels': 218}
+Predictor training info: {'loss': 0.45011052, 'comparisons': 64, 'available_labels': 218}
+Predictor training info: {'loss': 0.58407223, 'comparisons': 64, 'available_labels': 218}
+Predictor training info: {'loss': 0.49650863, 'comparisons': 64, 'available_labels': 218}
+Predictor training info: {'loss': 0.543082, 'comparisons': 64, 'available_labels': 219}
+Predictor stats: rejected segments: 0 total segments: 1124
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000505762 |           0.0 |       6.94711 |    0.00115753 |       2.43054
+  -0.00480476 |           0.0 |       6.83538 |    0.00630759 |       2.42858
+  -0.00795025 |           0.0 |       6.79661 |    0.00496516 |       2.42612
+  -0.00920402 |           0.0 |       6.78419 |     0.0050314 |       2.42458
+   -0.0106719 |           0.0 |       6.78032 |    0.00662543 |       2.42304
+   -0.0114672 |           0.0 |       6.77671 |      0.005907 |       2.42144
+   -0.0109887 |           0.0 |       6.77247 |    0.00523296 |       2.41916
+   -0.0129159 |           0.0 |       6.77077 |     0.0069453 |       2.41807
+   -0.0138102 |           0.0 |        6.7678 |    0.00669986 |        2.4173
+   -0.0139865 |           0.0 |         6.766 |    0.00573239 |       2.41517
+Evaluating losses...
+   -0.0173844 |             0 |       6.76798 |    0.00570665 |       2.41409
+------------------------------
+| loss_pol_surr   | -0.0174  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 6.77     |
+| loss_kl         | 0.00571  |
+| loss_ent        | 2.41     |
+| ev_tdlam_before | 0.454    |
+| EpThisIter      | 28       |
+| EpisodesSoFar   | 1.14e+03 |
+| TimestepsSoFar  | 2.68e+04 |
+| TimeElapsed     | 295      |
+| EpLenMean       | 36.6     |
+| EpRewMean       | -0.988   |
+------------------------------
+********** Iteration 21 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.41314343, 'comparisons': 64, 'available_labels': 220}
+Predictor training info: {'loss': 0.47790056, 'comparisons': 64, 'available_labels': 223}
+Predictor training info: {'loss': 0.55311763, 'comparisons': 64, 'available_labels': 223}
+Predictor training info: {'loss': 0.58294398, 'comparisons': 64, 'available_labels': 223}
+Predictor training info: {'loss': 0.41612127, 'comparisons': 64, 'available_labels': 223}
+Predictor training info: {'loss': 0.38338351, 'comparisons': 64, 'available_labels': 224}
+Predictor training info: {'loss': 0.49308804, 'comparisons': 64, 'available_labels': 224}
+Predictor training info: {'loss': 0.47363982, 'comparisons': 64, 'available_labels': 224}
+Predictor training info: {'loss': 0.52944326, 'comparisons': 64, 'available_labels': 224}
+Predictor stats: rejected segments: 0 total segments: 1153
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000439347 |           0.0 |       7.94544 |    0.00119912 |       2.41407
+  -0.00435233 |           0.0 |       7.83867 |    0.00510173 |       2.41358
+  -0.00593235 |           0.0 |       7.80482 |    0.00405403 |       2.41206
+  -0.00925238 |           0.0 |       7.79434 |    0.00539078 |       2.40965
+  -0.00932923 |           0.0 |       7.78776 |    0.00419444 |        2.4079
+   -0.0107612 |           0.0 |       7.78279 |     0.0048929 |       2.40657
+    -0.011378 |           0.0 |       7.78174 |    0.00572645 |       2.40589
+   -0.0138148 |           0.0 |       7.78153 |    0.00599375 |        2.4042
+   -0.0143996 |           0.0 |       7.77579 |    0.00546509 |        2.4027
+   -0.0151451 |           0.0 |       7.77332 |    0.00629661 |       2.40124
+Evaluating losses...
+   -0.0181093 |             0 |       7.77111 |    0.00580592 |       2.40027
+------------------------------
+| loss_pol_surr   | -0.0181  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 7.77     |
+| loss_kl         | 0.00581  |
+| loss_ent        | 2.4      |
+| ev_tdlam_before | 0.424    |
+| EpThisIter      | 30       |
+| EpisodesSoFar   | 1.17e+03 |
+| TimestepsSoFar  | 2.82e+04 |
+| TimeElapsed     | 311      |
+| EpLenMean       | 40.3     |
+| EpRewMean       | -0.986   |
+------------------------------
+********** Iteration 22 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.4569155, 'comparisons': 64, 'available_labels': 227}
+Predictor training info: {'loss': 0.37269762, 'comparisons': 64, 'available_labels': 228}
+Predictor training info: {'loss': 0.42974633, 'comparisons': 64, 'available_labels': 229}
+Predictor training info: {'loss': 0.39371422, 'comparisons': 64, 'available_labels': 229}
+Predictor training info: {'loss': 0.51141024, 'comparisons': 64, 'available_labels': 229}
+Predictor training info: {'loss': 0.4407202, 'comparisons': 64, 'available_labels': 229}
+Predictor training info: {'loss': 0.54591542, 'comparisons': 64, 'available_labels': 229}
+Predictor training info: {'loss': 0.43914014, 'comparisons': 64, 'available_labels': 229}
+Predictor stats: rejected segments: 0 total segments: 1179
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00162786 |           0.0 |       6.96531 |   0.000508629 |       2.39937
+  -0.00757199 |           0.0 |       6.82079 |    0.00511122 |       2.39585
+  -0.00957704 |           0.0 |       6.78159 |     0.0058531 |       2.39204
+    -0.011325 |           0.0 |       6.77199 |    0.00695804 |       2.38872
+   -0.0108241 |           0.0 |        6.7632 |    0.00599455 |       2.38407
+   -0.0147392 |           0.0 |       6.76111 |    0.00608275 |       2.38045
+   -0.0156213 |           0.0 |       6.75604 |    0.00808394 |       2.37787
+   -0.0156166 |           0.0 |       6.74975 |    0.00618483 |       2.37493
+   -0.0180735 |           0.0 |       6.74914 |    0.00669198 |       2.37217
+   -0.0182911 |           0.0 |        6.7466 |    0.00695449 |       2.36942
+Evaluating losses...
+    -0.021164 |             0 |       6.74176 |    0.00653914 |       2.36818
+------------------------------
+| loss_pol_surr   | -0.0212  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 6.74     |
+| loss_kl         | 0.00654  |
+| loss_ent        | 2.37     |
+| ev_tdlam_before | 0.459    |
+| EpThisIter      | 27       |
+| EpisodesSoFar   | 1.2e+03  |
+| TimestepsSoFar  | 2.94e+04 |
+| TimeElapsed     | 327      |
+| EpLenMean       | 42.8     |
+| EpRewMean       | -0.984   |
+------------------------------
+********** Iteration 23 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.55990845, 'comparisons': 64, 'available_labels': 232}
+Predictor training info: {'loss': 0.46000651, 'comparisons': 64, 'available_labels': 233}
+Predictor training info: {'loss': 0.53132159, 'comparisons': 64, 'available_labels': 233}
+Predictor training info: {'loss': 0.34431031, 'comparisons': 64, 'available_labels': 233}
+Predictor training info: {'loss': 0.53767788, 'comparisons': 64, 'available_labels': 234}
+Predictor training info: {'loss': 0.52048671, 'comparisons': 64, 'available_labels': 234}
+Predictor training info: {'loss': 0.54230893, 'comparisons': 64, 'available_labels': 234}
+Predictor training info: {'loss': 0.50413984, 'comparisons': 64, 'available_labels': 234}
+Predictor stats: rejected segments: 0 total segments: 1207
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000492036 |           0.0 |       6.08307 |    0.00178236 |       2.36648
+  -0.00824883 |           0.0 |       5.98288 |    0.00443252 |       2.36421
+   -0.0103973 |           0.0 |       5.94271 |    0.00636231 |       2.36083
+   -0.0130798 |           0.0 |       5.93187 |    0.00674086 |       2.35731
+   -0.0144813 |           0.0 |       5.92675 |    0.00748984 |        2.3538
+   -0.0158991 |           0.0 |       5.92171 |    0.00644201 |         2.351
+   -0.0171708 |           0.0 |       5.91955 |    0.00797731 |       2.34826
+   -0.0179914 |           0.0 |       5.91845 |    0.00730723 |       2.34637
+   -0.0186811 |           0.0 |       5.91374 |    0.00768539 |       2.34518
+    -0.019223 |           0.0 |       5.91343 |    0.00836734 |       2.34333
+Evaluating losses...
+   -0.0216171 |             0 |       5.90857 |     0.0082686 |       2.34254
+------------------------------
+| loss_pol_surr   | -0.0216  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 5.91     |
+| loss_kl         | 0.00827  |
+| loss_ent        | 2.34     |
+| ev_tdlam_before | 0.487    |
+| EpThisIter      | 29       |
+| EpisodesSoFar   | 1.23e+03 |
+| TimestepsSoFar  | 3.07e+04 |
+| TimeElapsed     | 341      |
+| EpLenMean       | 45.4     |
+| EpRewMean       | -0.983   |
+------------------------------
+********** Iteration 24 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.52494466, 'comparisons': 64, 'available_labels': 235}
+Predictor training info: {'loss': 0.55153346, 'comparisons': 64, 'available_labels': 237}
+Predictor training info: {'loss': 0.54077369, 'comparisons': 64, 'available_labels': 238}
+Predictor training info: {'loss': 0.43618065, 'comparisons': 64, 'available_labels': 238}
+Predictor training info: {'loss': 0.41094506, 'comparisons': 64, 'available_labels': 239}
+Predictor training info: {'loss': 0.44077983, 'comparisons': 64, 'available_labels': 239}
+Predictor training info: {'loss': 0.56689388, 'comparisons': 64, 'available_labels': 239}
+Predictor training info: {'loss': 0.52736139, 'comparisons': 64, 'available_labels': 239}
+Predictor training info: {'loss': 0.54680681, 'comparisons': 64, 'available_labels': 239}
+Predictor training info: {'loss': 0.45373425, 'comparisons': 64, 'available_labels': 239}
+Predictor stats: rejected segments: 0 total segments: 1239
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000562663 |           0.0 |        5.2884 |   0.000649737 |       2.34169
+  -0.00515944 |           0.0 |       5.18644 |    0.00538831 |       2.34031
+  -0.00770783 |           0.0 |       5.15938 |    0.00522049 |       2.33756
+  -0.00862721 |           0.0 |       5.15013 |    0.00530601 |       2.33406
+   -0.0101672 |           0.0 |       5.14581 |    0.00523615 |        2.3319
+   -0.0106057 |           0.0 |       5.13879 |    0.00539643 |       2.32942
+   -0.0120463 |           0.0 |       5.13294 |    0.00506639 |        2.3277
+   -0.0130018 |           0.0 |       5.12764 |    0.00559407 |       2.32659
+   -0.0132133 |           0.0 |        5.1263 |    0.00553578 |       2.32597
+   -0.0149924 |           0.0 |       5.12289 |    0.00610419 |       2.32426
+Evaluating losses...
+   -0.0178583 |             0 |        5.1222 |    0.00590035 |       2.32319
+------------------------------
+| loss_pol_surr   | -0.0179  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 5.12     |
+| loss_kl         | 0.0059   |
+| loss_ent        | 2.32     |
+| ev_tdlam_before | 0.504    |
+| EpThisIter      | 33       |
+| EpisodesSoFar   | 1.26e+03 |
+| TimestepsSoFar  | 3.2e+04  |
+| TimeElapsed     | 357      |
+| EpLenMean       | 44.2     |
+| EpRewMean       | -0.982   |
+------------------------------
+********** Iteration 25 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.52771616, 'comparisons': 64, 'available_labels': 240}
+Predictor training info: {'loss': 0.50223118, 'comparisons': 64, 'available_labels': 243}
+Predictor training info: {'loss': 0.70796096, 'comparisons': 64, 'available_labels': 244}
+Predictor training info: {'loss': 0.56783593, 'comparisons': 64, 'available_labels': 244}
+Predictor training info: {'loss': 0.44606221, 'comparisons': 64, 'available_labels': 244}
+Predictor training info: {'loss': 0.50730145, 'comparisons': 64, 'available_labels': 244}
+Predictor training info: {'loss': 0.47526163, 'comparisons': 64, 'available_labels': 244}
+Predictor training info: {'loss': 0.52887774, 'comparisons': 64, 'available_labels': 244}
+Predictor training info: {'loss': 0.4503296, 'comparisons': 64, 'available_labels': 244}
+Predictor stats: rejected segments: 0 total segments: 1265
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00153184 |           0.0 |       7.75154 |   0.000840997 |       2.32244
+  -0.00173838 |           0.0 |       7.63324 |     0.0030708 |       2.32208
+  -0.00489051 |           0.0 |       7.59073 |    0.00364665 |       2.32128
+  -0.00586178 |           0.0 |       7.58739 |    0.00343739 |       2.32143
+  -0.00801506 |           0.0 |       7.57552 |    0.00330564 |       2.32186
+  -0.00883713 |           0.0 |       7.57156 |    0.00431631 |       2.32106
+    -0.010586 |           0.0 |       7.56376 |    0.00379565 |       2.32106
+   -0.0103436 |           0.0 |       7.56252 |    0.00343217 |       2.32101
+   -0.0122061 |           0.0 |        7.5577 |     0.0045717 |       2.32018
+   -0.0125493 |           0.0 |       7.55706 |    0.00418554 |       2.32046
+Evaluating losses...
+   -0.0159185 |             0 |       7.55261 |    0.00405437 |       2.32048
+------------------------------
+| loss_pol_surr   | -0.0159  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 7.55     |
+| loss_kl         | 0.00405  |
+| loss_ent        | 2.32     |
+| ev_tdlam_before | 0.488    |
+| EpThisIter      | 27       |
+| EpisodesSoFar   | 1.29e+03 |
+| TimestepsSoFar  | 3.33e+04 |
+| TimeElapsed     | 372      |
+| EpLenMean       | 43.8     |
+| EpRewMean       | -0.977   |
+------------------------------
+********** Iteration 26 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.48069292, 'comparisons': 64, 'available_labels': 246}
+Predictor training info: {'loss': 0.60478669, 'comparisons': 64, 'available_labels': 249}
+Predictor training info: {'loss': 0.50051606, 'comparisons': 64, 'available_labels': 249}
+Predictor training info: {'loss': 0.48992404, 'comparisons': 64, 'available_labels': 249}
+Predictor training info: {'loss': 0.54518437, 'comparisons': 64, 'available_labels': 249}
+Predictor training info: {'loss': 0.42021579, 'comparisons': 64, 'available_labels': 249}
+Predictor training info: {'loss': 0.64010191, 'comparisons': 64, 'available_labels': 249}
+Predictor training info: {'loss': 0.35703495, 'comparisons': 64, 'available_labels': 249}
+Predictor training info: {'loss': 0.49897414, 'comparisons': 64, 'available_labels': 249}
+Predictor training info: {'loss': 0.65413147, 'comparisons': 64, 'available_labels': 250}
+Predictor stats: rejected segments: 0 total segments: 1300
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00289187 |           0.0 |       3.65265 |   0.000631576 |       2.31881
+  -0.00386864 |           0.0 |       3.56797 |     0.0025812 |        2.3151
+  -0.00653565 |           0.0 |       3.54133 |    0.00538636 |       2.31158
+  -0.00896876 |           0.0 |       3.52208 |    0.00624415 |       2.30972
+  -0.00915526 |           0.0 |       3.51263 |    0.00616431 |       2.30744
+   -0.0113018 |           0.0 |       3.50757 |    0.00507683 |       2.30471
+   -0.0118596 |           0.0 |       3.50242 |     0.0058125 |       2.30235
+   -0.0130606 |           0.0 |       3.49622 |    0.00712899 |       2.30066
+   -0.0146884 |           0.0 |       3.49321 |    0.00537964 |       2.29857
+   -0.0160721 |           0.0 |       3.49046 |    0.00658809 |       2.29657
+Evaluating losses...
+    -0.018009 |             0 |       3.48733 |    0.00627626 |       2.29529
+------------------------------
+| loss_pol_surr   | -0.018   |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.49     |
+| loss_kl         | 0.00628  |
+| loss_ent        | 2.3      |
+| ev_tdlam_before | 0.609    |
+| EpThisIter      | 36       |
+| EpisodesSoFar   | 1.33e+03 |
+| TimestepsSoFar  | 3.45e+04 |
+| TimeElapsed     | 388      |
+| EpLenMean       | 38.7     |
+| EpRewMean       | -0.985   |
+------------------------------
+********** Iteration 27 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.60119861, 'comparisons': 64, 'available_labels': 253}
+Predictor training info: {'loss': 0.39263177, 'comparisons': 64, 'available_labels': 255}
+Predictor training info: {'loss': 0.46902514, 'comparisons': 64, 'available_labels': 256}
+Predictor training info: {'loss': 0.54791999, 'comparisons': 64, 'available_labels': 256}
+Predictor training info: {'loss': 0.47036794, 'comparisons': 64, 'available_labels': 256}
+Predictor training info: {'loss': 0.43441302, 'comparisons': 64, 'available_labels': 256}
+Predictor training info: {'loss': 0.50393695, 'comparisons': 64, 'available_labels': 256}
+Predictor training info: {'loss': 0.53239232, 'comparisons': 64, 'available_labels': 256}
+Predictor training info: {'loss': 0.48838428, 'comparisons': 64, 'available_labels': 256}
+Predictor training info: {'loss': 0.55485082, 'comparisons': 64, 'available_labels': 256}
+Predictor stats: rejected segments: 0 total segments: 1329
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00206421 |           0.0 |       5.29769 |    0.00196228 |       2.29422
+  -0.00803997 |           0.0 |        5.1971 |    0.00817145 |       2.29051
+    -0.010441 |           0.0 |       5.17194 |    0.00582092 |        2.2868
+   -0.0124309 |           0.0 |       5.16095 |    0.00799915 |       2.28335
+   -0.0127341 |           0.0 |       5.15314 |    0.00718672 |       2.28042
+   -0.0139718 |           0.0 |       5.14682 |    0.00678545 |       2.27756
+   -0.0159871 |           0.0 |       5.14086 |    0.00668204 |       2.27519
+   -0.0168595 |           0.0 |       5.13676 |    0.00752453 |       2.27392
+   -0.0182193 |           0.0 |       5.13343 |     0.0065179 |       2.27155
+   -0.0188587 |           0.0 |       5.12712 |    0.00668228 |       2.26918
+Evaluating losses...
+   -0.0212665 |             0 |       5.13168 |    0.00830373 |       2.26784
+------------------------------
+| loss_pol_surr   | -0.0213  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 5.13     |
+| loss_kl         | 0.0083   |
+| loss_ent        | 2.27     |
+| ev_tdlam_before | 0.552    |
+| EpThisIter      | 30       |
+| EpisodesSoFar   | 1.36e+03 |
+| TimestepsSoFar  | 3.58e+04 |
+| TimeElapsed     | 409      |
+| EpLenMean       | 40.4     |
+| EpRewMean       | -0.983   |
+------------------------------
+********** Iteration 28 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.56821626, 'comparisons': 64, 'available_labels': 258}
+Predictor training info: {'loss': 0.54940832, 'comparisons': 64, 'available_labels': 261}
+Predictor training info: {'loss': 0.51771474, 'comparisons': 64, 'available_labels': 261}
+Predictor training info: {'loss': 0.61122847, 'comparisons': 64, 'available_labels': 261}
+Predictor training info: {'loss': 0.53928638, 'comparisons': 64, 'available_labels': 261}
+Predictor training info: {'loss': 0.44299045, 'comparisons': 64, 'available_labels': 261}
+Predictor training info: {'loss': 0.42979884, 'comparisons': 64, 'available_labels': 261}
+Predictor training info: {'loss': 0.58190256, 'comparisons': 64, 'available_labels': 262}
+Predictor training info: {'loss': 0.60446244, 'comparisons': 64, 'available_labels': 262}
+Predictor stats: rejected segments: 0 total segments: 1361
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000350424 |           0.0 |       5.72948 |    0.00176088 |       2.26643
+  -0.00791061 |           0.0 |       5.63385 |     0.0050536 |       2.26371
+   -0.0110723 |           0.0 |       5.59159 |    0.00411952 |       2.26083
+    -0.011948 |           0.0 |       5.57653 |    0.00737357 |       2.25713
+   -0.0146659 |           0.0 |       5.57519 |    0.00508548 |       2.25319
+   -0.0164415 |           0.0 |        5.5617 |    0.00749915 |       2.25055
+   -0.0175651 |           0.0 |       5.55954 |    0.00613628 |       2.24765
+   -0.0192437 |           0.0 |       5.55758 |    0.00734101 |       2.24561
+   -0.0200244 |           0.0 |       5.55421 |    0.00701393 |       2.24338
+   -0.0216632 |           0.0 |       5.54648 |    0.00745535 |       2.24166
+Evaluating losses...
+   -0.0239236 |             0 |       5.54169 |    0.00741335 |       2.24087
+------------------------------
+| loss_pol_surr   | -0.0239  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 5.54     |
+| loss_kl         | 0.00741  |
+| loss_ent        | 2.24     |
+| ev_tdlam_before | 0.571    |
+| EpThisIter      | 33       |
+| EpisodesSoFar   | 1.39e+03 |
+| TimestepsSoFar  | 3.71e+04 |
+| TimeElapsed     | 425      |
+| EpLenMean       | 38.4     |
+| EpRewMean       | -0.99    |
+------------------------------
+********** Iteration 29 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.57799637, 'comparisons': 64, 'available_labels': 263}
+Predictor training info: {'loss': 0.50553447, 'comparisons': 64, 'available_labels': 267}
+Predictor training info: {'loss': 0.55795741, 'comparisons': 64, 'available_labels': 267}
+Predictor training info: {'loss': 0.48100048, 'comparisons': 64, 'available_labels': 267}
+Predictor training info: {'loss': 0.59852368, 'comparisons': 64, 'available_labels': 267}
+Predictor training info: {'loss': 0.52164453, 'comparisons': 64, 'available_labels': 267}
+Predictor training info: {'loss': 0.49651456, 'comparisons': 64, 'available_labels': 267}
+Predictor training info: {'loss': 0.52569717, 'comparisons': 64, 'available_labels': 267}
+Predictor training info: {'loss': 0.58852637, 'comparisons': 64, 'available_labels': 267}
+Predictor training info: {'loss': 0.53287232, 'comparisons': 64, 'available_labels': 267}
+Predictor stats: rejected segments: 0 total segments: 1390
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00103239 |           0.0 |       5.51256 |   0.000415926 |       2.23962
+   -0.0024426 |           0.0 |        5.3819 |    0.00398813 |       2.23669
+  -0.00361792 |           0.0 |       5.35218 |    0.00279646 |       2.23359
+  -0.00808994 |           0.0 |         5.335 |    0.00384964 |       2.23064
+  -0.00958495 |           0.0 |       5.32601 |    0.00350627 |       2.22718
+   -0.0114253 |           0.0 |       5.31706 |    0.00587749 |       2.22507
+   -0.0126027 |           0.0 |       5.31594 |     0.0041544 |       2.22212
+   -0.0127041 |           0.0 |       5.30781 |     0.0051421 |       2.21911
+   -0.0152476 |           0.0 |       5.30598 |    0.00504781 |       2.21674
+   -0.0168729 |           0.0 |       5.30054 |    0.00520185 |       2.21437
+Evaluating losses...
+   -0.0190184 |             0 |       5.29549 |    0.00533854 |       2.21314
+------------------------------
+| loss_pol_surr   | -0.019   |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 5.3      |
+| loss_kl         | 0.00534  |
+| loss_ent        | 2.21     |
+| ev_tdlam_before | 0.591    |
+| EpThisIter      | 30       |
+| EpisodesSoFar   | 1.42e+03 |
+| TimestepsSoFar  | 3.84e+04 |
+| TimeElapsed     | 442      |
+| EpLenMean       | 40.8     |
+| EpRewMean       | -0.984   |
+------------------------------
+Saving checkpoint 3dball_model/1hoop_synth_2017-11-20-1920/38383/session-38383.checkpoint
+Exporting model...
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_synth_2017-11-20-1920/38383/session-38383.checkpoint
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_synth_2017-11-20-1920/38383/session-38383.checkpoint
+INFO:tensorflow:Froze 10 variables.
+INFO:tensorflow:Froze 10 variables.
+Converted 10 variables to const ops.
+52 ops in the final graph.
+Done exporting model:  3dball_model/1hoop_synth_2017-11-20-1920/38383/3dball_1hoop_synth_2017-11-20-1920_38383.bytes
+********** Iteration 30 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.59656656, 'comparisons': 64, 'available_labels': 270}
+Predictor training info: {'loss': 0.48335537, 'comparisons': 64, 'available_labels': 272}
+Predictor training info: {'loss': 0.51842606, 'comparisons': 64, 'available_labels': 276}
+Predictor training info: {'loss': 0.56311953, 'comparisons': 64, 'available_labels': 278}
+Predictor training info: {'loss': 0.5829922, 'comparisons': 64, 'available_labels': 281}
+Predictor training info: {'loss': 0.46370462, 'comparisons': 64, 'available_labels': 282}
+Predictor training info: {'loss': 0.55514288, 'comparisons': 64, 'available_labels': 282}
+Predictor training info: {'loss': 0.47424549, 'comparisons': 64, 'available_labels': 282}
+Predictor training info: {'loss': 0.46529096, 'comparisons': 64, 'available_labels': 283}
+Predictor training info: {'loss': 0.46868384, 'comparisons': 64, 'available_labels': 283}
+Predictor stats: rejected segments: 0 total segments: 1418
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00103865 |           0.0 |       6.21342 |    0.00163757 |       2.21229
+  -0.00550176 |           0.0 |       6.09295 |    0.00571925 |       2.20875
+  -0.00884182 |           0.0 |       6.06634 |     0.0045007 |       2.20475
+   -0.0112568 |           0.0 |       6.05381 |    0.00689625 |       2.20009
+   -0.0129222 |           0.0 |       6.04864 |    0.00714518 |       2.19606
+   -0.0141028 |           0.0 |       6.04319 |    0.00607983 |       2.19213
+   -0.0153927 |           0.0 |       6.03939 |    0.00731241 |       2.18885
+   -0.0157351 |           0.0 |       6.03631 |    0.00790388 |       2.18551
+   -0.0170536 |           0.0 |       6.03253 |    0.00636859 |       2.18233
+   -0.0177597 |           0.0 |       6.03053 |    0.00759037 |       2.18004
+Evaluating losses...
+   -0.0203024 |             0 |       6.02756 |     0.0075886 |       2.17878
+------------------------------
+| loss_pol_surr   | -0.0203  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 6.03     |
+| loss_kl         | 0.00759  |
+| loss_ent        | 2.18     |
+| ev_tdlam_before | 0.611    |
+| EpThisIter      | 29       |
+| EpisodesSoFar   | 1.45e+03 |
+| TimestepsSoFar  | 3.97e+04 |
+| TimeElapsed     | 487      |
+| EpLenMean       | 40.5     |
+| EpRewMean       | -0.988   |
+------------------------------
+********** Iteration 31 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.45787781, 'comparisons': 64, 'available_labels': 285}
+Predictor training info: {'loss': 0.56955355, 'comparisons': 64, 'available_labels': 287}
+Predictor training info: {'loss': 0.47347462, 'comparisons': 64, 'available_labels': 287}
+Predictor training info: {'loss': 0.53569245, 'comparisons': 64, 'available_labels': 288}
+Predictor training info: {'loss': 0.57547063, 'comparisons': 64, 'available_labels': 288}
+Predictor training info: {'loss': 0.45462403, 'comparisons': 64, 'available_labels': 288}
+Predictor training info: {'loss': 0.56385231, 'comparisons': 64, 'available_labels': 288}
+Predictor training info: {'loss': 0.55750585, 'comparisons': 64, 'available_labels': 288}
+Predictor training info: {'loss': 0.67786878, 'comparisons': 64, 'available_labels': 288}
+Predictor training info: {'loss': 0.45541781, 'comparisons': 64, 'available_labels': 288}
+Predictor training info: {'loss': 0.5436908, 'comparisons': 64, 'available_labels': 288}
+Predictor stats: rejected segments: 0 total segments: 1449
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00234421 |           0.0 |       3.51606 |    0.00303292 |       2.17767
+  -0.00781643 |           0.0 |        3.4263 |     0.0102333 |       2.17538
+   -0.0110796 |           0.0 |       3.40702 |    0.00630156 |       2.17406
+   -0.0119729 |           0.0 |       3.39294 |    0.00821386 |       2.17222
+   -0.0143236 |           0.0 |       3.39031 |     0.0084022 |       2.16944
+   -0.0154203 |           0.0 |       3.37862 |    0.00878155 |       2.16808
+   -0.0161257 |           0.0 |       3.37054 |     0.0084784 |       2.16743
+   -0.0169409 |           0.0 |       3.36782 |     0.0087274 |       2.16559
+   -0.0182711 |           0.0 |       3.36632 |    0.00932534 |       2.16404
+   -0.0191383 |           0.0 |       3.35687 |    0.00885499 |       2.16231
+Evaluating losses...
+   -0.0219669 |             0 |       3.35642 |    0.00794895 |        2.1619
+------------------------------
+| loss_pol_surr   | -0.022   |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.36     |
+| loss_kl         | 0.00795  |
+| loss_ent        | 2.16     |
+| ev_tdlam_before | 0.601    |
+| EpThisIter      | 32       |
+| EpisodesSoFar   | 1.48e+03 |
+| TimestepsSoFar  | 4.09e+04 |
+| TimeElapsed     | 504      |
+| EpLenMean       | 41.3     |
+| EpRewMean       | -0.986   |
+------------------------------
+********** Iteration 32 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.56940532, 'comparisons': 64, 'available_labels': 291}
+Predictor training info: {'loss': 0.53022707, 'comparisons': 64, 'available_labels': 293}
+Predictor training info: {'loss': 0.52925873, 'comparisons': 64, 'available_labels': 293}
+Predictor training info: {'loss': 0.43425697, 'comparisons': 64, 'available_labels': 293}
+Predictor training info: {'loss': 0.48444438, 'comparisons': 64, 'available_labels': 293}
+Predictor training info: {'loss': 0.53293258, 'comparisons': 64, 'available_labels': 294}
+Predictor training info: {'loss': 0.50050581, 'comparisons': 64, 'available_labels': 294}
+Predictor training info: {'loss': 0.6847831, 'comparisons': 64, 'available_labels': 294}
+Predictor training info: {'loss': 0.51935637, 'comparisons': 64, 'available_labels': 294}
+Predictor stats: rejected segments: 0 total segments: 1474
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000416236 |           0.0 |       3.83022 |   0.000991829 |       2.16147
+  -0.00493709 |           0.0 |       3.74784 |    0.00381182 |       2.16005
+  -0.00866302 |           0.0 |       3.73568 |    0.00590478 |       2.15696
+  -0.00977166 |           0.0 |        3.7249 |    0.00654758 |       2.15443
+   -0.0110475 |           0.0 |       3.71728 |    0.00622914 |       2.15207
+   -0.0131292 |           0.0 |       3.72386 |    0.00671257 |       2.14998
+   -0.0134033 |           0.0 |       3.71067 |    0.00735194 |       2.14734
+   -0.0143006 |           0.0 |        3.7019 |    0.00675795 |         2.145
+   -0.0156649 |           0.0 |       3.70017 |    0.00562228 |       2.14307
+   -0.0173593 |           0.0 |       3.69977 |    0.00838449 |       2.14056
+Evaluating losses...
+   -0.0199545 |             0 |       3.69383 |    0.00802068 |        2.1393
+------------------------------
+| loss_pol_surr   | -0.02    |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.69     |
+| loss_kl         | 0.00802  |
+| loss_ent        | 2.14     |
+| ev_tdlam_before | 0.596    |
+| EpThisIter      | 26       |
+| EpisodesSoFar   | 1.51e+03 |
+| TimestepsSoFar  | 4.22e+04 |
+| TimeElapsed     | 521      |
+| EpLenMean       | 44.6     |
+| EpRewMean       | -0.985   |
+------------------------------
+********** Iteration 33 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.56489921, 'comparisons': 64, 'available_labels': 298}
+Predictor training info: {'loss': 0.47345072, 'comparisons': 64, 'available_labels': 299}
+Predictor training info: {'loss': 0.63177186, 'comparisons': 64, 'available_labels': 299}
+Predictor training info: {'loss': 0.50748742, 'comparisons': 64, 'available_labels': 299}
+Predictor training info: {'loss': 0.50806725, 'comparisons': 64, 'available_labels': 299}
+Predictor training info: {'loss': 0.48420566, 'comparisons': 64, 'available_labels': 299}
+Predictor training info: {'loss': 0.59374464, 'comparisons': 64, 'available_labels': 299}
+Predictor training info: {'loss': 0.60243011, 'comparisons': 64, 'available_labels': 299}
+Predictor training info: {'loss': 0.53913522, 'comparisons': 64, 'available_labels': 300}
+Predictor stats: rejected segments: 0 total segments: 1507
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000546732 |           0.0 |       2.69355 |    0.00202886 |       2.13884
+  -0.00516428 |           0.0 |       2.63411 |    0.00572108 |       2.13715
+   -0.0077317 |           0.0 |       2.60268 |    0.00532463 |       2.13471
+  -0.00910649 |           0.0 |        2.5808 |    0.00479295 |       2.13299
+   -0.0104146 |           0.0 |       2.56806 |    0.00575017 |       2.13162
+   -0.0116516 |           0.0 |       2.56172 |    0.00749642 |       2.12928
+   -0.0135906 |           0.0 |       2.55521 |    0.00611413 |       2.12788
+   -0.0163314 |           0.0 |       2.54778 |    0.00693457 |       2.12615
+   -0.0172103 |           0.0 |       2.54517 |    0.00734235 |       2.12494
+   -0.0177589 |           0.0 |       2.53882 |    0.00679393 |       2.12355
+Evaluating losses...
+   -0.0204925 |             0 |       2.53029 |    0.00659029 |       2.12275
+------------------------------
+| loss_pol_surr   | -0.0205  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 2.53     |
+| loss_kl         | 0.00659  |
+| loss_ent        | 2.12     |
+| ev_tdlam_before | 0.634    |
+| EpThisIter      | 34       |
+| EpisodesSoFar   | 1.54e+03 |
+| TimestepsSoFar  | 4.35e+04 |
+| TimeElapsed     | 538      |
+| EpLenMean       | 41.5     |
+| EpRewMean       | -0.983   |
+------------------------------
+********** Iteration 34 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.49414092, 'comparisons': 64, 'available_labels': 301}
+Predictor training info: {'loss': 0.42873168, 'comparisons': 64, 'available_labels': 304}
+Predictor training info: {'loss': 0.54987127, 'comparisons': 64, 'available_labels': 304}
+Predictor training info: {'loss': 0.46086755, 'comparisons': 64, 'available_labels': 304}
+Predictor training info: {'loss': 0.57499558, 'comparisons': 64, 'available_labels': 304}
+Predictor training info: {'loss': 0.52929461, 'comparisons': 64, 'available_labels': 304}
+Predictor training info: {'loss': 0.6200633, 'comparisons': 64, 'available_labels': 304}
+Predictor training info: {'loss': 0.5394693, 'comparisons': 64, 'available_labels': 305}
+Predictor stats: rejected segments: 0 total segments: 1528
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000498391 |           0.0 |       4.44509 |    0.00159114 |       2.12192
+   -0.0104043 |           0.0 |       4.36713 |    0.00565267 |       2.12013
+   -0.0121772 |           0.0 |       4.34227 |    0.00878369 |         2.119
+   -0.0151876 |           0.0 |       4.33275 |    0.00721118 |       2.11808
+   -0.0162844 |           0.0 |       4.32904 |    0.00770214 |       2.11691
+   -0.0181782 |           0.0 |       4.32338 |    0.00808355 |        2.1151
+    -0.020004 |           0.0 |       4.32289 |    0.00864608 |       2.11354
+   -0.0204364 |           0.0 |       4.31024 |    0.00904844 |       2.11305
+   -0.0217094 |           0.0 |       4.30741 |    0.00825217 |       2.11223
+    -0.022107 |           0.0 |       4.30492 |     0.0102221 |       2.11031
+Evaluating losses...
+    -0.025801 |             0 |       4.30028 |     0.0106076 |       2.10951
+------------------------------
+| loss_pol_surr   | -0.0258  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 4.3      |
+| loss_kl         | 0.0106   |
+| loss_ent        | 2.11     |
+| ev_tdlam_before | 0.536    |
+| EpThisIter      | 22       |
+| EpisodesSoFar   | 1.56e+03 |
+| TimestepsSoFar  | 4.48e+04 |
+| TimeElapsed     | 553      |
+| EpLenMean       | 45.2     |
+| EpRewMean       | -0.981   |
+------------------------------
+********** Iteration 35 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.54048407, 'comparisons': 64, 'available_labels': 307}
+Predictor training info: {'loss': 0.65050769, 'comparisons': 64, 'available_labels': 309}
+Predictor training info: {'loss': 0.64196265, 'comparisons': 64, 'available_labels': 309}
+Predictor training info: {'loss': 0.50358742, 'comparisons': 64, 'available_labels': 309}
+Predictor training info: {'loss': 0.58789563, 'comparisons': 64, 'available_labels': 310}
+Predictor training info: {'loss': 0.48538285, 'comparisons': 64, 'available_labels': 310}
+Predictor training info: {'loss': 0.58152395, 'comparisons': 64, 'available_labels': 310}
+Predictor training info: {'loss': 0.53324223, 'comparisons': 64, 'available_labels': 310}
+Predictor training info: {'loss': 0.63729239, 'comparisons': 64, 'available_labels': 310}
+Predictor stats: rejected segments: 0 total segments: 1558
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00341353 |           0.0 |       3.88605 |    0.00167248 |       2.10794
+  -0.00798897 |           0.0 |        3.8149 |    0.00834315 |       2.10352
+   -0.0104987 |           0.0 |       3.79919 |     0.0051361 |       2.09758
+   -0.0125059 |           0.0 |       3.79535 |    0.00589386 |       2.09187
+   -0.0143436 |           0.0 |       3.77854 |    0.00827839 |       2.08728
+    -0.015706 |           0.0 |       3.76857 |    0.00642401 |       2.08315
+   -0.0171098 |           0.0 |        3.7661 |    0.00739543 |       2.07864
+   -0.0177443 |           0.0 |       3.75968 |    0.00780648 |       2.07378
+   -0.0182484 |           0.0 |       3.75547 |    0.00772501 |       2.06957
+   -0.0199726 |           0.0 |       3.74882 |    0.00782675 |       2.06606
+Evaluating losses...
+   -0.0228412 |             0 |       3.73841 |    0.00891487 |       2.06466
+------------------------------
+| loss_pol_surr   | -0.0228  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.74     |
+| loss_kl         | 0.00891  |
+| loss_ent        | 2.06     |
+| ev_tdlam_before | 0.583    |
+| EpThisIter      | 31       |
+| EpisodesSoFar   | 1.59e+03 |
+| TimestepsSoFar  | 4.6e+04  |
+| TimeElapsed     | 569      |
+| EpLenMean       | 45.2     |
+| EpRewMean       | -0.982   |
+------------------------------
+********** Iteration 36 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.60995251, 'comparisons': 64, 'available_labels': 311}
+Predictor training info: {'loss': 0.54398173, 'comparisons': 64, 'available_labels': 313}
+Predictor training info: {'loss': 0.63765639, 'comparisons': 64, 'available_labels': 314}
+Predictor training info: {'loss': 0.44732606, 'comparisons': 64, 'available_labels': 315}
+Predictor training info: {'loss': 0.53698075, 'comparisons': 64, 'available_labels': 315}
+Predictor training info: {'loss': 0.490058, 'comparisons': 64, 'available_labels': 315}
+Predictor training info: {'loss': 0.56142497, 'comparisons': 64, 'available_labels': 315}
+Predictor training info: {'loss': 0.5581848, 'comparisons': 64, 'available_labels': 315}
+Predictor training info: {'loss': 0.55066395, 'comparisons': 64, 'available_labels': 315}
+Predictor training info: {'loss': 0.59651077, 'comparisons': 64, 'available_labels': 315}
+Predictor stats: rejected segments: 0 total segments: 1585
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00133129 |           0.0 |       3.49029 |    0.00199278 |       2.06384
+  -0.00708158 |           0.0 |       3.40967 |    0.00572331 |       2.06137
+  -0.00750767 |           0.0 |       3.38616 |    0.00731963 |       2.05967
+   -0.0114014 |           0.0 |        3.3751 |    0.00533565 |       2.05755
+   -0.0124452 |           0.0 |       3.36334 |    0.00636265 |       2.05482
+   -0.0150172 |           0.0 |       3.35627 |    0.00694865 |         2.053
+    -0.016258 |           0.0 |       3.35129 |    0.00671333 |       2.05057
+   -0.0172266 |           0.0 |       3.35072 |    0.00778565 |       2.04827
+   -0.0179685 |           0.0 |       3.34044 |    0.00778475 |       2.04695
+   -0.0200327 |           0.0 |       3.33707 |    0.00713041 |       2.04474
+Evaluating losses...
+   -0.0228177 |             0 |        3.3345 |    0.00750578 |       2.04303
+------------------------------
+| loss_pol_surr   | -0.0228  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.33     |
+| loss_kl         | 0.00751  |
+| loss_ent        | 2.04     |
+| ev_tdlam_before | 0.66     |
+| EpThisIter      | 28       |
+| EpisodesSoFar   | 1.62e+03 |
+| TimestepsSoFar  | 4.74e+04 |
+| TimeElapsed     | 585      |
+| EpLenMean       | 45.8     |
+| EpRewMean       | -0.981   |
+------------------------------
+********** Iteration 37 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.45173547, 'comparisons': 64, 'available_labels': 317}
+Predictor training info: {'loss': 0.54550076, 'comparisons': 64, 'available_labels': 319}
+Predictor training info: {'loss': 0.57225561, 'comparisons': 64, 'available_labels': 319}
+Predictor training info: {'loss': 0.48236638, 'comparisons': 64, 'available_labels': 319}
+Predictor training info: {'loss': 0.59984595, 'comparisons': 64, 'available_labels': 320}
+Predictor training info: {'loss': 0.44717002, 'comparisons': 64, 'available_labels': 320}
+Predictor training info: {'loss': 0.59618282, 'comparisons': 64, 'available_labels': 320}
+Predictor training info: {'loss': 0.57685047, 'comparisons': 64, 'available_labels': 320}
+Predictor stats: rejected segments: 0 total segments: 1608
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00137653 |           0.0 |        4.4596 |    0.00138855 |       2.04238
+  -0.00702351 |           0.0 |       4.38291 |     0.0067329 |       2.04182
+   -0.0113352 |           0.0 |       4.36491 |    0.00685397 |       2.04209
+   -0.0117057 |           0.0 |       4.35237 |    0.00759984 |       2.04265
+   -0.0142091 |           0.0 |       4.34425 |      0.006829 |       2.04212
+   -0.0155103 |           0.0 |       4.34136 |    0.00799673 |       2.04194
+   -0.0165341 |           0.0 |       4.33413 |     0.0075224 |       2.04249
+   -0.0174907 |           0.0 |       4.32471 |    0.00763779 |       2.04264
+   -0.0176123 |           0.0 |       4.32268 |    0.00773213 |        2.0422
+   -0.0194833 |           0.0 |       4.31635 |    0.00886108 |       2.04198
+Evaluating losses...
+   -0.0223522 |             0 |       4.31702 |     0.0079877 |       2.04155
+------------------------------
+| loss_pol_surr   | -0.0224  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 4.32     |
+| loss_kl         | 0.00799  |
+| loss_ent        | 2.04     |
+| ev_tdlam_before | 0.577    |
+| EpThisIter      | 24       |
+| EpisodesSoFar   | 1.64e+03 |
+| TimestepsSoFar  | 4.86e+04 |
+| TimeElapsed     | 599      |
+| EpLenMean       | 47.4     |
+| EpRewMean       | -0.979   |
+------------------------------
+********** Iteration 38 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.64615482, 'comparisons': 64, 'available_labels': 322}
+Predictor training info: {'loss': 0.48292124, 'comparisons': 64, 'available_labels': 324}
+Predictor training info: {'loss': 0.53610319, 'comparisons': 64, 'available_labels': 324}
+Predictor training info: {'loss': 0.5347842, 'comparisons': 64, 'available_labels': 324}
+Predictor training info: {'loss': 0.52882892, 'comparisons': 64, 'available_labels': 324}
+Predictor training info: {'loss': 0.5659076, 'comparisons': 64, 'available_labels': 324}
+Predictor training info: {'loss': 0.45187566, 'comparisons': 64, 'available_labels': 324}
+Predictor training info: {'loss': 0.55866563, 'comparisons': 64, 'available_labels': 325}
+Predictor training info: {'loss': 0.55042636, 'comparisons': 64, 'available_labels': 325}
+Predictor training info: {'loss': 0.51068437, 'comparisons': 64, 'available_labels': 325}
+Predictor stats: rejected segments: 0 total segments: 1636
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00131653 |           0.0 |       3.40019 |   0.000853231 |       2.04142
+  -0.00594093 |           0.0 |       3.33389 |    0.00607563 |       2.03938
+  -0.00885413 |           0.0 |       3.31099 |    0.00559472 |       2.03623
+   -0.0106014 |           0.0 |       3.29298 |    0.00587963 |       2.03336
+   -0.0132758 |           0.0 |       3.27482 |    0.00614055 |        2.0312
+   -0.0137999 |           0.0 |       3.26729 |    0.00711428 |        2.0294
+   -0.0161615 |           0.0 |       3.25407 |    0.00627235 |       2.02748
+   -0.0167267 |           0.0 |       3.24565 |    0.00740735 |       2.02546
+   -0.0176995 |           0.0 |       3.24157 |    0.00857267 |       2.02337
+    -0.018433 |           0.0 |       3.23683 |    0.00614373 |       2.02141
+Evaluating losses...
+   -0.0218351 |             0 |       3.22806 |    0.00705949 |       2.02035
+------------------------------
+| loss_pol_surr   | -0.0218  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.23     |
+| loss_kl         | 0.00706  |
+| loss_ent        | 2.02     |
+| ev_tdlam_before | 0.634    |
+| EpThisIter      | 29       |
+| EpisodesSoFar   | 1.67e+03 |
+| TimestepsSoFar  | 4.99e+04 |
+| TimeElapsed     | 614      |
+| EpLenMean       | 44.7     |
+| EpRewMean       | -0.982   |
+------------------------------
+********** Iteration 39 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.44389722, 'comparisons': 64, 'available_labels': 327}
+Predictor training info: {'loss': 0.58147651, 'comparisons': 64, 'available_labels': 328}
+Predictor training info: {'loss': 0.53462267, 'comparisons': 64, 'available_labels': 329}
+Predictor training info: {'loss': 0.48279077, 'comparisons': 64, 'available_labels': 329}
+Predictor training info: {'loss': 0.57350397, 'comparisons': 64, 'available_labels': 329}
+Predictor training info: {'loss': 0.54757237, 'comparisons': 64, 'available_labels': 329}
+Predictor training info: {'loss': 0.61321467, 'comparisons': 64, 'available_labels': 329}
+Predictor training info: {'loss': 0.51930004, 'comparisons': 64, 'available_labels': 329}
+Predictor training info: {'loss': 0.51134056, 'comparisons': 64, 'available_labels': 329}
+Predictor training info: {'loss': 0.50979954, 'comparisons': 64, 'available_labels': 330}
+Predictor stats: rejected segments: 0 total segments: 1656
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00108927 |           0.0 |       3.52887 |    0.00209122 |       2.01927
+  -0.00653538 |           0.0 |       3.48025 |    0.00673201 |        2.0174
+  -0.00915347 |           0.0 |       3.46048 |    0.00607389 |        2.0149
+   -0.0116354 |           0.0 |       3.44122 |    0.00714595 |       2.01391
+   -0.0146271 |           0.0 |       3.42989 |    0.00646362 |       2.01228
+   -0.0155251 |           0.0 |       3.42501 |    0.00986008 |       2.01136
+   -0.0160006 |           0.0 |       3.41978 |    0.00760619 |       2.01093
+   -0.0186745 |           0.0 |       3.41892 |    0.00762154 |       2.00984
+   -0.0191122 |           0.0 |       3.41022 |    0.00939927 |       2.00896
+   -0.0201735 |           0.0 |       3.40993 |     0.0077765 |       2.00914
+Evaluating losses...
+   -0.0235817 |             0 |        3.4196 |    0.00784583 |       2.00904
+------------------------------
+| loss_pol_surr   | -0.0236  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.42     |
+| loss_kl         | 0.00785  |
+| loss_ent        | 2.01     |
+| ev_tdlam_before | 0.614    |
+| EpThisIter      | 21       |
+| EpisodesSoFar   | 1.7e+03  |
+| TimestepsSoFar  | 5.11e+04 |
+| TimeElapsed     | 628      |
+| EpLenMean       | 49.4     |
+| EpRewMean       | -0.977   |
+------------------------------
+Saving checkpoint 3dball_model/1hoop_synth_2017-11-20-1920/51133/session-51133.checkpoint
+Exporting model...
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_synth_2017-11-20-1920/51133/session-51133.checkpoint
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_synth_2017-11-20-1920/51133/session-51133.checkpoint
+INFO:tensorflow:Froze 10 variables.
+INFO:tensorflow:Froze 10 variables.
+Converted 10 variables to const ops.
+52 ops in the final graph.
+Done exporting model:  3dball_model/1hoop_synth_2017-11-20-1920/51133/3dball_1hoop_synth_2017-11-20-1920_51133.bytes
+********** Iteration 40 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.45758748, 'comparisons': 64, 'available_labels': 333}
+Predictor training info: {'loss': 0.48718676, 'comparisons': 64, 'available_labels': 334}
+Predictor training info: {'loss': 0.47945046, 'comparisons': 64, 'available_labels': 335}
+Predictor training info: {'loss': 0.59201121, 'comparisons': 64, 'available_labels': 338}
+Predictor training info: {'loss': 0.59423643, 'comparisons': 64, 'available_labels': 339}
+Predictor training info: {'loss': 0.62482172, 'comparisons': 64, 'available_labels': 345}
+Predictor training info: {'loss': 0.60085893, 'comparisons': 64, 'available_labels': 348}
+Predictor training info: {'loss': 0.48099285, 'comparisons': 64, 'available_labels': 351}
+Predictor stats: rejected segments: 0 total segments: 1679
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000630929 |           0.0 |       4.07369 |    0.00192114 |        2.0081
+  -0.00705552 |           0.0 |       4.00704 |    0.00718962 |       2.00708
+  -0.00939736 |           0.0 |       3.97321 |    0.00746178 |       2.00579
+   -0.0114803 |           0.0 |       3.95827 |    0.00556451 |       2.00398
+    -0.014217 |           0.0 |       3.94505 |    0.00724356 |       2.00209
+   -0.0152104 |           0.0 |       3.93687 |     0.0078972 |       2.00122
+   -0.0160571 |           0.0 |       3.92837 |    0.00833301 |       1.99946
+   -0.0173133 |           0.0 |       3.92283 |    0.00772063 |       1.99782
+   -0.0185297 |           0.0 |       3.91265 |    0.00832137 |       1.99639
+   -0.0190713 |           0.0 |       3.91014 |    0.00833771 |       1.99488
+Evaluating losses...
+   -0.0230894 |             0 |       3.89823 |    0.00776248 |       1.99362
+------------------------------
+| loss_pol_surr   | -0.0231  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.9      |
+| loss_kl         | 0.00776  |
+| loss_ent        | 1.99     |
+| ev_tdlam_before | 0.576    |
+| EpThisIter      | 24       |
+| EpisodesSoFar   | 1.72e+03 |
+| TimestepsSoFar  | 5.24e+04 |
+| TimeElapsed     | 702      |
+| EpLenMean       | 52       |
+| EpRewMean       | -0.976   |
+------------------------------
+********** Iteration 41 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.45593151, 'comparisons': 64, 'available_labels': 357}
+Predictor training info: {'loss': 0.61564201, 'comparisons': 64, 'available_labels': 358}
+Predictor training info: {'loss': 0.52269554, 'comparisons': 64, 'available_labels': 358}
+Predictor training info: {'loss': 0.58204412, 'comparisons': 64, 'available_labels': 358}
+Predictor training info: {'loss': 0.48776007, 'comparisons': 64, 'available_labels': 359}
+Predictor training info: {'loss': 0.48952493, 'comparisons': 64, 'available_labels': 359}
+Predictor training info: {'loss': 0.65870017, 'comparisons': 64, 'available_labels': 359}
+Predictor training info: {'loss': 0.56207263, 'comparisons': 64, 'available_labels': 359}
+Predictor stats: rejected segments: 0 total segments: 1706
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -9.41306e-05 |           0.0 |       3.19461 |    0.00202507 |       1.99243
+  -0.00670016 |           0.0 |       3.13837 |    0.00595822 |       1.98898
+   -0.0107902 |           0.0 |       3.10692 |    0.00581684 |       1.98565
+   -0.0097738 |           0.0 |       3.08987 |    0.00650712 |       1.98099
+   -0.0147946 |           0.0 |       3.07231 |    0.00665688 |       1.97811
+   -0.0162907 |           0.0 |       3.06263 |    0.00658993 |       1.97432
+     -0.01866 |           0.0 |       3.05325 |    0.00675764 |       1.97037
+   -0.0206263 |           0.0 |       3.04725 |    0.00747468 |       1.96732
+   -0.0219572 |           0.0 |       3.04216 |     0.0067712 |       1.96395
+    -0.022932 |           0.0 |       3.03716 |    0.00824669 |       1.95988
+Evaluating losses...
+   -0.0268802 |             0 |       3.02769 |    0.00755287 |       1.95832
+------------------------------
+| loss_pol_surr   | -0.0269  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.03     |
+| loss_kl         | 0.00755  |
+| loss_ent        | 1.96     |
+| ev_tdlam_before | 0.661    |
+| EpThisIter      | 28       |
+| EpisodesSoFar   | 1.75e+03 |
+| TimestepsSoFar  | 5.37e+04 |
+| TimeElapsed     | 716      |
+| EpLenMean       | 50.1     |
+| EpRewMean       | -0.979   |
+------------------------------
+********** Iteration 42 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.49435014, 'comparisons': 64, 'available_labels': 361}
+Predictor training info: {'loss': 0.67462099, 'comparisons': 64, 'available_labels': 363}
+Predictor training info: {'loss': 0.60652041, 'comparisons': 64, 'available_labels': 363}
+Predictor training info: {'loss': 0.50863552, 'comparisons': 64, 'available_labels': 363}
+Predictor training info: {'loss': 0.56804025, 'comparisons': 64, 'available_labels': 363}
+Predictor training info: {'loss': 0.5009684, 'comparisons': 64, 'available_labels': 363}
+Predictor training info: {'loss': 0.53602499, 'comparisons': 64, 'available_labels': 364}
+Predictor stats: rejected segments: 0 total segments: 1731
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00250228 |           0.0 |       3.30684 |    0.00123228 |         1.958
+  -0.00326026 |           0.0 |        3.2636 |    0.00394752 |       1.95647
+  -0.00594941 |           0.0 |       3.24874 |    0.00663922 |       1.95554
+   -0.0106299 |           0.0 |       3.23448 |    0.00455261 |       1.95391
+    -0.012299 |           0.0 |       3.22776 |    0.00542455 |       1.95165
+   -0.0147449 |           0.0 |       3.21591 |    0.00562117 |       1.94922
+   -0.0153411 |           0.0 |       3.20709 |    0.00680743 |       1.94785
+    -0.017499 |           0.0 |       3.20298 |    0.00629332 |       1.94627
+   -0.0168922 |           0.0 |       3.19747 |    0.00668869 |       1.94414
+   -0.0192067 |           0.0 |       3.19581 |    0.00788394 |        1.9426
+Evaluating losses...
+   -0.0230099 |             0 |       3.19063 |    0.00727076 |        1.9418
+------------------------------
+| loss_pol_surr   | -0.023   |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.19     |
+| loss_kl         | 0.00727  |
+| loss_ent        | 1.94     |
+| ev_tdlam_before | 0.659    |
+| EpThisIter      | 26       |
+| EpisodesSoFar   | 1.77e+03 |
+| TimestepsSoFar  | 5.5e+04  |
+| TimeElapsed     | 730      |
+| EpLenMean       | 51.6     |
+| EpRewMean       | -0.978   |
+------------------------------
+********** Iteration 43 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.6090765, 'comparisons': 64, 'available_labels': 365}
+Predictor training info: {'loss': 0.57950789, 'comparisons': 64, 'available_labels': 367}
+Predictor training info: {'loss': 0.54309809, 'comparisons': 64, 'available_labels': 368}
+Predictor training info: {'loss': 0.5583297, 'comparisons': 64, 'available_labels': 368}
+Predictor training info: {'loss': 0.66394484, 'comparisons': 64, 'available_labels': 368}
+Predictor training info: {'loss': 0.49378058, 'comparisons': 64, 'available_labels': 368}
+Predictor training info: {'loss': 0.49364361, 'comparisons': 64, 'available_labels': 368}
+Predictor training info: {'loss': 0.53034616, 'comparisons': 64, 'available_labels': 368}
+Predictor training info: {'loss': 0.52432853, 'comparisons': 64, 'available_labels': 369}
+Predictor stats: rejected segments: 0 total segments: 1756
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00406851 |           0.0 |       3.80742 |     0.0029035 |       1.94125
+  -0.00749374 |           0.0 |        3.7426 |    0.00724202 |       1.94053
+  -0.00892169 |           0.0 |       3.71355 |    0.00711054 |       1.93989
+   -0.0126586 |           0.0 |       3.69909 |     0.0047565 |       1.93978
+     -0.01468 |           0.0 |        3.6911 |    0.00590191 |         1.939
+   -0.0162989 |           0.0 |       3.68382 |    0.00576404 |       1.93731
+   -0.0174918 |           0.0 |       3.67952 |    0.00606839 |       1.93724
+   -0.0182612 |           0.0 |         3.667 |    0.00622583 |       1.93636
+   -0.0190734 |           0.0 |       3.66609 |    0.00815664 |       1.93545
+   -0.0199563 |           0.0 |       3.65866 |    0.00554305 |        1.9359
+Evaluating losses...
+   -0.0237469 |             0 |       3.65198 |    0.00672983 |        1.9355
+------------------------------
+| loss_pol_surr   | -0.0237  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.65     |
+| loss_kl         | 0.00673  |
+| loss_ent        | 1.94     |
+| ev_tdlam_before | 0.595    |
+| EpThisIter      | 26       |
+| EpisodesSoFar   | 1.8e+03  |
+| TimestepsSoFar  | 5.63e+04 |
+| TimeElapsed     | 745      |
+| EpLenMean       | 49       |
+| EpRewMean       | -0.984   |
+------------------------------
+********** Iteration 44 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.62538785, 'comparisons': 64, 'available_labels': 370}
+Predictor training info: {'loss': 0.53899217, 'comparisons': 64, 'available_labels': 372}
+Predictor training info: {'loss': 0.58763134, 'comparisons': 64, 'available_labels': 373}
+Predictor training info: {'loss': 0.57668352, 'comparisons': 64, 'available_labels': 373}
+Predictor training info: {'loss': 0.61505216, 'comparisons': 64, 'available_labels': 373}
+Predictor training info: {'loss': 0.61535043, 'comparisons': 64, 'available_labels': 373}
+Predictor training info: {'loss': 0.63768709, 'comparisons': 64, 'available_labels': 373}
+Predictor training info: {'loss': 0.65389985, 'comparisons': 64, 'available_labels': 373}
+Predictor stats: rejected segments: 0 total segments: 1782
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000661902 |           0.0 |       2.86842 |   0.000887259 |       1.93422
+  -0.00864111 |           0.0 |        2.8279 |    0.00611927 |        1.9311
+   -0.0124935 |           0.0 |       2.80491 |    0.00689641 |        1.9284
+   -0.0135023 |           0.0 |       2.78667 |    0.00619287 |       1.92603
+   -0.0170331 |           0.0 |       2.77618 |    0.00758173 |       1.92383
+   -0.0183275 |           0.0 |       2.77583 |    0.00864057 |       1.92121
+   -0.0190487 |           0.0 |       2.76068 |    0.00800768 |       1.92053
+   -0.0213097 |           0.0 |       2.75718 |    0.00847221 |       1.91922
+   -0.0210071 |           0.0 |       2.75359 |    0.00893207 |       1.91699
+   -0.0225665 |           0.0 |       2.74373 |    0.00824178 |       1.91583
+Evaluating losses...
+   -0.0260805 |             0 |       2.73632 |    0.00936579 |       1.91536
+------------------------------
+| loss_pol_surr   | -0.0261  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 2.74     |
+| loss_kl         | 0.00937  |
+| loss_ent        | 1.92     |
+| ev_tdlam_before | 0.697    |
+| EpThisIter      | 27       |
+| EpisodesSoFar   | 1.83e+03 |
+| TimestepsSoFar  | 5.75e+04 |
+| TimeElapsed     | 759      |
+| EpLenMean       | 47.9     |
+| EpRewMean       | -0.985   |
+------------------------------
+********** Iteration 45 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.64263773, 'comparisons': 64, 'available_labels': 375}
+Predictor training info: {'loss': 0.62409538, 'comparisons': 64, 'available_labels': 377}
+Predictor training info: {'loss': 0.63040555, 'comparisons': 64, 'available_labels': 377}
+Predictor training info: {'loss': 0.48441172, 'comparisons': 64, 'available_labels': 377}
+Predictor training info: {'loss': 0.44457746, 'comparisons': 64, 'available_labels': 377}
+Predictor training info: {'loss': 0.59004831, 'comparisons': 64, 'available_labels': 378}
+Predictor training info: {'loss': 0.52124739, 'comparisons': 64, 'available_labels': 378}
+Predictor training info: {'loss': 0.60364252, 'comparisons': 64, 'available_labels': 378}
+Predictor training info: {'loss': 0.64768726, 'comparisons': 64, 'available_labels': 378}
+Predictor stats: rejected segments: 0 total segments: 1809
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000277234 |           0.0 |       3.40706 |    0.00195969 |       1.91391
+  -0.00712294 |           0.0 |        3.3385 |    0.00484893 |       1.91235
+    -0.012933 |           0.0 |        3.3136 |    0.00636804 |        1.9113
+   -0.0149326 |           0.0 |       3.31113 |    0.00771226 |       1.90929
+    -0.017527 |           0.0 |        3.2936 |    0.00590716 |       1.90558
+   -0.0186314 |           0.0 |       3.28077 |    0.00641637 |       1.90243
+   -0.0198253 |           0.0 |       3.27845 |    0.00766978 |       1.90017
+   -0.0210434 |           0.0 |       3.27344 |    0.00768753 |       1.89795
+   -0.0215614 |           0.0 |       3.26669 |    0.00859606 |        1.8959
+    -0.023199 |           0.0 |        3.2667 |    0.00803831 |         1.894
+Evaluating losses...
+   -0.0262652 |             0 |       3.25546 |    0.00766403 |       1.89283
+------------------------------
+| loss_pol_surr   | -0.0263  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.26     |
+| loss_kl         | 0.00766  |
+| loss_ent        | 1.89     |
+| ev_tdlam_before | 0.62     |
+| EpThisIter      | 28       |
+| EpisodesSoFar   | 1.85e+03 |
+| TimestepsSoFar  | 5.89e+04 |
+| TimeElapsed     | 773      |
+| EpLenMean       | 48.6     |
+| EpRewMean       | -0.987   |
+------------------------------
+********** Iteration 46 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.58258641, 'comparisons': 64, 'available_labels': 380}
+Predictor training info: {'loss': 0.47947335, 'comparisons': 64, 'available_labels': 382}
+Predictor training info: {'loss': 0.57216012, 'comparisons': 64, 'available_labels': 382}
+Predictor training info: {'loss': 0.55028039, 'comparisons': 64, 'available_labels': 382}
+Predictor training info: {'loss': 0.57664198, 'comparisons': 64, 'available_labels': 382}
+Predictor training info: {'loss': 0.66510731, 'comparisons': 64, 'available_labels': 382}
+Predictor training info: {'loss': 0.5659256, 'comparisons': 64, 'available_labels': 382}
+Predictor stats: rejected segments: 0 total segments: 1831
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   -0.0009769 |           0.0 |       3.48008 |    0.00263233 |       1.89177
+  -0.00763081 |           0.0 |       3.43515 |    0.00708843 |       1.89067
+   -0.0103155 |           0.0 |       3.41707 |    0.00774409 |        1.8899
+   -0.0139237 |           0.0 |         3.401 |    0.00518521 |       1.88796
+   -0.0188364 |           0.0 |       3.39568 |    0.00772009 |       1.88583
+   -0.0189198 |           0.0 |       3.38597 |    0.00840571 |       1.88403
+   -0.0210586 |           0.0 |       3.37932 |    0.00936658 |       1.88267
+    -0.022171 |           0.0 |       3.37609 |    0.00674718 |       1.88091
+   -0.0234409 |           0.0 |       3.37193 |     0.0102327 |       1.88003
+   -0.0248388 |           0.0 |       3.37067 |    0.00976142 |       1.87936
+Evaluating losses...
+   -0.0288887 |             0 |       3.35799 |    0.00899212 |       1.87834
+------------------------------
+| loss_pol_surr   | -0.0289  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.36     |
+| loss_kl         | 0.00899  |
+| loss_ent        | 1.88     |
+| ev_tdlam_before | 0.595    |
+| EpThisIter      | 23       |
+| EpisodesSoFar   | 1.88e+03 |
+| TimestepsSoFar  | 6e+04    |
+| TimeElapsed     | 787      |
+| EpLenMean       | 47.3     |
+| EpRewMean       | -0.984   |
+------------------------------
+********** Iteration 47 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.57377899, 'comparisons': 64, 'available_labels': 384}
+Predictor training info: {'loss': 0.59914607, 'comparisons': 64, 'available_labels': 386}
+Predictor training info: {'loss': 0.56454879, 'comparisons': 64, 'available_labels': 386}
+Predictor training info: {'loss': 0.53603864, 'comparisons': 64, 'available_labels': 387}
+Predictor training info: {'loss': 0.54496086, 'comparisons': 64, 'available_labels': 387}
+Predictor training info: {'loss': 0.50467831, 'comparisons': 64, 'available_labels': 387}
+Predictor training info: {'loss': 0.58830684, 'comparisons': 64, 'available_labels': 387}
+Predictor training info: {'loss': 0.62738848, 'comparisons': 64, 'available_labels': 387}
+Predictor stats: rejected segments: 0 total segments: 1852
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00196858 |           0.0 |         3.347 |   0.000645442 |       1.87712
+  -0.00142541 |           0.0 |       3.27604 |    0.00446807 |       1.87632
+  -0.00576691 |           0.0 |       3.25348 |    0.00557483 |       1.87636
+   -0.0087151 |           0.0 |       3.23637 |    0.00510765 |       1.87611
+  -0.00995559 |           0.0 |       3.22984 |    0.00454295 |       1.87491
+   -0.0113033 |           0.0 |       3.21915 |    0.00557603 |       1.87351
+   -0.0129751 |           0.0 |       3.22262 |    0.00543687 |       1.87192
+   -0.0125159 |           0.0 |       3.20916 |    0.00846836 |        1.8713
+   -0.0146418 |           0.0 |       3.20441 |    0.00597495 |       1.87009
+   -0.0166156 |           0.0 |       3.20046 |    0.00701426 |       1.86813
+Evaluating losses...
+   -0.0193666 |             0 |       3.19635 |    0.00746559 |       1.86705
+------------------------------
+| loss_pol_surr   | -0.0194  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.2      |
+| loss_kl         | 0.00747  |
+| loss_ent        | 1.87     |
+| ev_tdlam_before | 0.601    |
+| EpThisIter      | 22       |
+| EpisodesSoFar   | 1.9e+03  |
+| TimestepsSoFar  | 6.14e+04 |
+| TimeElapsed     | 801      |
+| EpLenMean       | 51.1     |
+| EpRewMean       | -0.982   |
+------------------------------
+********** Iteration 48 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.67918527, 'comparisons': 64, 'available_labels': 389}
+Predictor training info: {'loss': 0.59654862, 'comparisons': 64, 'available_labels': 390}
+Predictor training info: {'loss': 0.63449264, 'comparisons': 64, 'available_labels': 391}
+Predictor training info: {'loss': 0.60406387, 'comparisons': 64, 'available_labels': 391}
+Predictor training info: {'loss': 0.62779927, 'comparisons': 64, 'available_labels': 392}
+Predictor training info: {'loss': 0.55462837, 'comparisons': 64, 'available_labels': 392}
+Predictor training info: {'loss': 0.58871973, 'comparisons': 64, 'available_labels': 392}
+Predictor training info: {'loss': 0.53479129, 'comparisons': 64, 'available_labels': 392}
+Predictor stats: rejected segments: 0 total segments: 1874
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000363349 |           0.0 |       2.88092 |    0.00242435 |       1.86715
+  -0.00703698 |           0.0 |       2.83206 |    0.00542817 |       1.86849
+   -0.0116483 |           0.0 |       2.80695 |    0.00655367 |       1.86989
+   -0.0135165 |           0.0 |       2.79654 |    0.00689446 |       1.87157
+    -0.014429 |           0.0 |       2.77904 |    0.00728122 |       1.87268
+   -0.0157896 |           0.0 |       2.77554 |    0.00693269 |       1.87397
+   -0.0173011 |           0.0 |       2.76255 |    0.00740334 |       1.87567
+   -0.0184941 |           0.0 |       2.76335 |    0.00799367 |       1.87625
+   -0.0189337 |           0.0 |        2.7461 |    0.00743224 |       1.87817
+   -0.0199205 |           0.0 |       2.74022 |    0.00918098 |       1.87965
+Evaluating losses...
+   -0.0229576 |             0 |       2.73473 |    0.00934442 |       1.88033
+------------------------------
+| loss_pol_surr   | -0.023   |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 2.73     |
+| loss_kl         | 0.00934  |
+| loss_ent        | 1.88     |
+| ev_tdlam_before | 0.669    |
+| EpThisIter      | 23       |
+| EpisodesSoFar   | 1.92e+03 |
+| TimestepsSoFar  | 6.27e+04 |
+| TimeElapsed     | 815      |
+| EpLenMean       | 52.2     |
+| EpRewMean       | -0.983   |
+------------------------------
+********** Iteration 49 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.55042654, 'comparisons': 64, 'available_labels': 395}
+Predictor training info: {'loss': 0.64546371, 'comparisons': 64, 'available_labels': 396}
+Predictor training info: {'loss': 0.48809007, 'comparisons': 64, 'available_labels': 396}
+Predictor training info: {'loss': 0.51159638, 'comparisons': 64, 'available_labels': 396}
+Predictor training info: {'loss': 0.60572171, 'comparisons': 64, 'available_labels': 396}
+Predictor training info: {'loss': 0.55938828, 'comparisons': 64, 'available_labels': 397}
+Predictor training info: {'loss': 0.59117776, 'comparisons': 64, 'available_labels': 397}
+Predictor training info: {'loss': 0.54521418, 'comparisons': 64, 'available_labels': 397}
+Predictor training info: {'loss': 0.59743559, 'comparisons': 64, 'available_labels': 397}
+Predictor stats: rejected segments: 0 total segments: 1905
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000568013 |           0.0 |       2.97725 |    0.00118082 |       1.88005
+  -0.00713194 |           0.0 |       2.92778 |    0.00566364 |       1.88011
+   -0.0111518 |           0.0 |         2.913 |    0.00743432 |       1.87777
+   -0.0124325 |           0.0 |       2.89415 |    0.00737591 |       1.87672
+   -0.0160829 |           0.0 |       2.88766 |    0.00732994 |       1.87498
+   -0.0174041 |           0.0 |       2.87771 |    0.00839167 |       1.87357
+   -0.0184856 |           0.0 |       2.87358 |    0.00824413 |        1.8725
+   -0.0203149 |           0.0 |       2.86918 |    0.00845553 |       1.87098
+   -0.0211107 |           0.0 |       2.86042 |    0.00865859 |       1.87032
+   -0.0223398 |           0.0 |       2.85683 |    0.00854355 |       1.86966
+Evaluating losses...
+   -0.0255825 |             0 |       2.84876 |    0.00828374 |       1.86907
+------------------------------
+| loss_pol_surr   | -0.0256  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 2.85     |
+| loss_kl         | 0.00828  |
+| loss_ent        | 1.87     |
+| ev_tdlam_before | 0.707    |
+| EpThisIter      | 32       |
+| EpisodesSoFar   | 1.95e+03 |
+| TimestepsSoFar  | 6.4e+04  |
+| TimeElapsed     | 830      |
+| EpLenMean       | 51.3     |
+| EpRewMean       | -0.98    |
+------------------------------
+Saving checkpoint 3dball_model/1hoop_synth_2017-11-20-1920/63999/session-63999.checkpoint
+Exporting model...
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_synth_2017-11-20-1920/63999/session-63999.checkpoint
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_synth_2017-11-20-1920/63999/session-63999.checkpoint
+INFO:tensorflow:Froze 10 variables.
+INFO:tensorflow:Froze 10 variables.
+Converted 10 variables to const ops.
+52 ops in the final graph.
+Done exporting model:  3dball_model/1hoop_synth_2017-11-20-1920/63999/3dball_1hoop_synth_2017-11-20-1920_63999.bytes
+********** Iteration 50 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.64781129, 'comparisons': 64, 'available_labels': 399}
+Predictor training info: {'loss': 0.62053263, 'comparisons': 64, 'available_labels': 404}
+Predictor training info: {'loss': 0.57918346, 'comparisons': 64, 'available_labels': 406}
+Predictor training info: {'loss': 0.47989199, 'comparisons': 64, 'available_labels': 409}
+Predictor training info: {'loss': 0.56407517, 'comparisons': 64, 'available_labels': 410}
+Predictor training info: {'loss': 0.58070856, 'comparisons': 64, 'available_labels': 412}
+Predictor training info: {'loss': 0.58678496, 'comparisons': 64, 'available_labels': 413}
+Predictor stats: rejected segments: 0 total segments: 1922
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00237079 |           0.0 |       3.48997 |    0.00119296 |       1.86934
+   -0.0058508 |           0.0 |       3.42742 |    0.00395366 |       1.87045
+  -0.00879329 |           0.0 |       3.40027 |    0.00592822 |        1.8695
+   -0.0121408 |           0.0 |       3.38618 |    0.00479097 |       1.86907
+   -0.0147505 |           0.0 |       3.37955 |    0.00677965 |       1.86891
+    -0.014573 |           0.0 |       3.37377 |    0.00594417 |       1.86741
+   -0.0180268 |           0.0 |       3.37241 |    0.00717586 |       1.86773
+   -0.0198611 |           0.0 |       3.36844 |    0.00631391 |       1.86969
+   -0.0201799 |           0.0 |       3.36106 |    0.00749106 |       1.86832
+   -0.0218301 |           0.0 |       3.35791 |    0.00724591 |       1.86742
+Evaluating losses...
+   -0.0255055 |             0 |       3.35306 |    0.00685633 |       1.86748
+------------------------------
+| loss_pol_surr   | -0.0255  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.35     |
+| loss_kl         | 0.00686  |
+| loss_ent        | 1.87     |
+| ev_tdlam_before | 0.671    |
+| EpThisIter      | 18       |
+| EpisodesSoFar   | 1.97e+03 |
+| TimestepsSoFar  | 6.53e+04 |
+| TimeElapsed     | 963      |
+| EpLenMean       | 55.8     |
+| EpRewMean       | -0.979   |
+------------------------------
+********** Iteration 51 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.61023951, 'comparisons': 64, 'available_labels': 416}
+Predictor training info: {'loss': 0.54626095, 'comparisons': 64, 'available_labels': 417}
+Predictor training info: {'loss': 0.56936538, 'comparisons': 64, 'available_labels': 420}
+Predictor training info: {'loss': 0.60457003, 'comparisons': 64, 'available_labels': 421}
+Predictor training info: {'loss': 0.58630276, 'comparisons': 64, 'available_labels': 424}
+Predictor training info: {'loss': 0.6036582, 'comparisons': 64, 'available_labels': 427}
+Predictor training info: {'loss': 0.68043482, 'comparisons': 64, 'available_labels': 430}
+Predictor training info: {'loss': 0.67414439, 'comparisons': 64, 'available_labels': 431}
+Predictor training info: {'loss': 0.56002688, 'comparisons': 64, 'available_labels': 433}
+Predictor stats: rejected segments: 0 total segments: 1941
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000470263 |           0.0 |       3.61618 |    0.00219423 |       1.86693
+  -0.00565027 |           0.0 |       3.55584 |     0.0065463 |       1.86725
+  -0.00821643 |           0.0 |       3.53558 |    0.00504692 |       1.86789
+   -0.0105943 |           0.0 |       3.52519 |    0.00557472 |       1.86764
+   -0.0117557 |           0.0 |       3.51754 |    0.00519737 |       1.86709
+   -0.0132067 |           0.0 |       3.50395 |    0.00606074 |       1.86808
+   -0.0140241 |           0.0 |       3.49396 |    0.00733071 |       1.86844
+   -0.0150399 |           0.0 |       3.49673 |    0.00483701 |       1.86839
+   -0.0171326 |           0.0 |       3.48741 |    0.00681855 |       1.86791
+   -0.0198446 |           0.0 |       3.48362 |    0.00658707 |       1.86631
+Evaluating losses...
+   -0.0220973 |             0 |       3.48509 |     0.0061031 |       1.86638
+------------------------------
+| loss_pol_surr   | -0.0221  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.49     |
+| loss_kl         | 0.0061   |
+| loss_ent        | 1.87     |
+| ev_tdlam_before | 0.535    |
+| EpThisIter      | 20       |
+| EpisodesSoFar   | 1.99e+03 |
+| TimestepsSoFar  | 6.65e+04 |
+| TimeElapsed     | 978      |
+| EpLenMean       | 56       |
+| EpRewMean       | -0.977   |
+------------------------------
+********** Iteration 52 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.54857475, 'comparisons': 64, 'available_labels': 436}
+Predictor training info: {'loss': 0.59950906, 'comparisons': 64, 'available_labels': 441}
+Predictor training info: {'loss': 0.51433563, 'comparisons': 64, 'available_labels': 443}
+Predictor training info: {'loss': 0.58779126, 'comparisons': 64, 'available_labels': 447}
+Predictor training info: {'loss': 0.59025377, 'comparisons': 64, 'available_labels': 451}
+Predictor training info: {'loss': 0.54907477, 'comparisons': 64, 'available_labels': 451}
+Predictor training info: {'loss': 0.67118496, 'comparisons': 64, 'available_labels': 451}
+Predictor training info: {'loss': 0.63143575, 'comparisons': 64, 'available_labels': 451}
+Predictor stats: rejected segments: 0 total segments: 1967
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+    0.0018466 |           0.0 |       2.64857 |   0.000381769 |       1.86663
+  -0.00140529 |           0.0 |       2.59364 |     0.0020371 |        1.8664
+  -0.00578613 |           0.0 |       2.57635 |    0.00339415 |       1.86595
+  -0.00736487 |           0.0 |       2.56706 |    0.00487209 |       1.86364
+  -0.00856405 |           0.0 |       2.56255 |    0.00441512 |       1.86222
+   -0.0105207 |           0.0 |       2.55632 |     0.0056165 |       1.86221
+   -0.0119059 |           0.0 |       2.54814 |    0.00547772 |       1.86133
+   -0.0133598 |           0.0 |       2.54727 |    0.00511726 |       1.85984
+   -0.0145251 |           0.0 |       2.54059 |    0.00638831 |       1.85844
+   -0.0167901 |           0.0 |       2.53656 |    0.00575723 |        1.8576
+Evaluating losses...
+   -0.0201291 |             0 |       2.53849 |    0.00639742 |       1.85711
+------------------------------
+| loss_pol_surr   | -0.0201  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 2.54     |
+| loss_kl         | 0.0064   |
+| loss_ent        | 1.86     |
+| ev_tdlam_before | 0.711    |
+| EpThisIter      | 27       |
+| EpisodesSoFar   | 2.02e+03 |
+| TimestepsSoFar  | 6.78e+04 |
+| TimeElapsed     | 994      |
+| EpLenMean       | 51.5     |
+| EpRewMean       | -0.975   |
+------------------------------
+********** Iteration 53 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.58753252, 'comparisons': 64, 'available_labels': 455}
+Predictor training info: {'loss': 0.63229764, 'comparisons': 64, 'available_labels': 456}
+Predictor training info: {'loss': 0.53960538, 'comparisons': 64, 'available_labels': 456}
+Predictor training info: {'loss': 0.57053304, 'comparisons': 64, 'available_labels': 456}
+Predictor training info: {'loss': 0.50666386, 'comparisons': 64, 'available_labels': 456}
+Predictor training info: {'loss': 0.61281812, 'comparisons': 64, 'available_labels': 456}
+Predictor training info: {'loss': 0.5352428, 'comparisons': 64, 'available_labels': 456}
+Predictor stats: rejected segments: 0 total segments: 1995
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000139254 |           0.0 |       3.14394 |    0.00201925 |       1.85582
+  -0.00955027 |           0.0 |       3.10125 |    0.00614696 |       1.85357
+    -0.011544 |           0.0 |        3.0787 |    0.00851624 |       1.85071
+    -0.013878 |           0.0 |        3.0643 |    0.00672908 |        1.8468
+   -0.0159014 |           0.0 |        3.0576 |    0.00691759 |        1.8417
+   -0.0183224 |           0.0 |       3.04381 |    0.00734893 |       1.83799
+   -0.0191582 |           0.0 |       3.04329 |    0.00830895 |       1.83484
+   -0.0207249 |           0.0 |       3.03744 |    0.00845214 |       1.83184
+   -0.0202962 |           0.0 |       3.02699 |    0.00827262 |       1.82854
+   -0.0235312 |           0.0 |       3.02633 |    0.00795349 |       1.82524
+Evaluating losses...
+    -0.026378 |             0 |       3.01774 |    0.00858875 |       1.82336
+------------------------------
+| loss_pol_surr   | -0.0264  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.02     |
+| loss_kl         | 0.00859  |
+| loss_ent        | 1.82     |
+| ev_tdlam_before | 0.667    |
+| EpThisIter      | 29       |
+| EpisodesSoFar   | 2.05e+03 |
+| TimestepsSoFar  | 6.91e+04 |
+| TimeElapsed     | 1.01e+03 |
+| EpLenMean       | 51.9     |
+| EpRewMean       | -0.976   |
+------------------------------
+********** Iteration 54 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.64191604, 'comparisons': 64, 'available_labels': 457}
+Predictor training info: {'loss': 0.64825344, 'comparisons': 64, 'available_labels': 459}
+Predictor training info: {'loss': 0.54609126, 'comparisons': 64, 'available_labels': 460}
+Predictor training info: {'loss': 0.56649351, 'comparisons': 64, 'available_labels': 461}
+Predictor training info: {'loss': 0.59727871, 'comparisons': 64, 'available_labels': 461}
+Predictor training info: {'loss': 0.65033692, 'comparisons': 64, 'available_labels': 461}
+Predictor training info: {'loss': 0.5332309, 'comparisons': 64, 'available_labels': 461}
+Predictor training info: {'loss': 0.47698346, 'comparisons': 64, 'available_labels': 461}
+Predictor stats: rejected segments: 0 total segments: 2012
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000918297 |           0.0 |       3.60508 |    0.00344583 |       1.82212
+  -0.00820238 |           0.0 |       3.52502 |    0.00900618 |       1.82033
+   -0.0106885 |           0.0 |       3.49734 |    0.00717234 |       1.81853
+   -0.0126549 |           0.0 |       3.48654 |    0.00588307 |       1.81572
+   -0.0152195 |           0.0 |       3.47164 |       0.01115 |       1.81317
+   -0.0161422 |           0.0 |       3.46978 |    0.00735368 |       1.81066
+    -0.018895 |           0.0 |       3.46217 |      0.009111 |       1.80922
+   -0.0197471 |           0.0 |       3.44791 |    0.00885619 |       1.80939
+   -0.0224976 |           0.0 |       3.44331 |    0.00929568 |       1.80835
+   -0.0216046 |           0.0 |        3.4393 |      0.006869 |       1.80816
+Evaluating losses...
+   -0.0257985 |             0 |       3.43349 |     0.0100451 |       1.80782
+------------------------------
+| loss_pol_surr   | -0.0258  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.43     |
+| loss_kl         | 0.01     |
+| loss_ent        | 1.81     |
+| ev_tdlam_before | 0.555    |
+| EpThisIter      | 18       |
+| EpisodesSoFar   | 2.07e+03 |
+| TimestepsSoFar  | 7.03e+04 |
+| TimeElapsed     | 1.02e+03 |
+| EpLenMean       | 57.3     |
+| EpRewMean       | -0.975   |
+------------------------------
+********** Iteration 55 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.59221637, 'comparisons': 64, 'available_labels': 463}
+Predictor training info: {'loss': 0.59008753, 'comparisons': 64, 'available_labels': 466}
+Predictor training info: {'loss': 0.61948657, 'comparisons': 64, 'available_labels': 466}
+Predictor training info: {'loss': 0.64924371, 'comparisons': 64, 'available_labels': 466}
+Predictor training info: {'loss': 0.52323186, 'comparisons': 64, 'available_labels': 466}
+Predictor training info: {'loss': 0.65526384, 'comparisons': 64, 'available_labels': 466}
+Predictor training info: {'loss': 0.6450268, 'comparisons': 64, 'available_labels': 466}
+Predictor training info: {'loss': 0.65762687, 'comparisons': 64, 'available_labels': 466}
+Predictor stats: rejected segments: 0 total segments: 2038
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000557582 |           0.0 |       3.58049 |    0.00397241 |       1.80678
+  -0.00736308 |           0.0 |       3.50894 |     0.0040442 |       1.80355
+    -0.010924 |           0.0 |       3.48262 |    0.00669037 |       1.80001
+   -0.0118642 |           0.0 |       3.46634 |     0.0065072 |        1.7969
+   -0.0138281 |           0.0 |       3.46136 |     0.0064807 |       1.79439
+   -0.0162862 |           0.0 |       3.44989 |    0.00799501 |       1.79178
+   -0.0177026 |           0.0 |       3.44623 |     0.0084142 |       1.78875
+   -0.0187772 |           0.0 |       3.44603 |    0.00859256 |       1.78645
+   -0.0181584 |           0.0 |       3.43795 |    0.00762116 |       1.78499
+   -0.0203705 |           0.0 |       3.43706 |    0.00881532 |       1.78332
+Evaluating losses...
+   -0.0238204 |             0 |       3.43293 |    0.00888507 |       1.78223
+------------------------------
+| loss_pol_surr   | -0.0238  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.43     |
+| loss_kl         | 0.00889  |
+| loss_ent        | 1.78     |
+| ev_tdlam_before | 0.566    |
+| EpThisIter      | 27       |
+| EpisodesSoFar   | 2.09e+03 |
+| TimestepsSoFar  | 7.17e+04 |
+| TimeElapsed     | 1.04e+03 |
+| EpLenMean       | 51       |
+| EpRewMean       | -0.979   |
+------------------------------
+********** Iteration 56 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.55137408, 'comparisons': 64, 'available_labels': 468}
+Predictor training info: {'loss': 0.65417081, 'comparisons': 64, 'available_labels': 471}
+Predictor training info: {'loss': 0.70764661, 'comparisons': 64, 'available_labels': 471}
+Predictor training info: {'loss': 0.64342189, 'comparisons': 64, 'available_labels': 471}
+Predictor training info: {'loss': 0.5964945, 'comparisons': 64, 'available_labels': 471}
+Predictor training info: {'loss': 0.57155615, 'comparisons': 64, 'available_labels': 472}
+Predictor training info: {'loss': 0.61105287, 'comparisons': 64, 'available_labels': 472}
+Predictor training info: {'loss': 0.61094439, 'comparisons': 64, 'available_labels': 472}
+Predictor stats: rejected segments: 0 total segments: 2055
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+ -0.000867511 |           0.0 |       3.58141 |    0.00088118 |       1.78119
+  -0.00729918 |           0.0 |       3.52007 |    0.00593572 |       1.77901
+   -0.0133021 |           0.0 |       3.50309 |    0.00760636 |       1.77616
+   -0.0160864 |           0.0 |       3.49259 |    0.00895338 |       1.77314
+   -0.0183434 |           0.0 |       3.49029 |    0.00668047 |       1.76989
+   -0.0204696 |           0.0 |       3.47776 |     0.0103523 |       1.76858
+   -0.0229022 |           0.0 |       3.47665 |    0.00866093 |       1.76656
+   -0.0228122 |           0.0 |        3.4761 |    0.00862376 |       1.76504
+   -0.0261921 |           0.0 |       3.46742 |    0.00915384 |       1.76335
+   -0.0267097 |           0.0 |       3.46506 |     0.0112468 |       1.76051
+Evaluating losses...
+    -0.030437 |             0 |       3.45079 |    0.00964241 |       1.75934
+------------------------------
+| loss_pol_surr   | -0.0304  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.45     |
+| loss_kl         | 0.00964  |
+| loss_ent        | 1.76     |
+| ev_tdlam_before | 0.633    |
+| EpThisIter      | 18       |
+| EpisodesSoFar   | 2.11e+03 |
+| TimestepsSoFar  | 7.29e+04 |
+| TimeElapsed     | 1.06e+03 |
+| EpLenMean       | 56.4     |
+| EpRewMean       | -0.972   |
+------------------------------
+********** Iteration 57 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.57016295, 'comparisons': 64, 'available_labels': 476}
+Predictor training info: {'loss': 0.59340036, 'comparisons': 64, 'available_labels': 477}
+Predictor training info: {'loss': 0.65000647, 'comparisons': 64, 'available_labels': 477}
+Predictor training info: {'loss': 0.60746497, 'comparisons': 64, 'available_labels': 477}
+Predictor training info: {'loss': 0.5543859, 'comparisons': 64, 'available_labels': 477}
+Predictor training info: {'loss': 0.55704886, 'comparisons': 64, 'available_labels': 477}
+Predictor training info: {'loss': 0.66582453, 'comparisons': 64, 'available_labels': 477}
+Predictor stats: rejected segments: 0 total segments: 2072
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+    0.0031436 |           0.0 |       3.17985 |    0.00216838 |       1.75921
+   -0.0056498 |           0.0 |       3.13369 |    0.00342306 |       1.76106
+   -0.0100434 |           0.0 |       3.12269 |    0.00443795 |       1.76169
+   -0.0128072 |           0.0 |        3.1021 |    0.00498738 |       1.76254
+   -0.0150782 |           0.0 |       3.09541 |     0.0063504 |       1.76326
+   -0.0183507 |           0.0 |       3.08852 |    0.00600782 |       1.76481
+   -0.0203307 |           0.0 |       3.07914 |    0.00682731 |       1.76555
+   -0.0224652 |           0.0 |        3.0719 |    0.00743185 |       1.76649
+   -0.0237953 |           0.0 |       3.06429 |    0.00704225 |       1.76707
+   -0.0243736 |           0.0 |       3.06005 |    0.00817234 |       1.76675
+Evaluating losses...
+   -0.0274998 |             0 |       3.05016 |    0.00821155 |       1.76661
+------------------------------
+| loss_pol_surr   | -0.0275  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.05     |
+| loss_kl         | 0.00821  |
+| loss_ent        | 1.77     |
+| ev_tdlam_before | 0.616    |
+| EpThisIter      | 18       |
+| EpisodesSoFar   | 2.13e+03 |
+| TimestepsSoFar  | 7.42e+04 |
+| TimeElapsed     | 1.07e+03 |
+| EpLenMean       | 59.2     |
+| EpRewMean       | -0.975   |
+------------------------------
+********** Iteration 58 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.57643682, 'comparisons': 64, 'available_labels': 481}
+Predictor training info: {'loss': 0.66209865, 'comparisons': 64, 'available_labels': 482}
+Predictor training info: {'loss': 0.62179959, 'comparisons': 64, 'available_labels': 482}
+Predictor training info: {'loss': 0.627235, 'comparisons': 64, 'available_labels': 482}
+Predictor training info: {'loss': 0.58384132, 'comparisons': 64, 'available_labels': 483}
+Predictor training info: {'loss': 0.561827, 'comparisons': 64, 'available_labels': 483}
+Predictor training info: {'loss': 0.62005568, 'comparisons': 64, 'available_labels': 483}
+Predictor stats: rejected segments: 0 total segments: 2095
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00169526 |           0.0 |       3.06283 |    0.00296281 |       1.76685
+  -0.00663474 |           0.0 |       2.98055 |    0.00556447 |       1.76812
+  -0.00952816 |           0.0 |       2.95507 |    0.00517768 |       1.76889
+   -0.0115889 |           0.0 |       2.93631 |    0.00622427 |       1.76991
+   -0.0138937 |           0.0 |       2.92472 |    0.00474226 |       1.77088
+   -0.0164588 |           0.0 |       2.91572 |    0.00710156 |       1.77054
+   -0.0164372 |           0.0 |       2.91109 |    0.00719618 |       1.77022
+   -0.0174424 |           0.0 |       2.90794 |    0.00752428 |       1.77149
+   -0.0213421 |           0.0 |       2.90273 |    0.00792643 |       1.77115
+   -0.0192199 |           0.0 |       2.89942 |    0.00824126 |       1.77097
+Evaluating losses...
+   -0.0242589 |             0 |       2.89453 |    0.00913625 |       1.77025
+------------------------------
+| loss_pol_surr   | -0.0243  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 2.89     |
+| loss_kl         | 0.00914  |
+| loss_ent        | 1.77     |
+| ev_tdlam_before | 0.618    |
+| EpThisIter      | 24       |
+| EpisodesSoFar   | 2.15e+03 |
+| TimestepsSoFar  | 7.55e+04 |
+| TimeElapsed     | 1.09e+03 |
+| EpLenMean       | 60.9     |
+| EpRewMean       | -0.971   |
+------------------------------
+********** Iteration 59 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.59781206, 'comparisons': 64, 'available_labels': 485}
+Predictor training info: {'loss': 0.68839043, 'comparisons': 64, 'available_labels': 488}
+Predictor training info: {'loss': 0.54403222, 'comparisons': 64, 'available_labels': 488}
+Predictor training info: {'loss': 0.58478153, 'comparisons': 64, 'available_labels': 488}
+Predictor training info: {'loss': 0.6597513, 'comparisons': 64, 'available_labels': 488}
+Predictor training info: {'loss': 0.65201211, 'comparisons': 64, 'available_labels': 488}
+Predictor training info: {'loss': 0.55510533, 'comparisons': 64, 'available_labels': 488}
+Predictor training info: {'loss': 0.66289032, 'comparisons': 64, 'available_labels': 488}
+Predictor training info: {'loss': 0.49333254, 'comparisons': 64, 'available_labels': 489}
+Predictor stats: rejected segments: 0 total segments: 2119
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00225817 |           0.0 |       3.09978 |    0.00267662 |       1.76866
+  -0.00473796 |           0.0 |       3.03123 |     0.0064711 |       1.76578
+  -0.00473057 |           0.0 |       3.01424 |    0.00717556 |       1.76225
+    -0.011536 |           0.0 |       2.99871 |    0.00799844 |       1.75928
+   -0.0128014 |           0.0 |       2.99643 |    0.00852128 |       1.75604
+   -0.0164591 |           0.0 |       2.98242 |    0.00777293 |       1.75328
+    -0.016796 |           0.0 |       2.98309 |    0.00635155 |       1.75005
+   -0.0194311 |           0.0 |       2.97733 |    0.00917936 |        1.7468
+   -0.0212852 |           0.0 |       2.97093 |    0.00729296 |       1.74367
+   -0.0216059 |           0.0 |       2.97134 |     0.0106869 |       1.74088
+Evaluating losses...
+   -0.0250805 |             0 |       2.95944 |    0.00813755 |       1.73937
+------------------------------
+| loss_pol_surr   | -0.0251  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 2.96     |
+| loss_kl         | 0.00814  |
+| loss_ent        | 1.74     |
+| ev_tdlam_before | 0.66     |
+| EpThisIter      | 25       |
+| EpisodesSoFar   | 2.18e+03 |
+| TimestepsSoFar  | 7.68e+04 |
+| TimeElapsed     | 1.11e+03 |
+| EpLenMean       | 59.4     |
+| EpRewMean       | -0.972   |
+------------------------------
+Saving checkpoint 3dball_model/1hoop_synth_2017-11-20-1920/76774/session-76774.checkpoint
+Exporting model...
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_synth_2017-11-20-1920/76774/session-76774.checkpoint
+INFO:tensorflow:Restoring parameters from 3dball_model/1hoop_synth_2017-11-20-1920/76774/session-76774.checkpoint
+INFO:tensorflow:Froze 10 variables.
+INFO:tensorflow:Froze 10 variables.
+Converted 10 variables to const ops.
+52 ops in the final graph.
+Done exporting model:  3dball_model/1hoop_synth_2017-11-20-1920/76774/3dball_1hoop_synth_2017-11-20-1920_76774.bytes
+********** Iteration 60 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.59935367, 'comparisons': 64, 'available_labels': 492}
+Predictor training info: {'loss': 0.65396309, 'comparisons': 64, 'available_labels': 494}
+Predictor training info: {'loss': 0.60345674, 'comparisons': 64, 'available_labels': 497}
+Predictor training info: {'loss': 0.59475952, 'comparisons': 64, 'available_labels': 499}
+Predictor training info: {'loss': 0.62832856, 'comparisons': 64, 'available_labels': 503}
+Predictor training info: {'loss': 0.56824374, 'comparisons': 64, 'available_labels': 506}
+Predictor training info: {'loss': 0.62569696, 'comparisons': 64, 'available_labels': 508}
+Predictor stats: rejected segments: 0 total segments: 2138
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000287371 |           0.0 |       2.75235 |    0.00373176 |       1.73762
+   -0.0100464 |           0.0 |       2.71373 |    0.00671401 |       1.73436
+   -0.0132902 |           0.0 |       2.69467 |    0.00814546 |       1.73075
+   -0.0155244 |           0.0 |       2.68906 |    0.00791176 |       1.72793
+   -0.0189947 |           0.0 |       2.66929 |    0.00811735 |       1.72528
+    -0.020728 |           0.0 |       2.66069 |    0.00850053 |       1.72249
+     -0.02216 |           0.0 |       2.65655 |    0.00847223 |       1.72026
+   -0.0250475 |           0.0 |       2.65412 |    0.00936614 |       1.71779
+   -0.0256313 |           0.0 |       2.65088 |    0.00885719 |       1.71623
+   -0.0246614 |           0.0 |       2.64082 |    0.00899493 |       1.71516
+Evaluating losses...
+   -0.0293899 |             0 |       2.63073 |    0.00864234 |       1.71398
+------------------------------
+| loss_pol_surr   | -0.0294  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 2.63     |
+| loss_kl         | 0.00864  |
+| loss_ent        | 1.71     |
+| ev_tdlam_before | 0.651    |
+| EpThisIter      | 20       |
+| EpisodesSoFar   | 2.2e+03  |
+| TimestepsSoFar  | 7.79e+04 |
+| TimeElapsed     | 1.37e+03 |
+| EpLenMean       | 59.5     |
+| EpRewMean       | -0.969   |
+------------------------------
+********** Iteration 61 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.52842116, 'comparisons': 64, 'available_labels': 511}
+Predictor training info: {'loss': 0.54823309, 'comparisons': 64, 'available_labels': 514}
+Predictor training info: {'loss': 0.58353412, 'comparisons': 64, 'available_labels': 517}
+Predictor training info: {'loss': 0.60719323, 'comparisons': 64, 'available_labels': 520}
+Predictor training info: {'loss': 0.67327666, 'comparisons': 64, 'available_labels': 524}
+Predictor training info: {'loss': 0.5887903, 'comparisons': 64, 'available_labels': 527}
+Predictor training info: {'loss': 0.63333893, 'comparisons': 64, 'available_labels': 529}
+Predictor stats: rejected segments: 0 total segments: 2159
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000140832 |           0.0 |       3.18073 |     0.0022702 |       1.71265
+   -0.0111035 |           0.0 |       3.13652 |     0.0109073 |       1.71169
+   -0.0154221 |           0.0 |       3.11401 |    0.00926837 |       1.71092
+   -0.0182679 |           0.0 |       3.10219 |     0.0101796 |       1.70959
+   -0.0186852 |           0.0 |       3.09639 |    0.00984127 |       1.70788
+     -0.02246 |           0.0 |       3.09024 |    0.00956344 |       1.70674
+   -0.0231696 |           0.0 |       3.09131 |    0.00989136 |       1.70555
+   -0.0248442 |           0.0 |       3.08844 |     0.0101989 |       1.70368
+   -0.0264452 |           0.0 |       3.08347 |      0.010724 |       1.70279
+   -0.0272439 |           0.0 |       3.07571 |     0.0111804 |       1.70285
+Evaluating losses...
+   -0.0301081 |             0 |       3.08194 |     0.0124799 |       1.70278
+------------------------------
+| loss_pol_surr   | -0.0301  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.08     |
+| loss_kl         | 0.0125   |
+| loss_ent        | 1.7      |
+| ev_tdlam_before | 0.616    |
+| EpThisIter      | 22       |
+| EpisodesSoFar   | 2.22e+03 |
+| TimestepsSoFar  | 7.92e+04 |
+| TimeElapsed     | 1.38e+03 |
+| EpLenMean       | 56.2     |
+| EpRewMean       | -0.97    |
+------------------------------
+********** Iteration 62 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.62154514, 'comparisons': 64, 'available_labels': 532}
+Predictor training info: {'loss': 0.58363283, 'comparisons': 64, 'available_labels': 535}
+Predictor training info: {'loss': 0.50293517, 'comparisons': 64, 'available_labels': 538}
+Predictor training info: {'loss': 0.5716989, 'comparisons': 64, 'available_labels': 539}
+Predictor training info: {'loss': 0.59480011, 'comparisons': 64, 'available_labels': 540}
+Predictor training info: {'loss': 0.63038993, 'comparisons': 64, 'available_labels': 544}
+Predictor training info: {'loss': 0.60792083, 'comparisons': 64, 'available_labels': 546}
+Predictor training info: {'loss': 0.5551663, 'comparisons': 64, 'available_labels': 549}
+Predictor stats: rejected segments: 0 total segments: 2180
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  0.000566444 |           0.0 |       3.09694 |    0.00298626 |       1.70245
+  -0.00765778 |           0.0 |       3.04591 |    0.00642578 |       1.70236
+   -0.0106821 |           0.0 |       3.02198 |    0.00769566 |       1.70184
+     -0.01395 |           0.0 |       2.99841 |    0.00570775 |       1.69944
+   -0.0152699 |           0.0 |       2.98623 |    0.00780666 |       1.69751
+   -0.0181942 |           0.0 |       2.97687 |    0.00701009 |       1.69525
+   -0.0190718 |           0.0 |       2.97101 |    0.00864228 |       1.69327
+   -0.0187451 |           0.0 |       2.96665 |    0.00807274 |       1.69231
+   -0.0221518 |           0.0 |       2.96196 |    0.00880463 |       1.69078
+   -0.0230525 |           0.0 |       2.95397 |    0.00844356 |       1.68897
+Evaluating losses...
+   -0.0264736 |             0 |          2.95 |    0.00953273 |       1.68859
+------------------------------
+| loss_pol_surr   | -0.0265  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 2.95     |
+| loss_kl         | 0.00953  |
+| loss_ent        | 1.69     |
+| ev_tdlam_before | 0.621    |
+| EpThisIter      | 22       |
+| EpisodesSoFar   | 2.24e+03 |
+| TimestepsSoFar  | 8.06e+04 |
+| TimeElapsed     | 1.4e+03  |
+| EpLenMean       | 57.1     |
+| EpRewMean       | -0.97    |
+------------------------------
+********** Iteration 63 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.62367839, 'comparisons': 64, 'available_labels': 552}
+Predictor training info: {'loss': 0.61243796, 'comparisons': 64, 'available_labels': 553}
+Predictor training info: {'loss': 0.5951224, 'comparisons': 64, 'available_labels': 556}
+Predictor training info: {'loss': 0.62610996, 'comparisons': 64, 'available_labels': 557}
+Predictor training info: {'loss': 0.55124062, 'comparisons': 64, 'available_labels': 561}
+Predictor training info: {'loss': 0.65968072, 'comparisons': 64, 'available_labels': 563}
+Predictor training info: {'loss': 0.65260684, 'comparisons': 64, 'available_labels': 564}
+Predictor training info: {'loss': 0.69577503, 'comparisons': 64, 'available_labels': 567}
+Predictor training info: {'loss': 0.63096488, 'comparisons': 64, 'available_labels': 569}
+Predictor stats: rejected segments: 0 total segments: 2200
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00164941 |           0.0 |       3.17893 |    0.00256715 |       1.68872
+  -0.00593875 |           0.0 |       3.12428 |    0.00537099 |       1.68847
+   -0.0108903 |           0.0 |       3.10164 |    0.00573541 |       1.68757
+   -0.0124491 |           0.0 |       3.08641 |    0.00791046 |       1.68669
+   -0.0129845 |           0.0 |       3.07735 |    0.00675511 |       1.68682
+   -0.0131394 |           0.0 |       3.06752 |    0.00861404 |       1.68631
+   -0.0163473 |           0.0 |       3.06064 |    0.00692425 |       1.68551
+   -0.0169634 |           0.0 |       3.05682 |    0.00840997 |       1.68561
+   -0.0186399 |           0.0 |       3.05075 |    0.00706647 |       1.68564
+   -0.0186758 |           0.0 |       3.04662 |     0.0091134 |       1.68572
+Evaluating losses...
+    -0.022636 |             0 |        3.0421 |     0.0084366 |       1.68532
+------------------------------
+| loss_pol_surr   | -0.0226  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.04     |
+| loss_kl         | 0.00844  |
+| loss_ent        | 1.69     |
+| ev_tdlam_before | 0.618    |
+| EpThisIter      | 21       |
+| EpisodesSoFar   | 2.26e+03 |
+| TimestepsSoFar  | 8.19e+04 |
+| TimeElapsed     | 1.41e+03 |
+| EpLenMean       | 61.1     |
+| EpRewMean       | -0.965   |
+------------------------------
+********** Iteration 64 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.55508435, 'comparisons': 64, 'available_labels': 571}
+Predictor training info: {'loss': 0.6025399, 'comparisons': 64, 'available_labels': 573}
+Predictor training info: {'loss': 0.55062509, 'comparisons': 64, 'available_labels': 575}
+Predictor training info: {'loss': 0.58428609, 'comparisons': 64, 'available_labels': 579}
+Predictor training info: {'loss': 0.62354195, 'comparisons': 64, 'available_labels': 583}
+Predictor training info: {'loss': 0.62872308, 'comparisons': 64, 'available_labels': 584}
+Predictor training info: {'loss': 0.56438363, 'comparisons': 64, 'available_labels': 586}
+Predictor training info: {'loss': 0.51541191, 'comparisons': 64, 'available_labels': 588}
+Predictor training info: {'loss': 0.57239115, 'comparisons': 64, 'available_labels': 591}
+Predictor stats: rejected segments: 0 total segments: 2221
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00154797 |           0.0 |       3.18377 |    0.00231783 |       1.68586
+  -0.00706399 |           0.0 |       3.12534 |    0.00545634 |       1.68826
+    -0.010271 |           0.0 |       3.09522 |    0.00763679 |       1.68901
+   -0.0135597 |           0.0 |       3.08261 |    0.00703026 |        1.6889
+   -0.0144076 |           0.0 |       3.06649 |    0.00840146 |       1.68781
+   -0.0152067 |           0.0 |       3.05573 |     0.0107899 |       1.68669
+   -0.0158563 |           0.0 |       3.04829 |    0.00818619 |       1.68603
+   -0.0192183 |           0.0 |       3.04044 |     0.0085141 |       1.68543
+    -0.018742 |           0.0 |       3.03736 |     0.0099556 |       1.68446
+    -0.019365 |           0.0 |       3.02927 |    0.00940622 |       1.68361
+Evaluating losses...
+   -0.0241592 |             0 |       3.02459 |    0.00807459 |       1.68372
+------------------------------
+| loss_pol_surr   | -0.0242  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.02     |
+| loss_kl         | 0.00807  |
+| loss_ent        | 1.68     |
+| ev_tdlam_before | 0.6      |
+| EpThisIter      | 23       |
+| EpisodesSoFar   | 2.29e+03 |
+| TimestepsSoFar  | 8.32e+04 |
+| TimeElapsed     | 1.43e+03 |
+| EpLenMean       | 60.4     |
+| EpRewMean       | -0.965   |
+------------------------------
+********** Iteration 65 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.61936945, 'comparisons': 64, 'available_labels': 593}
+Predictor training info: {'loss': 0.61570489, 'comparisons': 64, 'available_labels': 598}
+Predictor training info: {'loss': 0.61658633, 'comparisons': 64, 'available_labels': 600}
+Predictor training info: {'loss': 0.61930513, 'comparisons': 64, 'available_labels': 600}
+Predictor training info: {'loss': 0.65827894, 'comparisons': 64, 'available_labels': 601}
+Predictor training info: {'loss': 0.56639075, 'comparisons': 64, 'available_labels': 601}
+Predictor training info: {'loss': 0.61554134, 'comparisons': 64, 'available_labels': 601}
+Predictor stats: rejected segments: 0 total segments: 2239
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+  -0.00175395 |           0.0 |       2.85676 |    0.00200224 |       1.68461
+  -0.00937015 |           0.0 |       2.80032 |    0.00701248 |       1.68733
+    -0.014849 |           0.0 |       2.77895 |    0.00845457 |       1.68941
+   -0.0170449 |           0.0 |       2.76327 |    0.00931633 |       1.69091
+   -0.0177151 |           0.0 |       2.75525 |    0.00925132 |       1.69154
+   -0.0201068 |           0.0 |       2.74749 |    0.00936477 |       1.69318
+    -0.021455 |           0.0 |       2.74924 |    0.00929303 |       1.69461
+   -0.0225589 |           0.0 |       2.74949 |     0.0107138 |       1.69609
+   -0.0221211 |           0.0 |       2.73546 |     0.0111466 |       1.69711
+   -0.0250044 |           0.0 |       2.74328 |     0.0102341 |        1.6983
+Evaluating losses...
+   -0.0271664 |             0 |       2.72626 |     0.0101183 |       1.69885
+------------------------------
+| loss_pol_surr   | -0.0272  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 2.73     |
+| loss_kl         | 0.0101   |
+| loss_ent        | 1.7      |
+| ev_tdlam_before | 0.652    |
+| EpThisIter      | 18       |
+| EpisodesSoFar   | 2.3e+03  |
+| TimestepsSoFar  | 8.44e+04 |
+| TimeElapsed     | 1.44e+03 |
+| EpLenMean       | 59.5     |
+| EpRewMean       | -0.962   |
+------------------------------
+********** Iteration 66 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.57094073, 'comparisons': 64, 'available_labels': 602}
+Predictor training info: {'loss': 0.69923532, 'comparisons': 64, 'available_labels': 604}
+Predictor training info: {'loss': 0.63370681, 'comparisons': 64, 'available_labels': 605}
+Predictor training info: {'loss': 0.58706385, 'comparisons': 64, 'available_labels': 605}
+Predictor training info: {'loss': 0.60675585, 'comparisons': 64, 'available_labels': 605}
+Predictor training info: {'loss': 0.56632507, 'comparisons': 64, 'available_labels': 606}
+Predictor training info: {'loss': 0.56028545, 'comparisons': 64, 'available_labels': 606}
+Predictor training info: {'loss': 0.63864362, 'comparisons': 64, 'available_labels': 606}
+Predictor stats: rejected segments: 0 total segments: 2266
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00240957 |           0.0 |       3.26112 |    0.00270476 |       1.69905
+  -0.00721363 |           0.0 |        3.1957 |    0.00465223 |       1.69868
+  -0.00970445 |           0.0 |         3.174 |    0.00539827 |       1.69896
+     -0.01309 |           0.0 |       3.16415 |    0.00578704 |        1.6986
+   -0.0125935 |           0.0 |       3.15935 |    0.00769476 |       1.69827
+   -0.0142819 |           0.0 |       3.15905 |    0.00665241 |       1.69796
+   -0.0180346 |           0.0 |       3.15561 |    0.00884152 |       1.69768
+   -0.0199565 |           0.0 |       3.14919 |    0.00596154 |       1.69724
+   -0.0197986 |           0.0 |       3.14558 |    0.00831067 |       1.69703
+   -0.0200879 |           0.0 |       3.14969 |     0.0077305 |       1.69625
+Evaluating losses...
+    -0.026253 |             0 |       3.13791 |    0.00757033 |       1.69523
+------------------------------
+| loss_pol_surr   | -0.0263  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 3.14     |
+| loss_kl         | 0.00757  |
+| loss_ent        | 1.7      |
+| ev_tdlam_before | 0.631    |
+| EpThisIter      | 28       |
+| EpisodesSoFar   | 2.33e+03 |
+| TimestepsSoFar  | 8.57e+04 |
+| TimeElapsed     | 1.46e+03 |
+| EpLenMean       | 57.4     |
+| EpRewMean       | -0.963   |
+------------------------------
+********** Iteration 67 ************
+Generating segments...
+Predicting reward...
+Predictor training info: {'loss': 0.67631614, 'comparisons': 64, 'available_labels': 607}
+Predictor training info: {'loss': 0.55846912, 'comparisons': 64, 'available_labels': 610}
+Predictor training info: {'loss': 0.62890196, 'comparisons': 64, 'available_labels': 610}
+Predictor training info: {'loss': 0.53767502, 'comparisons': 64, 'available_labels': 610}
+Predictor training info: {'loss': 0.61809421, 'comparisons': 64, 'available_labels': 610}
+Predictor training info: {'loss': 0.68107706, 'comparisons': 64, 'available_labels': 611}
+Predictor training info: {'loss': 0.58390999, 'comparisons': 64, 'available_labels': 611}
+Predictor training info: {'loss': 0.65078127, 'comparisons': 64, 'available_labels': 611}
+Predictor training info: {'loss': 0.65686947, 'comparisons': 64, 'available_labels': 611}
+Predictor stats: rejected segments: 0 total segments: 2292
+Done generating segments
+Optimizing...
+     pol_surr |    pol_entpen |       vf_loss |            kl |           ent
+   0.00125584 |           0.0 |       2.54458 |    0.00241336 |        1.6959
+  -0.00622904 |           0.0 |       2.48239 |    0.00711315 |       1.69746
+   -0.0110777 |           0.0 |        2.4615 |    0.00443466 |       1.70076
+   -0.0116086 |           0.0 |       2.45104 |    0.00590666 |       1.70298
+   -0.0162502 |           0.0 |        2.4453 |    0.00644181 |       1.70481
+   -0.0181608 |           0.0 |       2.44168 |    0.00789659 |       1.70643
+   -0.0193522 |           0.0 |       2.43604 |    0.00687899 |       1.70654
+   -0.0225785 |           0.0 |       2.42961 |    0.00745438 |       1.70808
+   -0.0229214 |           0.0 |       2.42786 |    0.00867867 |       1.70827
+   -0.0242575 |           0.0 |       2.42452 |    0.00881137 |        1.7093
+Evaluating losses...
+     -0.02752 |             0 |       2.41694 |    0.00816453 |       1.70992
+------------------------------
+| loss_pol_surr   | -0.0275  |
+| loss_pol_entpen | 0        |
+| loss_vf_loss    | 2.42     |
+| loss_kl         | 0.00816  |
+| loss_ent        | 1.71     |
+| ev_tdlam_before | 0.723    |
+| EpThisIter      | 27       |
+| EpisodesSoFar   | 2.36e+03 |
+| TimestepsSoFar  | 8.7e+04  |
+| TimeElapsed     | 1.47e+03 |
+| EpLenMean       | 53.4     |
+| EpRewMean       | -0.965   |
+------------------------------
+********** Iteration 68 ************
+Generating segments...
+Traceback (most recent call last):
+  File "/Users/cristian/dev/cs229-proj/rl-teacher/rl-teacher/rl_teacher/teach.py", line 168, in <module>
+    main()
+  File "/Users/cristian/dev/cs229-proj/rl-teacher/rl-teacher/rl_teacher/teach.py", line 162, in main
+    load_checkpoint= False
+  File "/Users/cristian/dev/cs229-proj/rl-teacher/rl-teacher/rl_teacher/UnityAgent.py", line 208, in train_unity_pposgd_mpi
+    experiment_name=experiment_name
+  File "/Users/cristian/dev/cs229-proj/rl-teacher/rl-teacher/agents/pposgd-mpi/pposgd_mpi/pposgd_simple.py", line 231, in learn
+    seg = seg_gen.__next__()
+  File "/Users/cristian/dev/cs229-proj/rl-teacher/rl-teacher/agents/pposgd-mpi/pposgd_mpi/pposgd_simple.py", line 85, in traj_segment_generator
+    ob, rew, new, info = env.step(ac)
+  File "/Users/cristian/dev/cs229-proj/rl-teacher/rl-teacher/agents/pposgd-mpi/pposgd_mpi/bench/monitor.py", line 72, in step
+    ob, rew, done, info = self.env.step(action)
+  File "/usr/local/lib/python3.6/site-packages/gym/core.py", line 96, in step
+    return self._step(action)
+  File "/Users/cristian/dev/cs229-proj/rl-teacher/rl-teacher/rl_teacher/UnityAgent.py", line 146, in _step
+    brain_info = self.env.step(action)[self.brain_name]
+  File "/Users/cristian/dev/cs229-proj/rl-teacher/unity/unityagents/environment.py", line 345, in step
+    return self._get_state()
+  File "/Users/cristian/dev/cs229-proj/rl-teacher/unity/unityagents/environment.py", line 237, in _get_state
+    obs_n.append(self._get_state_image(self._brains[b].camera_resolutions[o]['blackAndWhite']))
+  File "/Users/cristian/dev/cs229-proj/rl-teacher/unity/unityagents/environment.py", line 166, in _get_state_image
+    s = self._conn.recv(self._buffer_size)
+KeyboardInterrupt
