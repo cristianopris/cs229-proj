@@ -88,13 +88,13 @@ def main():
         elif args.predictor == "human":
             #bucket = os.environ.get('RL_TEACHER_GCS_BUCKET')
             #assert bucket and bucket.startswith("gs://"), "env variable RL_TEACHER_GCS_BUCKET must start with gs://"
-            comparison_collector = HumanComparisonCollector(env_id, fps = frames_per_segment/1.5, experiment_name=experiment_name)
+            comparison_collector = HumanComparisonCollector(env_name, fps = frames_per_segment/1.5, experiment_name=experiment_name)
         else:
             raise ValueError("Bad value for --predictor: %s" % args.predictor)
 
         print("Starting random rollouts to generate pretraining segments. No learning will take place...")
         pretrain_segments = segments_from_rand_rollout(
-            env_id, make_env, n_desired_segments=pretrain_labels * 2,
+            env_name, make_env, n_desired_segments=pretrain_labels * 2,
             frames_per_segment=frames_per_segment, workers=args.workers)
         for i in range(pretrain_labels):  # Turn our random segments into comparisons
             comparison_collector.add_segment_pair(pretrain_segments[i], pretrain_segments[i + pretrain_labels])

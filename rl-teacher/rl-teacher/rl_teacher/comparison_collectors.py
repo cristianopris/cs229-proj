@@ -7,6 +7,8 @@ import numpy as np
 
 from rl_teacher.envs import make_with_torque_removed
 from rl_teacher.video import write_segment_to_video, upload_to_gcs, export_video
+from rl_teacher.utils import *
+
 
 class SyntheticComparisonCollector(object):
     def __init__(self):
@@ -55,6 +57,7 @@ class SyntheticComparisonCollector(object):
 #     # upload_to_gcs(local_path, gcs_path)
 
 class HumanComparisonCollector():
+
     def __init__(self, env_id, fps, experiment_name):
         from human_feedback_api import Comparison
 
@@ -63,6 +66,9 @@ class HumanComparisonCollector():
         self.experiment_name = experiment_name
         self._upload_workers = multiprocessing.Pool(4)
         self.fps = fps
+
+        logdir = model_dir(env_id, experiment_name)
+        self.logger = JSONLogger(logdir + '/comparisons.json')
 
         if Comparison.objects.filter(experiment_name=experiment_name).count() > 0:
             raise EnvironmentError("Existing experiment named %s! Pick a new experiment name." % experiment_name)
@@ -151,3 +157,8 @@ class HumanComparisonCollector():
             elif db_comp.response == 'tie' or db_comp.response == 'abstain':
                 comparison['label'] = 'equal'
                 # If we did not match, then there is no response yet, so we just wait
+            if (comparison['label']):
+                comparison['left']['human_obs'] = None
+                comparison['right']['human_obs'] = None
+                self.logger.writekvs(comparison)
+

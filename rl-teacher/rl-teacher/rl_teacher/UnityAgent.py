@@ -9,6 +9,7 @@ from ppo.trainer import Trainer
 from unityagents import *
 
 from rl_teacher.envs import TransparentWrapper
+from rl_teacher.utils import *
 from gym.spaces import Box
 
 def train_unity_ppo(env_name, predictor):
@@ -183,8 +184,10 @@ def train_unity_pposgd_mpi(env_name, make_env, num_timesteps, seed, experiment_n
     import logging
 
 
+
+
     U.make_session(num_cpu=6).__enter__()
-    logger.session().__enter__()
+    logger.session(dir=model_dir(env_name, experiment_name)).__enter__()
     set_global_seeds(seed)
 
     def policy_fn(name, ob_space, ac_space):

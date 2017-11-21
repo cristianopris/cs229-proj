@@ -1,5 +1,6 @@
+bin
 ml-agents/unity-environment/Assets/ML-Agents/Plugins
 rl-teacher/linux_bin
 ml-agents/unity-environment/Assets/ML-Agents/Examples/3DBall/TFModels/
-bin
-
+.idea/
+**/*.pyc
