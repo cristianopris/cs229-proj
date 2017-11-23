@@ -30,9 +30,11 @@ class JSONLogger(object):
     def __init__(self, fname):
         self.file = open(fname, "w+")
 
-    def writekvs(self, kvs):
+    def writekvs(self, kvs, exclude=[]):
         def fix_ndarrays(d):
             for k,v in d.items():
+                if (k in exclude):
+                    continue
                 if hasattr(v, 'dtype'):
                     v = v.tolist()
                     d[k] = v

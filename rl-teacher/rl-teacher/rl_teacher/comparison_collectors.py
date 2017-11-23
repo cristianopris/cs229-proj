@@ -4,6 +4,7 @@ import os.path as osp
 import uuid
 
 import numpy as np
+from copy import deepcopy
 
 from rl_teacher.envs import make_with_torque_removed
 from rl_teacher.video import write_segment_to_video, upload_to_gcs, export_video
@@ -157,8 +158,9 @@ class HumanComparisonCollector():
             elif db_comp.response == 'tie' or db_comp.response == 'abstain':
                 comparison['label'] = 'equal'
                 # If we did not match, then there is no response yet, so we just wait
-            if (comparison['label']):
-                comparison['left']['human_obs'] = None
-                comparison['right']['human_obs'] = None
-                self.logger.writekvs(comparison)
+            if (comparison['label'] is not None):
+                c = deepcopy(comparison)
+                c['left']['human_obs'] = None
+                c['right']['human_obs'] = None
+                self.logger.writekvs(c)
 

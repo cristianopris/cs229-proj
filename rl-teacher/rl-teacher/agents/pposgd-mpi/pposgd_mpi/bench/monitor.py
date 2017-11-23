@@ -27,7 +27,7 @@ class Monitor(Wrapper):
             self.f = open(filename, "wt")
             self.logger = JSONLogger(self.f)
             self.logger.writekvs({"t_start": self.tstart, "gym_version": gym.__version__,
-                 "env_id": env.spec.id if hasattr(env, 'spec') else 'Unknown'})
+                 "env_id": env.spec if hasattr(env, 'spec') else 'Unknown'})
         self.allow_early_resets = allow_early_resets
         self.rewards = None
         self.needs_reset = True

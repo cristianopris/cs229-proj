@@ -19,7 +19,7 @@ from rl_teacher.nn import FullyConnectedMLP
 from rl_teacher.segment_sampling import sample_segment_from_path
 from rl_teacher.segment_sampling import segments_from_rand_rollout
 from rl_teacher.summaries import AgentLogger, make_summary_writer
-from rl_teacher.utils import slugify, corrcoef
+from rl_teacher.utils import slugify, corrcoef, model_dir
 from rl_teacher.video import SegmentVideoRecorder
 from rl_teacher.predictor import *
 
@@ -47,13 +47,14 @@ def main():
 
 
     env_id = args.env_id
+    env_name = env_id[6:] if (env_id.startswith('unity-')) else env_id
+
     experiment_name = slugify(args.name + '_' + (str(datetime.datetime.now())[:16]))
-    summary_writer = make_summary_writer(env_id + '_' + experiment_name)
+    summary_writer = make_summary_writer(env_name + '_' + experiment_name)
 
     make_env = None
     env = None
     if env_id.startswith('unity-'):
-        env_name = env_id[6:]
         env = make_unity_env(env_name)
         make_env = make_unity_env
     else:
@@ -92,6 +93,15 @@ def main():
         else:
             raise ValueError("Bad value for --predictor: %s" % args.predictor)
 
+        predictor = ComparisonRewardPredictor(
+            env,
+            summary_writer,
+            comparison_collector=comparison_collector,
+            agent_logger=agent_logger,
+            label_schedule=label_schedule,
+            frames_per_segment = frames_per_segment
+        )
+
         print("Starting random rollouts to generate pretraining segments. No learning will take place...")
         pretrain_segments = segments_from_rand_rollout(
             env_name, make_env, n_desired_segments=pretrain_labels * 2,
@@ -109,14 +119,7 @@ def main():
                     len(comparison_collector.labeled_comparisons), pretrain_labels))
                 sleep(5)
 
-        predictor = ComparisonRewardPredictor(
-            env,
-            summary_writer,
-            comparison_collector=comparison_collector,
-            agent_logger=agent_logger,
-            label_schedule=label_schedule,
-            frames_per_segment = frames_per_segment
-        )
+
 
         # Start the actual training
         for i in range(args.pretrain_iters):

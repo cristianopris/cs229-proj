@@ -119,6 +119,6 @@ STATICFILES_DIRS = (
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-MEDIA_ROOT = '/Users/cristian/dev/workspace/cs229/cs229-proj/bin/rl_teacher_media'
+MEDIA_ROOT = '/Users/cristian/dev/cs229-proj/bin/rl_teacher_media/'
 MEDIA_URL = '/media/'
 

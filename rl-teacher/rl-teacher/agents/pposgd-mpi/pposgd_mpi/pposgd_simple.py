@@ -188,7 +188,7 @@ def learn(env, policy_func, *,
         U.initialize()
     adam.sync()
 
-    summaryWriter = tf.summary.FileWriter('summaries', U.get_session().graph)
+    #summaryWriter = tf.summary.FileWriter('summaries', U.get_session().graph)
 
     # Prepare for rollouts
     # ----------------------------------------
@@ -214,7 +214,7 @@ def learn(env, policy_func, *,
             break
         elif max_seconds and time.time() - tstart >= max_seconds:
             break
-        if (iters_so_far % 5 == 0 and iters_so_far >= 1):
+        if (iters_so_far % 10 == 0 and iters_so_far >= 1):
             export_model(U.get_session(), saver=saver, env_name=env_name, experiment_name=experiment_name, model=pi,
                          target_nodes='pi/action', steps=timesteps_so_far)
 
@@ -225,6 +225,7 @@ def learn(env, policy_func, *,
         else:
             raise NotImplementedError
 
+        ##TODO
         logger.log("********** Iteration %i ************" % iters_so_far)
 
         logger.log("Generating segments...")
@@ -307,7 +308,7 @@ def export_model(sess, saver, env_name, experiment_name, model, target_nodes, st
     checkpoint_file = dir + '/session-' + str(steps) + '.checkpoint'
 
     print("Saving checkpoint", checkpoint_file)
-    saver.save(sess, checkpoint_file)
+    tf.train.Saver().save(sess, checkpoint_file)
 
     model_protobuf_file = 'pposgd_policy_graph.pb'
     tf.train.write_graph(sess.graph_def, dir, model_protobuf_file, as_text=False)
