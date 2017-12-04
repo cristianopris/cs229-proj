@@ -62,6 +62,7 @@ class AgentLogger(object):
                 last_n_episode_mean_len = float(np.sum([len(path["obs"]) for path in self.last_n_paths])) / np.sum([path["new"] for path in self.last_n_paths])
             else:
                 last_n_episode_scores = [np.sum(path["original_rewards"]).astype(float) for path in self.last_n_paths]
+                last_n_episode_mean_len = float(np.sum([len(path["obs"]) for path in self.last_n_paths]))/len(self.last_n_paths)
 
             self.log_simple("agent/true_reward_per_episode", np.mean(last_n_episode_scores))
             self.log_simple("agent/mean_episode_length", last_n_episode_mean_len)

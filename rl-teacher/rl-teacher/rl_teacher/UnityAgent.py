@@ -128,9 +128,9 @@ class UnityGymWrapper(gym.Env):
 #        self.spec = False
 
         self.fps = 240
-        self._max_episode_steps = 50
-        n_agents = 1
-
+        self._max_episode_steps = 1000
+        n_agents = 2
+        self.steps = 0
         self.action_space = Box(np.tile([-15.0 , -15.0], n_agents), np.tile([15.0 , 15.0], n_agents))
 
         #state space:
@@ -145,16 +145,21 @@ class UnityGymWrapper(gym.Env):
 
     def _step(self, action):
         brain_info = self.env.step(action)[self.brain_name]
+
+        if (self.steps % 10000 == 0):
+            print("Sample brain_info:", brain_info)
+        self.steps += 1
+
         n_agents = len(brain_info.agents)
         state = brain_info.states.reshape(8 * n_agents)
 
         #print('state:', state)
         #print('action:', action)
         frames = None
-        #if (brain_info.observations):
-        frames  = brain_info.observations[0][0] #brain, camera
-
-        return state, brain_info.rewards[0], brain_info.local_done[0], {'human_obs' : frames}
+        if (brain_info.observations and len(brain_info.observations[0]) > 0 ):
+            frames  = brain_info.observations[0][0] #brain, camera
+        rew = sum(brain_info.rewards)
+        return state, rew , brain_info.local_done[0], {'human_obs' : frames}
         """
         Returns:
             observation (object): agent's observation of the current environment
@@ -201,7 +206,7 @@ def train_unity_pposgd_mpi(env_name, make_env, num_timesteps, seed, experiment_n
     gym.logger.setLevel(logging.WARN)
     pposgd_simple.learn(env, policy_fn,
         max_timesteps=num_timesteps,
-        timesteps_per_batch=128*10,
+        timesteps_per_batch=512 *10,
         clip_param=0.2, entcoeff=0.0,
         optim_epochs=10, optim_stepsize=3e-4, optim_batchsize=64,
         gamma=0.99, lam=0.95,

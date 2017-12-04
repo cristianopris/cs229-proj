@@ -2,6 +2,7 @@ import time
 from collections import deque
 from copy import deepcopy
 from datetime import datetime
+import os
 
 import numpy as np
 import pposgd_mpi.common.tf_util as U
@@ -214,8 +215,10 @@ def learn(env, policy_func, *,
             break
         elif max_seconds and time.time() - tstart >= max_seconds:
             break
-        if (iters_so_far % 10 == 0 and iters_so_far >= 1):
-            export_model(U.get_session(), saver=saver, env_name=env_name, experiment_name=experiment_name, model=pi,
+        if (iters_so_far % 50 == 0 and iters_so_far >= 0):
+            if (predictor):
+                predictor.save_model(_model_dir(env_name, experiment_name, timesteps_so_far))
+            export_model(U.get_session(), saver=saver, env_name=env_name, experiment_name=experiment_name,
                          target_nodes='pi/action', steps=timesteps_so_far)
 
         if schedule == 'constant':
@@ -295,15 +298,15 @@ def load_model(sess, saver, env_name, checkpoint_subdir):
     saver.restore(sess, ckpt.model_checkpoint_path)
     print('Done loading model...')
 
-
-def export_model(sess, saver, env_name, experiment_name, model, target_nodes, steps):
-    import os
-
+def _model_dir(env_name, experiment_name, steps):
     exp_name = (experiment_name if (experiment_name) else slugify(env_name + '_' + str(datetime.datetime.now())))
-
     dir = env_name + '_model' + '/' + exp_name + '/' + str(steps)
-
     os.makedirs(dir, exist_ok=True)
+    return dir
+
+
+def export_model(sess, saver, env_name, experiment_name, target_nodes, steps):
+    dir = _model_dir(env_name, experiment_name, steps)
 
     checkpoint_file = dir + '/session-' + str(steps) + '.checkpoint'
 
@@ -320,6 +323,8 @@ def export_model(sess, saver, env_name, experiment_name, model, target_nodes, st
     :param target_nodes: Comma separated string of needed output nodes for embedded graph.
     """
     print("Exporting model...")
+
+    exp_name = (experiment_name if (experiment_name) else slugify(env_name + '_' + str(datetime.datetime.now())))
     out_file_name = dir + '/' + env_name + '_' + exp_name + '_' + str(steps) + '.bytes'
     ckpt = tf.train.get_checkpoint_state(dir)
     freeze_graph.freeze_graph(input_graph=dir + '/' + model_protobuf_file,

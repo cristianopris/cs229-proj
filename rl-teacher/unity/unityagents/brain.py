@@ -10,6 +10,9 @@ class BrainInfo:
         self.local_done = local_done
         self.agents = agents
 
+    def __str__(self):
+        return 'agents: %s, rewards: %s, states: %s, obs %s' % (self.agents, self.rewards, self.states, self.observations)
+
 
 class BrainParameters:
     def __init__(self, brain_name, brain_param):

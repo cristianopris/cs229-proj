@@ -60,7 +60,7 @@ def main():
     else:
         env = make_with_torque_removed(env_id)
 
-    frames_per_segment = 10
+    frames_per_segment = 12
     num_timesteps = int(args.num_timesteps)
 
 
@@ -94,6 +94,7 @@ def main():
             raise ValueError("Bad value for --predictor: %s" % args.predictor)
 
         predictor = ComparisonRewardPredictor(
+            'reward_predictor',
             env,
             summary_writer,
             comparison_collector=comparison_collector,
