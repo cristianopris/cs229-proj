@@ -22,6 +22,7 @@ from rl_teacher.summaries import AgentLogger, make_summary_writer
 from rl_teacher.utils import slugify, corrcoef
 from rl_teacher.video import SegmentVideoRecorder
 
+from tensorflow.contrib.framework import *
 
 class TraditionalRLRewardPredictor(object):
     """Predictor that always returns the true reward provided by the environment."""
@@ -39,8 +40,53 @@ class TraditionalRLRewardPredictor(object):
     def save_model(self, dir):
         pass
 
-    def load_model(self, env_name, checkpoint_dir):
-        pass
+
+class ReshapingRewardPredictor(object):
+
+    def __init__(self, predictor, reshaper_checkpoint):
+        self.predictor = predictor
+        self.agent_logger = predictor.agent_logger
+
+        self.reshaper = ComparisonRewardPredictor(model_name='r_shaper', env=predictor.env,
+                                                  summary_writer=predictor.summary_writer,
+                                                  comparison_collector=None,
+                                                  agent_logger=predictor.agent_logger, label_schedule=None,
+                                                  frames_per_segment=None)
+        self.reshaper.load_model(reshaper_checkpoint, old_scope='reward_predictor')
+
+    def predict_reward(self, path):
+        q_value = self.predictor.predict_reward(path)
+        path['pred_rewards'] = q_value
+        rew = q_value
+
+        if (self.reshaper):
+            q_value = self.reshaper.predict_reward(path)
+            path['reshaper_rewards'] = q_value
+            rew += q_value
+
+        return rew;
+
+    def path_callback(self, path):
+        self.predictor.path_callback(path)
+
+        if self.predictor._steps_since_last_training >= int(self.predictor._n_timesteps_per_predictor_training):
+            recent_paths = self.agent_logger.get_recent_paths()
+            orig_reward =  np.mean(np.asarray([sum(path['original_rewards']) for path in recent_paths]))
+            pred_reward = np.mean(np.asarray([sum(path['pred_rewards']) for path in recent_paths]))
+            reshaper_reward = np.mean(np.asarray([sum(path['reshaper_rewards']) for path in recent_paths]))
+
+            self.agent_logger.log_simple("predictor/original_reward", orig_reward)
+            self.agent_logger.log_simple("predictor/pred_reward", pred_reward)
+            self.agent_logger.log_simple("predictor/reshaper_reward", reshaper_reward)
+
+    def train_predictor(self):
+        self.predictor.train_predictor()
+
+    def save_model(self, dir):
+        self.predictor.save_model(dir)
+
+
+
 
 class ComparisonRewardPredictor():
 
@@ -50,8 +96,7 @@ class ComparisonRewardPredictor():
         self.agent_logger = agent_logger
         self.comparison_collector = comparison_collector
         self.label_schedule = label_schedule
-
-
+        self.env = env
 
         # Set up some bookkeeping
         self.recent_segments = deque(maxlen=200)  # Keep a queue of recently seen segments to pull new comparisons from
@@ -75,23 +120,12 @@ class ComparisonRewardPredictor():
         self.act_shape = (env.action_space.n,) if self.discrete_action_space else env.action_space.shape
 
         self.name = model_name
-        #with tf.variable_scope(self.name):
-            #self.scope = tf.get_variable_scope().name
-        self.sess = tf.InteractiveSession(config=config)
-        self.graph = self._build_model()
-
-        #self.saver = tf.train.Saver(tf.get_collection(tf.GraphKeys.VARIABLES, self.scope))
-
-        #self.reshaper = None
-        # self.reshaper = ComparisonRewardPredictor(name='r_shaper', env=env, summary_writer=summary_writer,
-        #                                           comparison_collector = comparison_collector, agent_logger = agent_logger, label_schedule = label_schedule, frames_per_segment = frames_per_segment)
-        # self.reshaper.load_model('dir')
-
-        #chk_dir = '/Users/cristian/dev/cs229-proj/bin/3dball2paddles_model/2paddles_synth_2017-12-03-2308/25521/r_predictor'
-        # chk_dir = None;
-        # if (chk_dir):
-        #     self.load_model(chk_dir)
-        # else:
+        self.sess = tf.Session(config=config)
+        with self.sess.as_default(), tf.variable_scope(self.name):
+            self.scope = tf.get_variable_scope().name
+            self.graph = self._build_model()
+            self.graph.finalize()
+            self.saver = tf.train.Saver(tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES, self.scope))
         self.sess.run(tf.global_variables_initializer())
 
     def _predict_rewards(self, obs_segments, act_segments, network):
@@ -113,12 +147,6 @@ class ComparisonRewardPredictor():
 
         # Group the rewards back into their segments
         return tf.reshape(rewards, (batchsize, segment_length))
-
-    # def _build_reshaper_predictor(self, name, checkpoint_dir):
-    #     with tf.variable_scope(name):
-    #         self.scope = tf.get_variable_scope().name
-    #         mlp = FullyConnectedMLP(self.obs_shape, self.act_shape)
-
 
     def _build_model(self):
         """
@@ -176,12 +204,6 @@ class ComparisonRewardPredictor():
                 K.learning_phase(): False
             })
         return q_value[0]
-
-        # rew = 0
-        # if (self.reshaper):
-        #     q_value = reshaper.predict_reward(path)
-        #     rew += q_value
-        # return rew
 
     #called for every episode path
     def path_callback(self, path):
@@ -261,6 +283,8 @@ class ComparisonRewardPredictor():
             ep_reward_true = np.sum(reward_true, axis=1)
             self.agent_logger.log_simple("predictor/correlations", corrcoef(ep_reward_true, ep_reward_pred))
 
+
+
         self.agent_logger.log_simple("predictor/num_training_iters", self._elapsed_predictor_training_iters)
         self.agent_logger.log_simple("labels/desired_labels", self.label_schedule.n_desired_labels)
         self.agent_logger.log_simple("labels/total_comparisons", len(self.comparison_collector))
@@ -268,10 +292,7 @@ class ComparisonRewardPredictor():
             "labels/labeled_comparisons", len(self.comparison_collector.labeled_decisive_comparisons))
 
     def save_model(self, dir):
-        return
-
         dir = dir + '/r_predictor'
-
         os.makedirs(dir, exist_ok=True)
 
         checkpoint_file = dir + '/r_predictor_labels_' + str(len(self.comparison_collector.labeled_decisive_comparisons)) + '.checkpoint'
@@ -279,11 +300,18 @@ class ComparisonRewardPredictor():
         print("Saving reward predictor checkpoint to : ", checkpoint_file)
         self.saver.save(self.sess, checkpoint_file)
 
-    def load_model(self, checkpoint_dir):
-        return
+    def load_model(self, checkpoint_dir, old_scope):
+        scope = self.scope
+        print('Loading reward predictor checkpoint from : ', checkpoint_dir, 'old scope: ', old_scope, 'new scope:', scope)
 
-        dir = checkpoint_dir
-        print('Loading reward predictor checkpoint from : ' + checkpoint_dir)
-        ckpt = tf.train.get_checkpoint_state(dir)
-        self.saver.restore(self.sess, ckpt.model_checkpoint_path)
+        model_vars = tf.get_collection(tf.GraphKeys.VARIABLES, scope=scope)
+        for var in model_vars:
+            new_name = var.name.replace(scope, old_scope)
+            print('loading:', new_name, 'into:', var)#, var.eval())
+            val = load_variable(checkpoint_dir, new_name)
+            self.sess.run(var.assign(val))
+            #print('new val', val, var.eval())
+
+        #ckpt = tf.train.get_checkpoint_state(dir)
+        #self.saver.restore(self.sess, ckpt.model_checkpoint_path, scope=self.scope)
         print('Done loading predictor variables')

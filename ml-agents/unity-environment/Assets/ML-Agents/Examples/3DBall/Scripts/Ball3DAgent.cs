@@ -49,6 +49,7 @@ public class Ball3DAgent : Agent
 //		print("There are " + collisionInfo.contacts.Length + " point(s) of contacts");
 		print("Collision velocity: " + collisionInfo.relativeVelocity + " magnitude: " + collisionInfo.relativeVelocity.magnitude);
 		lastCollision = collisionInfo;
+		gameObject.GetComponent<Renderer>().material.color = Color.red;
 
 
 		// how much the character should be knocked back

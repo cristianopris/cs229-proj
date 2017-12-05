@@ -45,7 +45,7 @@ public class Ball3DAgent2Paddles : Agent
 
 
 		// how much the character should be knocked back
-		var magnitude =  collisionInfo.relativeVelocity.magnitude * - 7f;
+		var magnitude =  collisionInfo.relativeVelocity.magnitude * - 3f;
 
 		// calculate force vector
 		var force = transform.position - collisionInfo.transform.position;
@@ -115,17 +115,18 @@ public class Ball3DAgent2Paddles : Agent
     // to be implemented by the developer
     public override void AgentReset()
     {
-        gameObject.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+//        gameObject.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
 //        gameObject.transform.Rotate(new Vector3(1, 0, 0), Random.Range(-10f, 10f));
 //        gameObject.transform.Rotate(new Vector3(0, 0, 1), Random.Range(-10f, 10f));
 
-		if (id == 0) {
+		if (id == 0) 
+		{
 			ball.GetComponent<Rigidbody> ().velocity = new Vector3 (0f, 0f, 0f);
 			//ball.transform.position = new Vector3(Random.Range(-1f, 1f), 4f, Random.Range(-1f, 1f)) + gameObject.transform.position;
 
-			//ball.transform.position = new Vector3(Random.Range(-1.5f, 1.5f), 4f, Random.Range(-1.5f, 1.5f)) + gameObject.transform.position;
+			ball.transform.position = new Vector3(Random.Range(-1.5f, 1.5f), 4f, Random.Range(-1.5f, 1.5f)) + gameObject.transform.position;
 			//ball.transform.position = new Vector3 (Random.Range (-2f, 2f), 4f, Random.Range (-2f, 2f)) + gameObject.transform.position;
-			ball.transform.position = new Vector3 (0f, 4f, 0f) + gameObject.transform.position;
+			//ball.transform.position = new Vector3 (0f, 4f, 0f) + gameObject.transform.position;
 		}
 	}
 

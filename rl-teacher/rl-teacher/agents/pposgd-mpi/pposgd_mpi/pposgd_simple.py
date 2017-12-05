@@ -103,7 +103,7 @@ def split_path_by_episode(path):
     start = ep_breaks[0]
     for end in ep_breaks[1:]:
         yield deepcopy({k: v[start:end] for k, v in path.items()
-                        if k in ['obs', 'actions', 'original_rewards', 'human_obs']})
+                        if k in ['obs', 'actions', 'original_rewards', 'pred_rewards', 'reshaper_rewards', 'human_obs']})
         start = end
 
 
@@ -215,11 +215,6 @@ def learn(env, policy_func, *,
             break
         elif max_seconds and time.time() - tstart >= max_seconds:
             break
-        if (iters_so_far % 50 == 0 and iters_so_far >= 0):
-            if (predictor):
-                predictor.save_model(_model_dir(env_name, experiment_name, timesteps_so_far))
-            export_model(U.get_session(), saver=saver, env_name=env_name, experiment_name=experiment_name,
-                         target_nodes='pi/action', steps=timesteps_so_far)
 
         if schedule == 'constant':
             cur_lrmult = 1.0
@@ -230,6 +225,12 @@ def learn(env, policy_func, *,
 
         ##TODO
         logger.log("********** Iteration %i ************" % iters_so_far)
+
+        if (iters_so_far % 5 == 0 and iters_so_far >= 1):
+            if (predictor):
+                predictor.save_model(_model_dir(env_name, experiment_name, timesteps_so_far))
+            export_model(U.get_session(), saver=saver, env_name=env_name, experiment_name=experiment_name,
+                         target_nodes='pi/action', steps=timesteps_so_far)
 
         logger.log("Generating segments...")
         seg = seg_gen.__next__()
@@ -311,7 +312,7 @@ def export_model(sess, saver, env_name, experiment_name, target_nodes, steps):
     checkpoint_file = dir + '/session-' + str(steps) + '.checkpoint'
 
     print("Saving checkpoint", checkpoint_file)
-    tf.train.Saver().save(sess, checkpoint_file)
+    saver.save(sess, checkpoint_file)
 
     model_protobuf_file = 'pposgd_policy_graph.pb'
     tf.train.write_graph(sess.graph_def, dir, model_protobuf_file, as_text=False)
@@ -323,15 +324,15 @@ def export_model(sess, saver, env_name, experiment_name, target_nodes, steps):
     :param target_nodes: Comma separated string of needed output nodes for embedded graph.
     """
     print("Exporting model...")
-
-    exp_name = (experiment_name if (experiment_name) else slugify(env_name + '_' + str(datetime.datetime.now())))
-    out_file_name = dir + '/' + env_name + '_' + exp_name + '_' + str(steps) + '.bytes'
-    ckpt = tf.train.get_checkpoint_state(dir)
-    freeze_graph.freeze_graph(input_graph=dir + '/' + model_protobuf_file,
-                              input_binary=True,
-                              input_checkpoint=ckpt.model_checkpoint_path,
-                              output_node_names=target_nodes,
-                              output_graph=out_file_name,
-                              clear_devices=True, initializer_nodes="", input_saver="",
-                              restore_op_name="save/restore_all", filename_tensor_name="save/Const:0")
+    with tf.Session():
+        exp_name = (experiment_name if (experiment_name) else slugify(env_name + '_' + str(datetime.datetime.now())))
+        out_file_name = dir + '/' + exp_name + '_' + str(steps) + '.bytes'
+        ckpt = tf.train.get_checkpoint_state(dir)
+        freeze_graph.freeze_graph(input_graph=dir + '/' + model_protobuf_file,
+                                  input_binary=True,
+                                  input_checkpoint=ckpt.model_checkpoint_path,
+                                  output_node_names=target_nodes,
+                                  output_graph=out_file_name,
+                                  clear_devices=True, initializer_nodes="", input_saver="",
+                                  restore_op_name="save/restore_all", filename_tensor_name="save/Const:0")
     print("Done exporting model: ", out_file_name)

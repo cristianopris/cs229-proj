@@ -11,15 +11,15 @@ class FullyConnectedMLP(object):
         input_dim = np.prod(obs_shape) + np.prod(act_shape)
 
         self.model = Sequential()
-        self.model.add(Dense(h_size, input_dim=input_dim))
+        self.model.add(Dense(h_size, input_dim=input_dim, name='dense_1'))
         self.model.add(LeakyReLU())
 
         self.model.add(Dropout(0.5))
-        self.model.add(Dense(h_size))
+        self.model.add(Dense(h_size, name='dense_2'))
         self.model.add(LeakyReLU())
 
         self.model.add(Dropout(0.5))
-        self.model.add(Dense(1))
+        self.model.add(Dense(1, name='dense_3'))
 
     def run(self, obs, act):
         flat_obs = tf.contrib.layers.flatten(obs)

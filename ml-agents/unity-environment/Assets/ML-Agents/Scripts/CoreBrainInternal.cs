@@ -138,8 +138,11 @@ public class CoreBrainInternal : ScriptableObject, CoreBrain
 			inputState = new float[1, brain.agents.Count * brain.brainParameters.stateSize];
 
 			int i = 0;
-			foreach (int agentK in agentKeys)
+
+			//Debug.Log("----");
+			foreach (int agentK in agentKeys) //new List<int>{1, 0}
 			{
+				//Debug.Log(agentK);
 				List<float> agent_state = states[agentK];
 				for (int j = 0; j < agent_state.Count; j++)
 				{
@@ -292,9 +295,9 @@ public class CoreBrainInternal : ScriptableObject, CoreBrain
             float[,] output = networkOutput[0].GetValue() as float[,];
             
 			int i = 0;
-            foreach (int k in agentKeys)
+			foreach (int k in agentKeys) //new List<int>{1, 0})
             {
-                float[] a = new float[brain.brainParameters.actionSize];
+				float[] a = new float[brain.brainParameters.actionSize];
                 for (int j = 0; j < brain.brainParameters.actionSize; j++)
                 {
 					a[j] = output[0, i * brain.brainParameters.actionSize + j];
@@ -302,6 +305,7 @@ public class CoreBrainInternal : ScriptableObject, CoreBrain
                 actions.Add(k, a);
                 i++;
             }
+				
         }
         else if (brain.brainParameters.actionSpaceType == StateType.discrete)
         {

@@ -103,6 +103,10 @@ def main():
             frames_per_segment = frames_per_segment
         )
 
+        predictor = ReshapingRewardPredictor(predictor,
+                                             reshaper_checkpoint='/Users/cristian/dev/cs229-proj/bin/3dball2paddles_model/2paddles_hum_2017-12-05-0119/153577/r_predictor')
+                                                                 #'/Users/cristian/dev/cs229-proj/bin/3dball2paddles_model/2paddles_hum_2017-12-05-0006/102393/r_predictor')
+
         print("Starting random rollouts to generate pretraining segments. No learning will take place...")
         pretrain_segments = segments_from_rand_rollout(
             env_name, make_env, n_desired_segments=pretrain_labels * 2,
@@ -130,7 +134,7 @@ def main():
 
     # Wrap the predictor to capture videos every so often:
     if not args.no_videos:
-        predictor = SegmentVideoRecorder(predictor, env, save_dir=osp.join('rl_teacher_vids', experiment_name))
+        predictor = SegmentVideoRecorder(predictor, env, save_dir=env_name + '_model/' + experiment_name + '/vids')
 
     # We use a vanilla agent from openai/baselines that contains a single change that blinds it to the true reward
     # The single changed section is in `rl_teacher/agent/trpo/core.py`

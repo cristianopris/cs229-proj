@@ -48,6 +48,9 @@ class AgentLogger(object):
         max_len = max([len(path["obs"]) for path in self.last_n_paths])
         return [_pad_with_end_state(path, max_len) for path in self.last_n_paths]
 
+    def get_recent_paths(self):
+        return [path for path in self.last_n_paths]
+
     def log_episode(self, path):
         self._timesteps_elapsed += len(path["obs"])
         self._timesteps_since_last_training += len(path["obs"])

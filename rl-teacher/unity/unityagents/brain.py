@@ -11,7 +11,8 @@ class BrainInfo:
         self.agents = agents
 
     def __str__(self):
-        return 'agents: %s, rewards: %s, states: %s, obs %s' % (self.agents, self.rewards, self.states, self.observations)
+        #return 'agents: %s, rewards: %s, states: %s, obs %s' % (self.agents, self.rewards, self.states, self.observations)
+        return 'agents: %s, rewards: %s, states: %s' % (self.agents, self.rewards, self.states)
 
 
 class BrainParameters:
