@@ -1,0 +1,2 @@
+model_checkpoint_path: "r_predictor_labels_9.checkpoint"
+all_model_checkpoint_paths: "r_predictor_labels_9.checkpoint"
