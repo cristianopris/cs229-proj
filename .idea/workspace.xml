@@ -2,17 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07ca6a09-8ebe-494d-87c2-29ad9ba5552c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl-teacher/rl-teacher/human-feedback-api/db.sqlite3" afterPath="$PROJECT_DIR$/rl-teacher/rl-teacher/human-feedback-api/db.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ml-agents/unity-environment/Assets/ML-Agents/Examples/3DBall/Scene.unity" afterPath="$PROJECT_DIR$/ml-agents/unity-environment/Assets/ML-Agents/Examples/3DBall/Scene.unity" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ml-agents/unity-environment/Assets/ML-Agents/Examples/3DBall/Scripts/Ball3DAgent.cs" afterPath="$PROJECT_DIR$/ml-agents/unity-environment/Assets/ML-Agents/Examples/3DBall/Scripts/Ball3DAgent.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ml-agents/unity-environment/Assets/ML-Agents/Scripts/Academy.cs" afterPath="$PROJECT_DIR$/ml-agents/unity-environment/Assets/ML-Agents/Scripts/Academy.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ml-agents/unity-environment/Assets/ML-Agents/Scripts/Brain.cs" afterPath="$PROJECT_DIR$/ml-agents/unity-environment/Assets/ML-Agents/Scripts/Brain.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ml-agents/unity-environment/Assets/ML-Agents/Scripts/ExternalCommunicator.cs" afterPath="$PROJECT_DIR$/ml-agents/unity-environment/Assets/ML-Agents/Scripts/ExternalCommunicator.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl-teacher/rl-teacher/agents/pposgd-mpi/pposgd_mpi/pposgd_simple.py" afterPath="$PROJECT_DIR$/rl-teacher/rl-teacher/agents/pposgd-mpi/pposgd_mpi/pposgd_simple.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl-teacher/rl-teacher/agents/pposgd-mpi/pposgd_mpi/bench/monitor.py" afterPath="$PROJECT_DIR$/rl-teacher/rl-teacher/agents/pposgd-mpi/pposgd_mpi/bench/monitor.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/UnityAgent.py" afterPath="$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/UnityAgent.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/comparison_collectors.py" afterPath="$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/comparison_collectors.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/teach.py" afterPath="$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/teach.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl-teacher/unity/unityagents/environment.py" afterPath="$PROJECT_DIR$/rl-teacher/unity/unityagents/environment.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/utils.py" afterPath="$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/utils.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,25 +21,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="teach.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="teach.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/teach.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="148" column="51" lean-forward="true" selection-start-line="148" selection-start-column="51" selection-end-line="148" selection-end-column="51" />
+            <state relative-caret-position="409">
+              <caret line="156" column="21" lean-forward="false" selection-start-line="156" selection-start-column="21" selection-end-line="156" selection-end-column="21" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="comparison_collectors.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/comparison_collectors.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="557">
-              <caret line="93" column="53" lean-forward="false" selection-start-line="93" selection-start-column="53" selection-end-line="93" selection-end-column="53" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -50,20 +36,80 @@
       <file leaf-file-name="UnityAgent.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/UnityAgent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="162" column="33" lean-forward="false" selection-start-line="162" selection-start-column="33" selection-end-line="162" selection-end-column="33" />
+            <state relative-caret-position="158">
+              <caret line="177" column="26" lean-forward="false" selection-start-line="177" selection-start-column="4" selection-end-line="177" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="posix.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2017.2/python_stubs/-1625016946/posix.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="317">
+              <caret line="646" column="4" lean-forward="false" selection-start-line="646" selection-start-column="4" selection-end-line="646" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pposgd_simple.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pposgd_simple.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rl-teacher/rl-teacher/agents/pposgd-mpi/pposgd_mpi/pposgd_simple.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1649">
-              <caret line="282" column="14" lean-forward="false" selection-start-line="282" selection-start-column="4" selection-end-line="282" selection-end-column="14" />
+            <state relative-caret-position="227">
+              <caret line="304" column="35" lean-forward="false" selection-start-line="304" selection-start-column="4" selection-end-line="304" selection-end-column="35" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="monitor.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rl-teacher/rl-teacher/agents/pposgd-mpi/pposgd_mpi/bench/monitor.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="11" selection-end-column="15" />
+              <folding>
+                <element signature="e#60#70#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="comparison_collectors.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/comparison_collectors.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="157" column="33" lean-forward="false" selection-start-line="157" selection-start-column="28" selection-end-line="157" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rl-teacher/rl-teacher/human-feedback-api/human_feedback_api/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-103">
+              <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -80,7 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>'action'</find>
       <find>clip_param</find>
       <find>env</find>
       <find>obser</find>
@@ -110,6 +155,7 @@
       <find>export</find>
       <find>huma</find>
       <find>frame</find>
+      <find>label</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -139,10 +185,12 @@
         <option value="$PROJECT_DIR$/rl-teacher/unity/PPO.ipynb" />
         <option value="$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/segment_sampling.py" />
         <option value="$PROJECT_DIR$/rl-teacher/unity/unityagents/environment.py" />
-        <option value="$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/UnityAgent.py" />
         <option value="$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/video.py" />
-        <option value="$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/comparison_collectors.py" />
         <option value="$PROJECT_DIR$/rl-teacher/rl-teacher/agents/pposgd-mpi/pposgd_mpi/pposgd_simple.py" />
+        <option value="$PROJECT_DIR$/rl-teacher/rl-teacher/agents/pposgd-mpi/pposgd_mpi/bench/monitor.py" />
+        <option value="$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/utils.py" />
+        <option value="$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/UnityAgent.py" />
+        <option value="$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/comparison_collectors.py" />
         <option value="$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/teach.py" />
       </list>
     </option>
@@ -211,6 +259,30 @@
               <item name="cs229-proj" type="462c0819:PsiDirectoryNode" />
               <item name="rl-teacher" type="462c0819:PsiDirectoryNode" />
               <item name="rl-teacher" type="462c0819:PsiDirectoryNode" />
+              <item name="agents" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cs229-proj" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs229-proj" type="462c0819:PsiDirectoryNode" />
+              <item name="rl-teacher" type="462c0819:PsiDirectoryNode" />
+              <item name="rl-teacher" type="462c0819:PsiDirectoryNode" />
+              <item name="agents" type="462c0819:PsiDirectoryNode" />
+              <item name="pposgd-mpi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cs229-proj" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs229-proj" type="462c0819:PsiDirectoryNode" />
+              <item name="rl-teacher" type="462c0819:PsiDirectoryNode" />
+              <item name="rl-teacher" type="462c0819:PsiDirectoryNode" />
+              <item name="agents" type="462c0819:PsiDirectoryNode" />
+              <item name="pposgd-mpi" type="462c0819:PsiDirectoryNode" />
+              <item name="pposgd_mpi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cs229-proj" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs229-proj" type="462c0819:PsiDirectoryNode" />
+              <item name="rl-teacher" type="462c0819:PsiDirectoryNode" />
+              <item name="rl-teacher" type="462c0819:PsiDirectoryNode" />
               <item name="rl_teacher" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -221,7 +293,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="SearchEverywhereHistoryKey" value="segmentv&#9;null&#9;null&#10;compa&#9;FILE&#9;file:///Users/cristian/dev/workspace/cs229/cs229-proj/rl-teacher/rl-teacher/rl_teacher/comparison_collectors.py&#10;envir&#9;null&#9;null&#10;unity&#9;FILE&#9;file:///Users/cristian/dev/workspace/cs229/cs229-proj/rl-teacher/rl-teacher/rl_teacher/UnityAgent.py&#10;human&#9;null&#9;null&#10;predictor&#9;FILE&#9;file:///Users/cristian/dev/workspace/cs229/cs229-proj/rl-teacher/rl-teacher/rl_teacher/predictor.py&#10;basic_segme&#9;null&#9;null&#10;video&#9;FILE&#9;file:///Users/cristian/dev/workspace/cs229/cs229-proj/rl-teacher/rl-teacher/rl_teacher/video.py&#10;export_vi&#9;null&#9;null&#10;write_se&#9;null&#9;null&#10;clip&#9;null&#9;null&#10;segments_&#9;null&#9;null&#10;clip_le&#9;null&#9;null&#10;compari&#9;null&#9;null&#10;Human&#9;null&#9;null&#10;comparisonrew&#9;null&#9;null" />
   </component>
   <component name="RecentsManager">
@@ -241,7 +313,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.teach unity-pposgd-mpi synth">
+  <component name="RunManager" selected="Python.teach unity-pposgd-mpi human">
     <configuration default="true" type="Python.Ipnb" factoryName="Jupyter Notebook">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -290,7 +362,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="cs229" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/teach.py" />
-      <option name="PARAMETERS" value="-V -a unity-pposgd-mpi -p human -e unity-3dball-bounce1ball -n unity-base-rl --pretrain_labels 5" />
+      <option name="PARAMETERS" value="-V -a unity-pposgd-mpi -p human -e unity-3dball -n 1hoop_hum_test --pretrain_iters 10 --pretrain_labels 10" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
@@ -309,7 +381,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="cs229" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/teach.py" />
-      <option name="PARAMETERS" value="-V -a unity-pposgd-mpi -p rl -e unity-3dball-bounce1ball -n unity-base-rl" />
+      <option name="PARAMETERS" value="-V -a unity-pposgd-mpi -p rl -e unity-3dball-bounce1ball -n rl_2paddles" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
@@ -328,7 +400,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="cs229" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/teach.py" />
-      <option name="PARAMETERS" value="-V -a unity-pposgd-mpi -p synth -e unity-3dball-bounce1ball -n unity-base-rl --pretrain_labels 5" />
+      <option name="PARAMETERS" value="-V -a unity-pposgd-mpi -p synth -e unity-3dball-bounce1ball -n synth_2paddles --pretrain_labels 5" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
@@ -399,7 +471,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="50" y="23" width="1365" height="821" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.281935" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -407,11 +478,11 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278237" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292011" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41184574" sideWeight="0.4973704" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41184574" sideWeight="0.4973704" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25018898" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="274" y="85" width="332" height="742" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4862259" sideWeight="0.4973704" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29338843" sideWeight="0.4973704" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.718065" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -426,13 +497,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/teach.py</url>
-          <line>173</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -443,54 +507,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="58" />
+      <option name="time" value="66" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///usr/local/lib/python3.6/site-packages/tensorflow/python/debug/wrappers/framework.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="376" column="6" lean-forward="false" selection-start-line="376" selection-start-column="6" selection-end-line="376" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python3.6/site-packages/tensorflow/python/training/training_util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="32" column="26" lean-forward="false" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python3.6/site-packages/tensorflow/python/framework/graph_io.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="37" column="4" lean-forward="false" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../rl-teacher/rl-teacher-atari/agents/pposgd-mpi/pposgd_mpi/common/atari_wrappers.py" />
-    <entry file="file:///usr/local/lib/python3.6/site-packages/gym/spaces/box.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ml-agents/python/ppo/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3760">
-          <caret line="192" column="15" lean-forward="false" selection-start-line="192" selection-start-column="13" selection-end-line="192" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2017.2/python_stubs/-1625016946/posix.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="440" column="4" lean-forward="false" selection-start-line="440" selection-start-column="4" selection-end-line="440" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rl-teacher/rl-teacher/agents/pposgd-mpi/pposgd_mpi/common/distributions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3500">
@@ -502,13 +523,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="760">
           <caret line="42" column="43" lean-forward="false" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rl-teacher/rl-teacher/agents/pposgd-mpi/pposgd_mpi/run_mujoco.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-80">
-          <caret line="3" column="10" lean-forward="false" selection-start-line="1" selection-start-column="21" selection-end-line="3" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -606,14 +620,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rl-teacher/rl-teacher/human-feedback-api/human_feedback_api/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -781,16 +787,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/teach.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="148" column="51" lean-forward="true" selection-start-line="148" selection-start-column="51" selection-end-line="148" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/video.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-320">
@@ -799,10 +795,100 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///usr/local/lib/python3.6/site-packages/django/db/models/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="576" column="8" lean-forward="true" selection-start-line="576" selection-start-column="8" selection-end-line="576" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rl-teacher/rl-teacher/agents/pposgd-mpi/pposgd_mpi/run_mujoco.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="22" column="16" lean-forward="false" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+          <folding>
+            <element signature="e#22#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rl-teacher/rl-teacher/agents/pposgd-mpi/pposgd_mpi/common/logger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="289" column="29" lean-forward="false" selection-start-line="289" selection-start-column="29" selection-end-line="289" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rl-teacher/rl-teacher/human-feedback-api/human_feedback_api/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-103">
+          <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2017.2/python_stubs/-1625016946/posix.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="646" column="4" lean-forward="false" selection-start-line="646" selection-start-column="4" selection-end-line="646" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rl-teacher/rl-teacher/agents/pposgd-mpi/pposgd_mpi/pposgd_simple.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="304" column="35" lean-forward="false" selection-start-line="304" selection-start-column="4" selection-end-line="304" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rl-teacher/rl-teacher/agents/pposgd-mpi/pposgd_mpi/bench/monitor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="11" selection-end-column="15" />
+          <folding>
+            <element signature="e#60#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/Cellar/python3/3.6.2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/encoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="179" column="0" lean-forward="false" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2017.2/python_stubs/-1625016946/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-147">
+          <caret line="339" column="4" lean-forward="false" selection-start-line="339" selection-start-column="4" selection-end-line="339" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/comparison_collectors.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="93" column="53" lean-forward="false" selection-start-line="93" selection-start-column="53" selection-end-line="93" selection-end-column="53" />
+        <state relative-caret-position="416">
+          <caret line="157" column="33" lean-forward="false" selection-start-line="157" selection-start-column="28" selection-end-line="157" selection-end-column="33" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
@@ -811,18 +897,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/UnityAgent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="162" column="33" lean-forward="false" selection-start-line="162" selection-start-column="33" selection-end-line="162" selection-end-column="33" />
-          <folding />
+        <state relative-caret-position="158">
+          <caret line="177" column="26" lean-forward="false" selection-start-line="177" selection-start-column="4" selection-end-line="177" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rl-teacher/rl-teacher/agents/pposgd-mpi/pposgd_mpi/pposgd_simple.py">
+    <entry file="file://$PROJECT_DIR$/rl-teacher/rl-teacher/rl_teacher/teach.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1649">
-          <caret line="282" column="14" lean-forward="false" selection-start-line="282" selection-start-column="4" selection-end-line="282" selection-end-column="14" />
+        <state relative-caret-position="409">
+          <caret line="156" column="21" lean-forward="false" selection-start-line="156" selection-start-column="21" selection-end-line="156" selection-end-column="21" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
